@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 5f1d411eefe3ef2498c77151ace972e2
+TextureImporter:
+  fileIDToRecycleName: {}
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PS4_Gamepad
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 65
+        width: 1194
+        height: 639
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Touchpad
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 451
+        width: 389
+        height: 232
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_L2
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 607
+        width: 131
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_R2
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 607
+        width: 131
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_L1
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 478
+        width: 159
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_R1
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 478
+        width: 159
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Lightbar
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 385
+        width: 410
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_DPad_Left
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 351
+        width: 88
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_DPad_Up
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 348
+        width: 72
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_DPad_Down
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 347
+        width: 72
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_DPad_Right
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 351
+        width: 88
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_ShareOptions
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 264
+        width: 41
+        height: 67
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Thumbstick
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 235
+        width: 135
+        height: 120
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Button
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 253
+        width: 83
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Icon_Square
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 265
+        width: 46
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Icon_Triangle
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 265
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Icon_Circle
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 261
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Touch
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 255
+        width: 76
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Speaker
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 183
+        width: 98
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PS4_Icon_Cross
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 264
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
