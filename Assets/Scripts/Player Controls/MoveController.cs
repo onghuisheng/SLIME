@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PS4.VR;
+using UnityEngine.PS4;
 
 
 public enum MoveControllerOrientation
@@ -13,11 +14,16 @@ public enum MoveControllerOrientation
 public class MoveController : MonoBehaviour
 {
 
-    private MoveControllerOrientation m_Orientation;
+    [SerializeField]
+    private GameObject m_HandModel;
+
+    private MoveControllerOrientation m_Orientation;    
+
+    private Animator m_HandAnimator;
 
     private int m_HandleNumber = -1;
 
-    bool m_IsRegistered = false;
+    private bool m_IsRegistered = false;
 
     void Start()
     {
@@ -39,6 +45,8 @@ public class MoveController : MonoBehaviour
             {
                 transform.rotation = rot;
             }
+            
+            //TODO: Controller get key down
         }
     }
 

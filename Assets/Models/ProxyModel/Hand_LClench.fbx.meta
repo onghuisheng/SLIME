@@ -4,13 +4,63 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: fingerIndex01_L_joint
+    100004: fingerIndex02_L_joint
+    100006: fingerIndex03_L_joint
+    100008: fingerIndex04_L_joint
+    100010: fingerMiddle01_L_joint
+    100012: fingerMiddle02_L_joint
+    100014: fingerMiddle03_L_joint
+    100016: fingerMiddle04_L_joint
+    100018: fingerPinky01_L_joint
+    100020: fingerPinky02_L_joint
+    100022: fingerPinky03_L_joint
+    100024: fingerPinky04_L_joint
+    100026: fingerRing01_L_joint
+    100028: fingerRing02_L_joint
+    100030: fingerRing03_L_joint
+    100032: fingerRing04_L_joint
+    100034: Hand_L
+    100036: hand_L_ctrl
+    100038: hand_L_joint
+    100040: knuckle_L_joint
+    100042: thumb01_joint
+    100044: thumb02_joint
+    100046: thumb03_joint
     400000: //RootNode
+    400002: fingerIndex01_L_joint
+    400004: fingerIndex02_L_joint
+    400006: fingerIndex03_L_joint
+    400008: fingerIndex04_L_joint
+    400010: fingerMiddle01_L_joint
+    400012: fingerMiddle02_L_joint
+    400014: fingerMiddle03_L_joint
+    400016: fingerMiddle04_L_joint
+    400018: fingerPinky01_L_joint
+    400020: fingerPinky02_L_joint
+    400022: fingerPinky03_L_joint
+    400024: fingerPinky04_L_joint
+    400026: fingerRing01_L_joint
+    400028: fingerRing02_L_joint
+    400030: fingerRing03_L_joint
+    400032: fingerRing04_L_joint
+    400034: Hand_L
+    400036: hand_L_ctrl
+    400038: hand_L_joint
+    400040: knuckle_L_joint
+    400042: thumb01_joint
+    400044: thumb02_joint
+    400046: thumb03_joint
     2100000: lambert1
     2300000: //RootNode
+    2300002: Hand_L
     3300000: //RootNode
+    3300002: Hand_L
     4300000: Hand_L
+    7400000: Clench
     9500000: //RootNode
     11100000: //RootNode
+    13700000: Hand_L
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -83,7 +133,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2

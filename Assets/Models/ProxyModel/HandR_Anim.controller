@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: HandL_Anim
+  m_Name: HandR_Anim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsGrabbing
@@ -13,7 +13,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 05348368f730a3a4c82ad0c2ea3189e5, type: 3}
+  m_Motion: {fileID: 7400000, guid: 4617f783973e0144c91ed0d6a9287c89, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
