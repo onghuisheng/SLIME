@@ -14,6 +14,7 @@ public class MoveControllerHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // TODO: Check if there are two move controllers currently active, time out after a certain period and halt the game
         RegisterControllers();
     }
 
