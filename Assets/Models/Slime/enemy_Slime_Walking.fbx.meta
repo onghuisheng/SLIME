@@ -10,6 +10,14 @@ ModelImporter:
     100008: head_ctrl
     100010: head_Joint
     100012: slime
+    100014: Scale
+    100016: slime_Blue
+    100018: slime_Pink
+    100020: slime_Purple
+    100022: slime_Red
+    100024: base_ctrl 1
+    100026: head_ctrl 1
+    100028: head_joint
     400000: base_ctrl
     400002: base_joint
     400004: //RootNode
@@ -17,11 +25,34 @@ ModelImporter:
     400008: head_ctrl
     400010: head_Joint
     400012: slime
+    400014: Scale
+    400016: slime_Blue
+    400018: slime_Pink
+    400020: slime_Purple
+    400022: slime_Red
+    400024: base_ctrl 1
+    400026: head_ctrl 1
+    400028: head_joint
     2100000: phongE1
+    2100002: StingrayPBS1
+    2300000: slime_Pink
+    2300002: slime_Purple
+    2300004: slime_Red
+    3300000: slime_Pink
+    3300002: slime_Purple
+    3300004: slime_Red
     4300000: slime
+    4300002: slime_Blue
+    4300004: slime_Red
+    4300006: slime_Pink
+    4300008: slime_Purple
     7400000: Walking
     9500000: //RootNode
     13700000: slime
+    13700002: slime_Blue
+    13700004: slime_Pink
+    13700006: slime_Purple
+    13700008: slime_Red
   externalObjects: {}
   materials:
     importMaterials: 1

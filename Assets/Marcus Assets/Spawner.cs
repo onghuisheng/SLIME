@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public GameObject goSpawnObject; // object to be spawned
+    public List<GameObject> goSpawnObjectList; // list of object to be spawned
     public GameObject goNodeHolder; // gameobject that holds the path node
 
     public List<GameObject> listObjectInScene; // list that holds the objects spawned
@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour {
     public float fTimer; // time that will increase by deltaTime
     public float fTimeToSpawn; // when the time is reached it will spawn
     public int iLimit; // limit for how many slimes the user want in the scene
+
+    public int iRandomSlime;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +29,9 @@ public class Spawner : MonoBehaviour {
 
         if(fTimer >= fTimeToSpawn)
         {
-            GameObject Slime = Instantiate(goSpawnObject, this.transform.position, this.transform.rotation);
+            Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
+            iRandomSlime = Random.Range(0, goSpawnObjectList.Count);
+            GameObject Slime = Instantiate(goSpawnObjectList[iRandomSlime], this.transform.position, this.transform.rotation);
             fTimer = 0.0f;
 
             foreach(Transform Node in goNodeHolder.transform)

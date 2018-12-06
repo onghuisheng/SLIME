@@ -10355,13 +10355,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08b6d89fd6782545aace0d356929bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goSpawnObject: {fileID: 1121013881645388, guid: 1d1dd806a7f28724da87e7bb3b820e98,
-    type: 2}
+  goSpawnObjectList:
+  - {fileID: 1636979800040456, guid: 95a984dfaec427148aa399e4c79ac31c, type: 2}
+  - {fileID: 1103822881075736, guid: c98c97307a2368c4a82655d838558297, type: 2}
+  - {fileID: 1375915691830524, guid: 295f8581f4854c74dad5bc42238e0341, type: 2}
+  - {fileID: 1972550604671240, guid: 89d326d1b0384a94dbf76ee6532522ae, type: 2}
   goNodeHolder: {fileID: 1979129294}
   listObjectInScene: []
   fTimer: 0
   fTimeToSpawn: 3
   iLimit: 5
+  iRandomSlime: 0
 --- !u!1 &1979129294
 GameObject:
   m_ObjectHideFlags: 0
