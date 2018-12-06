@@ -466,7 +466,7 @@ PlayerSettings:
   ps4PatchLatestPkgPath: 
   ps4PatchChangeinfoPath: 
   ps4PatchDayOne: 0
-  ps4attribUserManagement: 0
+  ps4attribUserManagement: 1
   ps4attribMoveSupport: 0
   ps4attrib3DSupport: 0
   ps4attribShareSupport: 0

@@ -11,9 +11,7 @@ public enum MoveControllerButton
     Triangle,
     BackTrigger,
     MiddleButton,
-    Start,
-    // Select,
-    // Home
+    Start
 }
 
 public class MoveControllerHotkeys

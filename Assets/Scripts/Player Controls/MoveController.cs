@@ -25,7 +25,7 @@ public class MoveController : MonoBehaviour
 
     private Animator m_HandAnimator;
 
-    private Dictionary<MoveControllerButton, bool> m_LastButtonStates = new Dictionary<MoveControllerButton, bool>();
+    private int m_ControllerSlot = -1;
 
     private int m_HandleNumber = -1;
 
@@ -43,6 +43,7 @@ public class MoveController : MonoBehaviour
         m_CurrentLeftObject = null;
         m_CurrentRightObject = null;
         m_Player = GameObject.FindWithTag("Player");
+        m_HandAnimator = m_HandModel.GetComponent<Animator>();
     }
 
     void Update()
@@ -51,31 +52,39 @@ public class MoveController : MonoBehaviour
         {
             ProcessGrabbing();
             ProcessControllerMovement();
+            ProcessHandAnimation();
         }
     }
 
-    private void LateUpdate()
-    {
-        foreach (var key in Enum.GetValues(typeof(MoveControllerButton)))
-        {
-            MoveControllerButton button = (MoveControllerButton)key;
-            m_LastButtonStates[button] = GetButton(button);
-        }
-    }
-
-    public void RegisterController(MoveControllerOrientation controllerOrientation, int handleNumber)
+    public void RegisterController(MoveControllerOrientation controllerOrientation, int slotNumber, int handleNumber)
     {
         m_IsRegistered = true;
+        m_ControllerSlot = slotNumber;
         m_HandleNumber = handleNumber;
         m_ControllerIndex = (controllerOrientation == MoveControllerOrientation.Left) ? 0 : 1;
         m_Orientation = controllerOrientation;
+        
+        if (controllerOrientation == MoveControllerOrientation.Left)
+        {
+            PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 0, 0, 255);
+        }
+        else
+            PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 255, 0, 0);
 
         Tracker.RegisterTrackedDevice(PlayStationVRTrackedDevice.DeviceMove, handleNumber, PlayStationVRTrackingType.Absolute, PlayStationVRTrackerUsage.OptimizedForHmdUser);
 
-        if (controllerOrientation == MoveControllerOrientation.Left)
-            PS4Input.MoveSetLightSphere(0, 0, 0, 0, 255);
+    }
+
+    private void ProcessHandAnimation()
+    {
+        if (GetButton(MoveControllerHotkeys.buttonGrab))
+        {
+            m_HandAnimator.SetBool("IsGrabbing", true);
+        }
         else
-            PS4Input.MoveSetLightSphere(0, 1, 255, 0, 0);
+        {
+            m_HandAnimator.SetBool("IsGrabbing", false);
+        }
     }
 
     private void ProcessControllerMovement()
@@ -129,9 +138,9 @@ public class MoveController : MonoBehaviour
                 Rigidbody rb = GetComponent<Rigidbody>();
                 FixedJoint joint = currentObject.AddComponent<FixedJoint>();
                 joint.connectedBody = rb;
-                joint.breakForce = 7500;
+                joint.breakForce = Mathf.Infinity;
                 joint.breakTorque = Mathf.Infinity;
-                joint.enablePreprocessing = false;
+                // joint.enablePreprocessing = false;
             }
         }
 
@@ -158,6 +167,7 @@ public class MoveController : MonoBehaviour
         {
             grabbableObject.OnGrabStay(this);
         }
+
         // On Grab Released (Trigger Up)
         if (GetButtonUp(MoveControllerHotkeys.buttonGrab))
         {
@@ -253,20 +263,17 @@ public class MoveController : MonoBehaviour
 
     public bool GetButton(MoveControllerButton button)
     {
-        if (button != MoveControllerButton.BackTrigger)
-            return PS4Input.MoveGetButtons(0, m_ControllerIndex) == (GetButtonIndex(button));
-        else
-            return GetTriggerDown(0); // if it's back trigger
+        return Input.GetKey(GetButtonKeyCode(button));
     }
 
     public bool GetButtonUp(MoveControllerButton button)
     {
-        return (m_LastButtonStates[button] == true) && (GetButton(button) == false);
+        return Input.GetKeyUp(GetButtonKeyCode(button));
     }
 
     public bool GetButtonDown(MoveControllerButton button)
     {
-        return (m_LastButtonStates[button] == false) && (GetButton(button) == true);
+        return Input.GetKeyDown(GetButtonKeyCode(button));
     }
 
     /// <summary>
@@ -276,10 +283,7 @@ public class MoveController : MonoBehaviour
     public bool GetTriggerDown(int downThreshold)
     {
         // Move controllers use an API for their analog buttons, DualShock 4 uses an axis name for R2
-        if (m_Orientation == MoveControllerOrientation.Left)
-            return (PS4Input.MoveGetAnalogButton(0, 0) > downThreshold ? true : false);
-        else
-            return (PS4Input.MoveGetAnalogButton(0, 1) > downThreshold ? true : false);
+        return ((PS4Input.MoveGetAnalogButton(m_ControllerSlot, m_ControllerIndex) > downThreshold) ? true : false);
     }
 
     public Vector3 GetVelocity()
@@ -298,7 +302,12 @@ public class MoveController : MonoBehaviour
 
     public Vector3 GetMoveDelta()
     {
-        return PS4Input.GetLastMoveGyro(0, m_ControllerIndex);
+        return PS4Input.GetLastMoveGyro(m_ControllerSlot, m_ControllerIndex);
+    }
+
+    public int GetControllerSlot()
+    {
+        return m_ControllerSlot;
     }
 
     public int GetControllerHandle()
@@ -341,6 +350,31 @@ public class MoveController : MonoBehaviour
                 return 8;
             default:
                 return 0;
+        }
+    }
+
+    private KeyCode GetButtonKeyCode(MoveControllerButton button)
+    {
+        switch (button)
+        {
+            case MoveControllerButton.X:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button0 : KeyCode.Joystick6Button0;
+            case MoveControllerButton.Circle:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button1 : KeyCode.Joystick6Button1;
+            case MoveControllerButton.Square:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button2 : KeyCode.Joystick6Button2;
+            case MoveControllerButton.Triangle:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button3 : KeyCode.Joystick6Button3;
+            case MoveControllerButton.BackTrigger:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button4 : KeyCode.Joystick6Button4;
+            case MoveControllerButton.MiddleButton:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button5 : KeyCode.Joystick6Button5;
+            case MoveControllerButton.Start:
+                return (m_Orientation == MoveControllerOrientation.Left) ? KeyCode.Joystick5Button7 : KeyCode.Joystick6Button7;
+
+            default:
+            case MoveControllerButton.NONE:
+                return KeyCode.None;
         }
     }
 
