@@ -33,6 +33,8 @@ public class MoveController : MonoBehaviour
 
     private bool m_IsRegistered = false;
 
+    private bool m_IsGrabbing = false;
+
     private static GameObject m_CurrentLeftObject = null;
     private static GameObject m_CurrentRightObject = null;
 
@@ -63,7 +65,7 @@ public class MoveController : MonoBehaviour
         m_HandleNumber = handleNumber;
         m_ControllerIndex = (controllerOrientation == MoveControllerOrientation.Left) ? 0 : 1;
         m_Orientation = controllerOrientation;
-        
+
         if (controllerOrientation == MoveControllerOrientation.Left)
         {
             PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 0, 0, 255);
@@ -90,16 +92,12 @@ public class MoveController : MonoBehaviour
     private void ProcessControllerMovement()
     {
         Vector3 pos;
-        if (Tracker.GetTrackedDevicePosition(m_HandleNumber, PlayStationVRSpace.Unity, out pos) != PlayStationVRResult.Error)
-        {
-            transform.position = pos + m_Player.transform.localPosition;
-        }
+        Tracker.GetTrackedDevicePosition(m_HandleNumber, PlayStationVRSpace.Unity, out pos);
+        transform.position = pos + m_Player.transform.localPosition;
 
         Quaternion rot;
-        if (Tracker.GetTrackedDeviceOrientation(m_HandleNumber, PlayStationVRSpace.Unity, out rot) != PlayStationVRResult.Error)
-        {
-            transform.rotation = rot;
-        }
+        Tracker.GetTrackedDeviceOrientation(m_HandleNumber, PlayStationVRSpace.Unity, out rot);
+        transform.rotation = rot;
     }
 
     private void ProcessGrabbing()
@@ -128,6 +126,8 @@ public class MoveController : MonoBehaviour
                 m_HandModel.SetActive(false);
 
             grabbableObject.OnGrab(this);
+
+            m_IsGrabbing = true;
 
             AssignObjectToHand(m_Orientation, currentObject.gameObject);
 
@@ -163,7 +163,7 @@ public class MoveController : MonoBehaviour
         }
 
         // On Grab Use
-        if (GetButton(MoveControllerHotkeys.buttonGrab))
+        if (GetButton(MoveControllerHotkeys.buttonGrab) && m_IsGrabbing)
         {
             grabbableObject.OnGrabStay(this);
         }
@@ -217,6 +217,8 @@ public class MoveController : MonoBehaviour
     /// <param name="transferVelocity">Transfer the current velocity of the controller to the object?</param>
     public void DetachCurrentObject(bool transferVelocity)
     {
+        m_IsGrabbing = false;
+
         var currentObject = GetCurrentHandObject();
 
         if (currentObject != null)
@@ -261,16 +263,25 @@ public class MoveController : MonoBehaviour
             return (otherHand) ? m_CurrentLeftObject : m_CurrentRightObject;
     }
 
+    /// <summary>
+    /// Same as Unity GetKey
+    /// </summary>
     public bool GetButton(MoveControllerButton button)
     {
         return Input.GetKey(GetButtonKeyCode(button));
     }
 
+    /// <summary>
+    /// Same as Unity GetKeyUp
+    /// </summary>
     public bool GetButtonUp(MoveControllerButton button)
     {
         return Input.GetKeyUp(GetButtonKeyCode(button));
     }
-
+    
+    /// <summary>
+    /// Same as Unity GetKeyDown
+    /// </summary>
     public bool GetButtonDown(MoveControllerButton button)
     {
         return Input.GetKeyDown(GetButtonKeyCode(button));
@@ -353,7 +364,7 @@ public class MoveController : MonoBehaviour
         }
     }
 
-    private KeyCode GetButtonKeyCode(MoveControllerButton button)
+    public KeyCode GetButtonKeyCode(MoveControllerButton button)
     {
         switch (button)
         {

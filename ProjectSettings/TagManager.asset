@@ -16,8 +16,8 @@ TagManager:
   - PostProcessing
   - Environment
   - Player
-  - GrabbedObjects
   - Controllers
+  - Bow
   - 
   - 
   - 
