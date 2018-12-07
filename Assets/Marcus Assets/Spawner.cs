@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour {
         if(fTimer >= fTimeToSpawn)
         {
             Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
-            iRandomSlime = Random.Range(0, goSpawnObjectList.Count);
+            iRandomSlime = Random.Range(0, goSpawnObjectList.Count - 1);
             GameObject Slime = Instantiate(goSpawnObjectList[iRandomSlime], this.transform.position, this.transform.rotation);
             fTimer = 0.0f;
 
