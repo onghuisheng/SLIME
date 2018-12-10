@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Useful for e.g. Station Button, Sliding doors, etc.
+/// Useful for stationary items that cant be picked up, e.g levers
 /// </summary>
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public abstract class StationaryObject : MonoBehaviour, IInteractable, IStationaryGrabbable

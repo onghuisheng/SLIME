@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Useful for dynamic objects such as balls, fire extinguisher, keycard
+/// Useful for dynamic objects that can be grabbed and toss around e.g bow, , barrels
 /// </summary>
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class GrabbableObject : MonoBehaviour, IGrabbable, IInteractable
@@ -13,7 +13,10 @@ public class GrabbableObject : MonoBehaviour, IGrabbable, IInteractable
 
     public virtual void OnControllerEnter(MoveController currentController) { }
 
-    public virtual void OnControllerExit(MoveController currentController) { }
+    public virtual void OnControllerExit(MoveController currentController)
+    {
+        transform.GetComponent<Collider>().enabled = true;
+    }
 
     public virtual void OnControllerStay(MoveController currentController) { }
 

@@ -6,14 +6,8 @@ public class Bow : GrabbableObject
 {
 
     [SerializeField]
-    private BowDrawString m_BowDrawString;
-
-    private void Awake()
-    {
-        // Ignore collision between the bow and the draw string
-        Physics.IgnoreCollision(m_BowDrawString.GetComponent<Collider>(), GetComponent<Collider>());
-    }
-
+    private BowString m_BowDrawString;
+    
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
