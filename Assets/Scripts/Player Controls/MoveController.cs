@@ -52,12 +52,12 @@ public class MoveController : MonoBehaviour
     {
         if (m_IsRegistered)
         {
-            ProcessGrabbing();
             ProcessControllerMovement();
             ProcessHandAnimation();
+            ProcessGrabbing();
         }
     }
-
+    
     public void RegisterController(MoveControllerOrientation controllerOrientation, int slotNumber, int handleNumber)
     {
         m_IsRegistered = true;
@@ -263,6 +263,19 @@ public class MoveController : MonoBehaviour
             return (otherHand) ? m_CurrentLeftObject : m_CurrentRightObject;
     }
 
+    public static MoveController GetControllerThatHolds(GameObject obj)
+    {
+        var controllers = FindObjectsOfType<MoveController>();
+
+        foreach (var controller in controllers)
+        {
+            if (controller.GetCurrentHandObject() == obj)
+                return controller;
+        }
+
+        return null;
+    }
+
     /// <summary>
     /// Same as Unity GetKey
     /// </summary>
@@ -278,7 +291,7 @@ public class MoveController : MonoBehaviour
     {
         return Input.GetKeyUp(GetButtonKeyCode(button));
     }
-    
+
     /// <summary>
     /// Same as Unity GetKeyDown
     /// </summary>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Useful for dynamic objects that can be grabbed and toss around e.g bow, , barrels
+/// Useful for dynamic objects that can be grabbed and tossed around e.g bow, barrels
 /// </summary>
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class GrabbableObject : MonoBehaviour, IGrabbable, IInteractable
