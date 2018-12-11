@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeBase : MonoBehaviour {
+public class SlimeBase : MonoBehaviour, IShootable {
 
     public int m_MaxHealth; // max health
     public int m_MaxAttack; // max attack
@@ -30,4 +30,9 @@ public class SlimeBase : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public virtual void OnShot(ArrowBase arrow)
+    {
+        
+    }
 }
