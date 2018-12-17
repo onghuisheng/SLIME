@@ -28,13 +28,21 @@ public class SlimeBase : MonoBehaviour {
     [HideInInspector]
     public bool toDespawn;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         toDespawn = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+        m_Health = m_MaxHealth;
+        m_Attack = m_MaxAttack;
+    }
+
+    public void DeductHealth(int toDeduct)
+    {
+        m_Health -= toDeduct;
+    }
+
+    public int GetHealth()
+    {
+        return m_Health;
+    }
 }

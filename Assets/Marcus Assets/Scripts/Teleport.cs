@@ -6,21 +6,22 @@ using UnityEngine.AI;
 public class Teleport : MonoBehaviour {
 
     public GameObject Exit;
-    private GameObject ObjToTeleport;
+    //private GameObject ObjToTeleport;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Enemy")
             return;
 
-        ObjToTeleport = other.gameObject;
-        ObjToTeleport.SetActive(false);
+        other.gameObject.SetActive(false);
 
-        Invoke("TeleportAfterTime", 3);
+        StartCoroutine(TeleportAfterTime(other.gameObject, 3.0f));
     }
 
-    void TeleportAfterTime()
+    IEnumerator TeleportAfterTime(GameObject ObjToTeleport, float delayTime)
     {
+        yield return new WaitForSeconds(delayTime);
+
         ObjToTeleport.SetActive(true);
         var agent = ObjToTeleport.GetComponent<NavMeshAgent>();
 

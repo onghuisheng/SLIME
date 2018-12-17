@@ -279,7 +279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
-  m_AlwaysMove: 0
 --- !u!114 &114081656846602034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69ae4fb4d1812b448017a766796bd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 0
+  m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95198124512984734}
   m_DeathParticles: {fileID: 1534178402279102, guid: f07e9e01bbd8e6e4ab41b10541237708,
@@ -320,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114081656846602034}
+  Damage: 1
 --- !u!137 &137967912896200982
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

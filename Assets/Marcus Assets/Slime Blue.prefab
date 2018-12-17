@@ -279,7 +279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
-  m_AlwaysMove: 0
 --- !u!114 &114322504483014580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114491244404827784}
+  Damage: 1
 --- !u!114 &114397285517009286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69ae4fb4d1812b448017a766796bd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxHealth: 0
+  m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95069024744508442}
   m_DeathParticles: {fileID: 1673929070999176, guid: f0d30b97cb9f1f34db846407621b8c5a,

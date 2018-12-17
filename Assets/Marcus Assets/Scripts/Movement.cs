@@ -9,9 +9,7 @@ public class Movement : MonoBehaviour
     public List<GameObject> m_pathList; // list of the path that the ai can travel
 
     public int m_index; // index for which node the ai should travel to next
-
-    public bool m_AlwaysMove;
-
+    
     // Use this for initialization
     void Start()
     {
@@ -29,9 +27,6 @@ public class Movement : MonoBehaviour
 
             GetComponentInChildren<Animator>().Play("Walking");
         }
-
-        if (m_AlwaysMove)
-            Move();
     }
 
     /// <summary>

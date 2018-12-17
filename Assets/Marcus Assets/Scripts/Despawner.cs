@@ -10,7 +10,7 @@ public class Despawner : MonoBehaviour {
         {
             if (other.tag != "Enemy")
                 return;
-
+            
             other.GetComponent<SlimeBase>().toDespawn = true;
             SlimeManager.instance.GetComponent<SlimeManager>().Remove();
         }
