@@ -15,7 +15,7 @@ public class BowString : GrabbableObject
 
     private Vector3 m_DefaultLocalPos;
 
-    private Vector3 m_InitialOffset; 
+    private Vector3 m_InitialOffset;
 
     private Vector3 m_CurrentDrawDistance;
 
@@ -77,16 +77,6 @@ public class BowString : GrabbableObject
         }
     }
 
-    //public override void OnControllerExit(MoveController currentController)
-    //{
-    //    base.OnControllerExit(currentController);
-
-    //    if (m_SpawnedArrow != null && m_SpawnedArrow.transform.parent != null)
-    //    {
-    //        m_SpawnedArrow.DestroyArrow();
-    //    }
-    //}
-
     private void Update()
     {
         // If Player is not pulling the string, fling it back to the origin
@@ -105,7 +95,7 @@ public class BowString : GrabbableObject
         }
         else // Player is pulling the bow string
         {
-            m_CurrentDrawDistance = transform.localPosition - m_DefaultLocalPos;
+            m_CurrentDrawDistance = (transform.localPosition + m_InitialOffset) - m_DefaultLocalPos;
         }
     }
 

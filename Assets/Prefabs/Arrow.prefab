@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65514579621226560}
   - component: {fileID: 54372064732806430}
   - component: {fileID: 114058021331280488}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4514481972176402}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: arrowTip_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4420321861192872}
   - component: {fileID: 137087582209526666}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4635870375810990}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: arrowBase_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!65 &65514579621226560
 BoxCollider:
   m_ObjectHideFlags: 1

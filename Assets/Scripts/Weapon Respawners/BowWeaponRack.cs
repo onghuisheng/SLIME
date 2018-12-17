@@ -18,7 +18,7 @@ public class BowWeaponRack : MonoBehaviour
             if (bow.GetComponent<FixedJoint>() == null)
             {
                 bow.transform.position = transform.position;
-                bow.transform.rotation = Quaternion.identity;
+                bow.transform.rotation = transform.rotation;
                 bow.GetComponent<Rigidbody>().useGravity = false;
                 bow.GetComponent<Rigidbody>().isKinematic = true;
             }

@@ -57,7 +57,7 @@ public class MoveController : MonoBehaviour
             ProcessGrabbing();
         }
     }
-    
+        
     public void RegisterController(MoveControllerOrientation controllerOrientation, int slotNumber, int handleNumber)
     {
         m_IsRegistered = true;

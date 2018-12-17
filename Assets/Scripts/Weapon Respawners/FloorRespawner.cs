@@ -26,7 +26,7 @@ public class FloorRespawner : MonoBehaviour
                 if (m_CurrentStayTime > 2)
                 {
                     bow.transform.position = m_BowSpawnPoint.transform.position;
-                    bow.transform.rotation = Quaternion.identity;
+                    bow.transform.rotation = m_BowSpawnPoint.transform.rotation;
                     bow.GetComponent<Rigidbody>().useGravity = false;
                     bow.GetComponent<Rigidbody>().isKinematic = true;
                 }
