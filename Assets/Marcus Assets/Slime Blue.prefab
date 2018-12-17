@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114491244404827784}
   - component: {fileID: 54660488824935172}
   - component: {fileID: 65036578510562798}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Slime Blue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
+  m_AlwaysMove: 0
 --- !u!114 &114322504483014580
 MonoBehaviour:
   m_ObjectHideFlags: 1
