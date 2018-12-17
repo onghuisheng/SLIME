@@ -101,7 +101,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.5
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -113,6 +113,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: a23e200381b705b4c90d5ad05c306a78, type: 2}
+--- !u!1 &59545624 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100222, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
+  m_PrefabInternal: {fileID: 1836293579}
+--- !u!64 &59545628
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59545624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300014, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
 --- !u!1 &124565838
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +528,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370938532}
   m_LocalRotation: {x: -0, y: 0.38268346, z: -0, w: 0.9238795}
-  m_LocalPosition: {x: -8.174154, y: -0.295, z: 13.378462}
+  m_LocalPosition: {x: -8.174154, y: -0.383, z: 13.378462}
   m_LocalScale: {x: 0.15238002, y: 1.0038298, z: 1.7152171}
   m_Children: []
   m_Father: {fileID: 1573143795}
@@ -1581,7 +1599,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1641821883}
   m_LocalRotation: {x: -0, y: -0.1736482, z: -0, w: 0.9848078}
-  m_LocalPosition: {x: -18.971676, y: 1.63, z: 5.9184847}
+  m_LocalPosition: {x: -18.971676, y: 1.35, z: 5.9184847}
   m_LocalScale: {x: 0.4383339, y: 2.739624, z: 1.9794703}
   m_Children: []
   m_Father: {fileID: 1573143795}
@@ -1877,6 +1895,14 @@ Prefab:
     - target: {fileID: 400106, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 100222, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100222, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
