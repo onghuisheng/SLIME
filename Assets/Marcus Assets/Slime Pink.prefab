@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4466134231090368}
   - component: {fileID: 33979535088659086}
   - component: {fileID: 23148187003801954}
-  - component: {fileID: 65561196541484290}
   - component: {fileID: 195441499734845078}
   - component: {fileID: 114497211619728244}
   - component: {fileID: 114304781441198518}
   - component: {fileID: 54857607088142256}
+  - component: {fileID: 65670892759222990}
   m_Layer: 0
   m_Name: Slime Pink
   m_TagString: Enemy
@@ -59,8 +59,6 @@ GameObject:
   - component: {fileID: 4119685641037352}
   - component: {fileID: 95218768752296044}
   - component: {fileID: 114017892004845710}
-  - component: {fileID: 65414759021043310}
-  - component: {fileID: 114354405437181488}
   m_Layer: 0
   m_Name: enemy_Slime_Pink
   m_TagString: Untagged
@@ -76,6 +74,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4362358754478774}
+  - component: {fileID: 65542690580231326}
+  - component: {fileID: 114164734841429904}
   m_Layer: 0
   m_Name: base_joint
   m_TagString: Untagged
@@ -224,30 +224,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!65 &65414759021043310
+--- !u!65 &65542690580231326
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1637148444716412}
+  m_GameObject: {fileID: 1954258396651534}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.75, z: 1.75}
-  m_Center: {x: 0, y: 0.9, z: 0}
---- !u!65 &65561196541484290
+  m_Size: {x: 164.73872, y: 159.63025, z: 164.73857}
+  m_Center: {x: -80, y: 0, z: 0}
+--- !u!65 &65670892759222990
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1103822881075736}
-  m_Material: {fileID: 13400000, guid: 6d143b5883708e54c948d1a24649adfb, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6, z: 0.5}
-  m_Center: {x: 0, y: -0.2, z: 0}
+  m_Size: {x: 0.5002899, y: 0.5007906, z: 0.5128517}
+  m_Center: {x: -0.00009536743, y: -0.2547059, z: 0.0012760162}
 --- !u!95 &95218768752296044
 Animator:
   serializedVersion: 3
@@ -277,6 +277,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccdc501d53be246a6b7ca00ea7c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114164734841429904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1954258396651534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114304781441198518}
 --- !u!114 &114304781441198518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,17 +306,6 @@ MonoBehaviour:
   m_DeathParticles: {fileID: 1444018838843402, guid: e7ce575a2768c734fbfe4ed01a6299d2,
     type: 2}
   toDespawn: 0
---- !u!114 &114354405437181488
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1637148444716412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114497211619728244
 MonoBehaviour:
   m_ObjectHideFlags: 1

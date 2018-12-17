@@ -37,8 +37,6 @@ GameObject:
   - component: {fileID: 4925190015537810}
   - component: {fileID: 95321277189605040}
   - component: {fileID: 114212506059275356}
-  - component: {fileID: 65102435941138160}
-  - component: {fileID: 114667661961820614}
   m_Layer: 0
   m_Name: enemy_Slime_Red
   m_TagString: Untagged
@@ -54,6 +52,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4240286548789508}
+  - component: {fileID: 65657755751976870}
+  - component: {fileID: 114367513573303694}
   m_Layer: 0
   m_Name: base_joint
   m_TagString: Untagged
@@ -86,11 +86,11 @@ GameObject:
   - component: {fileID: 4339482834610026}
   - component: {fileID: 33188878718010874}
   - component: {fileID: 23460777971149252}
-  - component: {fileID: 65126073556727592}
   - component: {fileID: 195387226824596944}
   - component: {fileID: 114425805639916576}
   - component: {fileID: 114750483064498584}
   - component: {fileID: 54872526837124020}
+  - component: {fileID: 65290757789622998}
   m_Layer: 0
   m_Name: Slime Red
   m_TagString: Enemy
@@ -224,30 +224,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!65 &65102435941138160
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1141651870518904}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.75, z: 1.75}
-  m_Center: {x: 0, y: 0.9, z: 0}
---- !u!65 &65126073556727592
+--- !u!65 &65290757789622998
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972550604671240}
-  m_Material: {fileID: 13400000, guid: 6d143b5883708e54c948d1a24649adfb, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6, z: 0.5}
-  m_Center: {x: 0, y: -0.2, z: 0}
+  m_Size: {x: 0.5002899, y: 0.5007906, z: 0.5128517}
+  m_Center: {x: -0.00009536743, y: -0.2547059, z: 0.0012760162}
+--- !u!65 &65657755751976870
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554384941133402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 164.73872, y: 159.63025, z: 164.73857}
+  m_Center: {x: -80, y: 0, z: 0}
 --- !u!95 &95321277189605040
 Animator:
   serializedVersion: 3
@@ -277,6 +277,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccdc501d53be246a6b7ca00ea7c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114367513573303694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554384941133402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114750483064498584}
 --- !u!114 &114425805639916576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,17 +302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
---- !u!114 &114667661961820614
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1141651870518904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114750483064498584
 MonoBehaviour:
   m_ObjectHideFlags: 1

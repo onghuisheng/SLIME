@@ -21,8 +21,6 @@ GameObject:
   - component: {fileID: 4562089289690498}
   - component: {fileID: 95198124512984734}
   - component: {fileID: 114426311606130228}
-  - component: {fileID: 65336509786006300}
-  - component: {fileID: 114506333760866406}
   m_Layer: 0
   m_Name: enemy_Slime_Yellow
   m_TagString: Untagged
@@ -38,6 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4690917361882182}
+  - component: {fileID: 65114015866688508}
+  - component: {fileID: 114570832309750064}
   m_Layer: 0
   m_Name: base_joint
   m_TagString: Untagged
@@ -55,11 +55,11 @@ GameObject:
   - component: {fileID: 4136915607912610}
   - component: {fileID: 33304126162660490}
   - component: {fileID: 23227179220451960}
-  - component: {fileID: 65937351631115882}
   - component: {fileID: 195204614371548402}
   - component: {fileID: 114022702038462260}
   - component: {fileID: 114081656846602034}
   - component: {fileID: 54021417157632848}
+  - component: {fileID: 65379467101791416}
   m_Layer: 0
   m_Name: Slime Yellow
   m_TagString: Enemy
@@ -224,30 +224,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!65 &65336509786006300
+--- !u!65 &65114015866688508
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111861033056384}
+  m_GameObject: {fileID: 1468989099999540}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.75, z: 1.75}
-  m_Center: {x: 0, y: 0.9, z: 0}
---- !u!65 &65937351631115882
+  m_Size: {x: 164.73872, y: 159.63025, z: 164.73857}
+  m_Center: {x: -80, y: 0, z: 0}
+--- !u!65 &65379467101791416
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583349739826410}
-  m_Material: {fileID: 13400000, guid: 6d143b5883708e54c948d1a24649adfb, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6, z: 0.5}
-  m_Center: {x: 0, y: -0.2, z: 0}
+  m_Size: {x: 0.5002899, y: 0.5007906, z: 0.5128517}
+  m_Center: {x: -0.00009536743, y: -0.2547059, z: 0.0012760162}
 --- !u!95 &95198124512984734
 Animator:
   serializedVersion: 3
@@ -307,17 +307,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccdc501d53be246a6b7ca00ea7c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114506333760866406
+--- !u!114 &114570832309750064
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111861033056384}
+  m_GameObject: {fileID: 1468989099999540}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114081656846602034}
 --- !u!137 &137967912896200982
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

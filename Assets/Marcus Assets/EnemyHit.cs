@@ -5,9 +5,12 @@ using UnityEngine;
 public class EnemyHit : MonoBehaviour, IShootable
 {
     
+    [SerializeField]
+    private SlimeBase m_SlimeBase;
+
     public virtual void OnShot(ArrowBase arrow)
     {
-        GetComponentInParent<SlimeBase>().toDespawn = true;
+        m_SlimeBase.toDespawn = true;
         SlimeManager.instance.GetComponent<SlimeManager>().Remove();
     }
 }

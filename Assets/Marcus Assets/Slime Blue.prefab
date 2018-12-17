@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4865804788276366}
+  - component: {fileID: 65335659812614340}
+  - component: {fileID: 114322504483014580}
   m_Layer: 0
   m_Name: base_joint
   m_TagString: Untagged
@@ -67,11 +69,11 @@ GameObject:
   - component: {fileID: 4355469408409046}
   - component: {fileID: 33277526447015416}
   - component: {fileID: 23707994964452444}
-  - component: {fileID: 65497982209514988}
   - component: {fileID: 195312595931386134}
   - component: {fileID: 114238790166794116}
   - component: {fileID: 114491244404827784}
   - component: {fileID: 54660488824935172}
+  - component: {fileID: 65036578510562798}
   m_Layer: 0
   m_Name: Slime Blue
   m_TagString: Enemy
@@ -89,8 +91,6 @@ GameObject:
   - component: {fileID: 4514037919162426}
   - component: {fileID: 95069024744508442}
   - component: {fileID: 114397285517009286}
-  - component: {fileID: 65666219319870304}
-  - component: {fileID: 114553413378856484}
   m_Layer: 0
   m_Name: enemy_Slime_Blue
   m_TagString: Untagged
@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253595584175178}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 2.7}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4514037919162426}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636979800040456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3205795, y: 0.55, z: -10.866497}
+  m_LocalPosition: {x: 27.69536, y: 10.297646, z: -32.74252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4514037919162426}
@@ -224,30 +224,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!65 &65497982209514988
+--- !u!65 &65036578510562798
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636979800040456}
-  m_Material: {fileID: 13400000, guid: 6d143b5883708e54c948d1a24649adfb, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.6, z: 0.5}
-  m_Center: {x: 0, y: -0.2, z: 0}
---- !u!65 &65666219319870304
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1913104810873008}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.75, y: 1.75, z: 1.75}
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Size: {x: 0.5002899, y: 0.5007906, z: 0.5128517}
+  m_Center: {x: -0.00009536743, y: -0.2547059, z: 0.0012760162}
+--- !u!65 &65335659812614340
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052501284068982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 164.73872, y: 159.63025, z: 164.73857}
+  m_Center: {x: -80, y: 0, z: 0}
 --- !u!95 &95069024744508442
 Animator:
   serializedVersion: 3
@@ -279,6 +279,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
+--- !u!114 &114322504483014580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052501284068982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114491244404827784}
 --- !u!114 &114397285517009286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,17 +319,6 @@ MonoBehaviour:
   m_DeathParticles: {fileID: 1673929070999176, guid: f0d30b97cb9f1f34db846407621b8c5a,
     type: 2}
   toDespawn: 0
---- !u!114 &114553413378856484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1913104810873008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f514e600e6b994e82b2b9a08df6149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!137 &137448028605175106
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
