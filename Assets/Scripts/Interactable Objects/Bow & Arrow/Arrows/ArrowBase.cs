@@ -7,7 +7,7 @@ public class ArrowBase : MonoBehaviour
 
     enum ArrowType
     {
-
+        // TODO
     }
 
     protected bool m_IsFired = false;
@@ -44,6 +44,7 @@ public class ArrowBase : MonoBehaviour
             isPendingDestruction = true;
             m_Rigidbody.useGravity = false;
             m_Rigidbody.isKinematic = true;
+            GetComponent<Collider>().enabled = false;
             yield return new WaitForSeconds(2);
             Destroy(gameObject);
         }

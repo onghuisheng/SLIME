@@ -10,6 +10,10 @@ public class SlimeBase : MonoBehaviour {
     private int m_Health; // health
     private int m_Attack; // attack
 
+    public Animator anim;
+
+    public GameObject m_DeathParticles;
+
     enum States
     {
         Wait,
@@ -21,9 +25,12 @@ public class SlimeBase : MonoBehaviour {
     private States currState;
     private States nextState;
 
+    [HideInInspector]
+    public bool toDespawn;
+
 	// Use this for initialization
 	void Start () {
-		
+        toDespawn = false;
 	}
 	
 	// Update is called once per frame

@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BowRespawn
+  - PathNode
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Player
   - Controllers
   - Bow
-  - 
+  - IgnoreArrow
   - 
   - 
   - 

@@ -17,15 +17,17 @@ public class Arrow : ArrowBase
         {
             shootable.OnShot(this); // Interface callback
 
-            Rigidbody rb = other.GetComponent<Rigidbody>();
+            //Rigidbody rb = other.GetComponent<Rigidbody>();
 
-            if (rb != null)
-            {
-                FixedJoint joint = gameObject.AddComponent<FixedJoint>();
-                joint.connectedBody = rb;
-                joint.breakForce = Mathf.Infinity;
-                joint.breakTorque = Mathf.Infinity;
-            }
+            //if (rb != null)
+            //{
+            //    FixedJoint joint = gameObject.AddComponent<FixedJoint>();
+            //    joint.connectedBody = rb;
+            //    joint.breakForce = Mathf.Infinity;
+            //    joint.breakTorque = Mathf.Infinity;
+            //}
+
+            transform.parent = other.transform;
         }
 
         DestroyArrow(); // If collide with environment, remove this arrow after X seconds
