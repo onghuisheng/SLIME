@@ -373,9 +373,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4908153721504050}
+  - component: {fileID: 114662701626187466}
+  - component: {fileID: 195124508750996232}
+  - component: {fileID: 114221325271297894}
+  - component: {fileID: 54384003215635070}
+  - component: {fileID: 65808748866792570}
   m_Layer: 0
   m_Name: Golem Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1568,6 +1573,33 @@ Transform:
   m_Father: {fileID: 4629206115931686}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54384003215635070
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402683172834022}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 32
+  m_CollisionDetection: 0
+--- !u!65 &65808748866792570
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402683172834022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2322346, y: 1.4029958, z: 1.0409832}
+  m_Center: {x: -0.020491302, y: 0.7014979, z: -0.0204916}
 --- !u!95 &95361519808363786
 Animator:
   serializedVersion: 3
@@ -1586,6 +1618,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114221325271297894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402683172834022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906fb992f7f873245ba8030a96ad0309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pathList: []
+  m_index: 0
+  m_AlwaysMove: 1
+--- !u!114 &114662701626187466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402683172834022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69ae4fb4d1812b448017a766796bd3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxHealth: 0
+  m_MaxAttack: 0
+  anim: {fileID: 95361519808363786}
+  m_DeathParticles: {fileID: 0}
+  toDespawn: 0
 --- !u!137 &137015009513547202
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2728,3 +2790,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -20.04568, y: 34.11532, z: 26.998516}
     m_Extent: {x: 9.939747, y: 13.80674, z: 15.219722}
   m_DirtyAABB: 0
+--- !u!195 &195124508750996232
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402683172834022}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.4
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
