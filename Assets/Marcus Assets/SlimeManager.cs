@@ -7,24 +7,26 @@ public class SlimeManager : MonoBehaviour {
     public List<GameObject> m_SlimeInScene;
     public int m_limit;
 
+    public static SlimeManager instance = null;
+
 	// Use this for initialization
 	void Start () {
         m_SlimeInScene = new List<GameObject>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+        if (instance == null)
+            instance = GetComponent<SlimeManager>();
 	}
 
     public void Remove()
     {
         foreach(GameObject go in m_SlimeInScene)
         {
-            if (!go.activeInHierarchy)
+            if (go.GetComponent<SlimeBase>().toDespawn)
             {
                 m_SlimeInScene.Remove(go);
+                GameObject temp = Instantiate(go.GetComponent<SlimeBase>().m_DeathParticles, go.transform.position, go.transform.rotation);
                 GameObject.Destroy(go);
+                GameObject.Destroy(temp, 3);
                 break;
             }
         }

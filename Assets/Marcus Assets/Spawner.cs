@@ -4,51 +4,42 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-    public List<GameObject> goSpawnObjectList; // list of object to be spawned
-    public GameObject goNodeHolder; // gameobject that holds the path node
+    public List<GameObject> m_SpawnObjectList; // list of object to be spawned
+    public GameObject m_PathHolder; // gameobject that holds the path node
 
-    public float fTimer; // time that will increase by deltaTime
-    public float fTimeToSpawn; // when the time is reached it will spawn
+    public float m_Timer; // time that will increase by deltaTime
+    public float m_TimeToSpawn; // when the time is reached it will spawn
 
-    public int iRandomSlime;
-
-    public GameObject m_SlimeManager;
+    public int m_RandomSlime;
+    
+    public GameObject m_SlimeHolder;
 
 	// Use this for initialization
 	void Start () {
-        fTimer = 0.0f;
+        m_Timer = 0.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if(m_SlimeManager.GetComponent<SlimeManager>().m_SlimeInScene.Count < m_SlimeManager.GetComponent<SlimeManager>().m_limit)
-            fTimer += Time.deltaTime;
+        if (SlimeManager.instance.GetComponent<SlimeManager>().m_SlimeInScene.Count < SlimeManager.instance.GetComponent<SlimeManager>().m_limit)
+            m_Timer += Time.deltaTime;
 
-        if (fTimer >= fTimeToSpawn)
+        if (m_Timer >= m_TimeToSpawn)
         {
             //Debug.Log(System.DateTime.Now.Millisecond);
             Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
-            iRandomSlime = Random.Range(0, goSpawnObjectList.Count);
-            GameObject Slime = Instantiate(goSpawnObjectList[iRandomSlime], this.transform.position, this.transform.rotation);
-            fTimer = 0.0f;
+            m_RandomSlime = Random.Range(0, m_SpawnObjectList.Count);
+            GameObject Slime = Instantiate(m_SpawnObjectList[m_RandomSlime], this.transform.position, this.transform.rotation);
+            m_Timer = 0.0f;
 
-            foreach (Transform Node in goNodeHolder.transform)
+            foreach (Transform Node in m_PathHolder.transform)
             {
                 Slime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
             }
 
-            m_SlimeManager.GetComponent<SlimeManager>().m_SlimeInScene.Add(Slime);
+            Slime.transform.SetParent(m_SlimeHolder.transform);
+            SlimeManager.instance.GetComponent<SlimeManager>().m_SlimeInScene.Add(Slime);
         }
-
-        //for (int i = 0; i < listObjectInScene.Count; i++)
-        //{
-        //    if (!listObjectInScene[i].activeInHierarchy || listObjectInScene == null)
-        //    {
-        //        listObjectInScene.RemoveAt(i);
-        //        GameObject.Destroy(listObjectInScene[i]);
-        //        break;
-        //    }
-        //}
 	}
 }

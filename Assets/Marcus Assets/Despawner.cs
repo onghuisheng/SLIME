@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Despawner : MonoBehaviour {
 
-    public GameObject m_SlimeManager;
-
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.SetActive(false);
-        m_SlimeManager.GetComponent<SlimeManager>().Remove();
+        if (other != null)
+        {
+            if (other.tag != "Enemy")
+                return;
 
+            other.GetComponent<SlimeBase>().toDespawn = true;
+            SlimeManager.instance.GetComponent<SlimeManager>().Remove();
+        }
     }
 }
