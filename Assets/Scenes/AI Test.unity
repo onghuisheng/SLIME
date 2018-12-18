@@ -560,6 +560,7 @@ MonoBehaviour:
   - {fileID: 1103822881075736, guid: c98c97307a2368c4a82655d838558297, type: 2}
   - {fileID: 1972550604671240, guid: 89d326d1b0384a94dbf76ee6532522ae, type: 2}
   - {fileID: 1583349739826410, guid: 32ea9cba4479d3b459dcf6603ed85397, type: 2}
+  - {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
   m_PathHolder: {fileID: 1976872909}
   m_Timer: 0
   m_TimeToSpawn: 5
@@ -1836,10 +1837,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
   m_IsPrefabParent: 0
@@ -2561,6 +2558,7 @@ MonoBehaviour:
   - {fileID: 1103822881075736, guid: c98c97307a2368c4a82655d838558297, type: 2}
   - {fileID: 1972550604671240, guid: 89d326d1b0384a94dbf76ee6532522ae, type: 2}
   - {fileID: 1583349739826410, guid: 32ea9cba4479d3b459dcf6603ed85397, type: 2}
+  - {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
   m_PathHolder: {fileID: 1976872909}
   m_Timer: 0
   m_TimeToSpawn: 5
@@ -3041,6 +3039,7 @@ MonoBehaviour:
   - {fileID: 1103822881075736, guid: c98c97307a2368c4a82655d838558297, type: 2}
   - {fileID: 1972550604671240, guid: 89d326d1b0384a94dbf76ee6532522ae, type: 2}
   - {fileID: 1583349739826410, guid: 32ea9cba4479d3b459dcf6603ed85397, type: 2}
+  - {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
   m_PathHolder: {fileID: 1976872909}
   m_Timer: 0
   m_TimeToSpawn: 5

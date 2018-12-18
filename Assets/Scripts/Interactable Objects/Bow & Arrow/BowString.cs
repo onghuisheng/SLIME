@@ -27,6 +27,7 @@ public class BowString : GrabbableObject
 
     private Quaternion m_UpperBowLimb1_DefaultRot, m_UpperBowLimb2_DefaultRot, m_LowerBowLimb1_DefaultRot, m_LowerBowLimb2_DefaultRot;
 
+    // Rate the bow bends when drawing arrows
     private const float m_OuterLimbRotationRate = 180;
     private const float m_InnerLimbRotationRate = 180;
     #endregion
@@ -44,14 +45,14 @@ public class BowString : GrabbableObject
     public override void OnGrab(MoveController currentController)
     {
         m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
-        m_InitialOffset = transform.InverseTransformDirection(currentController.transform.position - transform.position);
+        m_InitialOffset = currentController.transform.position - transform.position;
+
         ResetArrowOrientation();
     }
 
     public override void OnGrabStay(MoveController currentController)
     {
         base.OnGrabStay(currentController);
-        // transform.position = currentController.transform.position - m_InitialOffset;
         transform.position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
