@@ -53,8 +53,7 @@ public class BowString : GrabbableObject
     public override void OnGrabStay(MoveController currentController)
     {
         base.OnGrabStay(currentController);
-        // transform.position = currentController.transform.position - m_InitialOffset;
-        transform.position = currentController.transform.position + m_InitialOffset;
+        transform.position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
 
