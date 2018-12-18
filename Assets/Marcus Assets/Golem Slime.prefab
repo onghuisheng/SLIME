@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 114221325271297894}
   - component: {fileID: 54384003215635070}
   - component: {fileID: 65808748866792570}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Golem Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
