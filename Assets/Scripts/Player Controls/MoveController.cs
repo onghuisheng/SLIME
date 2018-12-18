@@ -52,12 +52,21 @@ public class MoveController : MonoBehaviour
     {
         if (m_IsRegistered)
         {
-            ProcessControllerMovement();
             ProcessHandAnimation();
             ProcessGrabbing();
         }
     }
-        
+
+    private void FixedUpdate()
+    {
+        if (m_IsRegistered)
+        {
+            ProcessControllerMovement();
+            ProcessControllerUpdate();
+        }
+    }
+
+
     public void RegisterController(MoveControllerOrientation controllerOrientation, int slotNumber, int handleNumber)
     {
         m_IsRegistered = true;
@@ -112,8 +121,6 @@ public class MoveController : MonoBehaviour
         if (iObject == null)
             return;
 
-        iObject.OnControllerStay(this);
-
         var grabbableObject = currentObject.GetComponent<IGrabbable>();
 
         if (grabbableObject == null)
@@ -140,7 +147,7 @@ public class MoveController : MonoBehaviour
                 joint.connectedBody = rb;
                 joint.breakForce = Mathf.Infinity;
                 joint.breakTorque = Mathf.Infinity;
-                // joint.enablePreprocessing = false;
+                joint.enablePreprocessing = false;
             }
         }
 
@@ -150,22 +157,10 @@ public class MoveController : MonoBehaviour
             iObject.OnUse(this);
         }
 
-        // On Item Holding Down Use 
-        if (GetButton(MoveControllerHotkeys.buttonUse))
-        {
-            iObject.OnUseDown(this);
-        }
-
         // On Item Use Released
         if (GetButtonUp(MoveControllerHotkeys.buttonUse))
         {
             iObject.OnUseUp(this);
-        }
-
-        // On Grab Use
-        if (GetButton(MoveControllerHotkeys.buttonGrab) && m_IsGrabbing)
-        {
-            grabbableObject.OnGrabStay(this);
         }
 
         // On Grab Released (Trigger Up)
@@ -174,6 +169,38 @@ public class MoveController : MonoBehaviour
             DetachCurrentObject(true);
         }
 
+    }
+
+    private void ProcessControllerUpdate()
+    {
+        var currentObject = GetCurrentHandObject();
+
+        if (currentObject == null)
+            return;
+
+        var iObject = currentObject.GetComponent<IInteractable>();
+
+        if (iObject == null)
+            return;
+
+        iObject.OnControllerStay(this);
+
+        var grabbableObject = currentObject.GetComponent<IGrabbable>();
+
+        if (grabbableObject == null)
+            return;
+
+        // On Item Holding Down Use 
+        if (GetButton(MoveControllerHotkeys.buttonUse))
+        {
+            iObject.OnUseDown(this);
+        }
+
+        // On Grab Use
+        if (GetButton(MoveControllerHotkeys.buttonGrab) && m_IsGrabbing)
+        {
+            grabbableObject.OnGrabStay(this);
+        }
     }
 
     protected void OnTriggerEnter(Collider other)

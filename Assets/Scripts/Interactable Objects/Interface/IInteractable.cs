@@ -17,12 +17,12 @@ public interface IInteractable
     void OnControllerExit(MoveController currentController);
 
     /// <summary>
-    /// Called once every update frame when the vive controller is inside the collider
+    /// Called once every FixedUpdate frame when the vive controller is inside the collider
     /// </summary>
     void OnControllerStay(MoveController currentController);
 
     /// <summary>
-    /// Called when the player pressed the grip button WHILE grabbing it, called once every update frame while held down
+    /// Called when the player pressed the grip button WHILE grabbing it, called once every FixedUpdate frame while held down
     /// </summary>
     void OnUseDown(MoveController currentController);
 

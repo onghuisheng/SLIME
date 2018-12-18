@@ -25,6 +25,14 @@ public class BowString : GrabbableObject
     [SerializeField]
     private Transform m_UpperBowLimb1, m_UpperBowLimb2, m_LowerBowLimb1, m_LowerBowLimb2;
 
+    [SerializeField]
+    private Material m_ArrowDisabledMaterial;
+
+    private Material m_ArrowDefaultMaterial;
+
+    private SkinnedMeshRenderer m_ArrowMeshRenderer;
+
+
     private Quaternion m_UpperBowLimb1_DefaultRot, m_UpperBowLimb2_DefaultRot, m_LowerBowLimb1_DefaultRot, m_LowerBowLimb2_DefaultRot;
 
     // Rate the bow bends when drawing arrows
@@ -35,6 +43,8 @@ public class BowString : GrabbableObject
 
     private void Awake()
     {
+        m_ArrowDefaultMaterial = m_BowArrowPrefab.GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterial;
+
         m_DefaultLocalPos = transform.localPosition;
         m_UpperBowLimb1_DefaultRot = m_UpperBowLimb1.localRotation;
         m_UpperBowLimb2_DefaultRot = m_UpperBowLimb2.localRotation;
@@ -47,6 +57,8 @@ public class BowString : GrabbableObject
         m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
         m_InitialOffset = currentController.transform.position - transform.position;
 
+        m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<SkinnedMeshRenderer>();
+
         ResetArrowOrientation();
     }
 
@@ -56,6 +68,16 @@ public class BowString : GrabbableObject
         transform.position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
+
+        // Check if the angle is screwed up, change material if it is
+        if (IsBowStringFirable())
+        {
+            m_ArrowMeshRenderer.material = m_ArrowDefaultMaterial;
+        }
+        else
+        {
+            m_ArrowMeshRenderer.material = m_ArrowDisabledMaterial;
+        }
 
         // Constantly face towards the pivot point when an arrow is drawn
         if (m_SpawnedArrow != null)
@@ -72,8 +94,17 @@ public class BowString : GrabbableObject
 
         if (m_SpawnedArrow != null)
         {
-            // Launch the arrow, multiply the strength a bit?
-            m_SpawnedArrow.LaunchArrow(arrowStrength * 75);
+            if (IsBowStringFirable())
+            {
+                // Launch the arrow, multiply the strength a bit?
+                m_SpawnedArrow.LaunchArrow(arrowStrength * 75);
+            }
+            else
+            {
+                // Destroy the arrow if we cant fire it
+                Destroy(m_SpawnedArrow.gameObject);
+            }
+
             m_SpawnedArrow = null;
         }
     }
@@ -143,6 +174,14 @@ public class BowString : GrabbableObject
     private float GetHorizontalDrawDistance()
     {
         return Mathf.Abs(transform.localPosition.x);
+    }
+
+    private bool IsBowStringFirable()
+    {
+        float angle = Vector3.Angle((transform.parent.TransformPoint(m_DefaultLocalPos)) - transform.parent.position, transform.position - transform.parent.position);
+        return (angle < 60);
+        //Vector3 currentPos = transform.localPosition - m_DefaultLocalPos;
+        //return (currentPos.magnitude < 0.233f);
     }
 
 }

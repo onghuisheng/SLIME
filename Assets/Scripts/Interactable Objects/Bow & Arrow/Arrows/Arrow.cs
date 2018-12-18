@@ -16,17 +16,6 @@ public class Arrow : ArrowBase
         if (shootable != null)
         {
             shootable.OnShot(this); // Interface callback
-
-            //Rigidbody rb = other.GetComponent<Rigidbody>();
-
-            //if (rb != null)
-            //{
-            //    FixedJoint joint = gameObject.AddComponent<FixedJoint>();
-            //    joint.connectedBody = rb;
-            //    joint.breakForce = Mathf.Infinity;
-            //    joint.breakTorque = Mathf.Infinity;
-            //}
-
             transform.parent = other.transform;
         }
 

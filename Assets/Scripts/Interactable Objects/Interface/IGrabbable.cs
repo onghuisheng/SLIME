@@ -16,7 +16,7 @@ public interface IGrabbable
     void OnGrab(MoveController currentController);
 
     /// <summary>
-    /// Called once every Update while the player is grabbing the object
+    /// Called once every FixedUpdate frame while the player is grabbing the object
     /// </summary>
     void OnGrabStay(MoveController currentController);
 
