@@ -34,7 +34,8 @@ public class Movement : MonoBehaviour
     /// </summary>
     public void Move() 
     {
-        GetComponent<NavMeshAgent>().SetDestination(m_pathList[m_index].transform.position);
+        if (GetComponent<NavMeshAgent>().enabled)
+            GetComponent<NavMeshAgent>().SetDestination(m_pathList[m_index].transform.position);
     }
 
     /// <summary>
@@ -42,7 +43,8 @@ public class Movement : MonoBehaviour
     /// </summary>
     public void Stop()
     {
-        GetComponent<NavMeshAgent>().SetDestination(transform.position);
+        if (GetComponent<NavMeshAgent>().enabled)
+            GetComponent<NavMeshAgent>().SetDestination(transform.position);
 
     }
 }
