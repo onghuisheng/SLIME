@@ -15,7 +15,7 @@ public class GridSpawner : MonoBehaviour {
     [SerializeField] float rowFrequency;        // Frequency at which each grid item spawns per row
     [SerializeField] float colFrequency;        // Frequency at which each grid item spawns per column
 
-    [Header("Spawn Direction")]
+    [Header("Spawn Direction")] 
     [SerializeField] bool spawnByRow;           // To spawn row by or or collumn by collumn 
 
     [Header("Prefab to populate grid")]
@@ -25,8 +25,10 @@ public class GridSpawner : MonoBehaviour {
 
     private float outerLoop;                        // The max value of the outer forloop
     private float innerLoop;                        // The max value of the inner forloop
+    [Header("Inner/Outer loop time")]
     [SerializeField] private float outerLoopTime;   //Time between each forloop in the outer loop (in sec)
     [SerializeField] private float innerLoopTime;   //Time between each forloop in the inner loop (in sec)
+
     private float prefabWidth;                      // Width of the prefab
     private float prefabLength;                     // Length of the prefab
 
@@ -140,6 +142,7 @@ public class GridSpawner : MonoBehaviour {
         }
         instances.Clear();
     }
+
 
     // Update is called once per frame
     void Update () {
