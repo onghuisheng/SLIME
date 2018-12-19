@@ -6,9 +6,7 @@ public class SlimeDeath : MonoBehaviour {
 
     public SlimeBase m_SlimeBase;
     public GameObject Slime;
-
-    public bool isGolem;
-
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -21,11 +19,6 @@ public class SlimeDeath : MonoBehaviour {
 
     public void RemoveFromScene()
     {
-        if(isGolem)
-        {
-            GetComponent<Animator>().SetBool("IsDefending", false);
-        }
-
         if (m_SlimeBase.m_DeathParticles != null)
         {
             GameObject temp = Instantiate(m_SlimeBase.m_DeathParticles, Slime.transform.position, Slime.transform.rotation);

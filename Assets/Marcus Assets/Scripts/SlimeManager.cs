@@ -26,6 +26,12 @@ public class SlimeManager : MonoBehaviour {
             {
                 m_SlimeInScene.Remove(go);
                 go.GetComponent<SlimeBase>().anim.SetBool("IsDead", true);
+
+                if(go.GetComponent<GolemSlimeDefend>() != null)
+                {
+                    go.GetComponent<SlimeBase>().anim.SetBool("IsDefending", false);
+                }
+
                 go.GetComponent<NavMeshAgent>().enabled = false;
                 break;
             }

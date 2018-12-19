@@ -9,6 +9,7 @@ public class GolemSlimeDefend : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        anim.SetBool("IsDefending", true);
 
     }
 
@@ -20,7 +21,7 @@ public class GolemSlimeDefend : MonoBehaviour {
 
     public void ChangeToDefend()
     {
-        if (GetComponent<SlimeBase>().GetHealth() < GetComponent<SlimeBase>().m_MaxHealth && GetComponent<SlimeBase>().GetHealth() > 0 && !anim.GetBool("IsDefending"))
+        if (GetComponent<SlimeBase>().GetHealth() < GetComponent<SlimeBase>().m_MaxHealth && GetComponent<SlimeBase>().GetHealth() > 0 && !anim.GetBool("IsDefending") && !anim.GetBool("IsDead"))
         {
             anim.SetBool("IsDefending", true);
         }
