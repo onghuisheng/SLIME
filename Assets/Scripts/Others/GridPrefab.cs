@@ -6,11 +6,14 @@ using UnityEngine;
 public class GridPrefab : MonoBehaviour,IShootable {
 
     Collider m_collider;
+    float timerFog = 10;
 
     public void OnShot(ArrowBase arrow)
     {
         arrow.gameObject.transform.parent = null; // prevent arrow from despawning
-        Destroy(gameObject);
+        //gameObject.SetActive(false);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false); //set child (fog particle) inactive 
+        //Destroy(gameObject);
        // throw new System.NotImplementedException();
     }
 
@@ -21,6 +24,12 @@ public class GridPrefab : MonoBehaviour,IShootable {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if(gameObject.transform.GetChild(0).gameObject.activeInHierarchy == false)
+        {
+            timerFog -= Time.deltaTime;
+            if (timerFog < 0)
+                gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        
+    }
 }

@@ -15,7 +15,7 @@ public class Arrow : ArrowBase
 
         if (shootable != null)
         {
-            transform.parent = other.transform; //set as parent before calling onshot
+            transform.parent = other.transform; //set as parent before calling onshot, if anything goes wrong, shift this line below OnShot HAHAH
             shootable.OnShot(this); // Interface callback
         }
 

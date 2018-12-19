@@ -2,31 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridSpawner : MonoBehaviour {
+public class GridSpawner : MonoBehaviour
+{
 
     //THANKS ADRIAN TT
     //ALSO: please change this if it has problems :,>
 
     [Header("Grid Sizing")]
-    [SerializeField] int rowCount;              // Number of Rows
+    [SerializeField]
+    int rowCount;              // Number of Rows
     [SerializeField] int colCount;              // Number of Columns
 
     [Header("Spawn Frequency (in Hz)")]
-    [SerializeField] float rowFrequency;        // Frequency at which each grid item spawns per row
+    [SerializeField]
+    float rowFrequency;        // Frequency at which each grid item spawns per row
     [SerializeField] float colFrequency;        // Frequency at which each grid item spawns per column
 
-    [Header("Spawn Direction")] 
-    [SerializeField] bool spawnByRow;           // To spawn row by or or collumn by collumn 
+    [Header("Spawn Direction")]
+    [SerializeField]
+    bool spawnByRow;           // To spawn row by or or collumn by collumn 
 
     [Header("Prefab to populate grid")]
-    [SerializeField] GameObject spawnPrefab;    // Prefab to spawn
+    [SerializeField]
+    GameObject spawnPrefab;    // Prefab to spawn
 
     private List<GameObject> instances;         // Store all spawned prefabs
 
     private float outerLoop;                        // The max value of the outer forloop
     private float innerLoop;                        // The max value of the inner forloop
     [Header("Inner/Outer loop time")]
-    [SerializeField] private float outerLoopTime;   //Time between each forloop in the outer loop (in sec)
+    [SerializeField]
+    private float outerLoopTime;   //Time between each forloop in the outer loop (in sec)
     [SerializeField] private float innerLoopTime;   //Time between each forloop in the inner loop (in sec)
 
     private float prefabWidth;                      // Width of the prefab
@@ -77,9 +83,10 @@ public class GridSpawner : MonoBehaviour {
     }
 
     // Use this for initialization
-    private void Start () {
+    private void Start()
+    {
         InitializeGrid();
-	}
+    }
 
     private IEnumerator SpawnGrid()
     {
@@ -100,13 +107,16 @@ public class GridSpawner : MonoBehaviour {
             {
                 GameObject spawn = Instantiate(spawnPrefab, transform);
                 spawn.transform.position = spawnPosition;
-                
+
                 if (spawnByRow)                             //move spawnPosition.x over by width of prefab
                     spawnPosition.x += prefabWidth;
                 else                                        //else move z by length
                     spawnPosition.z += prefabLength;
 
+                spawn.transform.RotateAround(transform.position, Vector3.up, 45);
+
                 //wait for innerloop
+                if(innerLoopTime != 0)
                 yield return new WaitForSeconds(innerLoopTime);
             }
 
@@ -116,8 +126,11 @@ public class GridSpawner : MonoBehaviour {
                 spawnPosition.x += prefabWidth;
 
             //wait for outerloop
-            yield return new WaitForSeconds(outerLoopTime);
+            if (outerLoopTime != 0)
+                yield return new WaitForSeconds(outerLoopTime);
         }
+
+        yield return null;
     }
 
     public void InitializeGrid()
@@ -126,7 +139,7 @@ public class GridSpawner : MonoBehaviour {
         ClearGrid();
 
         // Start the coroutine to spawn the grid
-        StartCoroutine("SpawnGrid");
+        StartCoroutine(SpawnGrid());
     }
 
     public void ClearGrid()
@@ -145,7 +158,8 @@ public class GridSpawner : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 }
