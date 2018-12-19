@@ -9,7 +9,6 @@ public class GolemSlimeDefend : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        anim.SetBool("IsDefending", true);
 
     }
 
