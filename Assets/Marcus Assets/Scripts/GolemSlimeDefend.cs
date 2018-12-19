@@ -15,7 +15,12 @@ public class GolemSlimeDefend : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<SlimeBase>().GetHealth() < GetComponent<SlimeBase>().m_MaxHealth && !anim.GetBool("IsDefending"))
+        
+    }
+
+    public void ChangeToDefend()
+    {
+        if (GetComponent<SlimeBase>().GetHealth() < GetComponent<SlimeBase>().m_MaxHealth && GetComponent<SlimeBase>().GetHealth() > 0 && !anim.GetBool("IsDefending"))
         {
             anim.SetBool("IsDefending", true);
         }

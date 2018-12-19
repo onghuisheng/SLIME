@@ -13,18 +13,7 @@ public class SlimeBase : MonoBehaviour {
     public Animator anim;
 
     public GameObject m_DeathParticles;
-
-    enum States
-    {
-        Wait,
-        Walk,
-        Attack,
-        Defend,
-    }
-
-    private States currState;
-    private States nextState;
-
+    
     [HideInInspector]
     public bool toDespawn;
 
@@ -39,6 +28,11 @@ public class SlimeBase : MonoBehaviour {
     public void DeductHealth(int toDeduct)
     {
         m_Health -= toDeduct;
+
+        if(GetComponent<GolemSlimeDefend>() != null)
+        {
+            GetComponent<GolemSlimeDefend>().ChangeToDefend();
+        }
     }
 
     public int GetHealth()

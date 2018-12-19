@@ -7,7 +7,6 @@ public class EnemyHit : MonoBehaviour, IShootable
     
     [SerializeField]
     private SlimeBase m_SlimeBase;
-
     public int Damage;
 
     public virtual void OnShot(ArrowBase arrow)
