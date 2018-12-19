@@ -32,7 +32,7 @@ public class SlimeBase : MonoBehaviour {
     void Start() {
         toDespawn = false;
 
-        m_Health = m_MaxHealth - 1;
+        m_Health = m_MaxHealth;
         m_Attack = m_MaxAttack;
     }
 
