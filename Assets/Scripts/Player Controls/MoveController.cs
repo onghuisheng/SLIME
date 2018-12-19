@@ -429,4 +429,35 @@ public class MoveController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// TODO Vibration function
+    /// </summary>
+    bool isVibrating = false;
+
+    public void Vibrate(int intensity, float durationInSeconds)
+    {
+        if (isVibrating)
+            StopVibration();
+
+        StartCoroutine(VibrateRoutine(intensity, durationInSeconds));
+    }
+
+    private IEnumerator VibrateRoutine(int intensity, float durationInSeconds)
+    {
+        PS4Input.MoveSetVibration(m_ControllerSlot, m_ControllerIndex, intensity);
+
+        isVibrating = true;
+
+        yield return new WaitForSeconds(durationInSeconds);
+
+        StopVibration();
+    }
+
+    public void StopVibration()
+    {
+        StopCoroutine(VibrateRoutine(0, 0));
+        PS4Input.MoveSetVibration(m_ControllerSlot, m_ControllerIndex, 0);
+        isVibrating = false;
+    }
+
 }

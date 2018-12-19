@@ -6,8 +6,6 @@ public class Arrow : ArrowBase
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("bleh: " + other.gameObject.name);
-
        if (!m_IsFired)
            return;
 
