@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4562089289690498}
   - component: {fileID: 95198124512984734}
   - component: {fileID: 114426311606130228}
+  - component: {fileID: 114552072075538330}
   m_Layer: 0
   m_Name: enemy_Slime_Yellow
   m_TagString: Untagged
@@ -307,6 +308,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eccdc501d53be246a6b7ca00ea7c5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114552072075538330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111861033056384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114081656846602034}
+  Slime: {fileID: 1583349739826410}
 --- !u!114 &114570832309750064
 MonoBehaviour:
   m_ObjectHideFlags: 1

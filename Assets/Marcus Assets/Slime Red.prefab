@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4925190015537810}
   - component: {fileID: 95321277189605040}
   - component: {fileID: 114212506059275356}
+  - component: {fileID: 114638357204487536}
   m_Layer: 0
   m_Name: enemy_Slime_Red
   m_TagString: Untagged
@@ -303,6 +304,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
+--- !u!114 &114638357204487536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141651870518904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114750483064498584}
+  Slime: {fileID: 1972550604671240}
 --- !u!114 &114750483064498584
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 4119685641037352}
   - component: {fileID: 95218768752296044}
   - component: {fileID: 114017892004845710}
+  - component: {fileID: 114753813933831180}
   m_Layer: 0
   m_Name: enemy_Slime_Pink
   m_TagString: Untagged
@@ -320,6 +321,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pathList: []
   m_index: 0
+--- !u!114 &114753813933831180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637148444716412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114304781441198518}
+  Slime: {fileID: 1103822881075736}
 --- !u!137 &137360139317019682
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SlimeManager : MonoBehaviour {
 
@@ -24,12 +25,8 @@ public class SlimeManager : MonoBehaviour {
             if (go.GetComponent<SlimeBase>().toDespawn)
             {
                 m_SlimeInScene.Remove(go);
-                if (go.GetComponent<SlimeBase>().m_DeathParticles != null)
-                {
-                    GameObject temp = Instantiate(go.GetComponent<SlimeBase>().m_DeathParticles, go.transform.position, go.transform.rotation);
-                    GameObject.Destroy(temp, 3);
-                }
-                GameObject.Destroy(go);
+                go.GetComponent<SlimeBase>().anim.SetBool("IsDead", true);
+                go.GetComponent<NavMeshAgent>().enabled = false;
                 break;
             }
         }
