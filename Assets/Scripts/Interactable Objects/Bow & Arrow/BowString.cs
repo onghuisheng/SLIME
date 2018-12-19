@@ -54,34 +54,37 @@ public class BowString : GrabbableObject
 
     public override void OnGrab(MoveController currentController)
     {
-        m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
-        m_InitialOffset = currentController.transform.position - transform.position;
-
-        m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<SkinnedMeshRenderer>();
-
-        ResetArrowOrientation();
     }
 
     public override void OnGrabStay(MoveController currentController)
     {
         base.OnGrabStay(currentController);
+
         transform.position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
 
-        // Check if the angle is screwed up, change material if it is
-        if (IsBowStringFirable())
+        if (m_SpawnedArrow == null && m_CurrentDrawDistance.magnitude > 0.1f)
         {
-            m_ArrowMeshRenderer.material = m_ArrowDefaultMaterial;
-        }
-        else
-        {
-            m_ArrowMeshRenderer.material = m_ArrowDisabledMaterial;
+            m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
+            m_InitialOffset = currentController.transform.position - transform.position;
+
+            m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<SkinnedMeshRenderer>();
         }
 
-        // Constantly face towards the pivot point when an arrow is drawn
         if (m_SpawnedArrow != null)
         {
+            // Check if the angle is screwed up, change material if it is
+            if (IsBowStringFirable())
+            {
+                m_ArrowMeshRenderer.material = m_ArrowDefaultMaterial;
+            }
+            else
+            {
+                m_ArrowMeshRenderer.material = m_ArrowDisabledMaterial;
+            }
+
+            // Constantly face towards the pivot point when an arrow is drawn
             ResetArrowOrientation();
         }
     }
@@ -180,8 +183,6 @@ public class BowString : GrabbableObject
     {
         float angle = Vector3.Angle((transform.parent.TransformPoint(m_DefaultLocalPos)) - transform.parent.position, transform.position - transform.parent.position);
         return (angle < 60);
-        //Vector3 currentPos = transform.localPosition - m_DefaultLocalPos;
-        //return (currentPos.magnitude < 0.233f);
     }
 
 }
