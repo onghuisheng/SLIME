@@ -62,10 +62,10 @@ public class DayAndNight : MonoBehaviour {
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);
 
-        //if (dot > 0)
-        //    transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
-        //else
-        //    transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
+        if (dot > 0)
+            transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
+        else
+            transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
         if (Input.GetKeyDown(KeyCode.Minus)) skyspeed -= 0.5f;

@@ -53,7 +53,7 @@ AvatarMask:
   - m_Path: GolemSlime/golemSlime_Shoulder_R
     m_Weight: 0
   - m_Path: pelvis_joint
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: pelvis_joint/ankle_L_joint
     m_Weight: 0
   - m_Path: pelvis_joint/ankle_L_joint/feet_L_joint
