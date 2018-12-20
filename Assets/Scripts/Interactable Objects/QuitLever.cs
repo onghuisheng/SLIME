@@ -39,10 +39,10 @@ public class QuitLever : StationaryObject
             transform.localRotation = m_DefaultLocalRotation;
             transform.Rotate(0, 0, -angle, Space.Self);
 
-            if (angle >= 60)
+            if (angle >= 50)
             {
                 m_IsEnabled = false;
-                Application.Quit();
+                GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 255, 0));
             }
 
             Debug.Log(angle);

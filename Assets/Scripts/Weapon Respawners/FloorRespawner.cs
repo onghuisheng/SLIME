@@ -31,6 +31,10 @@ public class FloorRespawner : MonoBehaviour
                     bow.GetComponent<Rigidbody>().isKinematic = true;
                 }
             }
+            else
+            {
+                m_CurrentStayTime = 0;
+            }
         }
     }
 
