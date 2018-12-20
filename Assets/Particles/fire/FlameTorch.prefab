@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198845284824443714}
   - component: {fileID: 199829414344383202}
   m_Layer: 0
-  m_Name: Flames
+  m_Name: FlameTorch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

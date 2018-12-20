@@ -18,7 +18,6 @@ public class Arrow : ArrowBase
         }
 
        DestroyArrow(); // If collide with environment, remove this arrow after X seconds
-
     }
 
 }

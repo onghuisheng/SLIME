@@ -140,10 +140,17 @@ public class MoveController : MonoBehaviour
 
             if (currentObject.GetComponent<IStationaryGrabbable>() == null)
             {
-                currentObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                Rigidbody otherRb = currentObject.GetComponent<Rigidbody>();
+                otherRb.velocity = Vector3.zero;
+                // otherRb.useGravity = true;
 
                 Rigidbody rb = GetComponent<Rigidbody>();
-                FixedJoint joint = currentObject.AddComponent<FixedJoint>();
+                FixedJoint joint;
+                joint = currentObject.GetComponent<FixedJoint>();
+
+                if (joint == null)
+                    joint = currentObject.AddComponent<FixedJoint>();
+
                 joint.connectedBody = rb;
                 joint.breakForce = Mathf.Infinity;
                 joint.breakTorque = Mathf.Infinity;
