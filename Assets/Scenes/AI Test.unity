@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.081284806, g: 0.080610186, b: 0.09540216, a: 1}
+  m_IndirectSpecularColor: {r: 0.07099214, g: 0.06336595, b: 0.060743526, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 6fb80b308922ed24cacc78d30223f814,
+  m_LightingDataAsset: {fileID: 112000002, guid: ede651fb2bee7d34a93e8e3db4cda07c,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -716,6 +716,24 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400032, guid: d51d470cf3f9b8747a40e629e3c839da, type: 3}
   m_PrefabInternal: {fileID: 1346763997}
+--- !u!1 &495719474 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100222, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
+  m_PrefabInternal: {fileID: 1072044261}
+--- !u!64 &495719475
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495719474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300014, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
 --- !u!1 &506602639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1703,10 @@ Prefab:
       propertyPath: m_CastShadows
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100222, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66ee5ef4618d1894aa3b1a218b3422d1, type: 3}
   m_IsPrefabParent: 0
@@ -1996,10 +2018,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1254647436 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400008, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
-  m_PrefabInternal: {fileID: 1254647435}
 --- !u!4 &1254647437 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
@@ -2007,18 +2025,6 @@ Transform:
 --- !u!4 &1254647438 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
-  m_PrefabInternal: {fileID: 1254647435}
---- !u!4 &1254647439 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400010, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
-  m_PrefabInternal: {fileID: 1254647435}
---- !u!4 &1254647440 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400016, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
-  m_PrefabInternal: {fileID: 1254647435}
---- !u!4 &1254647441 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400018, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
   m_PrefabInternal: {fileID: 1254647435}
 --- !u!1 &1254647442 stripped
 GameObject:
@@ -2038,10 +2044,10 @@ MonoBehaviour:
   m_BowArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArrowFacingPoint: {fileID: 847894515}
-  m_UpperBowLimb1: {fileID: 1254647441}
-  m_UpperBowLimb2: {fileID: 1254647440}
-  m_LowerBowLimb1: {fileID: 1254647439}
-  m_LowerBowLimb2: {fileID: 1254647436}
+  m_UpperBowLimb1: {fileID: 0}
+  m_UpperBowLimb2: {fileID: 0}
+  m_LowerBowLimb1: {fileID: 0}
+  m_LowerBowLimb2: {fileID: 0}
   m_ArrowDisabledMaterial: {fileID: 0}
 --- !u!135 &1254647444
 SphereCollider:
@@ -2195,7 +2201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
