@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0749782, g: 0.070095584, b: 0.07452093, a: 1}
+  m_IndirectSpecularColor: {r: 0.075531185, g: 0.0710179, b: 0.076377824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4883,7 +4883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nightdayColor:
     serializedVersion: 2
-    key0: {r: 0.018689923, g: 0.5225059, b: 0.7924528, a: 1}
+    key0: {r: 0.07587219, g: 0.15598185, b: 0.5188679, a: 1}
     key1: {r: 1, g: 0.56366897, b: 0, a: 1}
     key2: {r: 1, g: 0.9820317, b: 0.09019607, a: 0}
     key3: {r: 1, g: 1, b: 1, a: 0}
