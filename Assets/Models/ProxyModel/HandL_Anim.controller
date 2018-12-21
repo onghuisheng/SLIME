@@ -82,7 +82,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Default
-  m_Speed: 3
+  m_Speed: 10
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101646898234172032}
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bf5537653d0985241bfde1e323b5f372, type: 3}
+  m_Motion: {fileID: 7400000, guid: 719ec2f13497dc840b29b71baa850af3, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -108,7 +108,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Clench
-  m_Speed: 3
+  m_Speed: 10
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101528524260197188}
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 05348368f730a3a4c82ad0c2ea3189e5, type: 3}
+  m_Motion: {fileID: 7400000, guid: 06c5f2054734eeb4ba0131c25676322a, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -21,6 +21,7 @@ ModelImporter:
     100030: upperLimb_02_joint
     100032: upperLimb_03_joint
     100034: bow
+    100036: weapon_Bow
     400000: Bow
     400002: //RootNode
     400004: bow_joint
@@ -39,14 +40,17 @@ ModelImporter:
     400030: upperLimb_02_joint
     400032: upperLimb_03_joint
     400034: bow
+    400036: weapon_Bow
     2100000: lambert1
     2100002: Bow_BowSG1
     2100004: weapon_Bow_Bow_BowSG3
     4300000: Bow
     4300002: bow
+    4300004: weapon_Bow
     9500000: //RootNode
     13700000: Bow
     13700002: bow
+    13700004: weapon_Bow
   externalObjects: {}
   materials:
     importMaterials: 1
