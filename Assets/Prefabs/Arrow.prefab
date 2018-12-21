@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833852b26d0d6484198ec039f558d567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FlameParticlePrefab: {fileID: 1363038464709130, guid: 893d796500cc4044fb585080e65db014,
+    type: 2}
 --- !u!137 &137087582209526666
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

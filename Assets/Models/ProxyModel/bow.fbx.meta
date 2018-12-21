@@ -13,6 +13,14 @@ ModelImporter:
     100014: upperLimb01_joint
     100016: upperLimb02_joint
     100018: upperLimb03_joint
+    100020: bow_ctrl
+    100022: lowerLimb_01_joint
+    100024: lowerLimb_02_joint
+    100026: lowerLimb_03_joint
+    100028: upperLimb_01_joint
+    100030: upperLimb_02_joint
+    100032: upperLimb_03_joint
+    100034: bow
     400000: Bow
     400002: //RootNode
     400004: bow_joint
@@ -23,10 +31,22 @@ ModelImporter:
     400014: upperLimb01_joint
     400016: upperLimb02_joint
     400018: upperLimb03_joint
+    400020: bow_ctrl
+    400022: lowerLimb_01_joint
+    400024: lowerLimb_02_joint
+    400026: lowerLimb_03_joint
+    400028: upperLimb_01_joint
+    400030: upperLimb_02_joint
+    400032: upperLimb_03_joint
+    400034: bow
     2100000: lambert1
+    2100002: Bow_BowSG1
+    2100004: weapon_Bow_Bow_BowSG3
     4300000: Bow
+    4300002: bow
     9500000: //RootNode
     13700000: Bow
+    13700002: bow
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -21,7 +21,7 @@ public class SlimeDeath : MonoBehaviour {
     {
         if (m_SlimeBase.m_DeathParticles != null)
         {
-            GameObject temp = Instantiate(m_SlimeBase.m_DeathParticles, Slime.transform.position, Slime.transform.rotation);
+            GameObject temp = Instantiate(m_SlimeBase.m_DeathParticles, Slime.transform.position, m_SlimeBase.m_DeathParticles.gameObject.transform.rotation);
             Destroy(temp, 3);
         }
 

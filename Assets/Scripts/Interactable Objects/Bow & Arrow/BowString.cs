@@ -54,6 +54,7 @@ public class BowString : GrabbableObject
 
     public override void OnGrab(MoveController currentController)
     {
+        m_InitialOffset = currentController.transform.position - transform.position;
     }
 
     public override void OnGrabStay(MoveController currentController)
@@ -67,7 +68,6 @@ public class BowString : GrabbableObject
         if (m_SpawnedArrow == null && m_CurrentDrawDistance.magnitude > 0.1f)
         {
             m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
-            m_InitialOffset = currentController.transform.position - transform.position;
 
             m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<SkinnedMeshRenderer>();
         }

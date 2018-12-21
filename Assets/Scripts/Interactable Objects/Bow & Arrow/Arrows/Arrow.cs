@@ -6,8 +6,6 @@ public class Arrow : ArrowBase
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("bleh: " + other.gameObject.name);
-
        if (!m_IsFired)
            return;
 
@@ -20,7 +18,6 @@ public class Arrow : ArrowBase
         }
 
        DestroyArrow(); // If collide with environment, remove this arrow after X seconds
-
     }
 
 }

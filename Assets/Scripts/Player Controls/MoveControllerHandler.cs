@@ -17,6 +17,9 @@ public class MoveControllerHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // PS4 Settings Init
+        PlayStationVRSettings.robustnessLevel = PlayStationVRTrackerRobustnessLevel.High;
+
         for (int i = 0; i < 4; i++)
         {
             var user = PS4Input.GetUsersDetails(i);

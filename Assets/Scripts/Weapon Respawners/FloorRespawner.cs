@@ -19,9 +19,9 @@ public class FloorRespawner : MonoBehaviour
 
         if (bow != null)
         {
-            if (bow.GetComponent<FixedJoint>() == null)
+            if (bow.GetComponent<FixedJoint>() == null && bow.GetComponent<Rigidbody>().useGravity == true)
             {
-                m_CurrentStayTime += Time.deltaTime;
+                m_CurrentStayTime += Time.fixedDeltaTime;
 
                 if (m_CurrentStayTime > 2)
                 {
@@ -31,7 +31,12 @@ public class FloorRespawner : MonoBehaviour
                     bow.GetComponent<Rigidbody>().isKinematic = true;
                 }
             }
+            else
+            {
+                m_CurrentStayTime = 0;
+            }
         }
+
     }
 
     private void OnTriggerExit(Collider other)

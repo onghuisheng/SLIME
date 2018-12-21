@@ -5,16 +5,46 @@ using UnityEngine;
 public class ArrowBase : MonoBehaviour
 {
 
-    enum ArrowType
+    public enum ArrowType
     {
-        // TODO
+        None,
+        Flame,
+        Bait,
+        Thunder
     }
 
+    [SerializeField]
+    private GameObject m_FlameParticlePrefab;
+
     protected bool m_IsFired = false;
+    public bool isFired { get { return m_IsFired; } }
+
+    private ArrowType m_ArrowType = ArrowType.None;
 
     bool isPendingDestruction = false;
 
     Rigidbody m_Rigidbody;
+
+    public void BuffArrow(ArrowType arrowType)
+    {
+        if (arrowType != m_ArrowType)
+        {
+            switch (arrowType)
+            {
+                case ArrowType.Flame:
+                    Instantiate(m_FlameParticlePrefab, transform);
+                    break;
+                case ArrowType.Bait: // TBD
+                    break;
+                case ArrowType.Thunder: // TBD
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        m_ArrowType = arrowType;
+    }
 
     public void LaunchArrow(float forceAmount)
     {

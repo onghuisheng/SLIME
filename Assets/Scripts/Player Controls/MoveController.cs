@@ -140,10 +140,17 @@ public class MoveController : MonoBehaviour
 
             if (currentObject.GetComponent<IStationaryGrabbable>() == null)
             {
-                currentObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                Rigidbody otherRb = currentObject.GetComponent<Rigidbody>();
+                otherRb.velocity = Vector3.zero;
+                // otherRb.useGravity = true;
 
                 Rigidbody rb = GetComponent<Rigidbody>();
-                FixedJoint joint = currentObject.AddComponent<FixedJoint>();
+                FixedJoint joint;
+                joint = currentObject.GetComponent<FixedJoint>();
+
+                if (joint == null)
+                    joint = currentObject.AddComponent<FixedJoint>();
+
                 joint.connectedBody = rb;
                 joint.breakForce = Mathf.Infinity;
                 joint.breakTorque = Mathf.Infinity;
@@ -427,6 +434,37 @@ public class MoveController : MonoBehaviour
             case MoveControllerButton.NONE:
                 return KeyCode.None;
         }
+    }
+
+    /// <summary>
+    /// TODO Vibration function
+    /// </summary>
+    bool isVibrating = false;
+
+    public void Vibrate(int intensity, float durationInSeconds)
+    {
+        if (isVibrating)
+            StopVibration();
+
+        StartCoroutine(VibrateRoutine(intensity, durationInSeconds));
+    }
+
+    private IEnumerator VibrateRoutine(int intensity, float durationInSeconds)
+    {
+        PS4Input.MoveSetVibration(m_ControllerSlot, m_ControllerIndex, intensity);
+
+        isVibrating = true;
+
+        yield return new WaitForSeconds(durationInSeconds);
+
+        StopVibration();
+    }
+
+    public void StopVibration()
+    {
+        StopCoroutine(VibrateRoutine(0, 0));
+        PS4Input.MoveSetVibration(m_ControllerSlot, m_ControllerIndex, 0);
+        isVibrating = false;
     }
 
 }
