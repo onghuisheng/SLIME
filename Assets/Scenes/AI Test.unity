@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0790967, g: 0.07697673, b: 0.08827915, a: 1}
+  m_IndirectSpecularColor: {r: 0.07462649, g: 0.069503464, b: 0.07332729, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6608,7 +6608,6 @@ GameObject:
   - component: {fileID: 595826844}
   - component: {fileID: 595826843}
   - component: {fileID: 595826842}
-  - component: {fileID: 595826846}
   m_Layer: 0
   m_Name: Purple Point
   m_TagString: PurpleDrop
@@ -6623,7 +6622,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595826841}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
@@ -6683,21 +6682,6 @@ Transform:
   m_Father: {fileID: 197386109}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &595826846
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 595826841}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &611531135
 GameObject:
   m_ObjectHideFlags: 0
@@ -12917,7 +12901,6 @@ GameObject:
   - component: {fileID: 2055015649}
   - component: {fileID: 2055015648}
   - component: {fileID: 2055015647}
-  - component: {fileID: 2055015651}
   m_Layer: 0
   m_Name: Blue Point
   m_TagString: BlueDrop
@@ -12932,7 +12915,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2055015646}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 3}
@@ -12992,21 +12975,6 @@ Transform:
   m_Father: {fileID: 51655885}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2055015651
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2055015646}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &2093299963
 GameObject:
   m_ObjectHideFlags: 0
