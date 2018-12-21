@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 567623905}
   - component: {fileID: 567623904}
   - component: {fileID: 567623908}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5194,6 +5194,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1576977917223468, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
   m_IsPrefabParent: 0
@@ -5336,15 +5340,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4287960918444306, guid: 94d4540509b794743bf2914caa287fe3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.022
       objectReference: {fileID: 0}
     - target: {fileID: 4287960918444306, guid: 94d4540509b794743bf2914caa287fe3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.47
+      value: 1.167
       objectReference: {fileID: 0}
     - target: {fileID: 4287960918444306, guid: 94d4540509b794743bf2914caa287fe3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.219
       objectReference: {fileID: 0}
     - target: {fileID: 4287960918444306, guid: 94d4540509b794743bf2914caa287fe3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5373,7 +5377,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1212275046934384, guid: 94d4540509b794743bf2914caa287fe3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54372064732806430, guid: 94d4540509b794743bf2914caa287fe3,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94d4540509b794743bf2914caa287fe3, type: 2}
@@ -5472,6 +5481,10 @@ Prefab:
       propertyPath: spawnPrefab
       value: 
       objectReference: {fileID: 747026583}
+    - target: {fileID: 1811049325825380, guid: 4436fca36c726a84abf9d10bf04d3148, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4436fca36c726a84abf9d10bf04d3148, type: 2}
   m_IsPrefabParent: 0
@@ -5598,6 +5611,10 @@ Prefab:
     - target: {fileID: 4929667199025100, guid: c39543c94f509da43a292c57ba3377f7, type: 2}
       propertyPath: m_RootOrder
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434163779542490, guid: c39543c94f509da43a292c57ba3377f7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c39543c94f509da43a292c57ba3377f7, type: 2}
