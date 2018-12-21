@@ -20,6 +20,8 @@ public class ArrowBase : MonoBehaviour
     public bool isFired { get { return m_IsFired; } }
 
     private ArrowType m_ArrowType = ArrowType.None;
+    public ArrowType arrowType { get { return m_ArrowType; } }
+
 
     bool isPendingDestruction = false;
 
