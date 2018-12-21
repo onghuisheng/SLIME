@@ -5194,9 +5194,100 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 1576977917223468, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 198070860355940798, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198091789071755998, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198091789071755998, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ShapeModule.m_Position.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198091789071755998, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198091789071755998, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.startSize.minScalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: RotationModule.curve.scalar
+      value: 1.5707963
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: -1.5707963
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ShapeModule.angle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ShapeModule.m_Position.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 13107
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 39321
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330678300830154, guid: a89474c6a74035d4fafb8e0cf8817a4c,
+        type: 2}
+      propertyPath: startDelay.scalar
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
