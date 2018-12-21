@@ -1717,6 +1717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114030254663616690
 MonoBehaviour:
@@ -1730,6 +1732,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114103762272392782
 MonoBehaviour:
@@ -1743,6 +1747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114135499746600126
 MonoBehaviour:
@@ -1756,6 +1762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114167957139582656
 MonoBehaviour:
@@ -1769,6 +1777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114181396937541300
 MonoBehaviour:
@@ -1782,6 +1792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114221325271297894
 MonoBehaviour:
@@ -1833,6 +1845,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114453025136226206
 MonoBehaviour:
@@ -1846,6 +1860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114482306745908596
 MonoBehaviour:
@@ -1859,6 +1875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 0
 --- !u!114 &114522520062387460
 MonoBehaviour:
@@ -1883,6 +1901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114579790409202774
 MonoBehaviour:
@@ -1896,6 +1916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114607443552964690
 MonoBehaviour:
@@ -1909,6 +1931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114662701626187466
 MonoBehaviour:
@@ -1939,6 +1963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 3
 --- !u!114 &114735883826186144
 MonoBehaviour:
@@ -1952,6 +1978,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114850719540368902
 MonoBehaviour:
@@ -1965,6 +1993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114918813265122270
 MonoBehaviour:
@@ -1978,6 +2008,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!114 &114965559509293936
 MonoBehaviour:
@@ -1991,6 +2023,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 0
 --- !u!114 &114991622017324640
 MonoBehaviour:
@@ -2004,6 +2038,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
+  m_Agent: {fileID: 195124508750996232}
+  m_Defend: {fileID: 114399467883614332}
   Damage: 1
 --- !u!135 &135017208268348632
 SphereCollider:

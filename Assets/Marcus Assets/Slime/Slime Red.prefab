@@ -290,6 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114750483064498584}
+  m_Agent: {fileID: 195387226824596944}
+  m_Defend: {fileID: 0}
   Damage: 1
 --- !u!114 &114425805639916576
 MonoBehaviour:
