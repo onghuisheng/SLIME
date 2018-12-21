@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: HandL_Anim
+  m_Name: HandR_Anim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsGrabbing
@@ -43,7 +43,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.16666669
   m_HasExitTime: 0
@@ -67,7 +67,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -95,7 +95,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 719ec2f13497dc840b29b71baa850af3, type: 3}
+  m_Motion: {fileID: 7400000, guid: f7a29ff2833929c46b2c8c2596d0b4ad, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 06c5f2054734eeb4ba0131c25676322a, type: 3}
+  m_Motion: {fileID: 7400000, guid: 2f53d3959d21b614fb3c096b42b679ce, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

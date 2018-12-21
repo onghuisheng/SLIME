@@ -20,13 +20,13 @@ public class TransformFollower : MonoBehaviour
     [SerializeField]
     private float m_OffsetTowardsCameraDistance;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (m_Target != null)
         {
             Vector3 newPos = transform.localPosition;
             Vector3 newRot = transform.localRotation.eulerAngles;
-
+            
             if (m_FollowX)
                 newPos.x = m_Target.transform.localPosition.x + m_PositionOffset.x;
             if (m_FollowY)

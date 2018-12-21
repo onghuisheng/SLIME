@@ -2,63 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeltSlot : MonoBehaviour
+public class BeltSlot : StationaryObject
 {
 
     GameObject m_AttachedObject = null;
     public bool isFull { get { return m_AttachedObject != null; } }
 
+
+    public override void OnGrab(MoveController currentController)
+    {
+        base.OnGrab(currentController);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (isFull)
+        MoveController currentController = other.GetComponent<MoveController>();
+
+        if (isFull || currentController == null)
             return;
 
-        GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
-        IStorable storable = other.GetComponent<IStorable>();
+        GameObject currentObject = currentController.GetCurrentHandObject();
+
+        if (currentObject == null)
+            return;
+
+        currentController.DetachCurrentObject(false);
+
+        GrabbableObject grabbable = currentObject.GetComponent<GrabbableObject>();
+        IStorable storable = currentObject.GetComponent<IStorable>();
 
         if (grabbable != null && storable != null)
         {
-            MoveController holder = MoveController.GetControllerThatHolds(other.gameObject);
 
-            if (holder != null)
-            {
-                holder.DetachCurrentObject(false);
-            }
-
-            Debug.Log("Attached");
-
-            if (grabbable.GetComponent<FixedJoint>())
-            {
-                Destroy(grabbable.GetComponent<FixedJoint>());
-            }
+            Debug.Log("Detached");
 
             grabbable.transform.position = transform.position;
             grabbable.transform.rotation = Quaternion.identity;
 
             m_AttachedObject = grabbable.gameObject;
-
             m_AttachedObject.GetComponent<Collider>().isTrigger = true;
 
             // To make the object follow the belt
-            FixedJoint joint = m_AttachedObject.AddComponent<FixedJoint>();
-            joint.connectedBody = GetComponent<Rigidbody>();
-            joint.breakForce = Mathf.Infinity;
-            joint.breakTorque = Mathf.Infinity;
-            joint.enablePreprocessing = false;
-            
+            grabbable.transform.parent = transform;
+            grabbable.GetComponent<Rigidbody>().isKinematic = true;
+            grabbable.GetComponent<Rigidbody>().useGravity = false;
+
+            GetComponent<Collider>().enabled = false;
+
             storable.OnStore(this);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //if (m_AttachedObject != null && m_AttachedObject == other.gameObject)
-        //{
-        //    m_AttachedObject.GetComponent<Collider>().isTrigger = false;
-        //    m_AttachedObject.GetComponent<Rigidbody>().isKinematic = false;
-        //    m_AttachedObject = null;
-        //    Debug.Log("Detached");
-        //}
+        MoveController currentController = other.GetComponent<MoveController>();
+
+        if (currentController == null)
+            return;
+
+        if (currentController.GetCurrentHandObject() == m_AttachedObject)
+        {
+            m_AttachedObject = null;
+
+            GetComponent<Collider>().enabled = true;
+        }
     }
 
 }
