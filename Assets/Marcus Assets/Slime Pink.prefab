@@ -305,7 +305,7 @@ MonoBehaviour:
   m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95218768752296044}
-  m_DeathParticles: {fileID: 1444018838843402, guid: e7ce575a2768c734fbfe4ed01a6299d2,
+  m_DeathParticles: {fileID: 1944689060243302, guid: 484ea43f6735c9742a4fe7fe1af16d3f,
     type: 2}
   toDespawn: 0
 --- !u!114 &114497211619728244
