@@ -2,29 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bonfire : MonoBehaviour, IShootable {
+public class Bonfire : MonoBehaviour, IShootable
+{
 
     [SerializeField]
-    private GameObject flamePrefab;    // flame particle
+    private ParticleSystem m_FlameParticles;    // flame particle
+    
+    [SerializeField, Range(1,100)]
+    private float m_FlamingDuration;
 
     bool isLighted = false;
-
+    
     public void OnShot(ArrowBase arrow)
     {
-        if(arrow.arrowType==ArrowBase.ArrowType.Flame && !isLighted) //if its flame arrow
+        if (arrow.arrowType == ArrowBase.ArrowType.Flame && !isLighted) //if its flame arrow
         {
-            Instantiate(flamePrefab, transform);
-            isLighted = true;
+            ToggleFire(true);
         }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void ToggleFire(bool toggle)
+    {
+        isLighted = toggle;
+
+        if (toggle)
+        {
+            m_FlameParticles.Play(true);
+            GetComponent<Collider>().enabled = false;
+            Invoke("StopFire", m_FlamingDuration);
+        }
+        else
+        {
+            m_FlameParticles.Stop(true);
+            GetComponent<Collider>().enabled = true;
+        }
+    }
+
+    private void StopFire()
+    {
+        ToggleFire(false);
+    }
+
 }
