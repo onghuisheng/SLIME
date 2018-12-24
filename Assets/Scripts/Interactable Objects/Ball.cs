@@ -6,6 +6,10 @@ public class Ball : GrabbableObject, IStorable
 {
     public void OnStore(BeltSlot slot)
     {
-        
     }
+
+    public void OnUnStore(BeltSlot slot)
+    {
+    }
+    
 }

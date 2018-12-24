@@ -6,4 +6,6 @@ public interface IStorable  {
 
     void OnStore(BeltSlot slot);
 
+    void OnUnStore(BeltSlot slot);
+
 }

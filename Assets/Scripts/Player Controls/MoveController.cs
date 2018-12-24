@@ -143,14 +143,16 @@ public class MoveController : MonoBehaviour
                 Rigidbody otherRb = currentObject.GetComponent<Rigidbody>();
                 otherRb.velocity = Vector3.zero;
 
-                if (currentObject.GetComponent<IStorable>() != null)
-                {
-                    otherRb.GetComponent<Collider>().isTrigger = false;
-                    otherRb.transform.parent = null;
-                    otherRb.isKinematic = false;
-                    otherRb.useGravity = true;
-                }
+                BeltSlot belt = null;
 
+                if (currentObject.transform.parent != null)
+                    belt = currentObject.transform.parent.GetComponent<BeltSlot>();
+
+                if (belt != null && currentObject.GetComponent<IStorable>() != null)
+                {
+                    belt.DetachObject();
+                }
+                
                 Rigidbody rb = GetComponent<Rigidbody>();
                 FixedJoint joint;
                 joint = currentObject.GetComponent<FixedJoint>();
