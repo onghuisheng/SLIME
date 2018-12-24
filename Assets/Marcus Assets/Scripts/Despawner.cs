@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Despawner : MonoBehaviour {
 
@@ -13,6 +14,15 @@ public class Despawner : MonoBehaviour {
             
             other.GetComponent<SlimeBase>().toDespawn = true;
             SlimeManager.instance.GetComponent<SlimeManager>().Remove();
+
+            other.GetComponent<SlimeBase>().anim.SetBool("IsDead", true);
+
+            if (other.GetComponent<GolemSlimeDefend>() != null)
+            {
+                other.GetComponent<SlimeBase>().anim.SetBool("IsDefending", false);
+            }
+
+            other.GetComponent<NavMeshAgent>().enabled = false;
         }
     }
 }
