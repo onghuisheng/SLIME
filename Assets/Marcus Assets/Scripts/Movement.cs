@@ -47,4 +47,5 @@ public class Movement : MonoBehaviour
             GetComponent<NavMeshAgent>().SetDestination(transform.position);
 
     }
+    
 }

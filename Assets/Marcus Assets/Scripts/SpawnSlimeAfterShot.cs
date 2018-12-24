@@ -29,42 +29,4 @@ public class SpawnSlimeAfterShot : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag != "PurpleDrop" || other.tag != "BlueDrop")
-            return;
-
-        switch (Color)
-        {
-            case SlimeColor.Blue:
-                {
-                    Instantiate(BlueSlime, transform);
-                    break;
-                }
-
-            case SlimeColor.Red:
-                {
-                    Instantiate(RedSlime, transform);
-                    break;
-                }
-
-            case SlimeColor.Pink:
-                {
-                    Instantiate(PinkSlime, transform);
-                    break;
-                }
-
-            case SlimeColor.Yellow:
-                {
-                    Instantiate(YellowSlime, transform);
-                    break;
-                }
-
-            default:
-                break;
-        }
-
-        Destroy(this);
-    }
 }
