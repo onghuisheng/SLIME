@@ -26,7 +26,7 @@ public class TransformFollower : MonoBehaviour
         {
             Vector3 newPos = transform.localPosition;
             Vector3 newRot = transform.localRotation.eulerAngles;
-            
+
             if (m_FollowX)
                 newPos.x = m_Target.transform.localPosition.x + m_PositionOffset.x;
             if (m_FollowY)
@@ -46,9 +46,13 @@ public class TransformFollower : MonoBehaviour
             if (m_OffsetTowardsCamera)
             {
                 Vector3 dir = Camera.main.transform.forward;
+                float dirLength = dir.magnitude;
                 dir.y = 0;
+                dir.Normalize();
 
-                transform.localPosition -= dir * m_OffsetTowardsCameraDistance;
+                // dir.Normalize();
+
+                transform.localPosition -= dir * (m_OffsetTowardsCameraDistance );
             }
         }
     }

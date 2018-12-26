@@ -364,7 +364,7 @@ public class MoveController : MonoBehaviour
     {
         Vector3 value;
         Tracker.GetTrackedDeviceAngularVelocity(m_HandleNumber, out value);
-        return value;
+        return -value;
     }
 
     public Vector3 GetMoveDelta()

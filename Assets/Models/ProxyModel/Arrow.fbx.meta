@@ -12,7 +12,11 @@ ModelImporter:
     400004: arrowBase_joint
     400006: arrowTip_joint
     2100000: lambert1
+    2100002: StingrayPBS1
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: arrow
+    4300002: weapon_Arrow
     9500000: //RootNode
     13700000: arrow
   externalObjects: {}

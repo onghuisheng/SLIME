@@ -30,7 +30,7 @@ public class BowString : GrabbableObject
 
     private Material m_ArrowDefaultMaterial;
 
-    private SkinnedMeshRenderer m_ArrowMeshRenderer;
+    private MeshRenderer m_ArrowMeshRenderer;
 
 
     private Quaternion m_UpperBowLimb1_DefaultRot, m_UpperBowLimb2_DefaultRot, m_LowerBowLimb1_DefaultRot, m_LowerBowLimb2_DefaultRot;
@@ -43,7 +43,7 @@ public class BowString : GrabbableObject
 
     private void Awake()
     {
-        m_ArrowDefaultMaterial = m_BowArrowPrefab.GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterial;
+        m_ArrowDefaultMaterial = m_BowArrowPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial;
 
         m_DefaultLocalPos = transform.localPosition;
         m_UpperBowLimb1_DefaultRot = m_UpperBowLimb1.localRotation;
@@ -69,7 +69,7 @@ public class BowString : GrabbableObject
         {
             m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
 
-            m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<SkinnedMeshRenderer>();
+            m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<MeshRenderer>();
         }
 
         if (m_SpawnedArrow != null)
