@@ -22,8 +22,11 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (SlimeManager.instance.GetComponent<SlimeManager>().m_SlimeInScene.Count < SlimeManager.instance.GetComponent<SlimeManager>().m_limit)
+        if (SlimeManager.instance.m_SlimeInScene.Count < SlimeManager.instance.m_Waves[SlimeManager.instance.m_CurrentWave] && SlimeManager.instance.m_FinishSpawnWave == false)
             m_Timer += Time.deltaTime;
+
+        else if (SlimeManager.instance.m_SlimeInScene.Count == SlimeManager.instance.m_Waves[SlimeManager.instance.m_CurrentWave] && SlimeManager.instance.m_FinishSpawnWave == false)
+            SlimeManager.instance.m_FinishSpawnWave = true;
 
         if (m_Timer >= m_TimeToSpawn)
         {
@@ -39,7 +42,7 @@ public class Spawner : MonoBehaviour {
             }
 
             Slime.transform.SetParent(m_SlimeHolder.transform);
-            SlimeManager.instance.GetComponent<SlimeManager>().m_SlimeInScene.Add(Slime);
+            SlimeManager.instance.m_SlimeInScene.Add(Slime);
         }
 	}
 }
