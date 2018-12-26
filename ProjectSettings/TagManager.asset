@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PurpleDrop
   - BlueDrop
+  - SlimeProjectile
   layers:
   - Default
   - TransparentFX

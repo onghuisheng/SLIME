@@ -31,6 +31,8 @@ public class DayAndNight : MonoBehaviour {
     Skybox sky;
     UnityEngine.Material skyMat;
 
+    public GameObject NightLight;
+
     // Use this for initialization
     void Start()
     {
@@ -62,10 +64,16 @@ public class DayAndNight : MonoBehaviour {
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);
 
-        if (dot > 0)
+        if (dot > 0) // day
+        {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
-        else
+            NightLight.SetActive(false);
+        }
+        else // night
+        {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
+            NightLight.SetActive(true);
+        }
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
         if (Input.GetKeyDown(KeyCode.Minus)) skyspeed -= 0.5f;
