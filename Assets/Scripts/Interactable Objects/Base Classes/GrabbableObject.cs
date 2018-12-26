@@ -11,6 +11,8 @@ public class GrabbableObject : MonoBehaviour, IGrabbable, IInteractable
 
     public virtual bool hideControllerOnGrab { get { return false; } }
 
+    public virtual bool centerMeshOnGrab { get { return false; } }
+
     public virtual void OnControllerEnter(MoveController currentController) { }
 
     public virtual void OnControllerExit(MoveController currentController)
@@ -25,6 +27,23 @@ public class GrabbableObject : MonoBehaviour, IGrabbable, IInteractable
         transform.position = currentController.transform.position;
         transform.rotation = currentController.transform.localRotation;
         transform.GetComponent<Collider>().enabled = false;
+
+        if (centerMeshOnGrab)
+        {
+            Renderer renderer = GetComponent<Renderer>();
+
+            if (renderer != null)
+            {
+                transform.position += (currentController.transform.position - renderer.bounds.center);
+            }
+            else
+            {
+                renderer = GetComponentInChildren<Renderer>();
+
+                if (renderer != null)
+                    transform.position += (currentController.transform.position - renderer.bounds.center);
+            }
+        }
     }
 
     public virtual void OnGrabStay(MoveController currentController) { }

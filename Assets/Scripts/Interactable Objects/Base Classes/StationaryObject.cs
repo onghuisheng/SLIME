@@ -12,6 +12,8 @@ public abstract class StationaryObject : MonoBehaviour, IInteractable, IStationa
 
     public virtual bool hideControllerOnGrab { get { return false; } }
 
+    public virtual bool centerMeshOnGrab { get { return false; } }
+
     public virtual void OnControllerEnter(MoveController currentController) { }
 
     public virtual void OnControllerExit(MoveController currentController) { }

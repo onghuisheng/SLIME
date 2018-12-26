@@ -28,8 +28,12 @@ public class BeltSlot : MonoBehaviour
         GrabbableObject grabbable = currentObject.GetComponent<GrabbableObject>();
         IStorable storable = currentObject.GetComponent<IStorable>();
         
-        if (grabbable != null && storable != null)
+        if (grabbable != null && storable != null )
         {
+            // Check if the storable is already stored in another belt
+            if (grabbable.transform.parent != null && grabbable.transform.parent.GetComponent<BeltSlot>() != null)
+                return;                
+
             currentController.DetachCurrentObject(false);
 
             grabbable.transform.position = transform.position;
@@ -38,7 +42,7 @@ public class BeltSlot : MonoBehaviour
             m_AttachedObject = grabbable.gameObject;
             m_AttachedObject.GetComponent<Collider>().isTrigger = true;
             m_AttachedObjectPreviousScale = grabbable.transform.localScale;
-
+            
             // To make the object follow the belt
             grabbable.transform.parent = transform;
             grabbable.GetComponent<Rigidbody>().isKinematic = true;
@@ -61,7 +65,7 @@ public class BeltSlot : MonoBehaviour
         rb.transform.parent = null;
         rb.isKinematic = false;
         rb.useGravity = true;
-        // rb.transform.localScale = m_AttachedObjectPreviousScale;
+        rb.transform.localScale = m_AttachedObjectPreviousScale;
 
         m_AttachedObject.GetComponent<IStorable>().OnUnStore(this);
         m_AttachedObject = null;

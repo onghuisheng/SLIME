@@ -248,15 +248,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: RemoveFromScene
+      - time: 0.50088954
+        functionName: RemoveSlimeBody
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.62426615
-        functionName: RemoveSlimeBody
+      - time: 1
+        functionName: RemoveFromScene
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
