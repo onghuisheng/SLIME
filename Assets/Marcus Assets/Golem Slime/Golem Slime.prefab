@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 95361519808363786}
   - component: {fileID: 114522520062387460}
   - component: {fileID: 114245373465582730}
+  - component: {fileID: 114393413060739808}
   m_Layer: 0
   m_Name: enemy_GolemSlime
   m_TagString: Untagged
@@ -1537,7 +1538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402683172834022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -16.14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167579399374012}
@@ -1821,6 +1822,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
   Slime: {fileID: 1402683172834022}
+--- !u!114 &114393413060739808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1152430828408404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab41f3afafb7674893d16d7f5767d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeParticles: {fileID: 1642924499520510, guid: 41656871376be0146be925037e9c1b6f,
+    type: 2}
+  SlimeBody: {fileID: 1539618543909262}
 --- !u!114 &114399467883614332
 MonoBehaviour:
   m_ObjectHideFlags: 1
