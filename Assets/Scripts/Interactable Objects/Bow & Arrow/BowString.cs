@@ -162,21 +162,25 @@ public class BowString : GrabbableObject
     private void BendBow()
     {
         float bendAngle = GetHorizontalDrawDistance() * 25;
+
+        if (bendAngle <= 0)
+            return;
+
         bendAngle = Mathf.Clamp(bendAngle, 0, 20);
 
         m_UpperBowLimb1.localRotation = m_UpperBowLimb1_DefaultRot;
-        m_UpperBowLimb1.Rotate(0, 0, bendAngle, Space.Self);
+        m_UpperBowLimb1.Rotate(-bendAngle, 0, 0, Space.Self);
         m_UpperBowLimb2.localRotation = m_UpperBowLimb2_DefaultRot;
-        m_UpperBowLimb2.Rotate(0, 0, bendAngle / 2, Space.Self);
+        m_UpperBowLimb2.Rotate(-bendAngle / 2, 0, 0, Space.Self);
         m_LowerBowLimb1.localRotation = m_LowerBowLimb1_DefaultRot;
-        m_LowerBowLimb1.Rotate(0, 0, -bendAngle, Space.Self);
+        m_LowerBowLimb1.Rotate(bendAngle, 0, 0, Space.Self);
         m_LowerBowLimb2.localRotation = m_LowerBowLimb2_DefaultRot;
-        m_LowerBowLimb2.Rotate(0, 0, -bendAngle / 2, Space.Self);
+        m_LowerBowLimb2.Rotate(bendAngle / 2, 0, 0, Space.Self);
     }
 
     private float GetHorizontalDrawDistance()
     {
-        return Mathf.Abs(transform.localPosition.x);
+        return transform.localPosition.y;
     }
 
     private bool IsBowStringFirable()

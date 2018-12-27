@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ball : GrabbableObject, IStorable
 {
-    public override bool centerMeshOnGrab { get { return true; } }
 
     public void OnStore(BeltSlot slot)
     {

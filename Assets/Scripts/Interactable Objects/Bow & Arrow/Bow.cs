@@ -11,6 +11,10 @@ public class Bow : GrabbableObject
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
+
+        transform.position = currentController.transform.position;
+        transform.rotation = currentController.transform.localRotation;
+
         m_BowDrawString.GetComponent<Collider>().enabled = true; // Enable draw string to be grabbable only if the player is holding the bow
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = false;

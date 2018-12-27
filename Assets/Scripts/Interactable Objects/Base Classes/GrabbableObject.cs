@@ -24,8 +24,8 @@ public class GrabbableObject : MonoBehaviour, IGrabbable, IInteractable
 
     public virtual void OnGrab(MoveController currentController)
     {
-        transform.position = currentController.transform.position;
-        transform.rotation = currentController.transform.localRotation;
+    //    transform.position = currentController.transform.position;
+    //    transform.rotation = currentController.transform.localRotation;
         transform.GetComponent<Collider>().enabled = false;
 
         if (centerMeshOnGrab)
