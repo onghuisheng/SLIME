@@ -77,5 +77,8 @@ public class DayAndNight : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
         if (Input.GetKeyDown(KeyCode.Minus)) skyspeed -= 0.5f;
+
+
+        //Debug.Log("DOT: " + dot);
     }
 }

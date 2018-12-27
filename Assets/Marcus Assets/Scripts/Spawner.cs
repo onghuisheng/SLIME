@@ -22,10 +22,10 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (SlimeManager.instance.m_SlimeInScene.Count < SlimeManager.instance.m_Waves[SlimeManager.instance.m_CurrentWave] && SlimeManager.instance.m_FinishSpawnWave == false)
+        if (SlimeManager.instance.m_SlimeInWave.Count < SlimeManager.instance.m_Waves[SlimeManager.instance.m_CurrentWave] && SlimeManager.instance.m_FinishSpawnWave == false)
             m_Timer += Time.deltaTime;
 
-        else if (SlimeManager.instance.m_SlimeInScene.Count == SlimeManager.instance.m_Waves[SlimeManager.instance.m_CurrentWave] && SlimeManager.instance.m_FinishSpawnWave == false)
+        else if (SlimeManager.instance.m_SlimeInWave.Count == SlimeManager.instance.m_Waves[SlimeManager.instance.m_CurrentWave] && SlimeManager.instance.m_FinishSpawnWave == false)
             SlimeManager.instance.m_FinishSpawnWave = true;
 
         if (m_Timer >= m_TimeToSpawn)
@@ -33,16 +33,26 @@ public class Spawner : MonoBehaviour {
             //Debug.Log(System.DateTime.Now.Millisecond);
             Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
             m_RandomSlime = Random.Range(0, m_SpawnObjectList.Count);
-            GameObject Slime = Instantiate(m_SpawnObjectList[m_RandomSlime], this.transform.position, this.transform.rotation);
-            m_Timer = 0.0f;
 
-            foreach (Transform Node in m_PathHolder.transform)
+            if (m_RandomSlime == 4 && SlimeManager.instance.m_CurrentWave == 0)
             {
-                Slime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
-            }
 
-            Slime.transform.SetParent(m_SlimeHolder.transform);
-            SlimeManager.instance.m_SlimeInScene.Add(Slime);
+            }
+            else
+            {
+                GameObject Slime = Instantiate(m_SpawnObjectList[m_RandomSlime], this.transform.position, this.transform.rotation);
+
+                m_Timer = 0.0f;
+
+                foreach (Transform Node in m_PathHolder.transform)
+                {
+                    Slime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
+                }
+
+                Slime.transform.SetParent(m_SlimeHolder.transform);
+                SlimeManager.instance.m_SlimeInScene.Add(Slime);
+                SlimeManager.instance.m_SlimeInWave.Add(Slime);
+            }
         }
 	}
 }

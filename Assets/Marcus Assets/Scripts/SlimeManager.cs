@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class SlimeManager : MonoBehaviour {
 
     public List<GameObject> m_SlimeInScene;
+    public List<GameObject> m_SlimeInWave;
     public int m_limit;
 
     public static SlimeManager instance = null;
@@ -40,12 +41,15 @@ public class SlimeManager : MonoBehaviour {
             }
         }
 
-        if(m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true)
+        if(m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_Waves[m_CurrentWave])
         {
             if (m_CurrentWave < m_Waves.Count - 1)
+            {
                 m_CurrentWave++;
 
-            m_FinishSpawnWave = false;
+                m_SlimeInWave.Clear();
+                m_FinishSpawnWave = false;
+            }
         }
     }
 }

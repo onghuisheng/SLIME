@@ -16,7 +16,9 @@ public class CatapultSlimeAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        m_Time += Time.deltaTime;
+
+        if(SlimeManager.instance.m_CurrentWave > 1)
+            m_Time += Time.deltaTime;
 
         if(m_Time > m_DesiredTime)
         {
