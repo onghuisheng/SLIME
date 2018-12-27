@@ -21,7 +21,7 @@ public class GolemSlimeDefend : MonoBehaviour {
             m_Timer += Time.deltaTime;
         }
 
-        if(m_Timer > 3.0f)
+        if(m_Timer > 5.0f)
         {
             anim.SetBool("IsDefending", false);
             m_Timer = 0.0f;
