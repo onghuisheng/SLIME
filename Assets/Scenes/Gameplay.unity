@@ -9158,6 +9158,8 @@ MonoBehaviour:
   m_BowArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArrowFacingPoint: {fileID: 1497163345}
+  m_SpawningParticles: {fileID: 1507111110624256, guid: 0e63936b06151fd4da3fb3a6e23b3aec,
+    type: 2}
   m_UpperBowLimb1: {fileID: 1228190964}
   m_UpperBowLimb2: {fileID: 1228190963}
   m_LowerBowLimb1: {fileID: 1228190967}
