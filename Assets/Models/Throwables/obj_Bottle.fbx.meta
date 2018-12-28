@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b7f1530c794c0c448e77e3cc5b2f5f9
+guid: dfbbb0f4157046d43841d7bb45c0908f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -8,8 +8,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Bottle
-    4300002: env_Bottle
+    4300000: env_Bottle
   externalObjects: {}
   materials:
     importMaterials: 1

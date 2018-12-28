@@ -4,12 +4,23 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: env_Dynamite
+    100004: obj_Dynamite_01
+    100006: pCube14
+    100008: transform28
     400000: //RootNode
+    400002: env_Dynamite
+    400004: obj_Dynamite_01
+    400006: pCube14
+    400008: transform28
     2100000: Red
-    2100002: lambert27
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Dynamite
+    2100002: lambert1
+    2300000: obj_Dynamite_01
+    2300002: pCube14
+    3300000: obj_Dynamite_01
+    3300002: pCube14
+    4300000: obj_Dynamite_01
+    4300002: pCube14
   externalObjects: {}
   materials:
     importMaterials: 1
