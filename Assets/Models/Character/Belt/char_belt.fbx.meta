@@ -1,16 +1,21 @@
 fileFormatVersion: 2
-guid: 3b7f1530c794c0c448e77e3cc5b2f5f9
+guid: e8010947a183a914f9c671c716ce3add
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: StingrayPBS4
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Bottle
-    4300002: env_Bottle
-  externalObjects: {}
+    4300000: char_Belt
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS4
+    second: {fileID: 2100000, guid: bfaa59954e77e01479ba75a1830fd51f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

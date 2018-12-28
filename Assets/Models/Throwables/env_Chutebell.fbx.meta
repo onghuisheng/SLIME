@@ -1,14 +1,23 @@
 fileFormatVersion: 2
-guid: e8010947a183a914f9c671c716ce3add
+guid: 42a9b91681d4a7e4b82bb0c98fc1cdcf
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: char_Belt
+    100000: bell_Handle_Joint
+    100002: bell_Joint
+    100004: bell_String_Joint
+    100006: //RootNode
+    100008: env_ChuteBell1
+    400000: bell_Handle_Joint
+    400002: bell_Joint
+    400004: bell_String_Joint
+    400006: //RootNode
+    400008: env_ChuteBell1
+    2100000: yellow
+    2100002: Wood01
+    4300000: env_ChuteBell1
+    9500000: //RootNode
+    13700000: env_ChuteBell1
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -84,7 +93,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
