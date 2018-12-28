@@ -7,21 +7,27 @@ public class SlimeManager : MonoBehaviour {
 
     public List<GameObject> m_SlimeInScene;
     public List<GameObject> m_SlimeInWave;
-    public int m_limit;
+    public List<GameObject> m_GolemSlimeInWave;
+    //public int m_limit;
 
     public static SlimeManager instance = null;
 
-    public List<int> m_Waves;
-    
+    public List<int> m_SlimeWaves;
+    public List<int> m_GolemSlimeWaves;
+
     //[HideInInspector]
     public int m_CurrentWave;
 
     [HideInInspector]
     public bool m_FinishSpawnWave;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject m_DayAndNight;
+
+    // Use this for initialization
+    void Start () {
         m_SlimeInScene = new List<GameObject>();
+        m_SlimeInWave = new List<GameObject>();
+        m_GolemSlimeInWave = new List<GameObject>();
 
         if (instance == null)
             instance = GetComponent<SlimeManager>();
@@ -41,13 +47,15 @@ public class SlimeManager : MonoBehaviour {
             }
         }
 
-        if(m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_Waves[m_CurrentWave])
+        if(m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_SlimeWaves[m_CurrentWave] && m_GolemSlimeInWave.Count == m_GolemSlimeWaves[m_CurrentWave])
         {
-            if (m_CurrentWave < m_Waves.Count - 1)
+            if (m_CurrentWave < m_SlimeWaves.Count - 1 && m_DayAndNight.GetComponent<DayAndNight>().dot > 0)
             {
-                m_CurrentWave++;
+                if(m_CurrentWave < 1)
+                    m_CurrentWave++;
 
                 m_SlimeInWave.Clear();
+                m_GolemSlimeInWave.Clear();
                 m_FinishSpawnWave = false;
             }
         }

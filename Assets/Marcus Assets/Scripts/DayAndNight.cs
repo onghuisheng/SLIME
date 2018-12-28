@@ -33,6 +33,13 @@ public class DayAndNight : MonoBehaviour {
 
     public GameObject NightLight;
 
+    [HideInInspector]
+    public float tRange;
+    //[HideInInspector]
+    public float dot;
+    [HideInInspector]
+    public float i;
+
     // Use this for initialization
     void Start()
     {
@@ -43,9 +50,9 @@ public class DayAndNight : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float tRange = 1 - minPoint;
-        float dot = Mathf.Clamp01((Vector3.Dot(mainLight.transform.forward, Vector3.down) - minPoint) / tRange);
-        float i = ((maxIntensity - minIntensity) * dot) + minIntensity;
+        tRange = 1 - minPoint;
+        dot = Mathf.Clamp01((Vector3.Dot(mainLight.transform.forward, Vector3.down) - minPoint) / tRange);
+        i = ((maxIntensity - minIntensity) * dot) + minIntensity;
 
         mainLight.intensity = i;
 
