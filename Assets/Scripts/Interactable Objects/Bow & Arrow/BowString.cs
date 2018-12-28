@@ -21,6 +21,9 @@ public class BowString : GrabbableObject
 
     private ArrowBase m_SpawnedArrow = null;
 
+    //You can change to make it better :,DDD 
+    public GameObject m_SpawningParticles;
+
     #region Bow Aesthetic Stuff
     [SerializeField]
     private Transform m_UpperBowLimb1, m_UpperBowLimb2, m_LowerBowLimb1, m_LowerBowLimb2;
@@ -67,9 +70,15 @@ public class BowString : GrabbableObject
 
         if (m_SpawnedArrow == null && m_CurrentDrawDistance.magnitude > 0.1f)
         {
+            // create temp game obj & play spawning particles
+            GameObject temp = Instantiate(m_SpawningParticles);
+
             m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
 
             m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<MeshRenderer>();
+
+            //Destroy temp game obj, along with its particles :> (after 3 seconds)
+            Destroy(temp, 3);
         }
 
         if (m_SpawnedArrow != null)
