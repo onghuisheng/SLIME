@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TransformFollower : MonoBehaviour
 {
@@ -15,10 +16,10 @@ public class TransformFollower : MonoBehaviour
     private Vector3 m_PositionOffset, m_LocalRotationOffset;
 
     [SerializeField]
-    private bool m_OffsetTowardsCamera;
+    private bool m_LookAtTarget;
 
     [SerializeField]
-    private float m_OffsetTowardsCameraDistance;
+    private Vector3 m_LookAtForward;
 
     MoveController m_Controller1;
 
@@ -49,6 +50,12 @@ public class TransformFollower : MonoBehaviour
 
             transform.position = newPos;
             transform.localRotation = Quaternion.Euler(newRot);
+
+            if (m_LookAtTarget)
+            {
+                transform.LookAt(m_Target);
+                transform.Rotate(-90, 0, 0);
+            }
 
             if (m_Controller1)
             {

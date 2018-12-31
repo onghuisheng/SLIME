@@ -8,16 +8,26 @@ ModelImporter:
     100004: bell_String_Joint
     100006: //RootNode
     100008: env_ChuteBell1
+    100010: bell
+    100012: env_ChuteBell
+    100014: String
     400000: bell_Handle_Joint
     400002: bell_Joint
     400004: bell_String_Joint
     400006: //RootNode
     400008: env_ChuteBell1
+    400010: bell
+    400012: env_ChuteBell
+    400014: String
     2100000: yellow
     2100002: Wood01
     4300000: env_ChuteBell1
+    4300002: bell
+    4300004: String
     9500000: //RootNode
     13700000: env_ChuteBell1
+    13700002: bell
+    13700004: String
   externalObjects: {}
   materials:
     importMaterials: 1
