@@ -80,6 +80,15 @@ public class DayAndNight : MonoBehaviour {
         {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
             NightLight.SetActive(true);
+
+            if(SlimeManager.instance.m_CurrentWave == 1)
+            {
+                SlimeManager.instance.m_SlimeInWave.Clear();
+                SlimeManager.instance.m_GolemSlimeInWave.Clear();
+                SlimeManager.instance.m_FinishSpawnWave = false;
+            }
+
+            SlimeManager.instance.m_CurrentWave = 2;
         }
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;

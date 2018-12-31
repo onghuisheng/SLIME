@@ -193,11 +193,11 @@ MonoBehaviour:
     key5: {r: 1, g: 1, b: 1, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 2120
-    ctime1: 10794
-    ctime2: 18311
-    ctime3: 27756
-    ctime4: 25250
+    ctime0: 8867
+    ctime1: 18697
+    ctime2: 25829
+    ctime3: 35466
+    ctime4: 35466
     ctime5: 27371
     ctime6: 0
     ctime7: 0
@@ -274,9 +274,9 @@ MonoBehaviour:
   fogScale: 1
   dayAtmosphereThickness: 1.2
   nightAtmosphereThickness: 1.4
-  dayRotateSpeed: {x: 1, y: 0, z: 0}
-  nightRotateSpeed: {x: 1, y: 0, z: 0}
-  skyspeed: 2
+  dayRotateSpeed: {x: 0.7, y: 0, z: 0}
+  nightRotateSpeed: {x: 0.7, y: 0, z: 0}
+  skyspeed: 1
   NightLight: {fileID: 1968699554767356}
   tRange: 0
   dot: 0

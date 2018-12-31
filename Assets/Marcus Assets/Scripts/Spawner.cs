@@ -15,22 +15,21 @@ public class Spawner : MonoBehaviour {
     public int m_RandomSlime;
     
     public GameObject m_SlimeHolder;
-
-    public GameObject m_DayAndNight;
-
+    
 	// Use this for initialization
 	void Start () {
         m_Timer = 0.0f;
-	}
+        Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (SlimeManager.instance.m_FinishSpawnWave == false
-            && !(m_DayAndNight.GetComponent<DayAndNight>().dot > 0.0f && m_DayAndNight.GetComponent<DayAndNight>().dot < 0.5f))
+        if (SlimeManager.instance.m_FinishSpawnWave == false)
             m_Timer += Time.deltaTime;
 
-        else if (SlimeManager.instance.m_SlimeInWave.Count == SlimeManager.instance.m_SlimeWaves[SlimeManager.instance.m_CurrentWave]
+        if (SlimeManager.instance.m_SlimeInWave.Count == SlimeManager.instance.m_SlimeWaves[SlimeManager.instance.m_CurrentWave]
             && SlimeManager.instance.m_GolemSlimeInWave.Count == SlimeManager.instance.m_GolemSlimeWaves[SlimeManager.instance.m_CurrentWave]
             && SlimeManager.instance.m_FinishSpawnWave == false)
             SlimeManager.instance.m_FinishSpawnWave = true;
@@ -38,7 +37,6 @@ public class Spawner : MonoBehaviour {
         if (m_Timer >= m_TimeToSpawn)
         {
             //Debug.Log(System.DateTime.Now.Millisecond);
-            Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
             int GolemOrNot = Random.Range(0, 1); // random to decide spawn golem or normal slime
 
             // if golem already spawn then auto set to normal
@@ -60,7 +58,7 @@ public class Spawner : MonoBehaviour {
                 if (SlimeManager.instance.m_SlimeInWave.Count < SlimeManager.instance.m_SlimeWaves[SlimeManager.instance.m_CurrentWave])
                 {
                     //Debug.Log(System.DateTime.Now.Millisecond);
-                    Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
+                    //Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
                     m_RandomSlime = Random.Range(0, m_SpawnObjectList.Count);
                     GameObject Slime = Instantiate(m_SpawnObjectList[m_RandomSlime], this.transform.position, this.transform.rotation);
                     foreach (Transform Node in m_PathHolder.transform)

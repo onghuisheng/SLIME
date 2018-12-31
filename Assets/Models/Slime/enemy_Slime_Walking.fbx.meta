@@ -35,6 +35,7 @@ ModelImporter:
     400028: head_joint
     2100000: phongE1
     2100002: StingrayPBS1
+    2100004: lambert1
     2300000: slime_Pink
     2300002: slime_Purple
     2300004: slime_Red
