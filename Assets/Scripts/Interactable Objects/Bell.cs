@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Ding ding
-public class Bell : StationaryObject
+public class Bell : GrabbableObject
 {
 
     [SerializeField, Header("Random items that might fall from ringing the bell")]
@@ -15,7 +15,7 @@ public class Bell : StationaryObject
     [SerializeField]
     private Transform m_ItemDropPosition;
 
-    private Vector3 m_DefaultLocalPos;
+    private Vector3 m_DefaultLocalPos, m_InitialOffset;
 
     private float m_NextSpawnTime = 0;
 
@@ -28,7 +28,14 @@ public class Bell : StationaryObject
     {
         base.OnGrab(currentController);
 
+        m_InitialOffset = currentController.transform.position - transform.position;
+    }
 
+    public override void OnGrabStay(MoveController currentController)
+    {
+        base.OnGrabStay(currentController);
+
+        transform.position = currentController.transform.position - m_InitialOffset;
     }
 
     private void Update()
