@@ -19,7 +19,7 @@ public class TransformFollower : MonoBehaviour
     private bool m_LookAtTarget;
 
     [SerializeField]
-    private Vector3 m_LookAtForward;
+    private Vector3 m_LookAtRotationOffset;
 
     MoveController m_Controller1;
 
@@ -54,7 +54,7 @@ public class TransformFollower : MonoBehaviour
             if (m_LookAtTarget)
             {
                 transform.LookAt(m_Target);
-                transform.Rotate(-90, 0, 0);
+                transform.Rotate(m_LookAtRotationOffset);
             }
 
             if (m_Controller1)

@@ -68,7 +68,7 @@ public class BowString : GrabbableObject
         m_IsGrabbing = true;
         BendBow();
 
-        if (m_SpawnedArrow == null && m_CurrentDrawDistance.magnitude > 0.1f)
+        if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.25f)
         {
             // create temp game obj & play spawning particles
             GameObject temp = Instantiate(m_SpawningParticles);

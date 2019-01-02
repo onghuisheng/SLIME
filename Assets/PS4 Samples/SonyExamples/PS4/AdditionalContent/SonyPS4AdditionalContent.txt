@@ -1,7 +1,0 @@
-Demonstrates how to create DRM additional content packages containing asset bundles and other data which can be downloaded from the Playstation Store to add content to an application.
-
-This example comprises two components.
-
-An editor script, "Assets\Editor\ExportPS4DRMPackages.cs", which adds menu items for creating the DRM packages and installing them directly onto a PS4 for testing with.
-
-An example scene and script which demonstrates how to check for and enumerate any installed additional content in an application.

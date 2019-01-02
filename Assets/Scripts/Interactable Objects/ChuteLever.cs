@@ -46,7 +46,8 @@ public class ChuteLever : StationaryObject
     {
         base.OnGrabReleased(currentController);
         StopAllCoroutines();
-        StartCoroutine(CloseChute(m_ChuteCloseTime));
+        // Uncomment to drop chute down
+        // StartCoroutine(CloseChute(m_ChuteCloseTime));
     }
 
     private IEnumerator CloseChute(float delay)
