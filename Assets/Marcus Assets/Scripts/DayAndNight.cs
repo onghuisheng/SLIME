@@ -40,6 +40,10 @@ public class DayAndNight : MonoBehaviour {
     [HideInInspector]
     public float i;
 
+    public ParticleSystem DayParticles;
+    public ParticleSystem NightParticles;
+
+
     // Use this for initialization
     void Start()
     {
@@ -75,6 +79,10 @@ public class DayAndNight : MonoBehaviour {
         {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
             NightLight.SetActive(false);
+
+            DayParticles.Play(true);
+            NightParticles.Play(false);
+
         }
         else // night
         {
@@ -89,6 +97,10 @@ public class DayAndNight : MonoBehaviour {
             }
 
             SlimeManager.instance.m_CurrentWave = 2;
+
+            DayParticles.Play(false);
+            NightParticles.Play(true);
+
         }
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
