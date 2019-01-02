@@ -80,7 +80,7 @@ public class MoveController : MonoBehaviour
             PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 0, 0, 255);
         }
         else
-            PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 255, 0, 0);
+            PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 0, 255, 0);
 
         Tracker.RegisterTrackedDevice(PlayStationVRTrackedDevice.DeviceMove, handleNumber, PlayStationVRTrackingType.Absolute, PlayStationVRTrackerUsage.OptimizedForHmdUser);
 
@@ -152,7 +152,7 @@ public class MoveController : MonoBehaviour
                 {
                     belt.DetachObject();
                 }
-                
+
                 Rigidbody rb = GetComponent<Rigidbody>();
                 FixedJoint joint;
                 joint = currentObject.GetComponent<FixedJoint>();
@@ -278,7 +278,9 @@ public class MoveController : MonoBehaviour
                 AssignObjectToHand(m_Orientation, null);
 
                 if (currentObject.GetComponent<FixedJoint>() != null)
+                {
                     Destroy(currentObject.GetComponent<FixedJoint>());
+                }
 
                 if (currentObject.GetComponent<IStationaryGrabbable>() == null && transferVelocity)
                 {
