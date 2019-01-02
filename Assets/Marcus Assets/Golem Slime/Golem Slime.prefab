@@ -1920,6 +1920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95104552516828176}
+  m_AttackTime: 0
 --- !u!114 &114755278641448760
 MonoBehaviour:
   m_ObjectHideFlags: 1

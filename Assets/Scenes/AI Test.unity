@@ -5009,13 +5009,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 151746201}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.11, y: -3.315, z: -21.64}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
+  m_LocalPosition: {x: -3.46, y: -3.315, z: -21.79}
   m_LocalScale: {x: 0.37034267, y: 0.37034294, z: 0.37034294}
   m_Children: []
   m_Father: {fileID: 161886206}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &151746203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5311,7 +5311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &211597194
 Transform:
   m_ObjectHideFlags: 0
@@ -5340,7 +5340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &217910802
 Transform:
   m_ObjectHideFlags: 0
@@ -7213,13 +7213,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 555674781}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -3.181, z: -20.208}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
+  m_LocalPosition: {x: -4.3899994, y: -3.181, z: -22.99}
   m_LocalScale: {x: 0.5043059, y: 0.5043059, z: 0.5043059}
   m_Children: []
   m_Father: {fileID: 217910802}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &555674783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7249,7 +7249,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 555674781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7444,7 +7444,7 @@ MonoBehaviour:
   - {fileID: 1972550604671240, guid: 89d326d1b0384a94dbf76ee6532522ae, type: 2}
   - {fileID: 1583349739826410, guid: 32ea9cba4479d3b459dcf6603ed85397, type: 2}
   GolemSlime: {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
-  m_PathHolder: {fileID: 161886205}
+  m_PathHolder: {fileID: 211597193}
   m_Timer: 0
   m_TimeToSpawn: 5
   m_RandomSlime: 0
@@ -7721,13 +7721,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800078849}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -3.181, z: -20.208}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
+  m_LocalPosition: {x: -2.42, y: -3.181, z: -20.81}
   m_LocalScale: {x: 0.5043059, y: 0.5043059, z: 0.5043059}
   m_Children: []
   m_Father: {fileID: 211597194}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!114 &800078851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7757,7 +7757,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800078849}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8280,16 +8280,6 @@ Transform:
   m_Father: {fileID: 1649927204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1196195384 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95104552516828176, guid: bbc8a09da8962b148a72a22c7a4af86c,
-    type: 2}
-  m_PrefabInternal: {fileID: 2040389146}
---- !u!1 &1199163616 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c,
-    type: 2}
-  m_PrefabInternal: {fileID: 2040389146}
 --- !u!1 &1212484913
 GameObject:
   m_ObjectHideFlags: 0
@@ -13877,7 +13867,7 @@ MonoBehaviour:
   - {fileID: 1972550604671240, guid: 89d326d1b0384a94dbf76ee6532522ae, type: 2}
   - {fileID: 1583349739826410, guid: 32ea9cba4479d3b459dcf6603ed85397, type: 2}
   GolemSlime: {fileID: 0}
-  m_PathHolder: {fileID: 161886205}
+  m_PathHolder: {fileID: 217910801}
   m_Timer: 0
   m_TimeToSpawn: 5
   m_RandomSlime: 0
@@ -14879,16 +14869,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 114752315761393220, guid: bbc8a09da8962b148a72a22c7a4af86c,
-        type: 2}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1196195384}
-    - target: {fileID: 114808969443626600, guid: bbc8a09da8962b148a72a22c7a4af86c,
-        type: 2}
-      propertyPath: SlimeBody
-      value: 
-      objectReference: {fileID: 1199163616}
     - target: {fileID: 1402683172834022, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
       propertyPath: m_IsActive
       value: 0
