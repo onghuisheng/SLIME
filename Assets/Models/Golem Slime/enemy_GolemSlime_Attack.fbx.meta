@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: e5e2ab29aead5de4a9d7380e2baea913
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ankle_L_joint
+    100002: ankle_R_joint
+    100004: body_joint
+    100006: elbow_L_joint
+    100008: elbow_R_joint
+    100010: //RootNode
+    100012: face_joint
+    100014: feet_L_joint
+    100016: feet_R_joint
+    100018: GolemSlime
+    100020: golemSlime_Body2
+    100022: golemSlime_Face
+    100024: golemSlime_Leg_L
+    100026: golemSlime_Leg_R
+    100028: golemSlime_Rock01
+    100030: golemSlime_Rock010
+    100032: golemSlime_Rock011
+    100034: golemSlime_Rock012
+    100036: golemSlime_Rock02
+    100038: golemSlime_Rock03
+    100040: golemSlime_Rock04
+    100042: golemSlime_Rock05
+    100044: golemSlime_Rock06
+    100046: golemSlime_Rock07
+    100048: golemSlime_Rock08
+    100050: golemSlime_Rock09
+    100052: golemSlime_Shield_L
+    100054: golemSlime_Shield_R
+    100056: golemSlime_Shoulder_L
+    100058: golemSlime_Shoulder_R
+    100060: hand_L_joint
+    100062: hand_R_joint
+    100064: handTip_L_joint
+    100066: handTip_R_joint
+    100068: head_joint
+    100070: leg_L_joint
+    100072: leg_R_joint
+    100074: pelvis_joint
+    100076: rock01_L
+    100078: rock01_R
+    100080: rock02_L
+    100082: rock02_R
+    100084: rock03_L
+    100086: rock03_R
+    100088: rock04_L
+    100090: rock04_R
+    100092: shoulder_L_joint
+    100094: shoulder_R_joint
+    100096: waist_joint
+    400000: ankle_L_joint
+    400002: ankle_R_joint
+    400004: body_joint
+    400006: elbow_L_joint
+    400008: elbow_R_joint
+    400010: //RootNode
+    400012: face_joint
+    400014: feet_L_joint
+    400016: feet_R_joint
+    400018: GolemSlime
+    400020: golemSlime_Body2
+    400022: golemSlime_Face
+    400024: golemSlime_Leg_L
+    400026: golemSlime_Leg_R
+    400028: golemSlime_Rock01
+    400030: golemSlime_Rock010
+    400032: golemSlime_Rock011
+    400034: golemSlime_Rock012
+    400036: golemSlime_Rock02
+    400038: golemSlime_Rock03
+    400040: golemSlime_Rock04
+    400042: golemSlime_Rock05
+    400044: golemSlime_Rock06
+    400046: golemSlime_Rock07
+    400048: golemSlime_Rock08
+    400050: golemSlime_Rock09
+    400052: golemSlime_Shield_L
+    400054: golemSlime_Shield_R
+    400056: golemSlime_Shoulder_L
+    400058: golemSlime_Shoulder_R
+    400060: hand_L_joint
+    400062: hand_R_joint
+    400064: handTip_L_joint
+    400066: handTip_R_joint
+    400068: head_joint
+    400070: leg_L_joint
+    400072: leg_R_joint
+    400074: pelvis_joint
+    400076: rock01_L
+    400078: rock01_R
+    400080: rock02_L
+    400082: rock02_R
+    400084: rock03_L
+    400086: rock03_R
+    400088: rock04_L
+    400090: rock04_R
+    400092: shoulder_L_joint
+    400094: shoulder_R_joint
+    400096: waist_joint
+    2100000: lambert1
+    4300000: golemSlime_Rock01
+    4300002: golemSlime_Rock02
+    4300004: golemSlime_Rock03
+    4300006: golemSlime_Rock04
+    4300008: golemSlime_Rock05
+    4300010: golemSlime_Rock06
+    4300012: golemSlime_Rock07
+    4300014: golemSlime_Rock08
+    4300016: golemSlime_Shoulder_L
+    4300018: golemSlime_Shield_L
+    4300020: golemSlime_Leg_L
+    4300022: golemSlime_Body2
+    4300024: golemSlime_Leg_R
+    4300026: golemSlime_Shoulder_R
+    4300028: golemSlime_Shield_R
+    4300030: golemSlime_Face
+    4300032: golemSlime_Rock09
+    4300034: golemSlime_Rock010
+    4300036: golemSlime_Rock011
+    4300038: golemSlime_Rock012
+    7400000: Attack
+    9500000: //RootNode
+    13700000: golemSlime_Body2
+    13700002: golemSlime_Face
+    13700004: golemSlime_Leg_L
+    13700006: golemSlime_Leg_R
+    13700008: golemSlime_Rock01
+    13700010: golemSlime_Rock010
+    13700012: golemSlime_Rock011
+    13700014: golemSlime_Rock012
+    13700016: golemSlime_Rock02
+    13700018: golemSlime_Rock03
+    13700020: golemSlime_Rock04
+    13700022: golemSlime_Rock05
+    13700024: golemSlime_Rock06
+    13700026: golemSlime_Rock07
+    13700028: golemSlime_Rock08
+    13700030: golemSlime_Rock09
+    13700032: golemSlime_Shield_L
+    13700034: golemSlime_Shield_R
+    13700036: golemSlime_Shoulder_L
+    13700038: golemSlime_Shoulder_R
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
