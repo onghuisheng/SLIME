@@ -40,6 +40,8 @@ public class DayAndNight : MonoBehaviour {
     [HideInInspector]
     public float i;
 
+    private float prevDot;
+
     public List<ParticleSystem> DayParticles;
     public List<ParticleSystem> NightParticles;
 
@@ -90,16 +92,8 @@ public class DayAndNight : MonoBehaviour {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
             NightLight.SetActive(false);
 
-            foreach (ParticleSystem ps in DayParticles)
-            {
-                ps.Play(true);
-            }
-
-            foreach (ParticleSystem ps in NightParticles)
-            {
-                ps.Stop(true);
-            }
-
+            if (prevDot <= 0)
+                OnDayStart();
         }
         else // night
         {
@@ -115,21 +109,43 @@ public class DayAndNight : MonoBehaviour {
 
             SlimeManager.instance.m_CurrentWave = 2;
 
-            foreach (ParticleSystem ps in DayParticles)
-            {
-                ps.Stop(true);
-            }
-
-            foreach (ParticleSystem ps in NightParticles)
-            {
-                ps.Play(true);
-            }
+            if (prevDot > 0)
+                OnNightStart();
         }
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
         if (Input.GetKeyDown(KeyCode.Minus)) skyspeed -= 0.5f;
 
 
+        // Must be at the bottom
+        prevDot = dot;
         //Debug.Log("DOT: " + dot);
     }
+
+    private void OnDayStart()
+    {
+        foreach (ParticleSystem ps in DayParticles)
+        {
+            ps.Play(true);
+        }
+
+        foreach (ParticleSystem ps in NightParticles)
+        {
+            ps.Stop(true);
+        }
+    }
+
+    private void OnNightStart()
+    {
+        foreach (ParticleSystem ps in DayParticles)
+        {
+            ps.Stop(true);
+        }
+
+        foreach (ParticleSystem ps in NightParticles)
+        {
+            ps.Play(true);
+        }
+    }
+
 }

@@ -7,7 +7,7 @@ public class Bow : GrabbableObject
 
     [SerializeField]
     private BowString m_BowDrawString;
-        
+
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
@@ -26,6 +26,13 @@ public class Bow : GrabbableObject
         m_BowDrawString.GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Rigidbody>().isKinematic = false;
+
+        MoveController controller =  MoveController.GetControllerThatHolds(m_BowDrawString.gameObject);
+
+        if (controller)
+        {
+            controller.DetachCurrentObject(false);
+        }
     }
-    
+
 }

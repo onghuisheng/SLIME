@@ -21,9 +21,6 @@ public class BowString : GrabbableObject
 
     private ArrowBase m_SpawnedArrow = null;
 
-    //You can change to make it better :,DDD 
-    public GameObject m_SpawningParticles;
-
     #region Bow Aesthetic Stuff
     [SerializeField]
     private Transform m_UpperBowLimb1, m_UpperBowLimb2, m_LowerBowLimb1, m_LowerBowLimb2;
@@ -68,17 +65,11 @@ public class BowString : GrabbableObject
         m_IsGrabbing = true;
         BendBow();
 
-        if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.25f)
+        if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.15f)
         {
-            // create temp game obj & play spawning particles
-            GameObject temp = Instantiate(m_SpawningParticles);
-
             m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
 
             m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<MeshRenderer>();
-
-            //Destroy temp game obj, along with its particles :> (after 3 seconds)
-            Destroy(temp, 3);
         }
 
         if (m_SpawnedArrow != null)
@@ -194,8 +185,8 @@ public class BowString : GrabbableObject
 
     private bool IsBowStringFirable()
     {
-        float angle = Vector3.Angle((transform.parent.TransformPoint(m_DefaultLocalPos)) - transform.parent.position, transform.position - transform.parent.position);
-        return (angle < 60);
+        float angle = Vector3.Angle((transform.parent.TransformPoint(m_DefaultLocalPos)) - m_ArrowFacingPoint.position, transform.position - m_ArrowFacingPoint.position);
+        return (angle < 45);
     }
 
 }

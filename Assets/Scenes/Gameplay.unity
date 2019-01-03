@@ -737,7 +737,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 202944438}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.566, y: -3.181, z: -20.499}
+  m_LocalPosition: {x: -1.604, y: -3.181, z: -19.661}
   m_LocalScale: {x: 0.5043059, y: 0.5043059, z: 0.5043059}
   m_Children: []
   m_Father: {fileID: 1919870306}
@@ -1451,7 +1451,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323981733}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.608, y: -3.315, z: -20.789}
+  m_LocalPosition: {x: -2.327, y: -3.315, z: -20.517}
   m_LocalScale: {x: 0.37034267, y: 0.37034294, z: 0.37034294}
   m_Children: []
   m_Father: {fileID: 321262741}
@@ -3660,6 +3660,15 @@ Prefab:
       propertyPath: NightParticles.Array.data[1]
       value: 
       objectReference: {fileID: 2139761769}
+    - target: {fileID: 108537521161840004, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353756694046076, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
   m_IsPrefabParent: 0
@@ -4702,8 +4711,6 @@ MonoBehaviour:
   m_BowArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArrowFacingPoint: {fileID: 1497163345}
-  m_SpawningParticles: {fileID: 1507111110624256, guid: 0e63936b06151fd4da3fb3a6e23b3aec,
-    type: 2}
   m_UpperBowLimb1: {fileID: 1228190964}
   m_UpperBowLimb2: {fileID: 1228190963}
   m_LowerBowLimb1: {fileID: 1228190967}
@@ -4735,7 +4742,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &1234881520
 Prefab:
@@ -6083,7 +6090,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497163344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0072, y: 0.067, z: 0.031}
+  m_LocalPosition: {x: -0.007, y: 0.073, z: 0.031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 375683096}
@@ -12004,7 +12011,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1708762041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.585, y: -3.181, z: -20.504002}
+  m_LocalPosition: {x: -2.182, y: -3.181, z: -20.22}
   m_LocalScale: {x: 0.5043059, y: 0.5043059, z: 0.5043059}
   m_Children: []
   m_Father: {fileID: 449152968}
@@ -12793,7 +12800,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.37255695
+      value: -0.225
       objectReference: {fileID: 0}
     - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12822,18 +12829,6 @@ Prefab:
     - target: {fileID: 1620545963165908, guid: 54f589246d3ebc747904a0651579148c, type: 2}
       propertyPath: m_Name
       value: Firefly
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54f589246d3ebc747904a0651579148c, type: 2}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Ding ding
-public class Bell : GrabbableObject
+public class Bell : MonoBehaviour
 {
 
     [SerializeField, Header("Random items that might fall from ringing the bell")]
@@ -27,20 +27,6 @@ public class Bell : GrabbableObject
     private int m_CurrentDingCount = 0;
 
 
-    public override void OnGrab(MoveController currentController)
-    {
-        base.OnGrab(currentController);
-
-        m_InitialOffset = currentController.transform.position - transform.position;
-    }
-
-    public override void OnGrabStay(MoveController currentController)
-    {
-        base.OnGrabStay(currentController);
-
-        transform.position = currentController.transform.position - m_InitialOffset;
-    }
-
     public void DropItem()
     {
         if (Time.time < m_NextSpawnTime || m_ItemDropList.Count == 0)
@@ -55,10 +41,8 @@ public class Bell : GrabbableObject
     }
 
 
-    protected override void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        base.OnCollisionEnter(collision);
-
         if (Time.time > m_NextDingTime)
         {
             Vector3 rVelocity;
