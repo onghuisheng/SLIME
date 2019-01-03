@@ -26,6 +26,25 @@ ModelImporter:
     100040: wheel_L_joint
     100042: wheel_R_ctrl
     100044: wheel_R_joint
+    100046: cart
+    100048: catapult_ctrl
+    100050: catapult_joint
+    100052: enemy_CatapultSlime
+    100054: global_Ctrl
+    100056: hand_L_joint
+    100058: hand_R_joint
+    100060: handle
+    100062: handle_L_joint
+    100064: handle_R_joint
+    100066: shoulder_L_joint
+    100068: shoulder_R_joint
+    100070: slime
+    100072: slimeBase_joint
+    100074: slimeFace_joint
+    100076: slimeHeaTip_joint
+    100078: slimeSpine_joint
+    100080: wheel
+    100082: wheel_joint
     400000: base_joint
     400002: body_ctrl
     400004: catapultSlime
@@ -49,10 +68,38 @@ ModelImporter:
     400040: wheel_L_joint
     400042: wheel_R_ctrl
     400044: wheel_R_joint
+    400046: cart
+    400048: catapult_ctrl
+    400050: catapult_joint
+    400052: enemy_CatapultSlime
+    400054: global_Ctrl
+    400056: hand_L_joint
+    400058: hand_R_joint
+    400060: handle
+    400062: handle_L_joint
+    400064: handle_R_joint
+    400066: shoulder_L_joint
+    400068: shoulder_R_joint
+    400070: slime
+    400072: slimeBase_joint
+    400074: slimeFace_joint
+    400076: slimeHeaTip_joint
+    400078: slimeSpine_joint
+    400080: wheel
+    400082: wheel_joint
     2100000: lambert1
+    2100002: StingrayPBS1
     4300000: catapultSlime
+    4300002: handle
+    4300004: slime
+    4300006: wheel
+    4300008: cart
     9500000: //RootNode
     13700000: catapultSlime
+    13700002: cart
+    13700004: handle
+    13700006: slime
+    13700008: wheel
   externalObjects: {}
   materials:
     importMaterials: 1
