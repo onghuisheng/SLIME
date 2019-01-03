@@ -3,13 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class AudioSourceData
+public class AudioSourceData2D
 {
     // 0-1
     public float volume = 1;
 
+    // 0-Infinity
+    public float randomPitchRange = 0.2f;
+
+}
+
+public class AudioSourceData3D
+{
     // 0-1
+    public float volume = 1;
+
+    // 0-Infinity
     public float randomPitchRange = 0.2f;
 
     // 0-1
@@ -62,14 +71,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         /// </summary>
         Queue,
         /// <summary>
-        /// Overrides all existing clips in the queue and play it instantly
-        /// </summary>
-        Override,
-        /// <summary>
         /// Plays the clip on top of all existing playing clips
         /// </summary>
         Additive
-
     }
 
     private void Start()
@@ -85,40 +89,15 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Q))
+        {
+            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
             AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Queue);
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Override);
-        }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            PlayAudio("dog", AnnounceType.Override);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Vector3 pos = GameObject.FindWithTag("Player").transform.position;
-            pos.z -= 5;
-            PlayAudioAt("duck", pos, AnnounceType.Override);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Vector3 pos = GameObject.FindWithTag("Player").transform.position;
-            pos.z += 5;
-            PlayAudioAt("rabbit", pos, AnnounceType.Override);
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Vector3 pos = GameObject.FindWithTag("Player").transform.position;
-            PlayAudioAt("cow", pos, AnnounceType.Queue);
-        }
-        */
     }
 
     /// <summary>
@@ -152,17 +131,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 }
                 break;
 
-            case AudioType.Override:
-                StopAll();
-                m_LocalAudioSource.clip = clip;
-                m_LocalAudioSource.PlayDelayed(delayInSeconds);
-                StartCoroutine(PlayNextRoutine(m_LocalAudioSource.clip.length + delayInSeconds, false));
-                break;
-
             case AudioType.Additive:
                 m_LocalAudioSource.clip = clip;
                 m_LocalAudioSource.PlayDelayed(delayInSeconds);
-                StartCoroutine(PlayNextRoutine(m_LocalAudioSource.clip.length + delayInSeconds, false));
                 break;
 
             default:
@@ -186,7 +157,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// A GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
     /// <returns>Reference to the AudioSource that was spawned</returns>
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType announceType, AudioSourceData audioSourceData, float delayInSeconds = 0)
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType announceType, AudioSourceData3D audioSourceData, float delayInSeconds = 0)
     {
         AudioClip clip = GetAudioClip(clipAlias);
 
@@ -197,9 +168,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
 
         if (audioSourceData == null)
-            audioSourceData = new AudioSourceData();
+            audioSourceData = new AudioSourceData3D();
 
-        GameObject obj = new GameObject("[3D_AudioSound]");
+        GameObject obj = new GameObject("[3D_AudioSource]");
         obj.transform.parent = transform;
         obj.transform.position = position;
 
@@ -233,17 +204,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 }
                 break;
 
-            case AudioType.Override:
-                StopAll();
-                m_3DAudioSource = spawnedAudioSource;
-                m_3DAudioSource.PlayDelayed(delayInSeconds);
-                StartCoroutine(PlayNextRoutine(m_3DAudioSource.clip.length + delayInSeconds, true));
-                break;
-
             case AudioType.Additive:
-                m_3DAudioSource = spawnedAudioSource;
-                m_3DAudioSource.PlayDelayed(delayInSeconds);
-                StartCoroutine(PlayNextRoutine(m_3DAudioSource.clip.length + delayInSeconds, true));
+                spawnedAudioSource.PlayDelayed(delayInSeconds);
+                StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, spawnedAudioSource.clip.length + delayInSeconds));
                 break;
 
             default:
@@ -314,11 +277,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         ClearQueue();
         StopAllCoroutines();
 
-        if (m_3DAudioSource != null)
+        for (int i = 0; i < transform.childCount; ++i)
         {
-            Destroy(m_3DAudioSource.gameObject);
-            m_3DAudioSource = null;
+            Transform child = transform.GetChild(i);
+            child.GetComponent<AudioSource>().Stop();
+            Destroy(child.gameObject);
         }
+
+        m_3DAudioSource = null;
     }
 
     private IEnumerator PlayNextRoutine(float delayInSeconds, bool is3D)
@@ -333,5 +299,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
         PlayNext();
     }
-    
+
+    private IEnumerator PlayAdditiveRoutine(GameObject objToDestroy, float delayInSeconds)
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        Destroy(objToDestroy);
+    }
+
 }

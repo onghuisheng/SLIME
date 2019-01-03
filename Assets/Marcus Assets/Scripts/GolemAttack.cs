@@ -20,7 +20,7 @@ public class GolemAttack : MonoBehaviour {
         {
             m_AttackTime += Time.deltaTime;
 
-            if (m_AttackTime > 2.5f && !anim.GetBool("IsAttacking"))
+            if (m_AttackTime > 2.0f && !anim.GetBool("IsAttacking"))
             {
                 anim.SetBool("IsAttacking", true);
             }
