@@ -18,7 +18,7 @@ public class Bell : GrabbableObject
     [SerializeField]
     private Transform m_HandleTransform;
 
-    private Vector3 m_DefaultLocalPos, m_InitialOffset;
+    private Vector3 m_InitialOffset;
 
     private float m_NextSpawnTime = 0;
 
@@ -26,10 +26,6 @@ public class Bell : GrabbableObject
 
     private int m_CurrentDingCount = 0;
 
-    private void Start()
-    {
-        m_DefaultLocalPos = transform.localPosition;
-    }
 
     public override void OnGrab(MoveController currentController)
     {
@@ -43,14 +39,6 @@ public class Bell : GrabbableObject
         base.OnGrabStay(currentController);
 
         transform.position = currentController.transform.position - m_InitialOffset;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            DropItem();
-        }
     }
 
     public void DropItem()
@@ -80,7 +68,7 @@ public class Bell : GrabbableObject
             else
                 rVelocity = collision.relativeVelocity;
 
-            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData() { relativeVelocity = rVelocity, volume = 0, randomPitchRange = 0 });
+            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { relativeVelocity = (rVelocity * 2), volume = 0, randomPitchRange = 0 });
             m_NextDingTime = Time.time + 0.5f;
 
             m_CurrentDingCount++;

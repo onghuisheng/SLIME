@@ -33,8 +33,11 @@ public class BellString : GrabbableObject
         {
             currentController.DetachCurrentObject(false);
             var rb = GetComponent<Rigidbody>();
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+
+            float adjustedVelocity = 3;
+
+            rb.velocity = rb.velocity.normalized * adjustedVelocity;
+            rb.angularVelocity = rb.angularVelocity.normalized * adjustedVelocity;
         }
     }
 
