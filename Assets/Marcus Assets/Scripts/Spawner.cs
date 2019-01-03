@@ -75,7 +75,7 @@ public class Spawner : MonoBehaviour {
             }
             else // spawn golem
             {
-                if (GolemSlime)
+                if (GolemSlime != null)
                 {
                     if (SlimeManager.instance.m_GolemSlimeInWave.Count < SlimeManager.instance.m_GolemSlimeWaves[SlimeManager.instance.m_CurrentWave])
                     {
