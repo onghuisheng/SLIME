@@ -660,6 +660,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
   m_PrefabInternal: {fileID: 144975167}
+--- !u!198 &153865351 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198969095608882316, guid: 4ef703fcd1dec3c42859660f5cd571c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 51760172}
 --- !u!1 &176882496 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 101188, guid: 09c21d409b773894c846977c87eb3cfa, type: 3}
@@ -803,6 +808,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 202944438}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &208765741 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198722405876682660, guid: 54f589246d3ebc747904a0651579148c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1879042302}
 --- !u!1 &212937641
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +878,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4363709811253132, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4363709811253132, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3574,6 +3584,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: DayParticles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: NightParticles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4050938448667630, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -13.794005
@@ -3610,6 +3630,36 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: DayParticles
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: NightParticles
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: DayParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 153865351}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: DayParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 2139761769}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: NightParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 208765741}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: NightParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 2139761769}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
   m_IsPrefabParent: 0
@@ -5228,7 +5278,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4547069315621246, guid: 54f589246d3ebc747904a0651579148c, type: 2}
       propertyPath: m_LocalScale.x
@@ -12077,8 +12127,8 @@ Transform:
   m_LocalPosition: {x: -0.635, y: 2.39, z: 15.465}
   m_LocalScale: {x: 2.0939524, y: 2.0939522, z: 2.0939522}
   m_Children:
-  - {fileID: 217907262}
   - {fileID: 1923096113}
+  - {fileID: 217907262}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: -12.53, z: 0}
@@ -14147,3 +14197,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2122982307}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &2139761769 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198722405876682660, guid: 54f589246d3ebc747904a0651579148c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1363018164}

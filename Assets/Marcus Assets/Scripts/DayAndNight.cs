@@ -40,8 +40,8 @@ public class DayAndNight : MonoBehaviour {
     [HideInInspector]
     public float i;
 
-    public ParticleSystem DayParticles;
-    public ParticleSystem NightParticles;
+    public List<ParticleSystem> DayParticles;
+    public List<ParticleSystem> NightParticles;
 
 
     // Use this for initialization
@@ -49,6 +49,16 @@ public class DayAndNight : MonoBehaviour {
     {
         mainLight = GetComponent<Light>();
         skyMat = RenderSettings.skybox;
+
+        foreach (ParticleSystem ps in DayParticles)
+        {
+            ps.Play(true);
+        }
+
+        foreach (ParticleSystem ps in NightParticles)
+        {
+            ps.Stop(true);
+        }
     }
 
     // Update is called once per frame
@@ -80,8 +90,15 @@ public class DayAndNight : MonoBehaviour {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
             NightLight.SetActive(false);
 
-            DayParticles.Play(true);
-            NightParticles.Play(false);
+            foreach (ParticleSystem ps in DayParticles)
+            {
+                ps.Play(true);
+            }
+
+            foreach (ParticleSystem ps in NightParticles)
+            {
+                ps.Stop(true);
+            }
 
         }
         else // night
@@ -98,9 +115,15 @@ public class DayAndNight : MonoBehaviour {
 
             SlimeManager.instance.m_CurrentWave = 2;
 
-            DayParticles.Play(false);
-            NightParticles.Play(true);
+            foreach (ParticleSystem ps in DayParticles)
+            {
+                ps.Stop(true);
+            }
 
+            foreach (ParticleSystem ps in NightParticles)
+            {
+                ps.Play(true);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
