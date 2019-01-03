@@ -30,6 +30,7 @@ public class Despawner : MonoBehaviour {
             else
             {
                 other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
+                other.transform.forward = transform.forward;
             }
         }
     }
