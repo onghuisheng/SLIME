@@ -24,15 +24,16 @@ public class Despawner : MonoBehaviour {
                     other.GetComponent<SlimeBase>().anim.SetBool("IsDefending", false);
                 }
 
-                other.GetComponent<NavMeshAgent>().enabled = false;
             }
 
             else
             {
                 other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
-                other.GetComponentInChildren<Animator>().SetBool("IsDefend", false);
+                other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
                 other.transform.forward = transform.forward;
             }
         }
+        other.GetComponent<NavMeshAgent>().enabled = false;
+
     }
 }
