@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 95949860691495752}
   - component: {fileID: 114434802621019442}
   - component: {fileID: 114799876362604984}
+  - component: {fileID: 114189059842160634}
   m_Layer: 0
   m_Name: enemy_CatapultSlime
   m_TagString: Untagged
@@ -192,7 +193,6 @@ GameObject:
   - component: {fileID: 54277496356752284}
   - component: {fileID: 65868629374465420}
   - component: {fileID: 114296818641955458}
-  - component: {fileID: 114547061884624446}
   m_Layer: 0
   m_Name: Catapult Slime Purple
   m_TagString: Untagged
@@ -613,7 +613,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1662277648857830}
   m_LocalRotation: {x: -0.0000000027939677, y: -0.99995214, z: -0.009792893, w: -0.00000003306195}
-  m_LocalPosition: {x: 0, y: 1.3147318, z: -0.44440174}
+  m_LocalPosition: {x: -0.12, y: 2.46, z: 0.56}
   m_LocalScale: {x: 1.0000005, y: 1.0000001, z: 1.0000006}
   m_Children: []
   m_Father: {fileID: 4714062914532568}
@@ -625,15 +625,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478375357741878}
-  m_LocalRotation: {x: 0, y: 0.953717, z: 0.30070576, w: 0}
-  m_LocalPosition: {x: -3.42, y: 3.22, z: 25.76}
+  m_LocalRotation: {x: -0.009173531, y: 0.9861522, z: -0.05838097, w: -0.15495628}
+  m_LocalPosition: {x: -2.66, y: 4.66, z: 37.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4120785485916648}
   - {fileID: 4555195457043008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.776, y: 197.86, z: 0}
 --- !u!4 &4739691485981332
 Transform:
   m_ObjectHideFlags: 1
@@ -734,6 +734,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114189059842160634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372007428597070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114968491722749186}
+  Slime: {fileID: 1478375357741878}
 --- !u!114 &114296818641955458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,19 +775,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95949860691495752}
   m_DesiredTime: 5
---- !u!114 &114547061884624446
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1478375357741878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SlimeBase: {fileID: 114968491722749186}
-  Slime: {fileID: 1478375357741878}
 --- !u!114 &114799876362604984
 MonoBehaviour:
   m_ObjectHideFlags: 1

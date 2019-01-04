@@ -5027,6 +5027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6261252d9649a4da985bb4984629ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LookAtPoint: {fileID: 1173581224}
 --- !u!135 &151746204
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5355,11 +5356,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &252845951 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95949860691495752, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda,
-    type: 2}
-  m_PrefabInternal: {fileID: 563739643}
 --- !u!1 &311791568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5871,7 +5867,6 @@ MonoBehaviour:
   m_BowArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArrowFacingPoint: {fileID: 611531136}
-  m_SpawningParticles: {fileID: 0}
   m_UpperBowLimb1: {fileID: 444560643}
   m_UpperBowLimb2: {fileID: 444560644}
   m_LowerBowLimb1: {fileID: 444560647}
@@ -7070,6 +7065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6261252d9649a4da985bb4984629ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LookAtPoint: {fileID: 1173581224}
 --- !u!135 &555674784
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7163,29 +7159,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
-    - target: {fileID: 114799876362604984, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda,
-        type: 2}
-      propertyPath: m_StartingObject
-      value: 
-      objectReference: {fileID: 563739644}
-    - target: {fileID: 114434802621019442, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda,
-        type: 2}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 252845951}
-    - target: {fileID: 114968491722749186, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda,
-        type: 2}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 252845951}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &563739644 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1662277648857830, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda,
-    type: 2}
-  m_PrefabInternal: {fileID: 563739643}
 --- !u!1 &595826841
 GameObject:
   m_ObjectHideFlags: 0
@@ -7687,6 +7663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6261252d9649a4da985bb4984629ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LookAtPoint: {fileID: 1173581224}
 --- !u!135 &800078852
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8228,6 +8205,34 @@ Transform:
   m_Father: {fileID: 1649927204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1173581224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1173581225}
+  m_Layer: 0
+  m_Name: LookAtPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173581225
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1173581224}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -2.4, y: 0.449, z: 3.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &1212484913
 GameObject:
   m_ObjectHideFlags: 0
