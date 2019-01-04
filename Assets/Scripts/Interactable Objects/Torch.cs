@@ -13,6 +13,14 @@ public class Torch : MonoBehaviour {
         {
             arrow.BuffArrow(ArrowBase.ArrowType.Flame);
         }
+
+        Dynamite dynamite = other.GetComponent<Dynamite>();
+
+        if (dynamite != null)
+        {
+            dynamite.DynamiteLit();
+        }
+
     }
 
 }

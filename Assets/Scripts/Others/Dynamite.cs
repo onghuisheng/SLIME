@@ -36,4 +36,9 @@ public class Dynamite : MonoBehaviour {
         }
         Destroy(m_DynamiteObject); //get rid of all of them
     }
+
+    public void DynamiteLit()
+    {
+        DynamiteAnimator.SetBool("isLighted", true);
+    }
 }
