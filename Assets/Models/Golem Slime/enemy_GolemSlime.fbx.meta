@@ -149,7 +149,12 @@ ModelImporter:
     13700034: golemSlime_Shield_R
     13700036: golemSlime_Shoulder_L
     13700038: golemSlime_Shoulder_R
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS1
+    second: {fileID: 2100000, guid: ca44c1223f5b6144283f300ed78ab27e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

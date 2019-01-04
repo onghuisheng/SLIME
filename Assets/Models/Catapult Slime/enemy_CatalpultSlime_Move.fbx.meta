@@ -78,7 +78,12 @@ ModelImporter:
     13700004: handle
     13700006: slime
     13700008: wheel
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 3605d1dcde579114c91c5a77ef67e44b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

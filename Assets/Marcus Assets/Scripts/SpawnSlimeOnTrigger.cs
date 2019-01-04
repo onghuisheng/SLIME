@@ -21,7 +21,7 @@ public class SpawnSlimeOnTrigger : MonoBehaviour {
         if (other.gameObject == null)
             return;
 
-        if (other.GetComponent<SpawnSlimeAfterShot>().enabled == false || other.tag != "SlimeProjectile")
+        if (other.GetComponent<SpawnSlimeAfterShot>() != null && other.GetComponent<SpawnSlimeAfterShot>().enabled == false || other.tag != "SlimeProjectile")
             return;
 
         GameObject tempSlime;

@@ -67,9 +67,9 @@ public class BowString : GrabbableObject
 
         if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.15f)
         {
-            m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
-
+            m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();            
             m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<MeshRenderer>();
+            AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive);
         }
 
         if (m_SpawnedArrow != null)
@@ -101,6 +101,7 @@ public class BowString : GrabbableObject
             {
                 // Launch the arrow, multiply the strength a bit?
                 m_SpawnedArrow.LaunchArrow(arrowStrength * 75);
+                AudioManager.Instance.Play3D("arrowwhoosh", transform.position, AudioManager.AudioType.Additive);
             }
             else
             {
