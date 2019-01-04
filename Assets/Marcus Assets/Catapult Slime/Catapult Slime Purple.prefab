@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 54277496356752284}
   - component: {fileID: 65868629374465420}
   - component: {fileID: 114296818641955458}
+  - component: {fileID: 114547061884624446}
   m_Layer: 0
   m_Name: Catapult Slime Purple
   m_TagString: Untagged
@@ -624,8 +625,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478375357741878}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.66, y: 4.66, z: 37.27}
+  m_LocalRotation: {x: 0, y: 0.953717, z: 0.30070576, w: 0}
+  m_LocalPosition: {x: -3.42, y: 3.22, z: 25.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4120785485916648}
@@ -761,6 +762,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95949860691495752}
   m_DesiredTime: 5
+--- !u!114 &114547061884624446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478375357741878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114968491722749186}
+  Slime: {fileID: 1478375357741878}
 --- !u!114 &114799876362604984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -794,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxHealth: 2
   m_MaxAttack: 0
-  anim: {fileID: 0}
+  anim: {fileID: 95949860691495752}
   m_DeathParticles: {fileID: 0}
   toDespawn: 0
 --- !u!137 &137098553151497102
