@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.41553932, g: 0.51375824, b: 0.5471698, a: 1}
+  m_FogColor: {r: 0.20260769, g: 0.22116208, b: 0.2735849, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 202944442}
   - component: {fileID: 202944441}
   - component: {fileID: 202944440}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point 1
   m_TagString: PathNode
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 321262741}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Destination Path Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1437,7 +1437,7 @@ GameObject:
   - component: {fileID: 323981737}
   - component: {fileID: 323981736}
   - component: {fileID: 323981735}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point 1
   m_TagString: PathNode
   m_Icon: {fileID: 0}
@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 410595827}
   - component: {fileID: 410595826}
   - component: {fileID: 410595825}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: catapultDrop01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1914,7 +1914,7 @@ GameObject:
   - component: {fileID: 420160496}
   - component: {fileID: 420160495}
   - component: {fileID: 420160494}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Purple Point
   m_TagString: PurpleDrop
   m_Icon: {fileID: 0}
@@ -2036,7 +2036,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 449152968}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Spawn 2 Path Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2427,6 +2427,24 @@ Transform:
   m_Father: {fileID: 73882789}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &575649310 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
+  m_PrefabInternal: {fileID: 1773255374}
+--- !u!64 &575649311
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 575649310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
 --- !u!1 &581237993 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 07cacbe6af51da245809a4e5bd4b9522, type: 3}
@@ -3847,6 +3865,15 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1968699554767356, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
   m_IsPrefabParent: 0
@@ -4753,6 +4780,24 @@ Transform:
   m_Father: {fileID: 73882789}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1226851589 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
+  m_PrefabInternal: {fileID: 227239038}
+--- !u!64 &1226851590
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1226851589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
 --- !u!1001 &1228190961
 Prefab:
   m_ObjectHideFlags: 0
@@ -6300,6 +6345,48 @@ Transform:
   m_Father: {fileID: 375683096}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1502392271
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.5419946
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.2995739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 31.318836
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908153721504050, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bbc8a09da8962b148a72a22c7a4af86c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1511530105
 Prefab:
   m_ObjectHideFlags: 0
@@ -6833,7 +6920,7 @@ GameObject:
   - component: {fileID: 1636575113}
   - component: {fileID: 1636575115}
   - component: {fileID: 1636575114}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: FloorRespawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6875,8 +6962,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.594014, y: 38.00726, z: 8.20839}
-  m_Center: {x: 0.10356604, y: 1.3542476, z: -3.6041965}
+  m_Size: {x: 15.616462, y: 38.00727, z: 8.20839}
+  m_Center: {x: -1.407658, y: 1.3542469, z: -3.6041965}
 --- !u!1 &1641821883
 GameObject:
   m_ObjectHideFlags: 0
@@ -12201,7 +12288,7 @@ GameObject:
   - component: {fileID: 1708762045}
   - component: {fileID: 1708762044}
   - component: {fileID: 1708762043}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Point 1
   m_TagString: PathNode
   m_Icon: {fileID: 0}
@@ -13577,7 +13664,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1919870306}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 'Spawn 3 Path Holder '
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyHit : MonoBehaviour, IShootable
 {
-    
+
     [SerializeField]
     private SlimeBase m_SlimeBase;
-    
+
     [SerializeField]
     private NavMeshAgent m_Agent;
 
@@ -35,7 +35,8 @@ public class EnemyHit : MonoBehaviour, IShootable
                 m_SlimeBase.anim.SetBool("IsDefending", false);
             }
 
-            m_Agent.enabled = false;
+            if (m_Agent)
+                m_Agent.enabled = false;
         }
     }
 }

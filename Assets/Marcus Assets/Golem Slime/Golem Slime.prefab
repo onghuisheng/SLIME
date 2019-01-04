@@ -299,6 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4065475793195156}
   - component: {fileID: 114471947449552486}
+  - component: {fileID: 65417874941687014}
   m_Layer: 0
   m_Name: waist_joint
   m_TagString: Untagged
@@ -1622,6 +1623,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.28159446, y: 0.9817085, z: 0.46404123}
   m_Center: {x: 0.04892522, y: 0.055294987, z: 0.04437032}
+--- !u!65 &65417874941687014
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262786121194650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.83827114, y: 0.8415425, z: 0.21775436}
+  m_Center: {x: 0.0002861023, y: 0.048390746, z: -0.12397766}
 --- !u!65 &65607154169675642
 BoxCollider:
   m_ObjectHideFlags: 1
