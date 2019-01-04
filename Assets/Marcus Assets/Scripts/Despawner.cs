@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class Despawner : MonoBehaviour {
+
+    public GameObject m_LookAtPoint;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,9 +33,11 @@ public class Despawner : MonoBehaviour {
             {
                 other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
                 other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
-                other.transform.forward = transform.forward;
+                other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
             }
         }
+
+        
         other.GetComponent<NavMeshAgent>().enabled = false;
 
     }
