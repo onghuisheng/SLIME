@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4784874707020144}
   - component: {fileID: 33586241799560088}
   - component: {fileID: 23962252651736056}
+  - component: {fileID: 65364436476155418}
+  - component: {fileID: 114548193582102382}
   m_Layer: 0
   m_Name: pCube14
   m_TagString: Untagged
@@ -153,7 +155,6 @@ GameObject:
   - component: {fileID: 54745698135153164}
   - component: {fileID: 114857415272350824}
   - component: {fileID: 95352468367492038}
-  - component: {fileID: 114613619919041280}
   m_Layer: 0
   m_Name: obj_Dynamite
   m_TagString: Untagged
@@ -225,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999681980404706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.953, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4017328456413186}
@@ -397,6 +398,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20461045, y: 0.080194145, z: 0.08270866}
   m_Center: {x: 0.00010780245, y: 0.007885799, z: 0.00057797134}
+--- !u!65 &65364436476155418
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146388746622724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: -0.49999985, y: -0.49998626, z: -0.4999993}
 --- !u!95 &95352468367492038
 Animator:
   serializedVersion: 3
@@ -415,12 +428,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114613619919041280
+--- !u!114 &114548193582102382
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1999681980404706}
+  m_GameObject: {fileID: 1146388746622724}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10938c5c05ed7eb48a71da122865e281, type: 3}

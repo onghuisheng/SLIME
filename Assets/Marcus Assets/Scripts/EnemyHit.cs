@@ -18,6 +18,13 @@ public class EnemyHit : MonoBehaviour, IShootable
 
     public int Damage;
 
+    public bool m_OnAnim;
+
+    private void Start()
+    {
+        m_OnAnim = true;   
+    }
+
     public virtual void OnShot(ArrowBase arrow)
     {
         m_SlimeBase.DeductHealth(Damage); // deduct 1hp when hit
@@ -27,12 +34,22 @@ public class EnemyHit : MonoBehaviour, IShootable
             m_SlimeBase.toDespawn = true;
             SlimeManager.instance.GetComponent<SlimeManager>().Remove();
 
-
-            m_SlimeBase.anim.SetBool("IsDead", true);
-
-            if (m_Defend != null)
+            if (m_OnAnim)
             {
-                m_SlimeBase.anim.SetBool("IsDefending", false);
+                m_SlimeBase.anim.SetBool("IsDead", true);
+
+                if (m_Defend != null)
+                {
+                    m_SlimeBase.anim.SetBool("IsDefending", false);
+                }
+            }
+
+            else if(!m_OnAnim)
+            {
+                if(GetComponentInParent<GolemDeath>() != null)
+                    GetComponentInParent<GolemDeath>().RemoveSlimeBody();
+
+                GetComponentInParent<SlimeDeath>().RemoveFromScene();
             }
 
             if (m_Agent)

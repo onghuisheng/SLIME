@@ -6,7 +6,7 @@ public class GolemDeath : MonoBehaviour
 {
 
     //PLEASE CHANGE/ ADD THIS TO /DELETE TO MAKE IT BETTER HHHHHH :,O
-    //Thanks marrot :,D
+    //Thanks marrot/hs :,D
 
     public GameObject m_SlimeParticles; //to be played in event
     public GameObject SlimeBody; //remove this gameobject (in this case slime body)
