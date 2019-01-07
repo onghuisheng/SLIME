@@ -85,7 +85,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.057093, y: 4.057093, z: 4.057093}
+  m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95901369755266836
 Animator:
@@ -300,9 +300,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 1, g: 0.61149544, b: 0, a: 1}
-      maxColor: {r: 1, g: 0.54400814, b: 0, a: 1}
+      maxColor: {r: 0.7924528, g: 0.6148155, b: 0.45229617, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1325,17 +1325,17 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.41611814, b: 0, a: 0}
-        key1: {r: 1, g: 0.65882355, b: 0, a: 1}
-        key2: {r: 1, g: 0.78035855, b: 0, a: 1}
-        key3: {r: 1, g: 0.65882355, b: 0, a: 0}
+        key0: {r: 0.6132076, g: 0.39178258, b: 0.29214135, a: 0}
+        key1: {r: 1, g: 0.699379, b: 0.10849059, a: 1}
+        key2: {r: 0, g: 0, b: 0, a: 1}
+        key3: {r: 0.09433961, g: 0.07362189, b: 0, a: 0}
         key4: {r: 1, g: 0.65882355, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 6554
-        ctime1: 21781
-        ctime2: 39321
+        ctime1: 32575
+        ctime2: 65535
         ctime3: 39321
         ctime4: 32768
         ctime5: 0
@@ -1350,7 +1350,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 3
+        m_NumColorKeys: 2
         m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
