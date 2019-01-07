@@ -1692,6 +1692,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114014997550796438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1707,6 +1708,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114030927502505390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1722,6 +1724,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114099921653961228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1737,6 +1740,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 0
+  m_OnAnim: 0
 --- !u!114 &114221325271297894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1790,6 +1794,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114662701626187466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1860,6 +1865,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114838267172747494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1875,6 +1881,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 0
+  m_OnAnim: 0
 --- !u!114 &114868171999546378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1890,6 +1897,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 3
+  m_OnAnim: 0
 --- !u!114 &114904239897942490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1905,6 +1913,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195124508750996232}
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
+  m_OnAnim: 0
 --- !u!135 &135069174474792594
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -3128,7 +3137,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.7
+  m_Speed: 1.4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
