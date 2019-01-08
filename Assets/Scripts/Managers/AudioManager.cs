@@ -89,21 +89,21 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive);
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Queue);
-        }
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Queue);
+        //}
     }
 
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
-    public void Play2D(string clipAlias, AudioType announceType, float delayInSeconds = 0)
+    public void Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0)
     {
         AudioClip clip = GetAudioClip(clipAlias);
 
@@ -113,7 +113,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             return;
         }
 
-        switch (announceType)
+        switch (audioType)
         {
             case AudioType.Queue:
                 m_AudioQueue.Enqueue(new AudioQueueInfo
@@ -144,20 +144,20 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     /// <summary>
     /// Plays a 3D sound at the given position
-    /// A GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
+    /// An GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
     /// <returns>Reference to the AudioSource that was spawned</returns>
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType announceType, float delayInSeconds = 0)
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, float delayInSeconds = 0)
     {
-        return Play3D(clipAlias, position, announceType, null, delayInSeconds);
+        return Play3D(clipAlias, position, audioType, null, delayInSeconds);
     }
 
     /// <summary>
     /// Plays a 3D sound at the given position
-    /// A GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
+    /// An GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
     /// <returns>Reference to the AudioSource that was spawned</returns>
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType announceType, AudioSourceData3D audioSourceData, float delayInSeconds = 0)
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, AudioSourceData3D audioSourceData, float delayInSeconds = 0)
     {
         AudioClip clip = GetAudioClip(clipAlias);
 
@@ -186,7 +186,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         spawnedAudioSource.pitch = 1 + UnityEngine.Random.Range(-Mathf.Abs(audioSourceData.randomPitchRange), Mathf.Abs(audioSourceData.randomPitchRange));
         spawnedAudioSource.rolloffMode = AudioRolloffMode.Linear;
 
-        switch (announceType)
+        switch (audioType)
         {
             case AudioType.Queue:
                 m_AudioQueue.Enqueue(new AudioQueueInfo

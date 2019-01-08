@@ -40,21 +40,14 @@ public class MoveController : MonoBehaviour
 
     private GameObject m_Player;
 
+    public Vector3 moveDelta { get { return PS4Input.GetLastMoveGyro(m_ControllerSlot, m_ControllerIndex); } }
+
     private void Awake()
     {
         m_CurrentLeftObject = null;
         m_CurrentRightObject = null;
         m_Player = GameObject.FindWithTag("Player");
         m_HandAnimator = m_HandModel.GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-        if (m_IsRegistered)
-        {
-            ProcessHandAnimation();
-            ProcessGrabbing();
-        }
     }
 
     private void FixedUpdate()
@@ -66,6 +59,14 @@ public class MoveController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (m_IsRegistered)
+        {
+            ProcessHandAnimation();
+            ProcessGrabbing();
+        }
+    }
 
     public void RegisterController(MoveControllerOrientation controllerOrientation, int slotNumber, int handleNumber)
     {
@@ -258,7 +259,7 @@ public class MoveController : MonoBehaviour
     /// Detaches the object that this controller is currently holding
     /// </summary>
     /// <param name="transferVelocity">Transfer the current velocity of the controller to the object?</param>
-    public void DetachCurrentObject(bool transferVelocity)
+    public void DetachCurrentObject(bool transferVelocity, bool destroyJoint = true)
     {
         m_IsGrabbing = false;
 
@@ -277,7 +278,7 @@ public class MoveController : MonoBehaviour
 
                 AssignObjectToHand(m_Orientation, null);
 
-                if (currentObject.GetComponent<FixedJoint>() != null)
+                if (destroyJoint && currentObject.GetComponent<FixedJoint>() != null)
                 {
                     Destroy(currentObject.GetComponent<FixedJoint>());
                 }
@@ -367,11 +368,6 @@ public class MoveController : MonoBehaviour
         Vector3 value;
         Tracker.GetTrackedDeviceAngularVelocity(m_HandleNumber, out value);
         return -value;
-    }
-
-    public Vector3 GetMoveDelta()
-    {
-        return PS4Input.GetLastMoveGyro(m_ControllerSlot, m_ControllerIndex);
     }
 
     public int GetControllerSlot()

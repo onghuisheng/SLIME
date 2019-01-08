@@ -42,14 +42,5 @@ public class Dynamite : MonoBehaviour {
         DynamiteAnimator.SetBool("isLighted", true);
         Invoke("PlayExplosion", 3); // How long before the dynamite explodes
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            DynamiteLit();
-        }
-    }
-
+    
 }

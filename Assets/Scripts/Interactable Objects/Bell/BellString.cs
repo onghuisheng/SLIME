@@ -7,48 +7,42 @@ public class BellString : GrabbableObject
     [SerializeField]
     private Transform m_StringPivotPoint;
 
-    private Vector3 m_DefaultStringPosition, m_InitialOffset;
+    [SerializeField]
+    private GameObject m_Chute;
+
+    private Vector3 m_DefaultStringPosition;
+
+    private bool m_IsGrabbing;
 
     private const float m_MaxSwingAngle = 55;
 
     private void Start()
     {
         m_DefaultStringPosition = transform.GetChild(0).position;
+        Physics.IgnoreCollision(GetComponent<Collider>(), m_StringPivotPoint.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(GetComponent<Collider>(), m_Chute.GetComponent<Collider>(), true);
     }
 
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
-        m_InitialOffset = currentController.transform.position - transform.position;
+        m_IsGrabbing = true;
     }
 
     public override void OnGrabStay(MoveController currentController)
     {
         base.OnGrabStay(currentController);
 
-        // GetComponent<Rigidbody>().position = currentController.transform.position - m_InitialOffset;
-        // transform.position = currentController.transform.position - m_InitialOffset;
-
         if (GetAngleBetweenHandle() > m_MaxSwingAngle)
         {
             currentController.DetachCurrentObject(false);
-            var rb = GetComponent<Rigidbody>();
-
-            float adjustedVelocity = 3;
-
-            rb.velocity = rb.velocity.normalized * adjustedVelocity;
-            rb.angularVelocity = rb.angularVelocity.normalized * adjustedVelocity;
         }
     }
 
-    private void LateUpdate()
+    public override void OnGrabReleased(MoveController currentController)
     {
-        if (GetAngleBetweenHandle() >= m_MaxSwingAngle)
-        {
-            var rb = GetComponent<Rigidbody>();
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
+        base.OnGrabReleased(currentController);
+        m_IsGrabbing = false;
     }
 
     private float GetAngleBetweenHandle()
