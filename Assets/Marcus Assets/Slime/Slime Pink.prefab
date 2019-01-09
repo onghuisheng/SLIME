@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Agent: {fileID: 195441499734845078}
   m_Defend: {fileID: 0}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114304781441198518
 MonoBehaviour:
   m_ObjectHideFlags: 1

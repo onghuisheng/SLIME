@@ -12,7 +12,6 @@ public class AudioSourceData2D
     public float randomPitchRange = 0.2f;
 
     public bool loop = false;
-
 }
 
 public class AudioSourceData3D
@@ -22,6 +21,8 @@ public class AudioSourceData3D
 
     // 0-Infinity
     public float randomPitchRange = 0.2f;
+
+    public bool loop = false;
 
     // 0-1
     public float spatialBlend = 0.8f;
@@ -33,11 +34,8 @@ public class AudioSourceData3D
     public float maxDistance = 5;
 
     public Vector3 relativeVelocity;
-
-    public bool loop = false;
 }
 
-[RequireComponent(typeof(AudioSource))]
 public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
     #region Inspector Stuff
@@ -65,7 +63,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     Queue<AudioQueueInfo> m_AudioQueue = new Queue<AudioQueueInfo>();
 
-    AudioSource m_LocalAudioSource;
     AudioSource m_3DAudioSource;
 
     public enum AudioType
@@ -88,67 +85,68 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             m_AudioClipsDictonary.Add(kp.clipAlias, kp.audioClip);
         }
 
-        m_LocalAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive);
-        //}
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Instance.Play3D("ding", transform.position, AudioType.Additive, new AudioSourceData3D()
+            {
+                loop = true
+            });
+        }
 
-        //if (Input.GetKeyDown(KeyCode.W))
-        //{
-        //    AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Queue);
-        //}
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Instance.Play3D("ding", transform.position, AudioType.Queue);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Instance.Play2D("flashbangboom", AudioType.Additive, new AudioSourceData2D()
+            {
+                loop = true
+            });
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Instance.Play2D("flashbangboom", AudioType.Queue);
+        }
     }
 
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
-    public void Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0)
+    public GameObject Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0)
     {
-        Play2D(clipAlias, audioType, null, delayInSeconds);
+        return Play2D(clipAlias, audioType, null, delayInSeconds);
     }
 
-    public void Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0)
+    /// <summary>
+    /// Plays a 2D audio clip with the given alias
+    /// </summary>
+    public GameObject Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0)
     {
-        AudioClip clip = GetAudioClip(clipAlias);
+        AudioSourceData3D audioSourceData3D = new AudioSourceData3D();
 
-        if (clip == null)
+        if (audioSourceData != null)
         {
-            Debug.LogError("Error trying to retrieve Audio with alias: " + clipAlias);
-            return;
+            audioSourceData3D = new AudioSourceData3D()
+            {
+                loop = audioSourceData.loop,
+                randomPitchRange = audioSourceData.randomPitchRange,
+                volume = audioSourceData.volume
+            };
         }
 
-        switch (audioType)
-        {
-            case AudioType.Queue:
-                m_AudioQueue.Enqueue(new AudioQueueInfo
-                {
-                    is3D = false,
-                    audioSource = m_LocalAudioSource,
-                    audioClip = clip,
-                    clipAlias = clipAlias,
-                    delayInSeconds = delayInSeconds
-                });
+        audioSourceData3D.maxDistance = 999;
+        audioSourceData3D.minDistance = 999;
+        audioSourceData3D.relativeVelocity = Vector3.zero;
+        audioSourceData3D.spatialBlend = 0;
 
-                if (!m_LocalAudioSource.isPlaying && (m_3DAudioSource == null || (m_3DAudioSource != null && m_3DAudioSource.isPlaying == false)))
-                {
-                    PlayNext();
-                }
-                break;
-
-            case AudioType.Additive:
-                m_LocalAudioSource.clip = clip;
-                m_LocalAudioSource.PlayDelayed(delayInSeconds);
-                break;
-
-            default:
-                Debug.LogError("Unhandled Audio type");
-                break;
-        }
+        return Play3D(clipAlias, Camera.main.transform.position, audioType, audioSourceData3D, delayInSeconds);
     }
 
     /// <summary>
@@ -179,7 +177,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         if (audioSourceData == null)
             audioSourceData = new AudioSourceData3D();
 
-        GameObject obj = new GameObject("[3D_AudioSource]");
+        GameObject obj = new GameObject((audioSourceData.spatialBlend == 0) ? "[2D_AudioSource]" : "[3D_AudioSource]");
         obj.transform.parent = transform;
         obj.transform.position = position;
 
@@ -201,14 +199,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             case AudioType.Queue:
                 m_AudioQueue.Enqueue(new AudioQueueInfo
                 {
-                    is3D = true,
+                    is3D = (audioSourceData.spatialBlend == 0) ? false : true,
                     audioSource = spawnedAudioSource,
                     audioClip = clip,
                     clipAlias = clipAlias,
                     delayInSeconds = delayInSeconds
                 });
 
-                if (!m_LocalAudioSource.isPlaying && (m_3DAudioSource == null || (m_3DAudioSource != null && m_3DAudioSource.isPlaying == false)))
+                if ((m_3DAudioSource == null || (m_3DAudioSource != null && m_3DAudioSource.isPlaying == false)))
                 {
                     PlayNext();
                 }
@@ -238,20 +236,17 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             return;
         else
         {
-            m_LocalAudioSource.Stop();
-
             if (m_3DAudioSource != null)
                 m_3DAudioSource.Stop();
 
             var announceInfo = m_AudioQueue.Dequeue();
 
-            if (announceInfo.is3D)
-                m_3DAudioSource = announceInfo.audioSource;
+            m_3DAudioSource = announceInfo.audioSource;
 
             AudioSource source = announceInfo.audioSource;
             source.clip = announceInfo.audioClip;
             source.PlayDelayed(announceInfo.delayInSeconds);
-            StartCoroutine(PlayNextRoutine(source.clip.length + announceInfo.delayInSeconds, announceInfo.is3D));
+            StartCoroutine(PlayNextRoutine(source.clip.length + announceInfo.delayInSeconds));
         }
     }
 
@@ -281,8 +276,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// </summary>
     public void StopAll()
     {
-        m_LocalAudioSource.Stop();
-
         if (m_3DAudioSource != null)
             m_3DAudioSource.Stop();
 
@@ -299,11 +292,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         m_3DAudioSource = null;
     }
 
-    private IEnumerator PlayNextRoutine(float delayInSeconds, bool is3D)
+    private IEnumerator PlayNextRoutine(float delayInSeconds)
     {
         yield return new WaitForSeconds(delayInSeconds);
 
-        if (is3D && m_3DAudioSource != null)
+        if (m_3DAudioSource != null)
         {
             Destroy(m_3DAudioSource.gameObject);
             m_3DAudioSource = null;
