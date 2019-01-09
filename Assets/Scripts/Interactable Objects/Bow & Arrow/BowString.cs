@@ -30,14 +30,13 @@ public class BowString : GrabbableObject
 
     private Material m_ArrowDefaultMaterial;
 
-    private MeshRenderer m_ArrowMeshRenderer;
-
-
     private Quaternion m_UpperBowLimb1_DefaultRot, m_UpperBowLimb2_DefaultRot, m_LowerBowLimb1_DefaultRot, m_LowerBowLimb2_DefaultRot;
 
     // Rate the bow bends when drawing arrows
     private const float m_OuterLimbRotationRate = 180;
     private const float m_InnerLimbRotationRate = 180;
+
+    MeshRenderer m_ArrowMeshRenderer1 = null, m_ArrowMeshRenderer2 = null;
     #endregion
 
 
@@ -64,11 +63,12 @@ public class BowString : GrabbableObject
         transform.position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
-
+        
         if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.15f)
         {
-            m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();            
-            m_ArrowMeshRenderer = m_SpawnedArrow.GetComponentInChildren<MeshRenderer>();
+            m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
+            m_ArrowMeshRenderer1 = m_SpawnedArrow.transform.GetChild(0).GetComponent<MeshRenderer>();
+            m_ArrowMeshRenderer2 = m_SpawnedArrow.transform.GetChild(1).GetComponent<MeshRenderer>();
             AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive);
         }
 
@@ -77,11 +77,13 @@ public class BowString : GrabbableObject
             // Check if the angle is screwed up, change material if it is
             if (IsBowStringFirable())
             {
-                m_ArrowMeshRenderer.material = m_ArrowDefaultMaterial;
+                m_ArrowMeshRenderer1.material = m_ArrowDefaultMaterial;
+                m_ArrowMeshRenderer2.material = m_ArrowDefaultMaterial;
             }
             else
             {
-                m_ArrowMeshRenderer.material = m_ArrowDisabledMaterial;
+                m_ArrowMeshRenderer1.material = m_ArrowDisabledMaterial;
+                m_ArrowMeshRenderer2.material = m_ArrowDisabledMaterial;
             }
 
             // Constantly face towards the pivot point when an arrow is drawn

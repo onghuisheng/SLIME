@@ -426,7 +426,7 @@ PlayerSettings:
   ps4AppVersion: 01.00
   ps4AppType: 0
   ps4ParamSfxPath: 
-  ps4VideoOutPixelFormat: 3
+  ps4VideoOutPixelFormat: 0
   ps4VideoOutInitialWidth: 1920
   ps4VideoOutBaseModeInitialWidth: 1920
   ps4VideoOutReprojectionRate: 60
