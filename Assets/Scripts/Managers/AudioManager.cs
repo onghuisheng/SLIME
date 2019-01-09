@@ -11,6 +11,8 @@ public class AudioSourceData2D
     // 0-Infinity
     public float randomPitchRange = 0.2f;
 
+    public bool loop = false;
+
 }
 
 public class AudioSourceData3D
@@ -31,6 +33,8 @@ public class AudioSourceData3D
     public float maxDistance = 5;
 
     public Vector3 relativeVelocity;
+
+    public bool loop = false;
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -104,6 +108,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
     public void Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0)
+    {
+        Play2D(clipAlias, audioType, null, delayInSeconds);
+    }
+
+    public void Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0)
     {
         AudioClip clip = GetAudioClip(clipAlias);
 
@@ -185,6 +194,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         spawnedAudioSource.maxDistance = audioSourceData.maxDistance;
         spawnedAudioSource.pitch = 1 + UnityEngine.Random.Range(-Mathf.Abs(audioSourceData.randomPitchRange), Mathf.Abs(audioSourceData.randomPitchRange));
         spawnedAudioSource.rolloffMode = AudioRolloffMode.Linear;
+        spawnedAudioSource.loop = audioSourceData.loop;
 
         switch (audioType)
         {
@@ -206,7 +216,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
             case AudioType.Additive:
                 spawnedAudioSource.PlayDelayed(delayInSeconds);
-                StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, spawnedAudioSource.clip.length + delayInSeconds));
+
+                if (!audioSourceData.loop)
+                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, spawnedAudioSource.clip.length + delayInSeconds));
                 break;
 
             default:

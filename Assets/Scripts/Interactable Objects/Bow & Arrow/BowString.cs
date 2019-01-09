@@ -28,7 +28,7 @@ public class BowString : GrabbableObject
     [SerializeField]
     private Material m_ArrowDisabledMaterial;
 
-    private Material m_ArrowDefaultMaterial;
+    private Material m_Arrow1DefaultMaterial, m_Arrow2DefaultMaterial;
 
     private Quaternion m_UpperBowLimb1_DefaultRot, m_UpperBowLimb2_DefaultRot, m_LowerBowLimb1_DefaultRot, m_LowerBowLimb2_DefaultRot;
 
@@ -42,7 +42,8 @@ public class BowString : GrabbableObject
 
     private void Awake()
     {
-        m_ArrowDefaultMaterial = m_BowArrowPrefab.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+        m_Arrow1DefaultMaterial = m_BowArrowPrefab.transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial;
+        m_Arrow2DefaultMaterial = m_BowArrowPrefab.transform.GetChild(1).GetComponent<MeshRenderer>().sharedMaterial;
 
         m_DefaultLocalPos = transform.localPosition;
         m_UpperBowLimb1_DefaultRot = m_UpperBowLimb1.localRotation;
@@ -77,8 +78,8 @@ public class BowString : GrabbableObject
             // Check if the angle is screwed up, change material if it is
             if (IsBowStringFirable())
             {
-                m_ArrowMeshRenderer1.material = m_ArrowDefaultMaterial;
-                m_ArrowMeshRenderer2.material = m_ArrowDefaultMaterial;
+                m_ArrowMeshRenderer1.material = m_Arrow1DefaultMaterial;
+                m_ArrowMeshRenderer2.material = m_Arrow2DefaultMaterial;
             }
             else
             {
