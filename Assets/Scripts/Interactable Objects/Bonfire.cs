@@ -27,6 +27,8 @@ public class Bonfire : MonoBehaviour, IShootable
 
         if (toggle)
         {
+            AudioManager.Instance.Play3D("bonfirelit", transform.position, AudioManager.AudioType.Additive);
+
             m_FlameParticles.Play(true);
             GetComponent<Collider>().enabled = false;
             Invoke("StopFire", m_FlamingDuration);
@@ -43,4 +45,11 @@ public class Bonfire : MonoBehaviour, IShootable
         ToggleFire(false);
     }
 
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.B))
+    //    {
+    //        ToggleFire(!isLighted);
+    //    }
+    //}
 }

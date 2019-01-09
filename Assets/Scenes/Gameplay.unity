@@ -12962,6 +12962,12 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 5d077ecafcb4a3340b115bd78cbeb73a, type: 3}
   - clipAlias: slimesplatter
     audioClip: {fileID: 8300000, guid: 8feb0c2dbe77a684888f1a6d5e1d796b, type: 3}
+  - clipAlias: golemdeath
+    audioClip: {fileID: 8300000, guid: adbf60e24a5cf7641b622eb3d3114a45, type: 3}
+  - clipAlias: bonfirelit
+    audioClip: {fileID: 8300000, guid: f5a97eed8c6dc694995a087acbe34b98, type: 3}
+  - clipAlias: bonfireloop
+    audioClip: {fileID: 8300000, guid: f94c4536d6bcd8c47adc79bbb868ba4a, type: 3}
 --- !u!82 &1869642852
 AudioSource:
   m_ObjectHideFlags: 0
