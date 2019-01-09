@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SlimeBase : MonoBehaviour {
 
@@ -17,12 +18,16 @@ public class SlimeBase : MonoBehaviour {
     [HideInInspector]
     public bool toDespawn;
 
+    public float m_OriginalSpeed;
+
     // Use this for initialization
     void Start() {
         toDespawn = false;
 
         m_Health = m_MaxHealth;
         m_Attack = m_MaxAttack;
+
+        m_OriginalSpeed = GetComponent<NavMeshAgent>().speed;
     }
 
     public void DeductHealth(int toDeduct)

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23860748985607920}
   - component: {fileID: 54830453613157620}
   - component: {fileID: 65079759463005186}
-  - component: {fileID: 114120598485402188}
+  - component: {fileID: 114264498981429070}
   m_Layer: 0
   m_Name: obj_Bottle
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.926859, y: 2.3200743, z: 4.9268594}
   m_Center: {x: -0.00000059604645, y: 1.1600374, z: -0.00000023841858}
---- !u!114 &114120598485402188
+--- !u!114 &114264498981429070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,6 +121,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1070519565074044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1124dd6cc06b94f8a4217c8e99c328, type: 3}
+  m_Script: {fileID: 11500000, guid: 16ee0fc46193976429562f8bbb8a3096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OilPuddle: {fileID: 1076204413980340, guid: a0fe34d59c033a749b1e840aa474112b,
+    type: 2}
