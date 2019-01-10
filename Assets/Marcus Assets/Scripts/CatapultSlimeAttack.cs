@@ -20,15 +20,26 @@ public class CatapultSlimeAttack : MonoBehaviour {
         //if(SlimeManager.instance.m_CurrentWave > 1)
             m_Time += Time.deltaTime;
 
-        if(m_Time > m_DesiredTime)
+        if (m_Time > m_DesiredTime)
         {
             anim.SetBool("IsAttack", true);
         }
+
 	}
 
     public void SetToFalse()
     {
         anim.SetBool("IsAttack", false);
         m_Time = 0.0f;
+    }
+
+    public void PlayFire()
+    {
+        AudioManager.Instance.Play3D("catapultfire", transform.position, AudioManager.AudioType.Additive);
+    }
+
+    public void PlayTension()
+    {
+        AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive);
     }
 }
