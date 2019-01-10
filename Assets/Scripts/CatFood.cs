@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PS4;
-using UnityEngine.PS4.VR;
+using UnityEngine.PostProcessing;
+using DG.Tweening;
+
 
 public class CatFood : MonoBehaviour
 {
@@ -11,28 +12,31 @@ public class CatFood : MonoBehaviour
 
     public GameObject m_Target, m_Target2;
 
+    private float intensity = 3;
+    private float gammaTarget = 0;
 
     void Update()
     {
-        if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonGrab))
-        {
-            m_Target.transform.Translate(0, Time.deltaTime, 0);
-        }
+        //    if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonGrab))
+        //    {
+        //        m_Target.transform.Translate(0, Time.deltaTime, 0);
+        //    }
 
-        if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonUse))
-        {
-            m_Target2.transform.Translate(0, Time.deltaTime, 0);
-        }
+        //    if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonUse))
+        //    {
+        //        m_Target2.transform.Translate(0, Time.deltaTime, 0);
+        //    }
 
-        if (m_RightControl.GetButton(MoveControllerHotkeys.buttonGrab))
-        {
-            m_Target.transform.Translate(0, -Time.deltaTime, 0);
-        }
+        //    if (m_RightControl.GetButton(MoveControllerHotkeys.buttonGrab))
+        //    {
+        //        m_Target.transform.Translate(0, -Time.deltaTime, 0);
+        //    }
 
-        if (m_RightControl.GetButton(MoveControllerHotkeys.buttonUse))
-        {
-            m_Target2.transform.Translate(0, -Time.deltaTime, 0);
-        }
+        //    if (m_RightControl.GetButton(MoveControllerHotkeys.buttonUse))
+        //    {
+        //        m_Target2.transform.Translate(0, -Time.deltaTime, 0);
+        //    }
+                
 
         //// Register all buttons to the dictionary
         //foreach (var key in System.Enum.GetValues(typeof(KeyCode)))
