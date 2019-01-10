@@ -272,7 +272,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     }
 
     /// <summary>
-    /// Stops the current Audio and erase all pending Audios in queue
+    /// Stops the current Audio and erase all pending Audios in the queue
     /// </summary>
     public void StopAll()
     {
