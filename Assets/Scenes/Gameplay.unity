@@ -4379,7 +4379,8 @@ GameObject:
   - component: {fileID: 1075477841}
   - component: {fileID: 1075477844}
   - component: {fileID: 1075477843}
-  m_Layer: 0
+  - component: {fileID: 1075477845}
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -4470,6 +4471,18 @@ MonoBehaviour:
   m_RightControl: {fileID: 0}
   m_Target: {fileID: 0}
   m_Target2: {fileID: 0}
+--- !u!135 &1075477845
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075477839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1097217599 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 38faf6cdafd608e45a31cae9be61906a, type: 3}
