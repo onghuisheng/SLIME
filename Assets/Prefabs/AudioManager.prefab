@@ -173,4 +173,4 @@ MonoBehaviour:
   - clipAlias: bonfireloop
     audioClip: {fileID: 8300000, guid: f94c4536d6bcd8c47adc79bbb868ba4a, type: 3}
   - clipAlias: catapultfire
-    audioClip: {fileID: 8300000, guid: b36e7c1a768a5094286644651fad53f2, type: 3}
+    audioClip: {fileID: 8300000, guid: ce12efac8ce045e438557fbf04985782, type: 3}

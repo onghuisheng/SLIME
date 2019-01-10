@@ -11,6 +11,8 @@ public class Bonfire : MonoBehaviour, IShootable
     [SerializeField, Range(1,100)]
     private float m_FlamingDuration;
 
+    private GameObject m_bonfireloop;
+
     bool isLighted = false;
     
     public void OnShot(ArrowBase arrow)
@@ -29,6 +31,8 @@ public class Bonfire : MonoBehaviour, IShootable
         {
             AudioManager.Instance.Play3D("bonfirelit", transform.position, AudioManager.AudioType.Additive);
 
+           m_bonfireloop= AudioManager.Instance.Play3D("bonfireloop", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { loop = true });
+
             m_FlameParticles.Play(true);
             GetComponent<Collider>().enabled = false;
             Invoke("StopFire", m_FlamingDuration);
@@ -43,13 +47,14 @@ public class Bonfire : MonoBehaviour, IShootable
     private void StopFire()
     {
         ToggleFire(false);
+        Destroy(m_bonfireloop);
     }
 
-    //private void Update()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.B))
-    //    {
-    //        ToggleFire(!isLighted);
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ToggleFire(!isLighted);
+        }
+    }
 }
