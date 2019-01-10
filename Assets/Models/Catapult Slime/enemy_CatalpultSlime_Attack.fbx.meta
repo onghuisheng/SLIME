@@ -149,15 +149,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
-        functionName: PlayTension
+      - time: 0.44827586
+        functionName: PlayFire
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.44827586
-        functionName: PlayFire
+      - time: 0.23946361
+        functionName: PlayTension
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

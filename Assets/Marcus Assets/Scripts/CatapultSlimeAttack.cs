@@ -35,7 +35,7 @@ public class CatapultSlimeAttack : MonoBehaviour {
 
     public void PlayFire()
     {
-        AudioManager.Instance.Play3D("catapultfire", transform.position, AudioManager.AudioType.Additive);
+        AudioManager.Instance.Play3D("catapultfire", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { randomPitchRange = 0,volume = .7f });
     }
 
     public void PlayTension()
