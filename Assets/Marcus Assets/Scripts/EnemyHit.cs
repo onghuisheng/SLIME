@@ -25,6 +25,11 @@ public class EnemyHit : MonoBehaviour, IShootable
         m_OnAnim = true;   
     }
 
+    public void ApplyConfusion(float duration)
+    {
+
+    }
+
     public virtual void OnShot(ArrowBase arrow)
     {
         m_SlimeBase.DeductHealth(Damage); // deduct 1hp when hit

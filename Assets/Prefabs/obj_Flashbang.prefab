@@ -1196,5 +1196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FlashbangRing: {fileID: 114561838681985858}
-  m_FlashParticle: {fileID: 1917105577200120, guid: 173f5eaf2ef30844f955b3f941056180,
+  m_FlashbangBody: {fileID: 1726618274162602}
+  m_FlashParticle: {fileID: 1958390142376172, guid: 459f8f215b65baf4796dbcb02f2b52e9,
     type: 2}
+  m_ConfuseParticle: {fileID: 0}
+  key: 106

@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 114296818641955458}
   m_Layer: 0
   m_Name: Catapult Slime Purple
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -762,6 +762,7 @@ MonoBehaviour:
   m_Agent: {fileID: 0}
   m_Defend: {fileID: 0}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114434802621019442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -811,6 +812,7 @@ MonoBehaviour:
   anim: {fileID: 95949860691495752}
   m_DeathParticles: {fileID: 0}
   toDespawn: 0
+  m_OriginalSpeed: 0
 --- !u!137 &137098553151497102
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

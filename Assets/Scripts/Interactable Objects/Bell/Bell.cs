@@ -35,7 +35,9 @@ public class Bell : MonoBehaviour
         AudioManager.Instance.Play3D("chuterelease", m_ItemDropPosition.position, AudioManager.AudioType.Additive);
 
         // Spawn a random object from the list with a randomized rotation
-        Instantiate(m_ItemDropList[Random.Range(0, m_ItemDropList.Count)], m_ItemDropPosition.position, Quaternion.Euler(Random.Range(0, 360.0f), Random.Range(0, 360.0f), Random.Range(0, 360.0f)));
+        foreach (var obj in m_ItemDropList) {
+            Instantiate(obj, m_ItemDropPosition.position, Quaternion.Euler(Random.Range(0, 360.0f), Random.Range(0, 360.0f), Random.Range(0, 360.0f)));
+        }
 
         m_NextSpawnTime = Time.time + m_RingCooldown;
     }
