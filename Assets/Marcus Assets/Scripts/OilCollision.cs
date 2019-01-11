@@ -7,11 +7,13 @@ public class OilCollision : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
+
+        transform.localScale = new Vector3(Random.Range(1.0f, 3.0f), transform.localScale.y, Random.Range(1.0f, 3.0f));
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
