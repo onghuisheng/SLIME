@@ -49,4 +49,31 @@ public class SlimeBase : MonoBehaviour
     {
         return m_Health;
     }
+
+    public void ApplyConfusion(float duration, GameObject confusionParticlePrefab)
+    {
+        StopCoroutine(ConfusionRemovalRoutine(null, 0));
+
+        if (confusionParticlePrefab != null)
+        {
+            anim.speed = 0;
+
+            var boxCollider = GetComponent<BoxCollider>();
+            Vector3 spawnPos = boxCollider.bounds.center;
+            spawnPos.y = boxCollider.bounds.max.y;
+
+            GameObject particle = Instantiate(confusionParticlePrefab, anim.transform);
+            particle.transform.position = spawnPos;
+
+            StartCoroutine(ConfusionRemovalRoutine(particle, duration));
+        }
+    }
+
+    IEnumerator ConfusionRemovalRoutine(GameObject confusionParticle, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        anim.speed = 1;
+        Destroy(confusionParticle);
+    }
+
 }

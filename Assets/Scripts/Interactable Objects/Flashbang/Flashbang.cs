@@ -68,16 +68,8 @@ public class Flashbang : GrabbableObject
             {
                 Debug.Log("Enemyfound: " + enemy.transform.name);
 
-                if (Physics.Raycast(transform.position, enemy.transform.position - transform.position, out hitInfo, Mathf.Infinity, ~(1 << LayerMask.NameToLayer("IgnoreProjectile"))))
-                {
-                    EnemyHit enemyHit = hitInfo.transform.GetComponent<EnemyHit>();
-                    
-                    if (enemyHit != null)
-                    {
-                        enemyHit.ApplyConfusion(5);
-                        Debug.Log("Enemyhit: " + enemyHit.transform.name);
-                    }
-                }
+                enemy.ApplyConfusion(10, m_ConfuseParticle);
+                Debug.Log("Enemyhit: " + enemy.transform.name);
             }
         }
 

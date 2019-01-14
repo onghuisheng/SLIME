@@ -8,6 +8,7 @@ public class EnemyHit : MonoBehaviour, IShootable
 
     [SerializeField]
     private SlimeBase m_SlimeBase;
+    public SlimeBase slimeBase { get { return m_SlimeBase; } }
 
     [SerializeField]
     private NavMeshAgent m_Agent;
@@ -20,14 +21,10 @@ public class EnemyHit : MonoBehaviour, IShootable
 
     public bool m_OnAnim;
 
+
     private void Start()
     {
-        m_OnAnim = true;   
-    }
-
-    public void ApplyConfusion(float duration)
-    {
-
+        m_OnAnim = true;
     }
 
     public virtual void OnShot(ArrowBase arrow)
@@ -49,9 +46,9 @@ public class EnemyHit : MonoBehaviour, IShootable
                 }
             }
 
-            else if(!m_OnAnim)
+            else if (!m_OnAnim)
             {
-                if(GetComponentInParent<GolemDeath>() != null)
+                if (GetComponentInParent<GolemDeath>() != null)
                     GetComponentInParent<GolemDeath>().RemoveSlimeBody();
 
                 GetComponentInParent<SlimeDeath>().RemoveFromScene();

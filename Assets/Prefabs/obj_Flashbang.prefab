@@ -854,7 +854,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799209889463380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927490030131832}
@@ -1199,5 +1199,6 @@ MonoBehaviour:
   m_FlashbangBody: {fileID: 1726618274162602}
   m_FlashParticle: {fileID: 1958390142376172, guid: 459f8f215b65baf4796dbcb02f2b52e9,
     type: 2}
-  m_ConfuseParticle: {fileID: 0}
-  key: 106
+  m_ConfuseParticle: {fileID: 1932183565944220, guid: bdf50c74689049a408192fd7f8874304,
+    type: 2}
+  key: 107
