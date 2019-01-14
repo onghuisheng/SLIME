@@ -45,6 +45,9 @@ public class DayAndNight : MonoBehaviour {
     public List<ParticleSystem> DayParticles;
     public List<ParticleSystem> NightParticles;
 
+    private GameObject m_NightAudioLoop;
+    private GameObject m_DayAudioLoop;
+
 
     // Use this for initialization
     void Start()
@@ -124,6 +127,10 @@ public class DayAndNight : MonoBehaviour {
 
     private void OnDayStart()
     {
+        AudioManager.Instance.Play2D("rooster", AudioManager.AudioType.Additive);
+
+        m_DayAudioLoop = AudioManager.Instance.Play2D("dayambient", AudioManager.AudioType.Additive, new AudioSourceData2D() { loop = true });
+
         foreach (ParticleSystem ps in DayParticles)
         {
             ps.Play(true);
@@ -137,6 +144,10 @@ public class DayAndNight : MonoBehaviour {
 
     private void OnNightStart()
     {
+        AudioManager.Instance.Play2D("wolf", AudioManager.AudioType.Additive);
+
+        Destroy(m_DayAudioLoop);
+
         foreach (ParticleSystem ps in DayParticles)
         {
             ps.Stop(true);
