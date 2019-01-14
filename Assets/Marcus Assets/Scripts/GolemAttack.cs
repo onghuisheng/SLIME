@@ -32,4 +32,9 @@ public class GolemAttack : MonoBehaviour {
         anim.SetBool("IsAttacking", false);
         m_AttackTime = 0.0f;
     }
+
+    public void GolemAttackAudio() //play in event
+    {
+        AudioManager.Instance.Play3D("golemhit", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { randomPitchRange = .2f });
+    }
 }
