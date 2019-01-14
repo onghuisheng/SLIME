@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour {
 
+    //init
+    //void Start()
+    //{
+    //    AudioManager.Instance.Play3D("flameloop", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { loop = true, volume = 0.5f });
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
