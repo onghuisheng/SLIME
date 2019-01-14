@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.PS4.VR;
-//using UnityEngine.PS4;
+
+#if UNITY_PS4
+using UnityEngine.PS4.VR;
+using UnityEngine.PS4;
+#endif
+
 using System;
 
 public enum MoveControllerOrientation

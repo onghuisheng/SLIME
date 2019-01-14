@@ -813,6 +813,7 @@ MonoBehaviour:
   m_DeathParticles: {fileID: 0}
   toDespawn: 0
   m_OriginalSpeed: 0
+  m_BaseJoint: {fileID: 4714062914532568}
 --- !u!137 &137098553151497102
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

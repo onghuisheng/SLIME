@@ -358,6 +358,8 @@ MonoBehaviour:
   m_DeathParticles: {fileID: 1944689060243302, guid: 484ea43f6735c9742a4fe7fe1af16d3f,
     type: 2}
   toDespawn: 0
+  m_OriginalSpeed: 0
+  m_BaseJoint: {fileID: 4339112465831642}
 --- !u!114 &114382422381613848
 MonoBehaviour:
   m_ObjectHideFlags: 1
