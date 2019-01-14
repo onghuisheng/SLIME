@@ -21,6 +21,11 @@ public class SlimeBase : MonoBehaviour
 
     public float m_OriginalSpeed;
 
+    [SerializeField]
+    private Transform m_BaseJoint;
+
+    private bool m_IsStunned = false;
+
     // Use this for initialization
     void Start()
     {
@@ -52,18 +57,34 @@ public class SlimeBase : MonoBehaviour
 
     public void ApplyConfusion(float duration, GameObject confusionParticlePrefab)
     {
-        StopCoroutine(ConfusionRemovalRoutine(null, 0));
+        if (m_IsStunned)
+        {
+            StopCoroutine(ConfusionRemovalRoutine(null, 0));
+        }
 
         if (confusionParticlePrefab != null)
         {
             anim.speed = 0;
 
             var boxCollider = GetComponent<BoxCollider>();
-            Vector3 spawnPos = boxCollider.bounds.center;
-            spawnPos.y = boxCollider.bounds.max.y;
 
-            GameObject particle = Instantiate(confusionParticlePrefab, anim.transform);
-            particle.transform.position = spawnPos;
+            GameObject particle = null;
+
+            if (!m_IsStunned)
+            {
+                particle = Instantiate(confusionParticlePrefab, (m_BaseJoint != null) ? m_BaseJoint : anim.transform);
+                particle.transform.position = m_BaseJoint.transform.position;
+                particle.transform.rotation = Quaternion.identity;
+                // particle.transform.Translate(0, boxCollider.bounds.max.y, 0, Space.Self); // TODO: SET THE PARTICLE TO BE ON TOP OF ENEMY
+
+                m_IsStunned = true;
+            }
+
+            var movement = GetComponent<Movement>();
+            if (movement)
+            {
+                movement.Stop();
+            }
 
             StartCoroutine(ConfusionRemovalRoutine(particle, duration));
         }
@@ -73,7 +94,10 @@ public class SlimeBase : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         anim.speed = 1;
-        Destroy(confusionParticle);
+        m_IsStunned = false;
+
+        if (confusionParticle)
+            Destroy(confusionParticle);
     }
 
 }

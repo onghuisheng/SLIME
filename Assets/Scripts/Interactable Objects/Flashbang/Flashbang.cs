@@ -18,8 +18,6 @@ public class Flashbang : GrabbableObject
     [SerializeField]
     private GameObject m_ConfuseParticle;
 
-    private List<SlimeBase> m_EnemiesInRange = new List<SlimeBase>();
-
     bool m_IsLighted = false;
 
     public override void OnGrab(MoveController currentController)
@@ -32,8 +30,8 @@ public class Flashbang : GrabbableObject
     {
         base.OnGrabReleased(currentController);
 
-        //if (m_IsLighted == false)
-        //    m_FlashbangRing.GetComponent<Collider>().enabled = false;
+        if (m_IsLighted == false)
+            m_FlashbangRing.GetComponent<Collider>().enabled = false;
     }
 
     public void StartFuse()
@@ -63,15 +61,17 @@ public class Flashbang : GrabbableObject
             // Player flashed
             float playerAngle = Vector3.Angle(playerHeadDir, playerDir);
             StartCoroutine(FlashRoutine(playerAngle));
+        }
 
-            // Enemy flashed
-            foreach (var enemy in m_EnemiesInRange)
+        // Enemy flashed
+        var enemies = FindObjectsOfType<SlimeBase>();
+
+        foreach (var enemy in enemies)
+        {
+            if (enemy && (enemy.transform.position - transform.position).magnitude < 30)
             {
-                if (enemy)
-                {
-                    enemy.ApplyConfusion(10, m_ConfuseParticle);
-                    Debug.Log("Enemyhit: " + enemy.transform.name);
-                }
+                enemy.ApplyConfusion(10, m_ConfuseParticle);
+                Debug.Log("Enemyhit: " + enemy.transform.name);
             }
         }
 
@@ -200,28 +200,6 @@ public class Flashbang : GrabbableObject
         if (Input.GetKeyUp(key))
         {
             StartFuse();
-        }
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-        var slime =  other.GetComponent<SlimeBase>();
-
-        if (slime)
-        {
-            m_EnemiesInRange.Add(slime);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        var slime = other.GetComponent<SlimeBase>();
-
-        if (slime && m_EnemiesInRange.Contains(slime))
-        {
-            m_EnemiesInRange.Remove(slime);
         }
     }
 
