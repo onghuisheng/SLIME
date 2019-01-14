@@ -17,7 +17,6 @@ public class Torch : MonoBehaviour {
         if (arrow != null && !arrow.isFired)
         {
             arrow.BuffArrow(ArrowBase.ArrowType.Flame);
-
             AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive);
         }
 
@@ -26,6 +25,7 @@ public class Torch : MonoBehaviour {
         if (dynamite != null)
         {
             dynamite.DynamiteLit();
+            AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive);
         }
 
     }

@@ -23,6 +23,9 @@ public class Dynamite : MonoBehaviour {
         //if there is slime particles
         if (m_ExplosionParticle != null)
         {
+            //explosion audio
+            //AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive);
+
             //Create temp GO and instantiate in it
             GameObject temp = Instantiate(m_ExplosionParticle, m_DynamiteObject.transform.position, m_ExplosionParticle.gameObject.transform.rotation);
             Destroy(temp, 3); //Destroy after 3 secs
