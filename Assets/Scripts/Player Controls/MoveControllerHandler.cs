@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_PS4
 using UnityEngine.PS4;
-using UnityEngine.SpatialTracking;
 using UnityEngine.PS4.VR;
+#endif
 
 public class MoveControllerHandler : MonoBehaviour
 {
@@ -11,12 +13,16 @@ public class MoveControllerHandler : MonoBehaviour
     [SerializeField]
     private MoveController m_MovePrimaryController, m_MoveSecondaryController;
 
+#if UNITY_PS4
     PS4Input.LoggedInUser m_UserInfo;
+#endif
+
     int m_UserSlot = -1;
 
     // Use this for initialization
     void Start()
     {
+#if UNITY_PS4
         // PS4 Settings Init
         PlayStationVRSettings.robustnessLevel = PlayStationVRTrackerRobustnessLevel.Low;
 
@@ -34,6 +40,7 @@ public class MoveControllerHandler : MonoBehaviour
         // TODO: Check if there are two move controllers currently active, time out after a certain period and halt the game
         //UnregisterControllers();
         RegisterControllers();
+#endif
     }
 
     // Remove the registered devices from tracking and reset the transform
@@ -42,6 +49,8 @@ public class MoveControllerHandler : MonoBehaviour
         int[] primaryHandles = new int[1];
         int[] secondaryHandles = new int[1];
 
+
+#if UNITY_PS4
         // There are no documentation on PS4Input functions so I don't really understand PS4Input.MoveGetUsersMoveHandles(....)
         // But (I think) the m_primaryHandle and m_secondaryHandle are set to -1 because in Update(),
         // there is an if statement to check if m_primaryHandle and m_secondaryHandle are 0 and above.
@@ -53,6 +62,7 @@ public class MoveControllerHandler : MonoBehaviour
         // primaryController and secondaryController are public variables so the objects in these variables are in the Editor.
         Tracker.UnregisterTrackedDevice(primaryHandles[0]);
         Tracker.UnregisterTrackedDevice(secondaryHandles[0]);
+#endif
 
         m_MovePrimaryController.transform.localPosition = Vector3.zero;
         m_MovePrimaryController.transform.localRotation = Quaternion.identity;
@@ -62,9 +72,11 @@ public class MoveControllerHandler : MonoBehaviour
 
     void RegisterControllers()
     {
+#if UNITY_PS4
         m_MovePrimaryController.RegisterController(MoveControllerOrientation.Left, m_UserSlot, m_UserInfo.move0Handle);
         m_MoveSecondaryController.RegisterController(MoveControllerOrientation.Right, m_UserSlot, m_UserInfo.move1Handle);
         Debug.LogFormat("Registered Move Controllers - Slot: {0} (First Handle: {1}) (Second Handle: {2})", m_UserSlot, m_UserInfo.move0Handle, m_UserInfo.move1Handle);
+#endif
     }
 
     int[] GetControllerSlots()
@@ -80,6 +92,7 @@ public class MoveControllerHandler : MonoBehaviour
         {
             for (int j = 0; j < 2; ++j)
             {
+#if UNITY_PS4
                 if (PS4Input.MoveIsConnected(i, j))
                 {
                     if (!firstFound)
@@ -93,6 +106,7 @@ public class MoveControllerHandler : MonoBehaviour
                         break;
                     }
                 }
+#endif
             }
         }
 

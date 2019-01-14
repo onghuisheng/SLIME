@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PS4.VR;
-using UnityEngine.PS4;
+//using UnityEngine.PS4.VR;
+//using UnityEngine.PS4;
 using System;
 
 public enum MoveControllerOrientation
@@ -40,7 +40,15 @@ public class MoveController : MonoBehaviour
 
     private GameObject m_Player;
 
-    public Vector3 moveDelta { get { return PS4Input.GetLastMoveGyro(m_ControllerSlot, m_ControllerIndex); } }
+    public Vector3 moveDelta {
+        get {
+#if UNITY_PS4
+            return PS4Input.GetLastMoveGyro(m_ControllerSlot, m_ControllerIndex);
+#else
+            return Vector3.zero;
+#endif
+        }
+    }
 
     private void Awake()
     {
@@ -76,6 +84,7 @@ public class MoveController : MonoBehaviour
         m_ControllerIndex = (controllerOrientation == MoveControllerOrientation.Left) ? 0 : 1;
         m_Orientation = controllerOrientation;
 
+#if UNITY_PS4
         if (controllerOrientation == MoveControllerOrientation.Left)
         {
             PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 0, 0, 255);
@@ -84,6 +93,7 @@ public class MoveController : MonoBehaviour
             PS4Input.MoveSetLightSphere(slotNumber, m_ControllerIndex, 0, 255, 0);
 
         Tracker.RegisterTrackedDevice(PlayStationVRTrackedDevice.DeviceMove, handleNumber, PlayStationVRTrackingType.Absolute, PlayStationVRTrackerUsage.OptimizedForHmdUser);
+#endif
 
     }
 
@@ -101,6 +111,7 @@ public class MoveController : MonoBehaviour
 
     private void ProcessControllerMovement()
     {
+#if UNITY_PS4
         Vector3 pos;
         Tracker.GetTrackedDevicePosition(m_HandleNumber, PlayStationVRSpace.Unity, out pos);
         transform.position = pos + m_Player.transform.localPosition;
@@ -108,6 +119,7 @@ public class MoveController : MonoBehaviour
         Quaternion rot;
         Tracker.GetTrackedDeviceOrientation(m_HandleNumber, PlayStationVRSpace.Unity, out rot);
         transform.rotation = rot;
+#endif
     }
 
     private void ProcessGrabbing()
@@ -352,21 +364,30 @@ public class MoveController : MonoBehaviour
     /// <param name="downThreshold">How far to the trigger is down before returning TRUE</param>    
     public bool GetTriggerDown(int downThreshold)
     {
+
+#if UNITY_PS4
         // Move controllers use an API for their analog buttons, DualShock 4 uses an axis name for R2
         return ((PS4Input.MoveGetAnalogButton(m_ControllerSlot, m_ControllerIndex) > downThreshold) ? true : false);
+#else
+        return false;
+#endif
     }
 
     public Vector3 GetVelocity()
     {
-        Vector3 value;
+        Vector3 value = Vector3.zero;
+#if UNITY_PS4
         Tracker.GetTrackedDeviceVelocity(m_HandleNumber, out value);
+#endif
         return value;
     }
 
     public Vector3 GetAngularVelocity()
     {
-        Vector3 value;
+        Vector3 value = Vector3.zero;
+#if UNITY_PS4
         Tracker.GetTrackedDeviceAngularVelocity(m_HandleNumber, out value);
+#endif
         return -value;
     }
 
@@ -458,7 +479,9 @@ public class MoveController : MonoBehaviour
 
     private IEnumerator VibrateRoutine(int intensity, float durationInSeconds)
     {
+#if UNITY_PS4
         PS4Input.MoveSetVibration(m_ControllerSlot, m_ControllerIndex, intensity);
+#endif
 
         isVibrating = true;
 
@@ -470,7 +493,10 @@ public class MoveController : MonoBehaviour
     public void StopVibration()
     {
         StopCoroutine(VibrateRoutine(0, 0));
+#if UNITY_PS4
         PS4Input.MoveSetVibration(m_ControllerSlot, m_ControllerIndex, 0);
+#endif
+
         isVibrating = false;
     }
 
