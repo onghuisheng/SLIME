@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 65691131177242814}
   - component: {fileID: 54845438998878636}
   - component: {fileID: 114989744088327436}
+  - component: {fileID: 65353294594341888}
   m_Layer: 0
   m_Name: obj_Flashbang
   m_TagString: Untagged
@@ -854,7 +855,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799209889463380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.175}
+  m_LocalPosition: {x: -18.58, y: 0, z: 6.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927490030131832}
@@ -1161,6 +1162,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04432312, y: 0.028243028, z: 0.044202957}
   m_Center: {x: 0.021664048, y: -0.017415658, z: 0.018537177}
+--- !u!65 &65353294594341888
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799209889463380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 25, z: 25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65691131177242814
 BoxCollider:
   m_ObjectHideFlags: 1
