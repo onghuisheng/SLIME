@@ -173,8 +173,18 @@ MonoBehaviour:
   - clipAlias: bonfireloop
     audioClip: {fileID: 8300000, guid: f94c4536d6bcd8c47adc79bbb868ba4a, type: 3}
   - clipAlias: catapultfire
-    audioClip: {fileID: 8300000, guid: ce12efac8ce045e438557fbf04985782, type: 3}
+    audioClip: {fileID: 8300000, guid: 98c92cf3bb6e9424e85ac97a90dbb03a, type: 3}
   - clipAlias: flameloop
     audioClip: {fileID: 8300000, guid: 0de8c10822a5c1842adc85674f7fe018, type: 3}
   - clipAlias: golemhit
     audioClip: {fileID: 8300000, guid: 8572f78c248a22b40b166785da92b820, type: 3}
+  - clipAlias: dayambient
+    audioClip: {fileID: 8300000, guid: 00c6c2f1ed7ab8549ba6dab25eb749e7, type: 3}
+  - clipAlias: rooster
+    audioClip: {fileID: 8300000, guid: ba88ac99e3e37ef41976a8e09035e76b, type: 3}
+  - clipAlias: wolf
+    audioClip: {fileID: 8300000, guid: 79503feeea14cf743a042af87a870cfb, type: 3}
+  - clipAlias: arrowlit
+    audioClip: {fileID: 8300000, guid: 82ef320be79f9c347b1e22341dac3de3, type: 3}
+  - clipAlias: bottlebreak
+    audioClip: {fileID: 8300000, guid: e9bb99c1f06ea9a479ce80d6a96a5898, type: 3}

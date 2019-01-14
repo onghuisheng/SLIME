@@ -34,6 +34,8 @@ public class ArrowBase : MonoBehaviour
             switch (arrowType)
             {
                 case ArrowType.Flame:
+                    //delete this if it doesnt work
+                    AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive);
                     Instantiate(m_FlameParticlePrefab, transform);
                     break;
                 case ArrowType.Bait: // TBD
