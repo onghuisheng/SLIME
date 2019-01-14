@@ -8,10 +8,7 @@ public class ImageFader : MonoBehaviour
 {
     [SerializeField]
     private bool m_FadeOutOnStart;
-
-    [SerializeField]
-    private Image m_FaderImage;
-
+    
     [SerializeField]
     private Color m_fadeColor;
 
