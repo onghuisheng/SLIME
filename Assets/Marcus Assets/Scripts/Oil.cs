@@ -13,11 +13,7 @@ public class Oil : MonoBehaviour {
         m_LifeTime = 0.0f;
         Random.InitState((int)System.DateTime.Now.Ticks); // make random more random
         m_DesiredScale = new Vector3(Random.Range(1.0f, 3.0f), transform.localScale.y, Random.Range(1.0f, 3.0f));
-
-        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            Physics.IgnoreCollision(this.GetComponent<Collider>(), enemy.GetComponent<Collider>());
-        }
+        
     }
 
     // Update is called once per frame
