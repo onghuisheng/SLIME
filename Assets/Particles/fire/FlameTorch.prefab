@@ -51,9 +51,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464616157408448}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0.7071068, y: 0.000000044703484, z: 0.000000044703484, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.452, z: 0}
+  m_LocalScale: {x: 0.100000024, y: 0.10000014, z: 0.10000015}
   m_Children:
   - {fileID: 4829444453418204}
   m_Father: {fileID: 0}
@@ -3697,7 +3697,7 @@ ParticleSystem:
   LightsModule:
     enabled: 1
     ratio: 1
-    light: {fileID: 108773649409212318, guid: c7ca45b6b434c48488c11bf284ce8b02, type: 2}
+    light: {fileID: 108197603583268096, guid: c7ca45b6b434c48488c11bf284ce8b02, type: 2}
     randomDistribution: 1
     color: 0
     range: 1
