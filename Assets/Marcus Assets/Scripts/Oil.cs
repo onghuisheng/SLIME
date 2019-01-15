@@ -25,8 +25,8 @@ public class Oil : MonoBehaviour {
         {
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.0f, 0.0f, 0.0f), 1 * Time.deltaTime);
 
-            if (transform.localScale.x > 0.1f)
-                Destroy(this);
+            if (transform.localScale.x < 0.1f)
+                Destroy(this.gameObject);
         }
 
         else

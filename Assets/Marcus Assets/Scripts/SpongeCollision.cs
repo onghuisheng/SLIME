@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpongeCollision : MonoBehaviour {
+public class SpongeCollision : MonoBehaviour
+{
 
     public Text m_Text;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (GetComponentInParent<Image>().color.a <= 0)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+    }
 
     //private void OnCollisionEnter(Collision collision)
     //{
@@ -34,12 +41,13 @@ public class SpongeCollision : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.tag != "Sponge")
-        //    return;
+        if (other.tag != "Sponge")
+            return;
+        
+        Color tempColor = GetComponentInParent<Image>().color;
+        tempColor.a -= 0.4f;
 
-        //Destroy(transform.parent.gameObject);
-
-        m_Text.text = other.name;
+        GetComponentInParent<Image>().color = tempColor;
 
     }
 }
