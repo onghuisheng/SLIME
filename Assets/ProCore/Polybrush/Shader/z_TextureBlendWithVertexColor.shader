@@ -15,7 +15,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
         _Texture2 ("Texture 2", 2D) = "white" {}
         _Texture3 ("Texture 3", 2D) = "white" {}
         _Texture4 ("Texture 4", 2D) = "white" {}
-        
+       
     }
     SubShader {
         Tags {
