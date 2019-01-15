@@ -177,7 +177,7 @@ MonoBehaviour:
   - clipAlias: flameloop
     audioClip: {fileID: 8300000, guid: 0de8c10822a5c1842adc85674f7fe018, type: 3}
   - clipAlias: golemhit
-    audioClip: {fileID: 8300000, guid: 8572f78c248a22b40b166785da92b820, type: 3}
+    audioClip: {fileID: 8300000, guid: 70758ab9f3c5de84999aa10941dd60b4, type: 3}
   - clipAlias: dayambient
     audioClip: {fileID: 8300000, guid: 00c6c2f1ed7ab8549ba6dab25eb749e7, type: 3}
   - clipAlias: rooster
