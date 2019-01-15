@@ -1,10 +1,7 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Shader created with Shader Forge v1.26 
-// Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
+// Shader created with Shader Forge v1.38 
+// Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.26;sub:START;pass:START;ps:flbk:Standard,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False;n:type:ShaderForge.SFN_Final,id:2865,x:32697,y:32737,varname:node_2865,prsc:2|diff-5621-OUT,spec-358-OUT,gloss-1813-OUT;n:type:ShaderForge.SFN_Slider,id:358,x:32173,y:33116,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32173,y:33218,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.8,max:1;n:type:ShaderForge.SFN_ChannelBlend,id:6836,x:32169,y:32743,varname:node_6836,prsc:2,chbt:1|M-8334-OUT,R-2614-RGB,G-9336-RGB,B-5554-RGB,A-6633-RGB,BTM-2614-RGB;n:type:ShaderForge.SFN_Tex2d,id:2614,x:31868,y:32656,ptovrint:False,ptlb:Base,ptin:_Base,varname:node_2614,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:9336,x:31868,y:32844,ptovrint:False,ptlb:Texture 2,ptin:_Texture2,varname:node_9336,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:5554,x:31868,y:33032,ptovrint:False,ptlb:Texture 3,ptin:_Texture3,varname:node_5554,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:6633,x:31868,y:33220,ptovrint:False,ptlb:Texture 4,ptin:_Texture4,varname:node_6633,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_TexCoord,id:5338,x:31467,y:32389,cmnt:define Z_TEXTURE_CHANNELS 4,varname:node_5338,prsc:2,uv:2;n:type:ShaderForge.SFN_Vector4Property,id:3031,x:31467,y:32596,ptovrint:False,ptlb:TEMP_CHANNEL_UV2,ptin:_TEMP_CHANNEL_UV2,cmnt:define Z_MESH_ATTRIBUTES UV3,varname:node_3031,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0,v2:0,v3:0,v4:0;n:type:ShaderForge.SFN_Append,id:1231,x:31830,y:32461,cmnt:this dance allows polybrush to hack vec4 attributes out of UV channels in shaderforge,varname:node_1231,prsc:2|A-5338-U,B-5338-V,C-3031-Z,D-3031-W;n:type:ShaderForge.SFN_VertexColor,id:7147,x:32169,y:32929,varname:node_7147,prsc:2;n:type:ShaderForge.SFN_Multiply,id:5621,x:32384,y:32825,varname:node_5621,prsc:2|A-6836-OUT,B-7147-RGB;n:type:ShaderForge.SFN_TexCoord,id:5223,x:31467,y:32814,varname:node_5223,prsc:2,uv:0;n:type:ShaderForge.SFN_Normalize,id:8334,x:32116,y:32461,varname:node_8334,prsc:2|IN-1231-OUT;proporder:358-1813-2614-9336-5554-6633-3031;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:Standard,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32697,y:32737,varname:node_2865,prsc:2|diff-5621-OUT,spec-358-OUT,gloss-1813-OUT;n:type:ShaderForge.SFN_Slider,id:358,x:32173,y:33116,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32173,y:33218,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.8,max:1;n:type:ShaderForge.SFN_ChannelBlend,id:6836,x:32169,y:32743,varname:node_6836,prsc:2,chbt:1|M-8334-OUT,R-2614-RGB,G-9336-RGB,B-5554-RGB,A-6633-RGB,BTM-2614-RGB;n:type:ShaderForge.SFN_Tex2d,id:2614,x:31868,y:32656,ptovrint:False,ptlb:Base,ptin:_Base,varname:node_2614,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:9336,x:31868,y:32844,ptovrint:False,ptlb:Texture 2,ptin:_Texture2,varname:node_9336,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:5554,x:31868,y:33032,ptovrint:False,ptlb:Texture 3,ptin:_Texture3,varname:node_5554,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:6633,x:31868,y:33220,ptovrint:False,ptlb:Texture 4,ptin:_Texture4,varname:node_6633,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-5223-UVOUT;n:type:ShaderForge.SFN_TexCoord,id:5338,x:31467,y:32389,cmnt:define Z_TEXTURE_CHANNELS 4,varname:node_5338,prsc:2,uv:2,uaff:False;n:type:ShaderForge.SFN_Vector4Property,id:3031,x:31467,y:32596,ptovrint:False,ptlb:TEMP_CHANNEL_UV2,ptin:_TEMP_CHANNEL_UV2,cmnt:define Z_MESH_ATTRIBUTES UV3,varname:node_3031,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0,v2:0,v3:0,v4:0;n:type:ShaderForge.SFN_Append,id:1231,x:31830,y:32461,cmnt:this dance allows polybrush to hack vec4 attributes out of UV channels in shaderforge,varname:node_1231,prsc:2|A-5338-U,B-5338-V,C-3031-Z,D-3031-W;n:type:ShaderForge.SFN_VertexColor,id:7147,x:32169,y:32929,varname:node_7147,prsc:2;n:type:ShaderForge.SFN_Multiply,id:5621,x:32384,y:32825,varname:node_5621,prsc:2|A-6836-OUT,B-7147-RGB;n:type:ShaderForge.SFN_TexCoord,id:5223,x:31467,y:32814,varname:node_5223,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Normalize,id:8334,x:32116,y:32461,varname:node_8334,prsc:2|IN-1231-OUT;proporder:358-1813-2614-9336-5554-6633-3031;pass:END;sub:END;*/
 
 Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
     Properties {
@@ -30,7 +27,6 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_FORWARDBASE
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -43,7 +39,7 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma only_renderers d3d9 d3d11 glcore gles gles3 ps4 n3ds wiiu switch 
             #pragma target 3.0
             uniform float _Metallic;
             uniform float _Gloss;
@@ -96,7 +92,7 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = UnityObjectToClipPos(v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
@@ -111,13 +107,15 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
 ////// Lighting:
-                float attenuation = LIGHT_ATTENUATION(i);
+                UNITY_LIGHT_ATTENUATION(attenuation,i, i.posWorld.xyz);
                 float3 attenColor = attenuation * _LightColor0.xyz;
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
                 float gloss = _Gloss;
-                float specPow = exp2( gloss * 10.0+1.0);
+                float perceptualRoughness = 1.0 - _Gloss;
+                float roughness = perceptualRoughness * perceptualRoughness;
+                float specPow = exp2( gloss * 10.0 + 1.0 );
 /////// GI Data:
                 UnityLight light;
                 #ifdef LIGHTMAP_OFF
@@ -140,13 +138,17 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
                 #else
                     d.ambient = i.ambientOrLightmapUV;
                 #endif
-                d.boxMax[0] = unity_SpecCube0_BoxMax;
-                d.boxMin[0] = unity_SpecCube0_BoxMin;
-                d.probePosition[0] = unity_SpecCube0_ProbePosition;
+                #if UNITY_SPECCUBE_BLENDING || UNITY_SPECCUBE_BOX_PROJECTION
+                    d.boxMin[0] = unity_SpecCube0_BoxMin;
+                    d.boxMin[1] = unity_SpecCube1_BoxMin;
+                #endif
+                #if UNITY_SPECCUBE_BOX_PROJECTION
+                    d.boxMax[0] = unity_SpecCube0_BoxMax;
+                    d.boxMax[1] = unity_SpecCube1_BoxMax;
+                    d.probePosition[0] = unity_SpecCube0_ProbePosition;
+                    d.probePosition[1] = unity_SpecCube1_ProbePosition;
+                #endif
                 d.probeHDR[0] = unity_SpecCube0_HDR;
-                d.boxMax[1] = unity_SpecCube1_BoxMax;
-                d.boxMin[1] = unity_SpecCube1_BoxMin;
-                d.probePosition[1] = unity_SpecCube1_ProbePosition;
                 d.probeHDR[1] = unity_SpecCube1_HDR;
                 Unity_GlossyEnvironmentData ugls_en_data;
                 ugls_en_data.roughness = 1.0 - gloss;
@@ -155,33 +157,50 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
                 lightDirection = gi.light.dir;
                 lightColor = gi.light.color;
 ////// Specular:
-                float NdotL = max(0, dot( normalDirection, lightDirection ));
-                float LdotH = max(0.0,dot(lightDirection, halfDirection));
+                float NdotL = saturate(dot( normalDirection, lightDirection ));
+                float LdotH = saturate(dot(lightDirection, halfDirection));
+                float3 specularColor = _Metallic;
+                float specularMonochrome;
                 float4 node_8334 = normalize(float4(i.uv2.r,i.uv2.g,_TEMP_CHANNEL_UV2.b,_TEMP_CHANNEL_UV2.a));
                 float4 _Base_var = tex2D(_Base,TRANSFORM_TEX(i.uv0, _Base));
                 float4 _Texture2_var = tex2D(_Texture2,TRANSFORM_TEX(i.uv0, _Texture2));
                 float4 _Texture3_var = tex2D(_Texture3,TRANSFORM_TEX(i.uv0, _Texture3));
                 float4 _Texture4_var = tex2D(_Texture4,TRANSFORM_TEX(i.uv0, _Texture4));
                 float3 diffuseColor = ((lerp( lerp( lerp( lerp( _Base_var.rgb, _Base_var.rgb, node_8334.r ), _Texture2_var.rgb, node_8334.g ), _Texture3_var.rgb, node_8334.b ), _Texture4_var.rgb, node_8334.a ))*i.vertexColor.rgb); // Need this for specular when using metallic
-                float specularMonochrome;
-                float3 specularColor;
-                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, _Metallic, specularColor, specularMonochrome );
-                specularMonochrome = 1-specularMonochrome;
-                float NdotV = max(0.0,dot( normalDirection, viewDirection ));
-                float NdotH = max(0.0,dot( normalDirection, halfDirection ));
-                float VdotH = max(0.0,dot( viewDirection, halfDirection ));
-                float visTerm = SmithBeckmannVisibilityTerm( NdotL, NdotV, 1.0-gloss );
-                float normTerm = max(0.0, NDFBlinnPhongNormalizedTerm(NdotH, RoughnessToSpecPower(1.0-gloss)));
-                float specularPBL = max(0, (NdotL*visTerm*normTerm) * (UNITY_PI / 4) );
-                float3 directSpecular = 1 * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularPBL*lightColor*FresnelTerm(specularColor, LdotH);
+                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
+                specularMonochrome = 1.0-specularMonochrome;
+                float NdotV = abs(dot( normalDirection, viewDirection ));
+                float NdotH = saturate(dot( normalDirection, halfDirection ));
+                float VdotH = saturate(dot( viewDirection, halfDirection ));
+                float visTerm = SmithJointGGXVisibilityTerm( NdotL, NdotV, roughness );
+                float normTerm = GGXTerm(NdotH, roughness);
+                float specularPBL = (visTerm*normTerm) * UNITY_PI;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                    specularPBL = sqrt(max(1e-4h, specularPBL));
+                #endif
+                specularPBL = max(0, specularPBL * NdotL);
+                #if defined(_SPECULARHIGHLIGHTS_OFF)
+                    specularPBL = 0.0;
+                #endif
+                half surfaceReduction;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                    surfaceReduction = 1.0-0.28*roughness*perceptualRoughness;
+                #else
+                    surfaceReduction = 1.0/(roughness*roughness + 1.0);
+                #endif
+                specularPBL *= any(specularColor) ? 1.0 : 0.0;
+                float3 directSpecular = attenColor*specularPBL*FresnelTerm(specularColor, LdotH);
                 half grazingTerm = saturate( gloss + specularMonochrome );
                 float3 indirectSpecular = (gi.indirect.specular);
                 indirectSpecular *= FresnelLerp (specularColor, grazingTerm, NdotV);
+                indirectSpecular *= surfaceReduction;
                 float3 specular = (directSpecular + indirectSpecular);
 /////// Diffuse:
                 NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 half fd90 = 0.5 + 2 * LdotH * LdotH * (1-gloss);
-                float3 directDiffuse = ((1 +(fd90 - 1)*pow((1.00001-NdotL), 5)) * (1 + (fd90 - 1)*pow((1.00001-NdotV), 5)) * NdotL) * attenColor;
+                float nlPow5 = Pow5(1-NdotL);
+                float nvPow5 = Pow5(1-NdotV);
+                float3 directDiffuse = ((1 +(fd90 - 1)*nlPow5) * (1 + (fd90 - 1)*nvPow5) * NdotL) * attenColor;
                 float3 indirectDiffuse = float3(0,0,0);
                 indirectDiffuse += gi.indirect.diffuse;
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
@@ -204,7 +223,6 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_FORWARDADD
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -217,7 +235,7 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma only_renderers d3d9 d3d11 glcore gles gles3 ps4 n3ds wiiu switch 
             #pragma target 3.0
             uniform float _Metallic;
             uniform float _Gloss;
@@ -259,7 +277,7 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = UnityObjectToClipPos(v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
@@ -273,38 +291,50 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
 ////// Lighting:
-                float attenuation = LIGHT_ATTENUATION(i);
+                UNITY_LIGHT_ATTENUATION(attenuation,i, i.posWorld.xyz);
                 float3 attenColor = attenuation * _LightColor0.xyz;
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
                 float gloss = _Gloss;
-                float specPow = exp2( gloss * 10.0+1.0);
+                float perceptualRoughness = 1.0 - _Gloss;
+                float roughness = perceptualRoughness * perceptualRoughness;
+                float specPow = exp2( gloss * 10.0 + 1.0 );
 ////// Specular:
-                float NdotL = max(0, dot( normalDirection, lightDirection ));
-                float LdotH = max(0.0,dot(lightDirection, halfDirection));
+                float NdotL = saturate(dot( normalDirection, lightDirection ));
+                float LdotH = saturate(dot(lightDirection, halfDirection));
+                float3 specularColor = _Metallic;
+                float specularMonochrome;
                 float4 node_8334 = normalize(float4(i.uv2.r,i.uv2.g,_TEMP_CHANNEL_UV2.b,_TEMP_CHANNEL_UV2.a));
                 float4 _Base_var = tex2D(_Base,TRANSFORM_TEX(i.uv0, _Base));
                 float4 _Texture2_var = tex2D(_Texture2,TRANSFORM_TEX(i.uv0, _Texture2));
                 float4 _Texture3_var = tex2D(_Texture3,TRANSFORM_TEX(i.uv0, _Texture3));
                 float4 _Texture4_var = tex2D(_Texture4,TRANSFORM_TEX(i.uv0, _Texture4));
                 float3 diffuseColor = ((lerp( lerp( lerp( lerp( _Base_var.rgb, _Base_var.rgb, node_8334.r ), _Texture2_var.rgb, node_8334.g ), _Texture3_var.rgb, node_8334.b ), _Texture4_var.rgb, node_8334.a ))*i.vertexColor.rgb); // Need this for specular when using metallic
-                float specularMonochrome;
-                float3 specularColor;
-                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, _Metallic, specularColor, specularMonochrome );
-                specularMonochrome = 1-specularMonochrome;
-                float NdotV = max(0.0,dot( normalDirection, viewDirection ));
-                float NdotH = max(0.0,dot( normalDirection, halfDirection ));
-                float VdotH = max(0.0,dot( viewDirection, halfDirection ));
-                float visTerm = SmithBeckmannVisibilityTerm( NdotL, NdotV, 1.0-gloss );
-                float normTerm = max(0.0, NDFBlinnPhongNormalizedTerm(NdotH, RoughnessToSpecPower(1.0-gloss)));
-                float specularPBL = max(0, (NdotL*visTerm*normTerm) * (UNITY_PI / 4) );
-                float3 directSpecular = attenColor * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularPBL*lightColor*FresnelTerm(specularColor, LdotH);
+                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
+                specularMonochrome = 1.0-specularMonochrome;
+                float NdotV = abs(dot( normalDirection, viewDirection ));
+                float NdotH = saturate(dot( normalDirection, halfDirection ));
+                float VdotH = saturate(dot( viewDirection, halfDirection ));
+                float visTerm = SmithJointGGXVisibilityTerm( NdotL, NdotV, roughness );
+                float normTerm = GGXTerm(NdotH, roughness);
+                float specularPBL = (visTerm*normTerm) * UNITY_PI;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                    specularPBL = sqrt(max(1e-4h, specularPBL));
+                #endif
+                specularPBL = max(0, specularPBL * NdotL);
+                #if defined(_SPECULARHIGHLIGHTS_OFF)
+                    specularPBL = 0.0;
+                #endif
+                specularPBL *= any(specularColor) ? 1.0 : 0.0;
+                float3 directSpecular = attenColor*specularPBL*FresnelTerm(specularColor, LdotH);
                 float3 specular = directSpecular;
 /////// Diffuse:
                 NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 half fd90 = 0.5 + 2 * LdotH * LdotH * (1-gloss);
-                float3 directDiffuse = ((1 +(fd90 - 1)*pow((1.00001-NdotL), 5)) * (1 + (fd90 - 1)*pow((1.00001-NdotV), 5)) * NdotL) * attenColor;
+                float nlPow5 = Pow5(1-NdotL);
+                float nvPow5 = Pow5(1-NdotV);
+                float3 directDiffuse = ((1 +(fd90 - 1)*nlPow5) * (1 + (fd90 - 1)*nvPow5) * NdotL) * attenColor;
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
@@ -324,7 +354,6 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_META 1
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -338,7 +367,7 @@ Shader "Hidden/Polybrush/Texture Blend With Vertex Color" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma only_renderers d3d9 d3d11 glcore gles gles3 ps4 n3ds wiiu switch 
             #pragma target 3.0
             uniform float _Metallic;
             uniform float _Gloss;

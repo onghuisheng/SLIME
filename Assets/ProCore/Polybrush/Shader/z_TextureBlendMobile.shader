@@ -1,18 +1,13 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced '_Object2World' with '_Object2World'
-
 // define Z_TEXTURE_CHANNELS 4
 // define Z_MESH_ATTRIBUTES UV3
-// Z_SHADER_METADATA Polybrush Metadata/z_TextureBlendMobile
 // Important!  This is a generated file, any changes will be overwritten
-// when the _SfTexBlendSrc suffixed version of this shader is modified.
+// when the _SfSrc suffixed version of this shader is modified.
 
 
 Shader "Polybrush/Texture Blend (Mobile)" {
     Properties {
         _Texture1 ("Texture 1", 2D) = "white" {}
+        
         _Texture2 ("Texture 2", 2D) = "white" {}
         _Texture3 ("Texture 3", 2D) = "white" {}
         _Texture4 ("Texture 4", 2D) = "white" {}
@@ -26,7 +21,8 @@ Shader "Polybrush/Texture Blend (Mobile)" {
             Tags {
                 "LightMode"="ForwardBase"
             }
-                        
+            
+            
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -161,7 +157,8 @@ Shader "Polybrush/Texture Blend (Mobile)" {
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
 ////// Lighting:
-                float attenuation = LIGHT_ATTENUATION(i);
+
+				UNITY_LIGHT_ATTENUATION(attenuation,i,i.posWorld.xyz);
                 float3 attenColor = attenuation * _LightColor0.xyz;
 /////// Diffuse:
                 float NdotL = max(0.0,dot( normalDirection, lightDirection ));

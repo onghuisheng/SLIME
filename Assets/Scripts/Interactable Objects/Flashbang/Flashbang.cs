@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 
-public class Flashbang : GrabbableObject
+public class Flashbang : GrabbableObject, IStorable
 {
 
     [SerializeField]
@@ -201,6 +201,14 @@ public class Flashbang : GrabbableObject
         {
             StartFuse();
         }
+    }
+
+    public void OnStore(BeltSlot slot)
+    {
+    }
+
+    public void OnUnStore(BeltSlot slot)
+    {
     }
 
 }
