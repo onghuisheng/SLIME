@@ -62,7 +62,7 @@ public class SlimeBase : MonoBehaviour
             StopCoroutine(ConfusionRemovalRoutine(null, 0));
         }
 
-        if (confusionParticlePrefab != null)
+        if (confusionParticlePrefab != null && m_BaseJoint != null)
         {
             anim.speed = 0;
 
@@ -72,10 +72,21 @@ public class SlimeBase : MonoBehaviour
 
             if (!m_IsStunned)
             {
-                particle = Instantiate(confusionParticlePrefab, (m_BaseJoint != null) ? m_BaseJoint : anim.transform);
-                particle.transform.position = m_BaseJoint.transform.position;
+                particle = Instantiate(confusionParticlePrefab, m_BaseJoint);
+
+                Vector3 spawnPos = m_BaseJoint.transform.position;
+
+                var agent = GetComponent<NavMeshAgent>();
+                if (agent)
+                    spawnPos.y += agent.height;
+                else
+                {
+                    spawnPos.y += Mathf.Abs(m_BaseJoint.InverseTransformPoint(boxCollider.bounds.max).y * 1.1f);
+                    particle.transform.localScale = Vector3.one;
+                }
+
+                particle.transform.position = spawnPos;
                 particle.transform.rotation = Quaternion.identity;
-                // particle.transform.Translate(0, boxCollider.bounds.max.y, 0, Space.Self); // TODO: SET THE PARTICLE TO BE ON TOP OF ENEMY
 
                 m_IsStunned = true;
             }
