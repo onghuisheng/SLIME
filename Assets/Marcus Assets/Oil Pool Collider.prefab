@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114892793984879562}
   - component: {fileID: 54394516840293062}
   - component: {fileID: 65075438549528260}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Oil Pool Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

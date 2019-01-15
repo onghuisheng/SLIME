@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114304781441198518}
   - component: {fileID: 54857607088142256}
   - component: {fileID: 65670892759222990}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Slime Pink
   m_TagString: Enemy
   m_Icon: {fileID: 0}

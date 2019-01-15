@@ -824,6 +824,8 @@ MonoBehaviour:
   anim: {fileID: 95630995931999794}
   m_DeathParticles: {fileID: 0}
   toDespawn: 0
+  m_OriginalSpeed: 0
+  m_BaseJoint: {fileID: 0}
 --- !u!114 &114578888842327496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -849,7 +851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114537263546895760}
+  m_Agent: {fileID: 0}
+  m_Defend: {fileID: 0}
   Damage: 1
+  m_OnAnim: 0
 --- !u!137 &137827217286464094
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
