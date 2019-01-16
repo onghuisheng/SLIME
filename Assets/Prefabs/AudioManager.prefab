@@ -167,7 +167,7 @@ MonoBehaviour:
   - clipAlias: slimesplatter
     audioClip: {fileID: 8300000, guid: 8feb0c2dbe77a684888f1a6d5e1d796b, type: 3}
   - clipAlias: golemdeath
-    audioClip: {fileID: 8300000, guid: adbf60e24a5cf7641b622eb3d3114a45, type: 3}
+    audioClip: {fileID: 8300000, guid: 42d86516d8b6c9d41bd309e73154277d, type: 3}
   - clipAlias: bonfirelit
     audioClip: {fileID: 8300000, guid: f5a97eed8c6dc694995a087acbe34b98, type: 3}
   - clipAlias: bonfireloop
@@ -190,3 +190,5 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: e9bb99c1f06ea9a479ce80d6a96a5898, type: 3}
   - clipAlias: dynexp
     audioClip: {fileID: 8300000, guid: 724765c71b0f87443a6675c67b35e7da, type: 3}
+  - clipAlias: golemshot
+    audioClip: {fileID: 8300000, guid: d345f123f5bdbfa48898d6d14309bfb6, type: 3}

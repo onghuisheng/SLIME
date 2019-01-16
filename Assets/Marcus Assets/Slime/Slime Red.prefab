@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69ae4fb4d1812b448017a766796bd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slimeType: 1
   m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95653935459697138}

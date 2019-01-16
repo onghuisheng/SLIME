@@ -749,6 +749,7 @@ MonoBehaviour:
   m_Agent: {fileID: 0}
   m_Defend: {fileID: 0}
   Damage: 1
+  m_OnAnim: 0
 --- !u!114 &114212626269500444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -773,11 +774,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69ae4fb4d1812b448017a766796bd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slimeType: 3
   m_MaxHealth: 2
   m_MaxAttack: 0
   anim: {fileID: 95131601634242446}
   m_DeathParticles: {fileID: 0}
   toDespawn: 0
+  m_OriginalSpeed: 0
+  m_BaseJoint: {fileID: 0}
 --- !u!114 &114708859182740566
 MonoBehaviour:
   m_ObjectHideFlags: 1

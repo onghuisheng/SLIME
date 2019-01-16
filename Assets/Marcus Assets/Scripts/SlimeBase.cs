@@ -5,6 +5,15 @@ using UnityEngine.AI;
 
 public class SlimeBase : MonoBehaviour
 {
+    public enum SlimeType
+    {
+        None,
+        Slime,
+        Golem,
+        Catapult
+    }
+
+    public SlimeType slimeType;
 
     public int m_MaxHealth; // max health
     public int m_MaxAttack; // max attack
@@ -44,10 +53,27 @@ public class SlimeBase : MonoBehaviour
     {
         m_Health -= toDeduct;
 
+        switch (slimeType)
+        {
+            case SlimeType.None:
+                break;
+            case SlimeType.Slime:
+                AudioManager.Instance.Play3D("slimesplatter", transform.position, AudioManager.AudioType.Additive);
+                break;
+            case SlimeType.Golem:
+                AudioManager.Instance.Play3D("golemshot", transform.position, AudioManager.AudioType.Additive);
+                break;
+            case SlimeType.Catapult:
+                break;
+            default:
+                break;
+        }
+
         if (GetComponent<GolemSlimeDefend>() != null)
         {
             GetComponent<GolemSlimeDefend>().ChangeToDefend();
         }
+
     }
 
     public int GetHealth()
