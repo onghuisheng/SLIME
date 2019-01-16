@@ -31,7 +31,7 @@ public class AudioSourceData3D
     public float minDistance = 0.5f;
 
     // 0-Infinity
-    public float maxDistance = 5;
+    public float maxDistance = 3;
 
     public Vector3 relativeVelocity;
 }
@@ -191,7 +191,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         spawnedAudioSource.minDistance = audioSourceData.minDistance;
         spawnedAudioSource.maxDistance = audioSourceData.maxDistance;
         spawnedAudioSource.pitch = 1 + UnityEngine.Random.Range(-Mathf.Abs(audioSourceData.randomPitchRange), Mathf.Abs(audioSourceData.randomPitchRange));
-        spawnedAudioSource.rolloffMode = AudioRolloffMode.Linear;
+        spawnedAudioSource.rolloffMode = AudioRolloffMode.Logarithmic;
         spawnedAudioSource.loop = audioSourceData.loop;
 
         switch (audioType)
@@ -236,7 +236,8 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             return;
         else
         {
-            m_3DAudioSource?.Stop();
+            if (m_3DAudioSource != null)
+                m_3DAudioSource.Stop();
 
             var announceInfo = m_AudioQueue.Dequeue();
 

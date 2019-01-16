@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OilBottle : GrabbableObject {
+public class OilBottle : GrabbableObject, IStorable {
 
     public GameObject m_OilPuddle;
     public GameObject m_OilParticles;
@@ -38,5 +38,12 @@ public class OilBottle : GrabbableObject {
             Destroy(tempParticles, 3.0f);
         }
     }
-    
+
+    public void OnStore(BeltSlot slot)
+    {
+    }
+
+    public void OnUnStore(BeltSlot slot)
+    {
+    }
 }

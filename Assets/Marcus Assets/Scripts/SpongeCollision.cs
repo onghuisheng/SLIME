@@ -20,7 +20,7 @@ public class SpongeCollision : MonoBehaviour
 
         if (GetComponentInParent<Image>().color.a <= 0)
         {
-            Destroy(transform.parent.gameObject);
+            // Destroy(transform.parent.gameObject);
         }
     }
 
@@ -41,7 +41,6 @@ public class SpongeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        m_Text.text = other.name;
 
         if (other.tag != "Sponge")
             return;
@@ -52,4 +51,11 @@ public class SpongeCollision : MonoBehaviour
         GetComponentInParent<Image>().color = tempColor;
 
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        m_Text.text = other.name;
+    }
+
 }
