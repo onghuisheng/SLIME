@@ -161,7 +161,8 @@ Shader "Hidden/Polybrush/Texture Blend (Mobile)" {
                 float3 lightDirection = normalize(lerp(_WorldSpaceLightPos0.xyz, _WorldSpaceLightPos0.xyz - i.posWorld.xyz,_WorldSpaceLightPos0.w));
                 float3 lightColor = _LightColor0.rgb;
 ////// Lighting:
-                float attenuation = LIGHT_ATTENUATION(i);
+
+				UNITY_LIGHT_ATTENUATION(attenuation,i,i.posWorld.xyz);
                 float3 attenColor = attenuation * _LightColor0.xyz;
 /////// Diffuse:
                 float NdotL = max(0.0,dot( normalDirection, lightDirection ));

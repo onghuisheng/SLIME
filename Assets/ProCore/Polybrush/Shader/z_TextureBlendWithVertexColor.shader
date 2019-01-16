@@ -1,6 +1,3 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 // define Z_TEXTURE_CHANNELS 4
 // define Z_MESH_ATTRIBUTES UV3
 // Important!  This is a generated file, any changes will be overwritten
@@ -15,7 +12,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
         _Texture2 ("Texture 2", 2D) = "white" {}
         _Texture3 ("Texture 3", 2D) = "white" {}
         _Texture4 ("Texture 4", 2D) = "white" {}
-       
+        
     }
     SubShader {
         Tags {
@@ -31,7 +28,6 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_FORWARDBASE
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -44,7 +40,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma only_renderers d3d9 d3d11 glcore gles gles3 ps4 n3ds wiiu switch 
             #pragma target 3.0
             uniform float _Metallic;
             uniform float _Gloss;
@@ -97,7 +93,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = UnityObjectToClipPos(v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
@@ -112,13 +108,15 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
 ////// Lighting:
-                float attenuation = LIGHT_ATTENUATION(i);
+                UNITY_LIGHT_ATTENUATION(attenuation,i, i.posWorld.xyz);
                 float3 attenColor = attenuation * _LightColor0.xyz;
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
                 float gloss = _Gloss;
-                float specPow = exp2( gloss * 10.0+1.0);
+                float perceptualRoughness = 1.0 - _Gloss;
+                float roughness = perceptualRoughness * perceptualRoughness;
+                float specPow = exp2( gloss * 10.0 + 1.0 );
 /////// GI Data:
                 UnityLight light;
                 #ifdef LIGHTMAP_OFF
@@ -141,13 +139,17 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
                 #else
                     d.ambient = i.ambientOrLightmapUV;
                 #endif
-                d.boxMax[0] = unity_SpecCube0_BoxMax;
-                d.boxMin[0] = unity_SpecCube0_BoxMin;
-                d.probePosition[0] = unity_SpecCube0_ProbePosition;
+                #if UNITY_SPECCUBE_BLENDING || UNITY_SPECCUBE_BOX_PROJECTION
+                    d.boxMin[0] = unity_SpecCube0_BoxMin;
+                    d.boxMin[1] = unity_SpecCube1_BoxMin;
+                #endif
+                #if UNITY_SPECCUBE_BOX_PROJECTION
+                    d.boxMax[0] = unity_SpecCube0_BoxMax;
+                    d.boxMax[1] = unity_SpecCube1_BoxMax;
+                    d.probePosition[0] = unity_SpecCube0_ProbePosition;
+                    d.probePosition[1] = unity_SpecCube1_ProbePosition;
+                #endif
                 d.probeHDR[0] = unity_SpecCube0_HDR;
-                d.boxMax[1] = unity_SpecCube1_BoxMax;
-                d.boxMin[1] = unity_SpecCube1_BoxMin;
-                d.probePosition[1] = unity_SpecCube1_ProbePosition;
                 d.probeHDR[1] = unity_SpecCube1_HDR;
                 Unity_GlossyEnvironmentData ugls_en_data;
                 ugls_en_data.roughness = 1.0 - gloss;
@@ -156,33 +158,50 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
                 lightDirection = gi.light.dir;
                 lightColor = gi.light.color;
 ////// Specular:
-                float NdotL = max(0, dot( normalDirection, lightDirection ));
-                float LdotH = max(0.0,dot(lightDirection, halfDirection));
+                float NdotL = saturate(dot( normalDirection, lightDirection ));
+                float LdotH = saturate(dot(lightDirection, halfDirection));
+                float3 specularColor = _Metallic;
+                float specularMonochrome;
                 float4 node_8334 = normalize(float4(i.uv2.r,i.uv2.g,i.uv2.b,i.uv2.a));
                 float4 _Base_var = tex2D(_Base,TRANSFORM_TEX(i.uv0, _Base));
                 float4 _Texture2_var = tex2D(_Texture2,TRANSFORM_TEX(i.uv0, _Texture2));
                 float4 _Texture3_var = tex2D(_Texture3,TRANSFORM_TEX(i.uv0, _Texture3));
                 float4 _Texture4_var = tex2D(_Texture4,TRANSFORM_TEX(i.uv0, _Texture4));
                 float3 diffuseColor = ((lerp( lerp( lerp( lerp( _Base_var.rgb, _Base_var.rgb, node_8334.r ), _Texture2_var.rgb, node_8334.g ), _Texture3_var.rgb, node_8334.b ), _Texture4_var.rgb, node_8334.a ))*i.vertexColor.rgb); // Need this for specular when using metallic
-                float specularMonochrome;
-                float3 specularColor;
-                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, _Metallic, specularColor, specularMonochrome );
-                specularMonochrome = 1-specularMonochrome;
-                float NdotV = max(0.0,dot( normalDirection, viewDirection ));
-                float NdotH = max(0.0,dot( normalDirection, halfDirection ));
-                float VdotH = max(0.0,dot( viewDirection, halfDirection ));
-                float visTerm = SmithBeckmannVisibilityTerm( NdotL, NdotV, 1.0-gloss );
-                float normTerm = max(0.0, NDFBlinnPhongNormalizedTerm(NdotH, RoughnessToSpecPower(1.0-gloss)));
-                float specularPBL = max(0, (NdotL*visTerm*normTerm) * (UNITY_PI / 4) );
-                float3 directSpecular = 1 * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularPBL*lightColor*FresnelTerm(specularColor, LdotH);
+                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
+                specularMonochrome = 1.0-specularMonochrome;
+                float NdotV = abs(dot( normalDirection, viewDirection ));
+                float NdotH = saturate(dot( normalDirection, halfDirection ));
+                float VdotH = saturate(dot( viewDirection, halfDirection ));
+                float visTerm = SmithJointGGXVisibilityTerm( NdotL, NdotV, roughness );
+                float normTerm = GGXTerm(NdotH, roughness);
+                float specularPBL = (visTerm*normTerm) * UNITY_PI;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                    specularPBL = sqrt(max(1e-4h, specularPBL));
+                #endif
+                specularPBL = max(0, specularPBL * NdotL);
+                #if defined(_SPECULARHIGHLIGHTS_OFF)
+                    specularPBL = 0.0;
+                #endif
+                half surfaceReduction;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                    surfaceReduction = 1.0-0.28*roughness*perceptualRoughness;
+                #else
+                    surfaceReduction = 1.0/(roughness*roughness + 1.0);
+                #endif
+                specularPBL *= any(specularColor) ? 1.0 : 0.0;
+                float3 directSpecular = attenColor*specularPBL*FresnelTerm(specularColor, LdotH);
                 half grazingTerm = saturate( gloss + specularMonochrome );
                 float3 indirectSpecular = (gi.indirect.specular);
                 indirectSpecular *= FresnelLerp (specularColor, grazingTerm, NdotV);
+                indirectSpecular *= surfaceReduction;
                 float3 specular = (directSpecular + indirectSpecular);
 /////// Diffuse:
                 NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 half fd90 = 0.5 + 2 * LdotH * LdotH * (1-gloss);
-                float3 directDiffuse = ((1 +(fd90 - 1)*pow((1.00001-NdotL), 5)) * (1 + (fd90 - 1)*pow((1.00001-NdotV), 5)) * NdotL) * attenColor;
+                float nlPow5 = Pow5(1-NdotL);
+                float nvPow5 = Pow5(1-NdotV);
+                float3 directDiffuse = ((1 +(fd90 - 1)*nlPow5) * (1 + (fd90 - 1)*nvPow5) * NdotL) * attenColor;
                 float3 indirectDiffuse = float3(0,0,0);
                 indirectDiffuse += gi.indirect.diffuse;
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
@@ -205,7 +224,6 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_FORWARDADD
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -218,7 +236,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma only_renderers d3d9 d3d11 glcore gles gles3 ps4 n3ds wiiu switch 
             #pragma target 3.0
             uniform float _Metallic;
             uniform float _Gloss;
@@ -260,7 +278,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
-                o.pos = UnityObjectToClipPos(v.vertex );
+                o.pos = UnityObjectToClipPos( v.vertex );
                 UNITY_TRANSFER_FOG(o,o.pos);
                 TRANSFER_VERTEX_TO_FRAGMENT(o)
                 return o;
@@ -274,38 +292,50 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
                 float3 lightColor = _LightColor0.rgb;
                 float3 halfDirection = normalize(viewDirection+lightDirection);
 ////// Lighting:
-                float attenuation = LIGHT_ATTENUATION(i);
+                UNITY_LIGHT_ATTENUATION(attenuation,i, i.posWorld.xyz);
                 float3 attenColor = attenuation * _LightColor0.xyz;
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
                 float gloss = _Gloss;
-                float specPow = exp2( gloss * 10.0+1.0);
+                float perceptualRoughness = 1.0 - _Gloss;
+                float roughness = perceptualRoughness * perceptualRoughness;
+                float specPow = exp2( gloss * 10.0 + 1.0 );
 ////// Specular:
-                float NdotL = max(0, dot( normalDirection, lightDirection ));
-                float LdotH = max(0.0,dot(lightDirection, halfDirection));
+                float NdotL = saturate(dot( normalDirection, lightDirection ));
+                float LdotH = saturate(dot(lightDirection, halfDirection));
+                float3 specularColor = _Metallic;
+                float specularMonochrome;
                 float4 node_8334 = normalize(float4(i.uv2.r,i.uv2.g,i.uv2.b,i.uv2.a));
                 float4 _Base_var = tex2D(_Base,TRANSFORM_TEX(i.uv0, _Base));
                 float4 _Texture2_var = tex2D(_Texture2,TRANSFORM_TEX(i.uv0, _Texture2));
                 float4 _Texture3_var = tex2D(_Texture3,TRANSFORM_TEX(i.uv0, _Texture3));
                 float4 _Texture4_var = tex2D(_Texture4,TRANSFORM_TEX(i.uv0, _Texture4));
                 float3 diffuseColor = ((lerp( lerp( lerp( lerp( _Base_var.rgb, _Base_var.rgb, node_8334.r ), _Texture2_var.rgb, node_8334.g ), _Texture3_var.rgb, node_8334.b ), _Texture4_var.rgb, node_8334.a ))*i.vertexColor.rgb); // Need this for specular when using metallic
-                float specularMonochrome;
-                float3 specularColor;
-                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, _Metallic, specularColor, specularMonochrome );
-                specularMonochrome = 1-specularMonochrome;
-                float NdotV = max(0.0,dot( normalDirection, viewDirection ));
-                float NdotH = max(0.0,dot( normalDirection, halfDirection ));
-                float VdotH = max(0.0,dot( viewDirection, halfDirection ));
-                float visTerm = SmithBeckmannVisibilityTerm( NdotL, NdotV, 1.0-gloss );
-                float normTerm = max(0.0, NDFBlinnPhongNormalizedTerm(NdotH, RoughnessToSpecPower(1.0-gloss)));
-                float specularPBL = max(0, (NdotL*visTerm*normTerm) * (UNITY_PI / 4) );
-                float3 directSpecular = attenColor * pow(max(0,dot(halfDirection,normalDirection)),specPow)*specularPBL*lightColor*FresnelTerm(specularColor, LdotH);
+                diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
+                specularMonochrome = 1.0-specularMonochrome;
+                float NdotV = abs(dot( normalDirection, viewDirection ));
+                float NdotH = saturate(dot( normalDirection, halfDirection ));
+                float VdotH = saturate(dot( viewDirection, halfDirection ));
+                float visTerm = SmithJointGGXVisibilityTerm( NdotL, NdotV, roughness );
+                float normTerm = GGXTerm(NdotH, roughness);
+                float specularPBL = (visTerm*normTerm) * UNITY_PI;
+                #ifdef UNITY_COLORSPACE_GAMMA
+                    specularPBL = sqrt(max(1e-4h, specularPBL));
+                #endif
+                specularPBL = max(0, specularPBL * NdotL);
+                #if defined(_SPECULARHIGHLIGHTS_OFF)
+                    specularPBL = 0.0;
+                #endif
+                specularPBL *= any(specularColor) ? 1.0 : 0.0;
+                float3 directSpecular = attenColor*specularPBL*FresnelTerm(specularColor, LdotH);
                 float3 specular = directSpecular;
 /////// Diffuse:
                 NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 half fd90 = 0.5 + 2 * LdotH * LdotH * (1-gloss);
-                float3 directDiffuse = ((1 +(fd90 - 1)*pow((1.00001-NdotL), 5)) * (1 + (fd90 - 1)*pow((1.00001-NdotV), 5)) * NdotL) * attenColor;
+                float nlPow5 = Pow5(1-NdotL);
+                float nvPow5 = Pow5(1-NdotV);
+                float3 directDiffuse = ((1 +(fd90 - 1)*nlPow5) * (1 + (fd90 - 1)*nvPow5) * NdotL) * attenColor;
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse + specular;
@@ -325,7 +355,6 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #define UNITY_PASS_META 1
             #define SHOULD_SAMPLE_SH ( defined (LIGHTMAP_OFF) && defined(DYNAMICLIGHTMAP_OFF) )
             #define _GLOSSYENV 1
             #include "UnityCG.cginc"
@@ -339,7 +368,7 @@ Shader "Polybrush/Texture Blend With Vertex Color" {
             #pragma multi_compile DIRLIGHTMAP_OFF DIRLIGHTMAP_COMBINED DIRLIGHTMAP_SEPARATE
             #pragma multi_compile DYNAMICLIGHTMAP_OFF DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fog
-            #pragma exclude_renderers gles3 metal d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma only_renderers d3d9 d3d11 glcore gles gles3 ps4 n3ds wiiu switch 
             #pragma target 3.0
             uniform float _Metallic;
             uniform float _Gloss;
