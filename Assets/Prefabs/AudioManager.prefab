@@ -188,3 +188,5 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 82ef320be79f9c347b1e22341dac3de3, type: 3}
   - clipAlias: bottlebreak
     audioClip: {fileID: 8300000, guid: e9bb99c1f06ea9a479ce80d6a96a5898, type: 3}
+  - clipAlias: dynexp
+    audioClip: {fileID: 8300000, guid: 724765c71b0f87443a6675c67b35e7da, type: 3}
