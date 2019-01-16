@@ -33,6 +33,7 @@ public class EnemyHit : MonoBehaviour, IShootable
 
         if (m_SlimeBase.GetHealth() <= 0) // die when 0 or lesser hp
         {
+            m_SlimeBase.anim.speed = 1; // Resume animation if flashed
             m_SlimeBase.toDespawn = true;
             SlimeManager.instance.GetComponent<SlimeManager>().Remove();
 

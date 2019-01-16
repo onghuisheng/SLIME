@@ -58,17 +58,17 @@ public class Flashbang : GrabbableObject, IStorable
             Vector3 playerDir = playerHead.forward;
             // playerDir.y = transform.position.y;
 
-            // Player flashed
+            // Player flash
             float playerAngle = Vector3.Angle(playerHeadDir, playerDir);
             StartCoroutine(FlashRoutine(playerAngle));
         }
 
-        // Enemy flashed
+        // Enemy flash
         var enemies = FindObjectsOfType<SlimeBase>();
 
         foreach (var enemy in enemies)
         {
-            if (enemy && (enemy.transform.position - transform.position).magnitude < 30)
+            if (enemy && (enemy.transform.position - transform.position).magnitude < 15)
             {
                 enemy.ApplyConfusion(10, m_ConfuseParticle);
                 Debug.Log("Enemyhit: " + enemy.transform.name);
@@ -81,6 +81,7 @@ public class Flashbang : GrabbableObject, IStorable
         // Hide the collider temporarily
         m_FlashbangBody.SetActive(false);
         GetComponent<Collider>().enabled = false;
+
     }
 
     IEnumerator FlashRoutine(float angleBetweenPlayer)
@@ -155,7 +156,7 @@ public class Flashbang : GrabbableObject, IStorable
 
     IEnumerator UnFlashRoutine(PostProcessingBehaviour ppBehaviour, float unflashDuration)
     {
-        const float intensityTarget = 0.5f, thresholdTarget = 1.0f;
+        const float intensityTarget = 0.5f, thresholdTarget = 1.1f;
 
         var bloomSettings = ppBehaviour.profile.bloom.settings;
 

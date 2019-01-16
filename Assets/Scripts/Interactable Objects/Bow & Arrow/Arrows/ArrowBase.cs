@@ -62,6 +62,10 @@ public class ArrowBase : MonoBehaviour
         m_Rigidbody.useGravity = true;
         m_Rigidbody.isKinematic = false;
         m_Rigidbody.AddForce(transform.up * forceAmount, ForceMode.Impulse);
+        
+        var ps = GetComponentInChildren<ParticleSystem>();
+        if (ps)
+            ps.Stop();
     }
 
     public void DestroyArrow()
