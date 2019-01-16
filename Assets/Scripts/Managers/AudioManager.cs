@@ -236,8 +236,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             return;
         else
         {
-            if (m_3DAudioSource != null)
-                m_3DAudioSource.Stop();
+            m_3DAudioSource?.Stop();
 
             var announceInfo = m_AudioQueue.Dequeue();
 

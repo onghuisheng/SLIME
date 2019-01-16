@@ -29,7 +29,7 @@ public class Arrow : ArrowBase
             {
                 // Quick swap
                 Transform realModel = transform.GetChild(1);
-                m_ArrowModel.transform.GetChild(0).parent = realModel;
+                // m_ArrowModel.transform.GetChild(0).parent = realModel;
                 realModel.gameObject.SetActive(true);
                 m_ArrowModel.SetActive(false);
                 m_Swapped = true;
