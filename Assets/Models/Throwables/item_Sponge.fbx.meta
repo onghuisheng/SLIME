@@ -7,10 +7,17 @@ ModelImporter:
     400000: //RootNode
     2100000: Yellow
     2100002: Green
+    2100004: StingrayPBS1
     2300000: //RootNode
     3300000: //RootNode
     4300000: Sponge
-  externalObjects: {}
+    4300002: item_Sponge
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS1
+    second: {fileID: 2100000, guid: 88f7756397de64a4baf8f1ee961ac9e2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

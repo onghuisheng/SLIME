@@ -15,6 +15,8 @@ public class BowString : GrabbableObject
 
     private Vector3 m_DefaultLocalPos;
 
+    private Vector3 m_LastLocalPos;
+
     private Vector3 m_InitialOffset;
 
     private Vector3 m_CurrentDrawDistance;
@@ -35,6 +37,8 @@ public class BowString : GrabbableObject
     // Rate the bow bends when drawing arrows
     private const float m_OuterLimbRotationRate = 180;
     private const float m_InnerLimbRotationRate = 180;
+
+    private float m_RemainingVibrateDistance = 0;
 
     MeshRenderer m_ArrowMeshRenderer1 = null, m_ArrowMeshRenderer2 = null;
     #endregion
@@ -64,7 +68,7 @@ public class BowString : GrabbableObject
         transform.position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
-        
+
         if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.15f)
         {
             m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
@@ -134,8 +138,24 @@ public class BowString : GrabbableObject
         }
         else // Player is pulling the bow string
         {
-            m_CurrentDrawDistance = (transform.localPosition + m_InitialOffset) - m_DefaultLocalPos;
+            var newDrawDistance = (transform.localPosition + m_InitialOffset) - m_DefaultLocalPos;
+
+            if (transform.localPosition.y > m_LastLocalPos.y)
+                m_RemainingVibrateDistance += (m_CurrentDrawDistance - newDrawDistance).magnitude;
+
+            if (m_RemainingVibrateDistance > 0.1f)
+            {
+                m_RemainingVibrateDistance = 0;
+                MoveController.GetControllerThatHolds(gameObject).Vibrate(125, 0.1f);
+            }
+
+            m_CurrentDrawDistance = newDrawDistance;
         }
+    }
+
+    private void LateUpdate()
+    {
+        m_LastLocalPos = transform.localPosition;
     }
 
     // Reset the spawned arrow to make it face the pivot

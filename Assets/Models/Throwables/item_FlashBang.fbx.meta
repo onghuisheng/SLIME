@@ -38,6 +38,8 @@ ModelImporter:
     100064: transform42
     100066: transform43
     100068: transform44
+    100070: body
+    100072: ring
     400000: env_Flashbang
     400002: //RootNode
     400004: obj_FlashbangMain
@@ -73,15 +75,29 @@ ModelImporter:
     400064: transform42
     400066: transform43
     400068: transform44
+    400070: body
+    400072: ring
     2100000: Metal
     2100002: lambert1
+    2100004: StingrayPBS1
     2300000: obj_FlashbangMain_01
     2300002: obj_FlashbangRing_01
+    2300004: body
+    2300006: ring
     3300000: obj_FlashbangMain_01
     3300002: obj_FlashbangRing_01
+    3300004: body
+    3300006: ring
     4300000: obj_FlashbangMain_01
     4300002: obj_FlashbangRing_01
-  externalObjects: {}
+    4300004: body
+    4300006: ring
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS1
+    second: {fileID: 2100000, guid: 88f7756397de64a4baf8f1ee961ac9e2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

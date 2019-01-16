@@ -6,10 +6,17 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: StingrayPBS1
     2300000: //RootNode
     3300000: //RootNode
     4300000: env_Bottle
-  externalObjects: {}
+    4300002: item_OilBottle
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS1
+    second: {fileID: 2100000, guid: 88f7756397de64a4baf8f1ee961ac9e2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
