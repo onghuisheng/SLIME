@@ -41,6 +41,8 @@ public class SpongeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        m_Text.text = other.name;
+
         if (other.tag != "Sponge")
             return;
         
