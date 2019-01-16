@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class SpongeCollision : MonoBehaviour
 {
-
     public Text m_Text;
+
+    private Vector3 m_PrevPos;
 
     // Use this for initialization
     void Start()
@@ -17,11 +18,7 @@ public class SpongeCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (GetComponentInParent<Image>().color.a <= 0)
-        {
-            // Destroy(transform.parent.gameObject);
-        }
+        
     }
 
     //private void OnCollisionEnter(Collision collision)
@@ -39,23 +36,31 @@ public class SpongeCollision : MonoBehaviour
     //}
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.tag != "Sponge")
-            return;
-        
-        Color tempColor = GetComponentInParent<Image>().color;
-        tempColor.a -= 0.4f;
-
-        GetComponentInParent<Image>().color = tempColor;
-
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //}
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.tag != "Sponge")
+            return;
 
-        m_Text.text = other.name;
+        if ((m_PrevPos - other.transform.position).magnitude < 0.1f)
+            return;
+            
+        m_PrevPos = other.transform.position;
+
+        Color tempColor = GetComponentInParent<Image>().color;
+        tempColor.a -= 0.2f;
+
+        GetComponentInParent<Image>().color = tempColor;
+
+        if (GetComponentInParent<Image>().color.a <= 0)
+        {
+            Destroy(other.transform.parent.gameObject);
+            Destroy(transform.parent.gameObject);
+        }
+
     }
 
 }
