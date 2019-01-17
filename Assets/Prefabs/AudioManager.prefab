@@ -165,7 +165,7 @@ MonoBehaviour:
   - clipAlias: basicdeath
     audioClip: {fileID: 8300000, guid: 5d077ecafcb4a3340b115bd78cbeb73a, type: 3}
   - clipAlias: slimesplatter
-    audioClip: {fileID: 8300000, guid: 8feb0c2dbe77a684888f1a6d5e1d796b, type: 3}
+    audioClip: {fileID: 8300000, guid: 337b3caf66e06d54fbb1ef1fa9ce0ea3, type: 3}
   - clipAlias: golemdeath
     audioClip: {fileID: 8300000, guid: 42d86516d8b6c9d41bd309e73154277d, type: 3}
   - clipAlias: bonfirelit
@@ -181,14 +181,14 @@ MonoBehaviour:
   - clipAlias: dayambient
     audioClip: {fileID: 8300000, guid: 00c6c2f1ed7ab8549ba6dab25eb749e7, type: 3}
   - clipAlias: rooster
-    audioClip: {fileID: 8300000, guid: ba88ac99e3e37ef41976a8e09035e76b, type: 3}
+    audioClip: {fileID: 8300000, guid: f5beffd379d4119498d51135784eecfb, type: 3}
   - clipAlias: wolf
     audioClip: {fileID: 8300000, guid: 79503feeea14cf743a042af87a870cfb, type: 3}
   - clipAlias: arrowlit
     audioClip: {fileID: 8300000, guid: 82ef320be79f9c347b1e22341dac3de3, type: 3}
   - clipAlias: bottlebreak
-    audioClip: {fileID: 8300000, guid: e9bb99c1f06ea9a479ce80d6a96a5898, type: 3}
+    audioClip: {fileID: 8300000, guid: 793063a827e8d5c40b169cde8a4d9728, type: 3}
   - clipAlias: dynexp
-    audioClip: {fileID: 8300000, guid: 724765c71b0f87443a6675c67b35e7da, type: 3}
+    audioClip: {fileID: 8300000, guid: e25c6ca59c3a6d3418d2ffb3ef10ad49, type: 3}
   - clipAlias: golemshot
     audioClip: {fileID: 8300000, guid: d345f123f5bdbfa48898d6d14309bfb6, type: 3}
