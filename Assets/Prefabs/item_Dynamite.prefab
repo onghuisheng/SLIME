@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 65053995332428848}
   - component: {fileID: 54634009657046224}
   - component: {fileID: 114221974166351214}
-  - component: {fileID: 114727659950629168}
   - component: {fileID: 95890032569997824}
   m_Layer: 0
   m_Name: item_Dynamite
@@ -76,6 +75,7 @@ GameObject:
   - component: {fileID: 33334853222931220}
   - component: {fileID: 23315171753868296}
   - component: {fileID: 65259594902941288}
+  - component: {fileID: 114480264218288070}
   m_Layer: 0
   m_Name: igniteString
   m_TagString: Untagged
@@ -181,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289459992054954}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.27683374, y: 0.9465518, z: 3.2098985}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4040872919056564}
@@ -381,12 +381,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1124dd6cc06b94f8a4217c8e99c328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114727659950629168
+--- !u!114 &114480264218288070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1289459992054954}
+  m_GameObject: {fileID: 1623345199153958}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10938c5c05ed7eb48a71da122865e281, type: 3}

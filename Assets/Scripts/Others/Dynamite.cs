@@ -43,7 +43,7 @@ public class Dynamite : MonoBehaviour {
     public void DynamiteLit()
     {
         DynamiteAnimator.SetBool("isLighted", true);
-        Invoke("PlayExplosion", 3); // How long before the dynamite explodes
+        Invoke("PlayExplosion", 3); // How long before the dynamite explodes, use invoke because not using event
     }
     
 }
