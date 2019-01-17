@@ -58,6 +58,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         public AudioSource audioSource;
         public AudioClip audioClip;
         public float delayInSeconds;
+        public Action onComplete;
         public string clipAlias;
     }
 
@@ -119,15 +120,15 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
-    public GameObject Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0)
+    public GameObject Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0, Action onComplete = null)
     {
-        return Play2D(clipAlias, audioType, null, delayInSeconds);
+        return Play2D(clipAlias, audioType, null, delayInSeconds, onComplete);
     }
 
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
-    public GameObject Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0)
+    public GameObject Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0, Action onComplete = null)
     {
         AudioSourceData3D audioSourceData3D = new AudioSourceData3D();
 
@@ -146,7 +147,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         audioSourceData3D.relativeVelocity = Vector3.zero;
         audioSourceData3D.spatialBlend = 0;
 
-        return Play3D(clipAlias, Camera.main.transform.position, audioType, audioSourceData3D, delayInSeconds);
+        return Play3D(clipAlias, Camera.main.transform.position, audioType, audioSourceData3D, delayInSeconds, onComplete);
     }
 
     /// <summary>
@@ -154,17 +155,18 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// An GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
     /// <returns>Reference to the AudioSource that was spawned</returns>
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, float delayInSeconds = 0)
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, float delayInSeconds = 0, Action onComplete = null)
     {
-        return Play3D(clipAlias, position, audioType, null, delayInSeconds);
+        return Play3D(clipAlias, position, audioType, null, delayInSeconds, onComplete);
     }
+
 
     /// <summary>
     /// Plays a 3D sound at the given position
     /// An GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
-    /// <returns>Reference to the AudioSource that was spawned</returns>
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, AudioSourceData3D audioSourceData, float delayInSeconds = 0)
+    /// <returns>Reference to the AudioSource that was spawned</returns>   
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, AudioSourceData3D audioSourceData, float delayInSeconds = 0, Action onComplete = null)
     {
         AudioClip clip = GetAudioClip(clipAlias);
 
@@ -203,7 +205,8 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                     audioSource = spawnedAudioSource,
                     audioClip = clip,
                     clipAlias = clipAlias,
-                    delayInSeconds = delayInSeconds
+                    delayInSeconds = delayInSeconds,
+                    onComplete = onComplete
                 });
 
                 if ((m_3DAudioSource == null || (m_3DAudioSource != null && m_3DAudioSource.isPlaying == false)))
@@ -216,7 +219,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 spawnedAudioSource.PlayDelayed(delayInSeconds);
 
                 if (!audioSourceData.loop)
-                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, spawnedAudioSource.clip.length + delayInSeconds));
+                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, spawnedAudioSource.clip.length + delayInSeconds, onComplete));
                 break;
 
             default:
@@ -246,7 +249,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             AudioSource source = announceInfo.audioSource;
             source.clip = announceInfo.audioClip;
             source.PlayDelayed(announceInfo.delayInSeconds);
-            StartCoroutine(PlayNextRoutine(source.clip.length + announceInfo.delayInSeconds));
+            StartCoroutine(PlayNextRoutine(source.clip.length + announceInfo.delayInSeconds, announceInfo.onComplete));
         }
     }
 
@@ -292,9 +295,12 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         m_3DAudioSource = null;
     }
 
-    private IEnumerator PlayNextRoutine(float delayInSeconds)
+    private IEnumerator PlayNextRoutine(float delayInSeconds, Action onComplete)
     {
         yield return new WaitForSeconds(delayInSeconds);
+
+        if (onComplete != null)
+            onComplete.Invoke();
 
         if (m_3DAudioSource != null)
         {
@@ -305,9 +311,13 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         PlayNext();
     }
 
-    private IEnumerator PlayAdditiveRoutine(GameObject objToDestroy, float delayInSeconds)
+    private IEnumerator PlayAdditiveRoutine(GameObject objToDestroy, float delayInSeconds, Action onComplete)
     {
         yield return new WaitForSeconds(delayInSeconds);
+
+        if (onComplete != null)
+            onComplete.Invoke();
+
         Destroy(objToDestroy);
     }
 

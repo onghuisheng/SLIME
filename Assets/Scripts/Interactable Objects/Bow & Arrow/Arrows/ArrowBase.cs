@@ -62,10 +62,30 @@ public class ArrowBase : MonoBehaviour
         m_Rigidbody.useGravity = true;
         m_Rigidbody.isKinematic = false;
         m_Rigidbody.AddForce(transform.up * forceAmount, ForceMode.Impulse);
-        
+
         var ps = GetComponentInChildren<ParticleSystem>();
         if (ps)
             ps.Stop();
+    }
+
+    public void LaunchArrowWithArc(Vector3 destination, float time)
+    {
+        // finding the distance
+        Vector3 distance = destination - transform.position;
+        Vector3 distanceXZ = distance;
+        distanceXZ.y = 0;
+
+        float sY = distance.y; // vertical dist
+        float sXZ = distanceXZ.magnitude;  // horizontal dist
+
+        float velocityX = sXZ / time;
+        float velocityY = sY / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
+
+        Vector3 result = distanceXZ.normalized;
+        result *= velocityX;
+        result.y = velocityY;
+
+        GetComponent<Rigidbody>().AddForce(result, ForceMode.VelocityChange);
     }
 
     public void DestroyArrow()

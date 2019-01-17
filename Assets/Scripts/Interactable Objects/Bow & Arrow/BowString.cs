@@ -143,10 +143,10 @@ public class BowString : GrabbableObject
             if (transform.localPosition.y > m_LastLocalPos.y)
                 m_RemainingVibrateDistance += (m_CurrentDrawDistance - newDrawDistance).magnitude;
 
-            if (m_RemainingVibrateDistance > 0.1f)
+            if (m_RemainingVibrateDistance > 0.05f) // Threshold
             {
                 m_RemainingVibrateDistance = 0;
-                MoveController.GetControllerThatHolds(gameObject).Vibrate(125, 0.1f);
+                MoveController.GetControllerThatHolds(gameObject).Vibrate(100, 0.1f); // Change this to adjust controller vibration
             }
 
             m_CurrentDrawDistance = newDrawDistance;
