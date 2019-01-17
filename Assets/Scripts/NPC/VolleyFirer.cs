@@ -12,9 +12,14 @@ public class VolleyFirer : MonoBehaviour
     [Range(1.0f, 10.0f)]
     public float m_Interval = 5.0f;
 
+    [Range(1, 60)]
+    public int m_DelayedStart = 1;
+
     [Range(1, 5)]
     public int m_ArrowQuantity = 1;
 
+    [Range(1.0f, 10.0f)]
+    public float m_ArrowTravelDuration = 1;
 
     private void Start()
     {
@@ -23,17 +28,19 @@ public class VolleyFirer : MonoBehaviour
 
     IEnumerator FireArrowRoutine()
     {
-        yield return new WaitForSeconds(m_Interval);
+        yield return new WaitForSeconds(m_DelayedStart);
 
-        foreach (var destination in m_Destinations)
+        while (true)
         {
-            var arrow = Instantiate(m_ArrowPrefab, transform.position, Quaternion.identity, transform);
-            arrow.BuffArrow(ArrowBase.ArrowType.Flame);
-            
+            foreach (var destination in m_Destinations)
+            {
+                var arrow = Instantiate(m_ArrowPrefab, transform.position, Quaternion.identity, transform);
+                arrow.BuffArrow(ArrowBase.ArrowType.Flame);
+                arrow.LaunchArrowWithArc(destination.transform.position, m_ArrowTravelDuration);
+            }
+
+            yield return new WaitForSeconds(m_Interval);
         }
-
-        FireArrowRoutine();
     }
-
 
 }

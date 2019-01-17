@@ -80,6 +80,7 @@ public class DayAndNight : MonoBehaviour {
         i = (maxAmbient - minAmbient * dot) + minAmbient;
 
         RenderSettings.ambientIntensity = i;
+        RenderSettings.reflectionIntensity = i;
 
         mainLight.color = nightdayColor.Evaluate(dot);
         RenderSettings.ambientLight = mainLight.color;
@@ -93,7 +94,6 @@ public class DayAndNight : MonoBehaviour {
         if (dot > 0) // day
         {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
-            NightLight.SetActive(false);
 
             if (prevDot <= 0)
                 OnDayStart();
@@ -101,7 +101,6 @@ public class DayAndNight : MonoBehaviour {
         else // night
         {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
-            NightLight.SetActive(true);
 
             if(SlimeManager.instance.m_CurrentWave == 1)
             {
@@ -127,6 +126,8 @@ public class DayAndNight : MonoBehaviour {
 
     private void OnDayStart()
     {
+        NightLight.SetActive(false);
+
         AudioManager.Instance.Play2D("rooster", AudioManager.AudioType.Additive);
 
         m_DayAudioLoop = AudioManager.Instance.Play2D("dayambient", AudioManager.AudioType.Additive, new AudioSourceData2D() { loop = true });
@@ -144,6 +145,8 @@ public class DayAndNight : MonoBehaviour {
 
     private void OnNightStart()
     {
+        // NightLight.SetActive(true);
+
         AudioManager.Instance.Play2D("wolf", AudioManager.AudioType.Additive);
 
         Destroy(m_DayAudioLoop);

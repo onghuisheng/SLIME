@@ -338,6 +338,19 @@ public class MoveController : MonoBehaviour
         return null;
     }
 
+    public MoveController GetOtherController()
+    {
+        var controllers = FindObjectsOfType<MoveController>();
+
+        foreach (var controller in controllers)
+        {
+            if (controller.orientation != orientation)
+                return controller;
+        }
+
+        return null;
+    }
+
     /// <summary>
     /// Same as Unity GetKey
     /// </summary>
@@ -468,11 +481,11 @@ public class MoveController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// TODO Vibration function
-    /// </summary>
     bool isVibrating = false;
 
+    /// <summary>
+    /// Vibrates the controller - Ranges: (Stop: 0-63) (Vibrate 64-255)
+    /// </summary>
     public void Vibrate(int intensity, float durationInSeconds)
     {
         if (isVibrating)

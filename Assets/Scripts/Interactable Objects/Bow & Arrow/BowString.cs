@@ -21,6 +21,8 @@ public class BowString : GrabbableObject
 
     private Vector3 m_CurrentDrawDistance;
 
+    private MoveController m_CurrentController, m_OtherController;
+
     private ArrowBase m_SpawnedArrow = null;
 
     #region Bow Aesthetic Stuff
@@ -59,6 +61,8 @@ public class BowString : GrabbableObject
     public override void OnGrab(MoveController currentController)
     {
         m_InitialOffset = currentController.transform.position - transform.position;
+        m_CurrentController = currentController;
+        m_OtherController = currentController.GetOtherController();
     }
 
     public override void OnGrabStay(MoveController currentController)
@@ -143,10 +147,11 @@ public class BowString : GrabbableObject
             if (transform.localPosition.y > m_LastLocalPos.y)
                 m_RemainingVibrateDistance += (m_CurrentDrawDistance - newDrawDistance).magnitude;
 
-            if (m_RemainingVibrateDistance > 0.05f) // Threshold
+            if (m_RemainingVibrateDistance > 0.075f) // Threshold
             {
                 m_RemainingVibrateDistance = 0;
-                MoveController.GetControllerThatHolds(gameObject).Vibrate(100, 0.1f); // Change this to adjust controller vibration
+                m_CurrentController.Vibrate(90, 0.1f); // Change this to adjust controller vibration
+                m_OtherController.Vibrate(69, 0.1f);
             }
 
             m_CurrentDrawDistance = newDrawDistance;

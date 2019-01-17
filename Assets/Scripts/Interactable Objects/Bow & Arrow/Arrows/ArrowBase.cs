@@ -85,7 +85,10 @@ public class ArrowBase : MonoBehaviour
         result *= velocityX;
         result.y = velocityY;
 
-        GetComponent<Rigidbody>().AddForce(result, ForceMode.VelocityChange);
+        m_IsFired = true;
+        m_Rigidbody.useGravity = true;
+        m_Rigidbody.isKinematic = false;
+        m_Rigidbody.AddForce(result, ForceMode.VelocityChange);
     }
 
     public void DestroyArrow()
