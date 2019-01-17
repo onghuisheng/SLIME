@@ -13,7 +13,17 @@ public class SlimeBase : MonoBehaviour
         Catapult
     }
 
+    public enum SlimeColor
+    {
+        None,
+        Blue,
+        Pink,
+        Yellow,
+        Red,
+    }
+
     public SlimeType slimeType;
+    public SlimeColor slimeColor;
 
     public int m_MaxHealth; // max health
     public int m_MaxAttack; // max attack

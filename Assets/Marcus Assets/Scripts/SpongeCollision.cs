@@ -9,40 +9,43 @@ public class SpongeCollision : MonoBehaviour
 
     private Vector3 m_PrevPos;
 
+    public MoveController m_Controller;
+
+    public int m_DamageLevel;
+
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //if(m_Controller.GetButtonDown(MoveControllerButton.Square))
+        //{
+        //    transform.parent.GetComponent<RectTransform>().localPosition = new Vector3(transform.parent.GetComponent<RectTransform>().localPosition.x,
+        //        transform.parent.GetComponent<RectTransform>().localPosition.y + 5, transform.parent.GetComponent<RectTransform>().localPosition.z);
+        //}
+
+        //if (m_Controller.GetButtonDown(MoveControllerButton.X))
+        //{
+        //    transform.parent.GetComponent<RectTransform>().localPosition = new Vector3(transform.parent.GetComponent<RectTransform>().localPosition.x,
+        //         transform.parent.GetComponent<RectTransform>().localPosition.y - 5, transform.parent.GetComponent<RectTransform>().localPosition.z);
+        //}
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag != "Sponge")
-    //        return;
-
-    //    if(collision.relativeVelocity.magnitude > 0)
-    //    {
-    //        Color tempColor = GetComponentInParent<Image>().color;
-    //        tempColor.a -= 0.4f;
-
-    //        GetComponentInParent<Image>().color = tempColor;
-    //    }
-    //}
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        m_PrevPos = other.transform.position;
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag != "Sponge")
+            return;
+
+        if (m_DamageLevel != PlayerDamage.instance.m_DamageLevel)
             return;
 
         if ((m_PrevPos - other.transform.position).magnitude < 0.1f)
@@ -50,8 +53,10 @@ public class SpongeCollision : MonoBehaviour
             
         m_PrevPos = other.transform.position;
 
+        Debug.Log("INNNNNNNNNNN");
+
         Color tempColor = GetComponentInParent<Image>().color;
-        tempColor.a -= 0.2f;
+        tempColor.a -= 4.0f * Time.fixedDeltaTime;
 
         GetComponentInParent<Image>().color = tempColor;
 
@@ -59,7 +64,13 @@ public class SpongeCollision : MonoBehaviour
         {
             Destroy(other.transform.parent.gameObject);
             Destroy(transform.parent.gameObject);
+
+            PlayerDamage.instance.m_DamageLevel -= 1;
+
+            Debug.Log("DAMAGE: " + PlayerDamage.instance.m_DamageLevel);
+
         }
+
 
     }
 

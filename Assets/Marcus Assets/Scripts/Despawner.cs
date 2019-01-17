@@ -5,8 +5,13 @@ using UnityEngine.AI;
 using DG.Tweening;
 
 public class Despawner : MonoBehaviour {
+    
+    public GameObject m_Canvas;
 
-    public GameObject m_LookAtPoint;
+    private void Start()
+    {
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +20,7 @@ public class Despawner : MonoBehaviour {
             if (other.tag != "Enemy")
                 return;
 
+            // Normal Slime
             if (other.GetComponent<GolemSlimeDefend>() == null)
             {
                 other.GetComponent<SlimeBase>().toDespawn = true;
@@ -22,11 +28,13 @@ public class Despawner : MonoBehaviour {
 
                 other.GetComponent<SlimeBase>().anim.SetBool("IsDead", true);
 
+                other.GetComponentInChildren<SlimeDeath>().m_Canvas = m_Canvas;
+                other.GetComponentInChildren<SlimeDeath>().m_Despawn = true;
+
                 if (other.GetComponent<GolemSlimeDefend>() != null)
                 {
                     other.GetComponent<SlimeBase>().anim.SetBool("IsDefending", false);
                 }
-
             }
 
             else
@@ -36,9 +44,9 @@ public class Despawner : MonoBehaviour {
                 other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
             }
         }
-
-        
         other.GetComponent<NavMeshAgent>().enabled = false;
 
     }
+    
+    
 }

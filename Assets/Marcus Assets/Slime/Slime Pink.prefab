@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeType: 1
+  slimeColor: 2
   m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95242454097339806}
@@ -374,6 +375,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114304781441198518}
   Slime: {fileID: 1103822881075736}
+  m_Canvas: {fileID: 0}
+  m_SlimeOnScreen1: {fileID: 1958304664864342, guid: 7fcb9e398a098a64382ce8dacc5302cc,
+    type: 2}
+  m_SlimeOnScreen2: {fileID: 1097426102130152, guid: 0e9150dadd0d79d4d98d708f64ce9da5,
+    type: 2}
+  m_SlimeOnScreen3: {fileID: 1823239364304118, guid: e1d2ec2a765675d4f8ced57ddacb5700,
+    type: 2}
 --- !u!114 &114497211619728244
 MonoBehaviour:
   m_ObjectHideFlags: 1

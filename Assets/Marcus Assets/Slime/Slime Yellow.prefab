@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeType: 1
+  slimeColor: 3
   m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95502386135920490}
@@ -398,6 +399,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114081656846602034}
   Slime: {fileID: 1583349739826410}
+  m_Canvas: {fileID: 0}
+  m_SlimeOnScreen1: {fileID: 1958747001288734, guid: de2d67cf5b9528c4d8f7c1a4c0ee01c1,
+    type: 2}
+  m_SlimeOnScreen2: {fileID: 1074267439816596, guid: 0fe542831d0c4b0419be1c8aa9fefa9e,
+    type: 2}
+  m_SlimeOnScreen3: {fileID: 1389783620967418, guid: ec3fc723957396846af9564c57eec06e,
+    type: 2}
 --- !u!137 &137784855212881640
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

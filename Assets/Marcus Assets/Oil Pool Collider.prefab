@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 64523912308786542}
   - component: {fileID: 114577102656725422}
   - component: {fileID: 65140440607216346}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Oil Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
