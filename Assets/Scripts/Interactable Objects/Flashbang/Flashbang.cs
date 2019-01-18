@@ -49,8 +49,11 @@ public class Flashbang : GrabbableObject, IStorable
 
         Debug.DrawRay(transform.position, playerHead.position - transform.position, Color.yellow, 5);
 
+        int mask = ~(1 << LayerMask.NameToLayer("UI"));
+        mask |= ~(1 << LayerMask.NameToLayer("IgnoreProjectiles"));
+
         RaycastHit hitInfo;
-        if (Physics.Raycast(transform.position, playerHead.position - transform.position, out hitInfo, Mathf.Infinity, ~(1 << LayerMask.NameToLayer("UI"))) && hitInfo.transform.tag == playerHead.tag)
+        if (Physics.Raycast(transform.position, playerHead.position - transform.position, out hitInfo, Mathf.Infinity, mask) && hitInfo.transform.tag == playerHead.tag)
         {
             Vector3 playerHeadDir = transform.position - playerHead.position;
             // playerHeadDir.y = transform.position.y; // Flatten the Y axis
@@ -91,6 +94,7 @@ public class Flashbang : GrabbableObject, IStorable
 
         var ppBehaviour = Camera.main.GetComponent<PostProcessingBehaviour>();
         var bloomSettings = ppBehaviour.profile.bloom.settings;
+        ppBehaviour.profile.bloom.enabled = true;
 
         float intensityTarget = 0.5f, thresholdTarget = 1.1f, flashPeakTime = 0.1f, flashDuration = 2;
 
@@ -185,6 +189,7 @@ public class Flashbang : GrabbableObject, IStorable
             if (intenseDone && thresholdDone)
             {
                 Destroy(gameObject);
+                ppBehaviour.profile.bloom.enabled = false;
                 break;
             }
             else

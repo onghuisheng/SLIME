@@ -80,12 +80,11 @@ public class DayAndNight : MonoBehaviour
         dot = Mathf.Clamp01((Vector3.Dot(mainLight.transform.forward, Vector3.down) - minAmbientPoint) / tRange);
         i = (maxAmbient - minAmbient * dot) + minAmbient;
 
-        RenderSettings.ambientIntensity = i;
-        // RenderSettings.reflectionIntensity = Mathf.Clamp(i, 0.3f, 1.0f);
-        RenderSettings.reflectionIntensity = i;
+        RenderSettings.ambientIntensity = Mathf.Clamp(i, 0.1f, 1.0f);
+        RenderSettings.reflectionIntensity = Mathf.Clamp(i, 0.1f, 1.0f);
 
         mainLight.color = nightdayColor.Evaluate(dot);
-        RenderSettings.ambientLight = mainLight.color;
+        //RenderSettings.ambientLight = mainLight.color;
 
         RenderSettings.fogColor = nightdayFogColor.Evaluate(dot);
         RenderSettings.fogDensity = fogDensityCurve.Evaluate(dot) * fogScale;
