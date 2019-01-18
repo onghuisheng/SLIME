@@ -196,15 +196,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: ResetAttack
+      - time: 0.77352434
+        functionName: GolemAttackAudio
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.8429121
-        functionName: GolemAttackAudio
+      - time: 1
+        functionName: ResetAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
