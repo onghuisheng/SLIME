@@ -6,6 +6,7 @@ public class PlayerDamage : MonoBehaviour {
 
     public static PlayerDamage instance;
 
+    [HideInInspector]
     public int m_DamageLevel;
 
 	// Use this for initialization
