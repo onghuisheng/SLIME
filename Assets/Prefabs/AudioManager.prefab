@@ -192,3 +192,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: e25c6ca59c3a6d3418d2ffb3ef10ad49, type: 3}
   - clipAlias: golemshot
     audioClip: {fileID: 8300000, guid: d345f123f5bdbfa48898d6d14309bfb6, type: 3}
+  - clipAlias: golemcrumble
+    audioClip: {fileID: 8300000, guid: 7bd36bc0c4b4f8445a1bef5a508b0926, type: 3}
+  - clipAlias: catapultdeath
+    audioClip: {fileID: 8300000, guid: d85f56582ca971e4597c1b07f016cadc, type: 3}

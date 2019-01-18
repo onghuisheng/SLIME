@@ -31,11 +31,5 @@ public class GolemDeath : MonoBehaviour
         //Destroy slime body
         Destroy(SlimeBody);
     }
-
-    //golemcrumble
-    public void PlayCrumbleAudio()
-    {
-        AudioManager.Instance.Play3D("golemcrumble", transform.position, AudioManager.AudioType.Additive);
-    }
     
 }

@@ -48,7 +48,7 @@ public class SlimeDeath : MonoBehaviour
             //check if catapult
             if (m_SlimeBase.slimeType == SlimeBase.SlimeType.Catapult)
             {
-                //catapult death audio
+                AudioManager.Instance.Play3D("catapultdeath", transform.position, AudioManager.AudioType.Additive);
             }
 
             //play death particles

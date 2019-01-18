@@ -819,10 +819,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69ae4fb4d1812b448017a766796bd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slimeType: 0
+  slimeColor: 0
   m_MaxHealth: 2
   m_MaxAttack: 0
   anim: {fileID: 95630995931999794}
-  m_DeathParticles: {fileID: 0}
+  m_DeathParticles: {fileID: 1772405042810720, guid: ba3738f5984f0f345999101024e4e74d,
+    type: 2}
   toDespawn: 0
   m_OriginalSpeed: 0
   m_BaseJoint: {fileID: 0}
