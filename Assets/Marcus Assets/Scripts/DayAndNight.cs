@@ -104,7 +104,7 @@ public class DayAndNight : MonoBehaviour
         {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
 
-            if (SlimeManager.instance.m_CurrentWave == 1)
+            if (SlimeManager.instance.m_CurrentWave == 0 || SlimeManager.instance.m_CurrentWave == 1)
             {
                 SlimeManager.instance.m_SlimeInWave.Clear();
                 SlimeManager.instance.m_GolemSlimeInWave.Clear();
