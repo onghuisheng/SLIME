@@ -5,6 +5,7 @@ using UnityEngine;
 #if UNITY_PS4
 using UnityEngine.PS4;
 using UnityEngine.PS4.VR;
+using UnityEngine.XR;
 #endif
 
 public class MoveControllerHandler : MonoBehaviour
@@ -23,6 +24,11 @@ public class MoveControllerHandler : MonoBehaviour
     void Start()
     {
 #if UNITY_PS4
+        //Controls the texel to pixel ratio before lens correction, 
+        //trading performance for sharpness 
+        XRSettings.eyeTextureResolutionScale = 1.4f;
+        XRSettings.enabled = true;
+
         // PS4 Settings Init
         PlayStationVRSettings.robustnessLevel = PlayStationVRTrackerRobustnessLevel.Legacy;
 

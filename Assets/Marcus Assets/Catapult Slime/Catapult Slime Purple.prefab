@@ -198,7 +198,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1570559272292018
 GameObject:
@@ -273,8 +273,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
-  m_IsActive: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1709859753957200
 GameObject:
   m_ObjectHideFlags: 1
@@ -625,15 +625,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478375357741878}
-  m_LocalRotation: {x: -0.009173531, y: 0.9861522, z: -0.05838097, w: -0.15495628}
-  m_LocalPosition: {x: -7.09, y: 3.27, z: 28.81}
+  m_LocalRotation: {x: -0.006092669, y: 0.9911607, z: -0.049049698, w: -0.12311623}
+  m_LocalPosition: {x: -7.13, y: 3.058, z: 29.541}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4120785485916648}
   - {fileID: 4555195457043008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 6.776, y: 197.86, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.821, y: 191.43999, z: 2.3560002}
 --- !u!4 &4739691485981332
 Transform:
   m_ObjectHideFlags: 1
@@ -747,6 +747,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114968491722749186}
   Slime: {fileID: 1478375357741878}
+  m_Canvas: {fileID: 0}
+  m_SlimeOnScreen1: {fileID: 0}
+  m_SlimeOnScreen2: {fileID: 0}
+  m_SlimeOnScreen3: {fileID: 0}
+  m_Despawn: 0
 --- !u!114 &114296818641955458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -808,10 +813,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeType: 3
-  m_MaxHealth: 2
+  slimeColor: 0
+  m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95949860691495752}
-  m_DeathParticles: {fileID: 0}
+  m_DeathParticles: {fileID: 1437468247517782, guid: ba3738f5984f0f345999101024e4e74d,
+    type: 2}
   toDespawn: 0
   m_OriginalSpeed: 0
   m_BaseJoint: {fileID: 4714062914532568}

@@ -74,6 +74,12 @@ public class SlimeBase : MonoBehaviour
                 AudioManager.Instance.Play3D("golemshot", transform.position, AudioManager.AudioType.Additive);
                 break;
             case SlimeType.Catapult:
+                if (m_Health <= 0)
+                {
+                    AudioManager.Instance.Play3D("catapultdeath", transform.position, AudioManager.AudioType.Additive);
+                    GameObject temp = Instantiate(m_DeathParticles);
+                    temp.transform.Translate(transform.position, Space.World);
+                }
                 break;
             default:
                 break;
