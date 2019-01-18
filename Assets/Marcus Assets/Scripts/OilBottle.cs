@@ -26,7 +26,7 @@ public class OilBottle : GrabbableObject, IStorable {
         if(collision.relativeVelocity.magnitude > 5)
         {
             GameObject temp = Instantiate(m_OilPuddle, transform.position + new Vector3(0, 0.1f, 0), m_OilPuddle.transform.rotation);
-            GameObject tempParticles = Instantiate(m_OilParticles, transform.position + new Vector3(0, 0.1f, 0), m_OilParticles.transform.rotation);
+            GameObject tempParticles = Instantiate(m_OilParticles, transform.position /*+ new Vector3(0, 0.1f, 0)*/, m_OilParticles.transform.rotation);
 
             //im not too sure where to put the sound of the oil bottle breaking, but i can assume the bottle game object disapperars at Destroy(this.gameObject)?
             //i probably am very wrong, and if so, please change this part :>
