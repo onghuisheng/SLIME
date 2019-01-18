@@ -44,6 +44,10 @@ public class EnemyHit : MonoBehaviour, IShootable
                 if (m_Defend != null)
                 {
                     m_SlimeBase.anim.SetBool("IsDefending", false);
+                    foreach (Collider m_Collider in m_SlimeBase.gameObject.GetComponentsInChildren<Collider>())
+                    {
+                        m_Collider.enabled = false;
+                    }
                 }
             }
 
