@@ -37,6 +37,13 @@ public class SpongeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag != "Sponge")
+            return;
+
+        Sponge sponge = other.GetComponent<Sponge>();
+        //play foam particles function, also, if can be improved, please change! :D
+        sponge.PlayFoamParticles(true);
+
         m_PrevPos = other.transform.position;
     }
 
@@ -55,6 +62,8 @@ public class SpongeCollision : MonoBehaviour
 
         Debug.Log("INNNNNNNNNNN");
 
+        
+
         Color tempColor = GetComponentInParent<Image>().color;
         tempColor.a -= 4.0f * Time.fixedDeltaTime;
 
@@ -70,8 +79,16 @@ public class SpongeCollision : MonoBehaviour
             Debug.Log("DAMAGE: " + PlayerDamage.instance.m_DamageLevel);
 
         }
-
-
     }
 
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag != "Sponge")
+            return;
+
+        Sponge sponge = other.GetComponent<Sponge>();
+        //play foam particles function, also, if can be improved, please change! :D
+        sponge.PlayFoamParticles(false);
+    }
 }

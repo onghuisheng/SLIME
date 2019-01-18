@@ -198,6 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Collider: {fileID: 1582223533729514}
+  m_FoamParticles: {fileID: 198403229897591680, guid: fa10afa49ec994448969e44ea072ec49,
+    type: 2}
 --- !u!198 &198561442485117236
 ParticleSystem:
   m_ObjectHideFlags: 1

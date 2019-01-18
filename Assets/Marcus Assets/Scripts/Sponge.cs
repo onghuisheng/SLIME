@@ -6,6 +6,11 @@ public class Sponge : GrabbableObject, IStorable {
 
     public GameObject m_Collider;
 
+    public ParticleSystem m_FoamParticles;
+
+    bool isFoaming = false;
+
+
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
@@ -24,5 +29,19 @@ public class Sponge : GrabbableObject, IStorable {
 
     public void OnUnStore(BeltSlot slot)
     {
+    }
+
+    public void PlayFoamParticles(bool toggle)
+    {
+        isFoaming = toggle;
+
+        if (toggle)
+        {
+            //play particles with it's children
+            m_FoamParticles.Play(true);
+        }
+        else
+            m_FoamParticles.Stop();
+        
     }
 }
