@@ -118,7 +118,7 @@ public class MoveController : MonoBehaviour
 #if UNITY_PS4
         Vector3 pos;
         Tracker.GetTrackedDevicePosition(m_HandleNumber, PlayStationVRSpace.Unity, out pos);
-        transform.position = pos + m_Player.transform.localPosition;
+        transform.position = pos + m_Player.transform.position;
 
         Quaternion rot;
         Tracker.GetTrackedDeviceOrientation(m_HandleNumber, PlayStationVRSpace.Unity, out rot);

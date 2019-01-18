@@ -143,7 +143,7 @@ PlayerSettings:
       sharedDepthBuffer: 0
       dashSupport: 0
   protectGraphicsMemory: 0
-  useHDRDisplay: 0
+  useHDRDisplay: 1
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
   resolutionScalingMode: 0

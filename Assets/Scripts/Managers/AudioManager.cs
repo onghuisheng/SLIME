@@ -77,15 +77,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         /// </summary>
         Additive
     }
-
-    private void Start()
+    
+    private void Awake()
     {
         // Add all elements into a dictionary for faster lookup
         foreach (var kp in m_AudioClips)
         {
             m_AudioClipsDictonary.Add(kp.clipAlias, kp.audioClip);
         }
-
     }
 
     private void Update()
@@ -172,7 +171,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
         if (clip == null)
         {
-            Debug.LogError("Error trying to retrieve an Audio's clipAlias");
+            Debug.LogError("Error trying to retrieve an Audio's clipAlias: '" + clipAlias + "'");
             return null;
         }
 

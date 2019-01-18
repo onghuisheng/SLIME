@@ -31,16 +31,14 @@ public class SlimeDeath : MonoBehaviour
     {
         if (m_SlimeBase.m_DeathParticles != null)
         {
-            SlimeBase slimeBase = new SlimeBase();
-
             //check if golem
-            if (slimeBase.slimeType == SlimeBase.SlimeType.Golem)
+            if (m_SlimeBase.slimeType == SlimeBase.SlimeType.Golem)
             {
                 AudioManager.Instance.Play3D("golemcrumble", transform.position, AudioManager.AudioType.Additive);
             }
 
             //check if basic slime
-            if (slimeBase.slimeType == SlimeBase.SlimeType.Slime)
+            if (m_SlimeBase.slimeType == SlimeBase.SlimeType.Slime)
             {
                 AudioManager.Instance.Play3D("basicdeath", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { randomPitchRange = 0.4f, volume = .5f });
 
@@ -48,13 +46,13 @@ public class SlimeDeath : MonoBehaviour
             }
 
             //check if catapult
-            if (slimeBase.slimeType == SlimeBase.SlimeType.Catapult)
+            if (m_SlimeBase.slimeType == SlimeBase.SlimeType.Catapult)
             {
                 //catapult death audio
             }
-            
+
             //play death particles
-            GameObject temp = Instantiate(m_SlimeBase.m_DeathParticles, Slime.transform.position, m_SlimeBase.m_DeathParticles.gameObject.transform.rotation);
+            GameObject temp = Instantiate(this.m_SlimeBase.m_DeathParticles, Slime.transform.position, this.m_SlimeBase.m_DeathParticles.gameObject.transform.rotation);
             Destroy(temp, 3);
 
             if(m_Despawn)

@@ -1,26 +1,37 @@
 fileFormatVersion: 2
-guid: 6ca215f781ae0b648b0fddfe0ef716e6
+guid: a192cde9a381e4b4bb98deb5c1ee1da7
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Wood01
-    2100002: Wood02
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: env_Barricade_01
+    100000: env_BarricadeNormal
+    100002: //RootNode
+    100004: env_BarricadeSmall
+    100006: env_BarricadeSpike
+    100008: env_WoodSpike
+    400000: env_BarricadeNormal
+    400002: //RootNode
+    400004: env_BarricadeSmall
+    400006: env_BarricadeSpike
+    400008: env_WoodSpike
+    2100000: StingrayPBS2
+    2300000: env_BarricadeNormal
+    2300002: env_BarricadeSmall
+    2300004: env_BarricadeSpike
+    2300006: env_WoodSpike
+    3300000: env_BarricadeNormal
+    3300002: env_BarricadeSmall
+    3300004: env_BarricadeSpike
+    3300006: env_WoodSpike
+    4300000: env_WoodSpike
+    4300002: env_BarricadeNormal
+    4300004: env_BarricadeSpike
+    4300006: env_BarricadeSmall
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood01
-    second: {fileID: 2100002, guid: 7bd1a18c031318e4f94f8b6673d03e9f, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood02
-    second: {fileID: 2100002, guid: 8aabcbfda504cf248977e56c2d64dc79, type: 3}
+      name: StingrayPBS2
+    second: {fileID: 2100000, guid: 2ce47af5a91a4e049a69d287cea72a4a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

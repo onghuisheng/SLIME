@@ -1,26 +1,20 @@
 fileFormatVersion: 2
-guid: 6ca215f781ae0b648b0fddfe0ef716e6
+guid: a5420de3445e0e74d80241c9303589df
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wood01
-    2100002: Wood02
+    2100000: StingrayPBS2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: env_Barricade_01
+    4300000: particle_Wood01
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood01
-    second: {fileID: 2100002, guid: 7bd1a18c031318e4f94f8b6673d03e9f, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood02
-    second: {fileID: 2100002, guid: 8aabcbfda504cf248977e56c2d64dc79, type: 3}
+      name: StingrayPBS2
+    second: {fileID: 2100000, guid: 2ce47af5a91a4e049a69d287cea72a4a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DayAndNight : MonoBehaviour {
+public class DayAndNight : MonoBehaviour
+{
 
     public Gradient nightdayColor;
 
@@ -80,6 +81,7 @@ public class DayAndNight : MonoBehaviour {
         i = (maxAmbient - minAmbient * dot) + minAmbient;
 
         RenderSettings.ambientIntensity = i;
+        // RenderSettings.reflectionIntensity = Mathf.Clamp(i, 0.3f, 1.0f);
         RenderSettings.reflectionIntensity = i;
 
         mainLight.color = nightdayColor.Evaluate(dot);
@@ -102,7 +104,7 @@ public class DayAndNight : MonoBehaviour {
         {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
 
-            if(SlimeManager.instance.m_CurrentWave == 1)
+            if (SlimeManager.instance.m_CurrentWave == 1)
             {
                 SlimeManager.instance.m_SlimeInWave.Clear();
                 SlimeManager.instance.m_GolemSlimeInWave.Clear();

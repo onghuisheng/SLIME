@@ -57,41 +57,41 @@ public class TransformFollower : MonoBehaviour
                 transform.Rotate(m_LookAtRotationOffset);
             }
 
-            if (m_Controller1)
-            {
-                if (m_Controller1.GetButtonDown(MoveControllerButton.Circle))
-                {
-                    m_PositionOffset.x -= 0.025f;
-                    Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
-                }
-                if (m_Controller1.GetButtonDown(MoveControllerButton.Triangle))
-                {
-                    m_PositionOffset.z -= 0.025f;
-                    Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
-                }
+            //if (m_Controller1)
+            //{
+            //    if (m_Controller1.GetButtonDown(MoveControllerButton.Circle))
+            //    {
+            //        m_PositionOffset.x -= 0.025f;
+            //        Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
+            //    }
+            //    if (m_Controller1.GetButtonDown(MoveControllerButton.Triangle))
+            //    {
+            //        m_PositionOffset.z -= 0.025f;
+            //        Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
+            //    }
 
-                if (m_Controller1.GetButtonDown(MoveControllerButton.X))
-                {
-                    m_PositionOffset.x += 0.025f;
-                    Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
-                }
-                if (m_Controller1.GetButtonDown(MoveControllerButton.Square))
-                {
-                    m_PositionOffset.z += 0.025f;
-                    Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
-                }
-                if (m_Controller1.GetButtonDown(MoveControllerButton.MiddleButton))
-                {
-                    m_PositionOffset.y += 0.025f;
-                    Debug.LogFormat("X: {0} , Y: {1} , Z: {2}", m_PositionOffset.x, m_PositionOffset.y, m_PositionOffset.z);
-                }
-                if (m_Controller1.GetButtonDown(MoveControllerButton.Start))
-                {
-                    m_PositionOffset.y -= 0.025f;
-                    Debug.LogFormat("X: {0} , Y: {1} , Z: {2}", m_PositionOffset.x, m_PositionOffset.y, m_PositionOffset.z);
-                }
+            //    if (m_Controller1.GetButtonDown(MoveControllerButton.X))
+            //    {
+            //        m_PositionOffset.x += 0.025f;
+            //        Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
+            //    }
+            //    if (m_Controller1.GetButtonDown(MoveControllerButton.Square))
+            //    {
+            //        m_PositionOffset.z += 0.025f;
+            //        Debug.LogFormat("X: {0} , Z: {1}", m_PositionOffset.x, m_PositionOffset.z);
+            //    }
+            //    if (m_Controller1.GetButtonDown(MoveControllerButton.MiddleButton))
+            //    {
+            //        m_PositionOffset.y += 0.025f;
+            //        Debug.LogFormat("X: {0} , Y: {1} , Z: {2}", m_PositionOffset.x, m_PositionOffset.y, m_PositionOffset.z);
+            //    }
+            //    if (m_Controller1.GetButtonDown(MoveControllerButton.Start))
+            //    {
+            //        m_PositionOffset.y -= 0.025f;
+            //        Debug.LogFormat("X: {0} , Y: {1} , Z: {2}", m_PositionOffset.x, m_PositionOffset.y, m_PositionOffset.z);
+            //    }
 
-            }
+            //}
 
         }
     }

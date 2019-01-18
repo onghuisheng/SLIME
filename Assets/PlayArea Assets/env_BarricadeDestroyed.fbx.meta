@@ -1,26 +1,112 @@
 fileFormatVersion: 2
-guid: 6ca215f781ae0b648b0fddfe0ef716e6
+guid: eff3732e59ce34a428699af25d7947e9
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: metal01
+    100004: metal02
+    100006: metal03
+    100008: metal04
+    100010: metal05
+    100012: spike01
+    100014: spike02
+    100016: spike03
+    100018: spike04
+    100020: spike05
+    100022: wood01
+    100024: wood02
+    100026: wood03
+    100028: wood04
+    100030: wood05
+    100032: wood06
+    100034: wood07
+    100036: wood08
+    100038: wood09
     400000: //RootNode
-    2100000: Wood01
-    2100002: Wood02
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: env_Barricade_01
+    400002: metal01
+    400004: metal02
+    400006: metal03
+    400008: metal04
+    400010: metal05
+    400012: spike01
+    400014: spike02
+    400016: spike03
+    400018: spike04
+    400020: spike05
+    400022: wood01
+    400024: wood02
+    400026: wood03
+    400028: wood04
+    400030: wood05
+    400032: wood06
+    400034: wood07
+    400036: wood08
+    400038: wood09
+    2100000: StingrayPBS2
+    2300000: metal01
+    2300002: metal02
+    2300004: metal03
+    2300006: metal04
+    2300008: metal05
+    2300010: spike01
+    2300012: spike02
+    2300014: spike03
+    2300016: spike04
+    2300018: spike05
+    2300020: wood01
+    2300022: wood02
+    2300024: wood03
+    2300026: wood04
+    2300028: wood05
+    2300030: wood06
+    2300032: wood07
+    2300034: wood08
+    2300036: wood09
+    3300000: metal01
+    3300002: metal02
+    3300004: metal03
+    3300006: metal04
+    3300008: metal05
+    3300010: spike01
+    3300012: spike02
+    3300014: spike03
+    3300016: spike04
+    3300018: spike05
+    3300020: wood01
+    3300022: wood02
+    3300024: wood03
+    3300026: wood04
+    3300028: wood05
+    3300030: wood06
+    3300032: wood07
+    3300034: wood08
+    3300036: wood09
+    4300000: wood05
+    4300002: wood07
+    4300004: metal04
+    4300006: wood04
+    4300008: metal05
+    4300010: wood06
+    4300012: wood08
+    4300014: spike02
+    4300016: spike05
+    4300018: spike04
+    4300020: spike01
+    4300022: spike03
+    4300024: metal02
+    4300026: metal03
+    4300028: wood09
+    4300030: wood01
+    4300032: wood03
+    4300034: wood02
+    4300036: metal01
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood01
-    second: {fileID: 2100002, guid: 7bd1a18c031318e4f94f8b6673d03e9f, type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood02
-    second: {fileID: 2100002, guid: 8aabcbfda504cf248977e56c2d64dc79, type: 3}
+      name: StingrayPBS2
+    second: {fileID: 2100000, guid: 2ce47af5a91a4e049a69d287cea72a4a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
