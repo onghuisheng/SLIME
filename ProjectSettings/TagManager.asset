@@ -11,6 +11,7 @@ TagManager:
   - BlueDrop
   - SlimeProjectile
   - Sponge
+  - Oil
   layers:
   - Default
   - TransparentFX

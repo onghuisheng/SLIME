@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class OilCollision : MonoBehaviour {
-
+    
 	// Use this for initialization
 	void Start () {
     }
@@ -19,6 +19,11 @@ public class OilCollision : MonoBehaviour {
         if(other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<NavMeshAgent>().speed /= 10;
+        }
+
+        if(other.transform.GetComponent<OilStep>() != null)
+        {
+            other.transform.GetComponent<OilStep>().PlayOilStep(other.transform.position);
         }
     }
 

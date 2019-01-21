@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 64523912308786542}
   - component: {fileID: 114577102656725422}
   - component: {fileID: 65140440607216346}
-  m_Layer: 14
+  - component: {fileID: 114682653340945774}
+  m_Layer: 0
   m_Name: Oil Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +132,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!64 &64523912308786542
 MeshCollider:
@@ -169,8 +170,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 100, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 50, z: -0.00000008940697}
+  m_Size: {x: 1.0000001, y: 50, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 24, z: -0.00000008940697}
 --- !u!114 &114577102656725422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +183,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358da2d83da7d245bb07a63c1ec4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114682653340945774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428267823010284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea4132450ae5e4a87bd4fb6d62b413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
+    type: 2}
 --- !u!114 &114892793984879562
 MonoBehaviour:
   m_ObjectHideFlags: 1

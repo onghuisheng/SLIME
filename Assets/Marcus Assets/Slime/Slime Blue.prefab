@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4018897251850360}
   - component: {fileID: 65203842945951928}
   - component: {fileID: 114150323700709566}
+  - component: {fileID: 114176352246527642}
   m_Layer: 0
   m_Name: base_joint
   m_TagString: Untagged
@@ -176,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636979800040456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7042923, y: 0.54515755, z: 1.2123289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4867311062374304}
@@ -341,6 +342,19 @@ MonoBehaviour:
   m_Defend: {fileID: 0}
   Damage: 1
   m_OnAnim: 0
+--- !u!114 &114176352246527642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1690458394864952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea4132450ae5e4a87bd4fb6d62b413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
+    type: 2}
 --- !u!114 &114238790166794116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,6 +409,7 @@ MonoBehaviour:
     type: 2}
   m_SlimeOnScreen3: {fileID: 1670736122877032, guid: 5610cfcf547a9bf42827e9f94c22ef5c,
     type: 2}
+  m_Despawn: 0
 --- !u!114 &114851575708607904
 MonoBehaviour:
   m_ObjectHideFlags: 1

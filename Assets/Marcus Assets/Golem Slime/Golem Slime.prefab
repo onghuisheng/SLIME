@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 4868858533323100}
   - component: {fileID: 135069174474792594}
   - component: {fileID: 114030927502505390}
+  - component: {fileID: 114883578962827590}
   m_Layer: 0
   m_Name: ankle_L_joint
   m_TagString: Untagged
@@ -614,6 +615,7 @@ GameObject:
   - component: {fileID: 4067239774402686}
   - component: {fileID: 135947192817563988}
   - component: {fileID: 114014997550796438}
+  - component: {fileID: 114940648783659728}
   m_Layer: 0
   m_Name: ankle_R_joint
   m_TagString: Untagged
@@ -1589,7 +1591,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402683172834022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.14116555, y: 0.05, z: 0.7123289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4669913104090812}
@@ -1767,6 +1769,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114662701626187466}
   Slime: {fileID: 1402683172834022}
+  m_Canvas: {fileID: 0}
+  m_SlimeOnScreen1: {fileID: 0}
+  m_SlimeOnScreen2: {fileID: 0}
+  m_SlimeOnScreen3: {fileID: 0}
+  m_Despawn: 0
 --- !u!114 &114399467883614332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1807,6 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeType: 2
+  slimeColor: 0
   m_MaxHealth: 3
   m_MaxAttack: 0
   anim: {fileID: 95104552516828176}
@@ -1838,7 +1846,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95104552516828176}
-  m_AttackTime: 0
 --- !u!114 &114808969443626600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1901,6 +1908,19 @@ MonoBehaviour:
   m_Defend: {fileID: 114399467883614332}
   Damage: 3
   m_OnAnim: 0
+--- !u!114 &114883578962827590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496347264315308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea4132450ae5e4a87bd4fb6d62b413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
+    type: 2}
 --- !u!114 &114904239897942490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1917,6 +1937,19 @@ MonoBehaviour:
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
   m_OnAnim: 0
+--- !u!114 &114940648783659728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581148945012994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ea4132450ae5e4a87bd4fb6d62b413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
+    type: 2}
 --- !u!135 &135069174474792594
 SphereCollider:
   m_ObjectHideFlags: 1
