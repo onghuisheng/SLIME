@@ -41,23 +41,34 @@ public class VolleyFirer : MonoBehaviour
             AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive);
 
             yield return new WaitForSeconds(1);
-
-            AudioManager.Instance.Play3D("arrowwhoosh", transform.position, AudioManager.AudioType.Additive);
-
+            
             for (int i = 0; i < m_ArrowQuantity; ++i)
             {
-                var arrow = Instantiate(m_ArrowPrefab, transform.position, Quaternion.identity, transform);
-                arrow.BuffArrow(ArrowBase.ArrowType.FlameVolley);
-
-                var pos = m_Destinations[Random.Range(0, m_Destinations.Length - 1)].transform.position;
-                pos.x += Random.Range(-m_RandomRadius, m_RandomRadius);
-                pos.z += Random.Range(-m_RandomRadius, m_RandomRadius);
-
-                arrow.LaunchArrowWithArc(pos, m_ArrowTravelDuration);
+                FireArrow();
+                yield return new WaitForSeconds(Random.Range(1.0f, 2.0f));
             }
 
             yield return new WaitForSeconds(m_Interval);
         }
+    }
+
+    public void FireArrow()
+    {
+        var arrow = Instantiate(m_ArrowPrefab, transform.position, Quaternion.identity, transform);
+        arrow.BuffArrow(ArrowBase.ArrowType.FlameVolley);
+
+        var pos = m_Destinations[Random.Range(0, m_Destinations.Length - 1)].transform.position;
+        pos.x += Random.Range(-m_RandomRadius, m_RandomRadius);
+        pos.z += Random.Range(-m_RandomRadius, m_RandomRadius);
+
+        arrow.LaunchArrowWithArc(pos, m_ArrowTravelDuration);
+
+        AudioManager.Instance.Play3D("arrowwhoosh", transform.position, AudioManager.AudioType.Additive);
+    }
+
+    public void FireArtillery()
+    {
+        FireArrow();
     }
 
 }

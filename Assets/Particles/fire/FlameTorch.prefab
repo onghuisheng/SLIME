@@ -21,12 +21,12 @@ GameObject:
   - component: {fileID: 4276154588540744}
   - component: {fileID: 198845284824443714}
   - component: {fileID: 199829414344383202}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FlameTorch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1480488245057888
 GameObject:
@@ -38,12 +38,12 @@ GameObject:
   - component: {fileID: 4829444453418204}
   - component: {fileID: 198851658747797832}
   - component: {fileID: 199753459520200860}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &4276154588540744
 Transform:
@@ -51,8 +51,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464616157408448}
-  m_LocalRotation: {x: -0.7071068, y: 0.000000044703484, z: 0.000000044703484, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.452, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0.000000014901163, z: 0.000000014901163, w: 0.7071068}
+  m_LocalPosition: {x: 0.0028888294, y: 1.4385474, z: 0.00065352913}
   m_LocalScale: {x: 0.100000024, y: 0.10000014, z: 0.10000015}
   m_Children:
   - {fileID: 4829444453418204}
@@ -3700,12 +3700,12 @@ ParticleSystem:
     light: {fileID: 108197603583268096, guid: c7ca45b6b434c48488c11bf284ce8b02, type: 2}
     randomDistribution: 1
     color: 0
-    range: 1
+    range: 0
     intensity: 1
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 20
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3758,7 +3758,7 @@ ParticleSystem:
     intensityCurve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2

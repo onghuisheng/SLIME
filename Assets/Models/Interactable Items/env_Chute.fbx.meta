@@ -1,39 +1,27 @@
 fileFormatVersion: 2
-guid: 2b2d57b3b7ac54d4c9daa3055391d448
+guid: f9226567e0c339f4ebb108259a09eb2e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: CrossBow
-    100002: //RootNode
-    100004: crossbowHandle_joint
-    100006: crossbowHead_joint
-    100008: limb_L_01_joint
-    100010: limb_L_02_joint
-    100012: limb_R_01_joint
-    100014: limb_R_02_joint
-    100016: reloadHandle_joint
-    100018: reloadHandleBase_joint
-    100020: string_joint
-    100022: trigger_joint
-    100024: triggerBase_joint
-    400000: CrossBow
-    400002: //RootNode
-    400004: crossbowHandle_joint
-    400006: crossbowHead_joint
-    400008: limb_L_01_joint
-    400010: limb_L_02_joint
-    400012: limb_R_01_joint
-    400014: limb_R_02_joint
-    400016: reloadHandle_joint
-    400018: reloadHandleBase_joint
-    400020: string_joint
-    400022: trigger_joint
-    400024: triggerBase_joint
-    2100000: lambert1
-    4300000: CrossBow
-    9500000: //RootNode
-    13700000: CrossBow
-  externalObjects: {}
+    100000: chute
+    100002: chuteDoor
+    100004: //RootNode
+    400000: chute
+    400002: chuteDoor
+    400004: //RootNode
+    2100000: StingrayPBS1
+    2300000: chute
+    2300002: chuteDoor
+    3300000: chute
+    3300002: chuteDoor
+    4300000: chute
+    4300002: chuteDoor
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingrayPBS1
+    second: {fileID: 2100000, guid: 966e3a586bc1efb49ad10a94fa56e85d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -108,7 +96,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

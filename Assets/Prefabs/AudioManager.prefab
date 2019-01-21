@@ -196,3 +196,13 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 7bd36bc0c4b4f8445a1bef5a508b0926, type: 3}
   - clipAlias: catapultdeath
     audioClip: {fileID: 8300000, guid: d85f56582ca971e4597c1b07f016cadc, type: 3}
+  - clipAlias: arrowhit
+    audioClip: {fileID: 8300000, guid: c572ba202af98b040b998ab5533263f5, type: 3}
+  - clipAlias: chutetoggle
+    audioClip: {fileID: 8300000, guid: 067c5ece687051e4294527e27cba8a3f, type: 3}
+  - clipAlias: warhorn
+    audioClip: {fileID: 8300000, guid: cb5baae69a44e8b458d523756da73085, type: 3}
+  - clipAlias: npc_artillery
+    audioClip: {fileID: 8300000, guid: a4cfaf0ab398537408914c8411b30805, type: 3}
+  - clipAlias: npc_fire
+    audioClip: {fileID: 8300000, guid: 2da5bfec53db62d4eb6a748c2b549a9b, type: 3}

@@ -35,13 +35,6 @@ public class Sponge : GrabbableObject, IStorable {
     {
         isFoaming = toggle;
 
-        if (toggle)
-        {
-            //play particles with it's children
-            m_FoamParticles.Play(true);
-        }
-        else
-            m_FoamParticles.Stop();
-        
+        m_FoamParticles.gameObject.SetActive(toggle);
     }
 }
