@@ -50,6 +50,7 @@ public class Arrow : ArrowBase
             shootable.OnShot(this); // Interface callback
         }
 
+        AudioManager.Instance.Play3D("arrowhit", transform.position,  AudioManager.AudioType.Additive, new AudioSourceData3D() { });
         DestroyArrow(); // If collide with environment, remove this arrow after X seconds
     }
 

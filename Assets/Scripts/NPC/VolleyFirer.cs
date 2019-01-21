@@ -9,17 +9,23 @@ public class VolleyFirer : MonoBehaviour
 
     public Transform[] m_Destinations;
 
-    [Range(1.0f, 10.0f)]
+    [Range(1.0f, 60.0f)]
     public float m_Interval = 5.0f;
 
-    [Range(1, 60)]
-    public int m_DelayedStart = 1;
+    [Range(0, 60)]
+    public float m_DelayedStart = 1;
+
+    [Range(0, 3)]
+    public float m_DelayedStartRandom = 2;
 
     [Range(1, 5)]
     public int m_ArrowQuantity = 1;
 
     [Range(1.0f, 10.0f)]
     public float m_ArrowTravelDuration = 1;
+
+    [Range(1, 5)]
+    public float m_RandomRadius = 2;
 
     private void Start()
     {
@@ -28,15 +34,26 @@ public class VolleyFirer : MonoBehaviour
 
     IEnumerator FireArrowRoutine()
     {
-        yield return new WaitForSeconds(m_DelayedStart);
+        yield return new WaitForSeconds(m_DelayedStart + Random.Range(-m_DelayedStartRandom, m_DelayedStartRandom));
 
         while (true)
         {
-            foreach (var destination in m_Destinations)
+            AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive);
+
+            yield return new WaitForSeconds(1);
+
+            AudioManager.Instance.Play3D("arrowwhoosh", transform.position, AudioManager.AudioType.Additive);
+
+            for (int i = 0; i < m_ArrowQuantity; ++i)
             {
                 var arrow = Instantiate(m_ArrowPrefab, transform.position, Quaternion.identity, transform);
-                arrow.BuffArrow(ArrowBase.ArrowType.Flame);
-                arrow.LaunchArrowWithArc(destination.transform.position, m_ArrowTravelDuration);
+                arrow.BuffArrow(ArrowBase.ArrowType.FlameVolley);
+
+                var pos = m_Destinations[Random.Range(0, m_Destinations.Length - 1)].transform.position;
+                pos.x += Random.Range(-m_RandomRadius, m_RandomRadius);
+                pos.z += Random.Range(-m_RandomRadius, m_RandomRadius);
+
+                arrow.LaunchArrowWithArc(pos, m_ArrowTravelDuration);
             }
 
             yield return new WaitForSeconds(m_Interval);

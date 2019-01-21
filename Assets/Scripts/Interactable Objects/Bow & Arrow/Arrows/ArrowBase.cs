@@ -9,12 +9,16 @@ public class ArrowBase : MonoBehaviour
     {
         None,
         Flame,
+        FlameVolley,
         Bait,
         Thunder
     }
 
     [SerializeField]
     private GameObject m_FlameParticlePrefab;
+
+    [SerializeField]
+    private GameObject m_FlameVolleyParticlePrefab;
 
     protected bool m_IsFired = false;
     public bool isFired { get { return m_IsFired; } }
@@ -37,6 +41,9 @@ public class ArrowBase : MonoBehaviour
                     //delete this if it doesnt work
                     AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive);
                     Instantiate(m_FlameParticlePrefab, transform);
+                    break;
+                case ArrowType.FlameVolley:
+                    Instantiate(m_FlameVolleyParticlePrefab, transform);
                     break;
                 case ArrowType.Bait: // TBD
                     break;
@@ -106,7 +113,7 @@ public class ArrowBase : MonoBehaviour
             m_Rigidbody.useGravity = false;
             m_Rigidbody.isKinematic = true;
             GetComponent<Collider>().enabled = false;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             Destroy(gameObject);
         }
     }
