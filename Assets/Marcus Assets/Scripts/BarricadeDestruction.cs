@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BarricadeDestruction : MonoBehaviour
 {
-
     public GameObject m_NewBarricadeDamaged;
     public GameObject m_NewBarricadeDestroyed;
 
@@ -13,6 +13,8 @@ public class BarricadeDestruction : MonoBehaviour
 
     public GameObject currentBarricade;
     public GameObject tempBarricade;
+
+    public GameObject m_Player;
 
     // Use this for initialization
     void Start()
@@ -82,16 +84,18 @@ public class BarricadeDestruction : MonoBehaviour
                     {
                         GameObject m_Child = currentBarricade.transform.GetChild(i).gameObject;
                         m_Child.AddComponent<Rigidbody>();
-                        Destroy(currentBarricade, 5);
+                        //Destroy(currentBarricade, 5);
 
                     }
-
+                    other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<SlimeBase>().anim.SetBool("IsAttack", false);
+                    other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;
+                    other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
                     Destroy(this.gameObject); // destroy this gameobject since not needed anymore
                 }
 
 
                 currentBarricade = tempBarricade;
-                m_BarricadeHealth = 2;
+                m_BarricadeHealth = 1;
             }
         }
     }

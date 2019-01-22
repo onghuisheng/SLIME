@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public List<GameObject> m_pathList; // list of the path that the ai can travel
 
     public int m_index; // index for which node the ai should travel to next
+    public GameObject m_Player;
     
     // Use this for initialization
     void Start()
@@ -34,8 +35,12 @@ public class Movement : MonoBehaviour
     /// </summary>
     public void Move() 
     {
-        if (GetComponent<NavMeshAgent>().enabled)
+        if (GetComponent<NavMeshAgent>().enabled && m_Player == null)
             GetComponent<NavMeshAgent>().SetDestination(m_pathList[m_index].transform.position);
+
+        else if (GetComponent<NavMeshAgent>().enabled && m_Player != null)
+            GetComponent<NavMeshAgent>().SetDestination(m_Player.transform.position);
+
     }
 
     /// <summary>

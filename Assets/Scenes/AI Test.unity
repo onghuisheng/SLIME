@@ -1395,6 +1395,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 114994693967476628, guid: 70c9e6bf451750342a3c8a7ea53d829f,
+        type: 2}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 176928516}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70c9e6bf451750342a3c8a7ea53d829f, type: 2}
   m_IsPrefabParent: 0
@@ -8209,6 +8214,7 @@ MonoBehaviour:
   m_NewBarricadeDestroyed: {fileID: 0}
   currentBarricade: {fileID: 0}
   tempBarricade: {fileID: 0}
+  m_Player: {fileID: 0}
 --- !u!1 &1087591197
 GameObject:
   m_ObjectHideFlags: 0

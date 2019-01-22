@@ -30,18 +30,16 @@ public class Despawner : MonoBehaviour {
 
                 other.GetComponentInChildren<SlimeDeath>().m_Canvas = m_Canvas;
                 other.GetComponentInChildren<SlimeDeath>().m_Despawn = true;
-
-                if (other.GetComponent<GolemSlimeDefend>() != null)
-                {
-                    other.GetComponent<SlimeBase>().anim.SetBool("IsDefending", false);
-                }
             }
 
             else
             {
-                other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
-                other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
-                other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
+                if (other.GetComponent<Movement>().m_Player == null)
+                {
+                    other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
+                    other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
+                    other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
+                }
             }
         }
         other.GetComponent<NavMeshAgent>().enabled = false;
