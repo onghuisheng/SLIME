@@ -804,6 +804,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4243912226176510}
+  - component: {fileID: 65520400894075106}
+  - component: {fileID: 114624340647707418}
   m_Layer: 0
   m_Name: handTip_R_joint
   m_TagString: Untagged
@@ -1637,6 +1639,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.83827114, y: 0.8415425, z: 0.21775436}
   m_Center: {x: 0.0002861023, y: 0.048390746, z: -0.12397766}
+--- !u!65 &65520400894075106
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866125497901002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.6, z: 0.5}
+  m_Center: {x: -0.1, y: 0, z: 0}
 --- !u!65 &65607154169675642
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1802,6 +1816,18 @@ MonoBehaviour:
   m_Defend: {fileID: 114399467883614332}
   Damage: 1
   m_OnAnim: 0
+--- !u!114 &114624340647707418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866125497901002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cc5a5360ab43c41bb14f898af38304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 1402683172834022}
 --- !u!114 &114662701626187466
 MonoBehaviour:
   m_ObjectHideFlags: 1
