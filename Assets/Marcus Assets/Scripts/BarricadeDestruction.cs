@@ -34,7 +34,7 @@ public class BarricadeDestruction : MonoBehaviour
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
-            // add particles here ****************************
+            // add wood particles here ****************************
 
 
 
@@ -49,6 +49,12 @@ public class BarricadeDestruction : MonoBehaviour
             // this is where the destruction happens
             else if (m_BarricadeHealth <= 0)
             {
+                // add Dust particles here ****************************
+
+
+
+
+
                 if (m_DamageLevel == 0) // first damage level, change to damaged barricade
                 {
                     if (m_NewBarricadeDamaged)
