@@ -15,6 +15,9 @@ public class BarricadeDestruction : MonoBehaviour
     public GameObject tempBarricade;
 
     public GameObject m_Player;
+    
+    public GameObject woodParticles;
+    public GameObject dustParticles;
 
     // Use this for initialization
     void Start()
@@ -37,11 +40,9 @@ public class BarricadeDestruction : MonoBehaviour
         if (other.GetComponent<SlimeHitBarricade>())
         {
             // add wood particles here ****************************
-
-
-
-
-
+            GameObject tempWood = Instantiate(woodParticles, transform.position, woodParticles.transform.rotation);
+            Destroy(tempWood, 5.0f);
+            
             // minus health when hp above 0
             if (m_BarricadeHealth > 0) 
             {
@@ -52,10 +53,8 @@ public class BarricadeDestruction : MonoBehaviour
             else if (m_BarricadeHealth <= 0)
             {
                 // add Dust particles here ****************************
-
-
-
-
+                GameObject tempDust = Instantiate(dustParticles, transform.position, dustParticles.transform.rotation);
+                Destroy(tempDust, 5.0f);
 
                 if (m_DamageLevel == 0) // first damage level, change to damaged barricade
                 {

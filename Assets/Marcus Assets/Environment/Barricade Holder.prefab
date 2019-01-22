@@ -161,6 +161,10 @@ MonoBehaviour:
     type: 2}
   currentBarricade: {fileID: 1744692125410226}
   tempBarricade: {fileID: 0}
+  woodParticles: {fileID: 1792386661782134, guid: d33865ef774ba5f4d88918f6aca2bc92,
+    type: 2}
+  dustParticles: {fileID: 1106086141396232, guid: 103c46152dd0bff4aac5d54bc4aeaba6,
+    type: 2}
 --- !u!208 &208800901963002814
 NavMeshObstacle:
   m_ObjectHideFlags: 1
