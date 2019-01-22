@@ -302,7 +302,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 0.61149544, b: 0, a: 1}
-      maxColor: {r: 0.7924528, g: 0.6148155, b: 0.45229617, a: 1}
+      maxColor: {r: 0.7830189, g: 0.6664831, b: 0.5577163, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -887,7 +887,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 25
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1326,7 +1326,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.6132076, g: 0.39178258, b: 0.29214135, a: 0}
-        key1: {r: 1, g: 0.699379, b: 0.10849059, a: 1}
+        key1: {r: 0.9339623, g: 0.76269615, b: 0.374466, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0.09433961, g: 0.07362189, b: 0, a: 0}
         key4: {r: 1, g: 0.65882355, b: 0, a: 0}
@@ -3721,9 +3721,9 @@ ParticleSystem:
       type: 0
       properties: 0
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 1
+    light: {fileID: 108197603583268096, guid: c7ca45b6b434c48488c11bf284ce8b02, type: 2}
     randomDistribution: 1
     color: 1
     range: 1
@@ -4655,7 +4655,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1686808404301992}
   serializedVersion: 5
   lengthInSec: 3
-  simulationSpeed: 13
+  simulationSpeed: 15
   stopAction: 0
   looping: 0
   prewarm: 0
@@ -4666,7 +4666,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 4
+    scalar: 4.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -4833,7 +4833,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+      maxColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 0.60784316}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5217,7 +5217,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.01
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5418,7 +5418,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2

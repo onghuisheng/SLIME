@@ -77,6 +77,8 @@ public class ArrowBase : MonoBehaviour
 
     public void LaunchArrowWithArc(Vector3 destination, float time)
     {
+        m_IsFired = true;
+
         // finding the distance
         Vector3 distance = destination - transform.position;
         Vector3 distanceXZ = distance;

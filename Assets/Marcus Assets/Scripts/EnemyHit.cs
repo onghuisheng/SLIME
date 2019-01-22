@@ -56,7 +56,14 @@ public class EnemyHit : MonoBehaviour, IShootable
                 if (GetComponentInParent<GolemDeath>() != null)
                     GetComponentInParent<GolemDeath>().RemoveSlimeBody();
 
-                GetComponentInParent<SlimeDeath>().RemoveFromScene();
+                SlimeDeath slimeDeath = GetComponentInParent<SlimeDeath>();
+
+                if (slimeDeath == null)
+                {
+                    slimeDeath = GetComponentInChildren<SlimeDeath>();
+                }
+
+                slimeDeath.RemoveFromScene();
             }
 
             if (m_Agent)

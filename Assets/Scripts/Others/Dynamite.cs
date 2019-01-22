@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dynamite : MonoBehaviour {
+public class Dynamite : MonoBehaviour
+{
     //HI HUI SHENG- PLS CHANGE THIS TO BE BETTER IF YOU THINK IT'S NOT OPTIMAL :,DDDD th e n k  s
 
     //TODO:
@@ -18,13 +19,15 @@ public class Dynamite : MonoBehaviour {
     //OnTriggerEnter with torch flame
     //DynamiteAnimator.SetBool("isLighted", true);
 
+    private string m_ExplodeAlias = "dynexp";
+
     public void PlayExplosion()
     {
         //if there is slime particles
         if (m_ExplosionParticle != null)
         {
             //explosion audio
-            AudioManager.Instance.Play3D("dynexp", transform.position, AudioManager.AudioType.Additive);
+            AudioManager.Instance.Play3D(m_ExplodeAlias, transform.position, AudioManager.AudioType.Additive);
 
             //Create temp GO and instantiate in it
             GameObject temp = Instantiate(m_ExplosionParticle, m_DynamiteObject.transform.position, m_ExplosionParticle.gameObject.transform.rotation);
@@ -40,10 +43,16 @@ public class Dynamite : MonoBehaviour {
         Destroy(m_DynamiteObject); //get rid of all of them
     }
 
+    public void PlayImpactExplosion()
+    {
+        m_ExplodeAlias = "dynexp2";
+        PlayExplosion();
+    }
+
     public void DynamiteLit()
     {
         DynamiteAnimator.SetBool("isLighted", true);
         Invoke("PlayExplosion", 3); // How long before the dynamite explodes, use invoke because not using event
     }
-    
+
 }

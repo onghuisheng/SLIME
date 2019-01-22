@@ -49,8 +49,9 @@ public class Flashbang : GrabbableObject, IStorable
 
         Debug.DrawRay(transform.position, playerHead.position - transform.position, Color.yellow, 5);
 
-        int mask = ~(1 << LayerMask.NameToLayer("UI"));
-        mask |= ~(1 << LayerMask.NameToLayer("IgnoreProjectiles"));
+        int mask = (1 << LayerMask.NameToLayer("UI"));
+        mask |= (1 << LayerMask.NameToLayer("IgnoreProjectiles"));
+        mask = ~mask;
 
         RaycastHit hitInfo;
         if (Physics.Raycast(transform.position, playerHead.position - transform.position, out hitInfo, Mathf.Infinity, mask) && hitInfo.transform.tag == playerHead.tag)

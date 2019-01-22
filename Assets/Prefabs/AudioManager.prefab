@@ -206,3 +206,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: a4cfaf0ab398537408914c8411b30805, type: 3}
   - clipAlias: npc_fire
     audioClip: {fileID: 8300000, guid: 2da5bfec53db62d4eb6a748c2b549a9b, type: 3}
+  - clipAlias: whee
+    audioClip: {fileID: 8300000, guid: 770281cd56b259b4b9a78b8d0ee39f3e, type: 3}
+  - clipAlias: dynexp2
+    audioClip: {fileID: 8300000, guid: 40773cd6c93afb04b884bb6f869c5867, type: 3}

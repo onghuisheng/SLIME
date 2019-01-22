@@ -7,17 +7,17 @@ public class Bonfire : MonoBehaviour, IShootable
 
     [SerializeField]
     private ParticleSystem m_FlameParticles;    // flame particle
-    
-    [SerializeField, Range(1,100)]
+
+    [SerializeField, Range(1, 100)]
     private float m_FlamingDuration;
 
     private GameObject m_bonfireloop;
 
     bool isLighted = false;
-    
+
     public void OnShot(ArrowBase arrow)
     {
-        if (arrow.arrowType == ArrowBase.ArrowType.Flame && !isLighted) //if its flame arrow
+        if ((arrow.arrowType == ArrowBase.ArrowType.Flame || arrow.arrowType == ArrowBase.ArrowType.FlameVolley) && !isLighted) //if its flame arrow
         {
             ToggleFire(true);
         }
@@ -31,7 +31,7 @@ public class Bonfire : MonoBehaviour, IShootable
         {
             AudioManager.Instance.Play3D("bonfirelit", transform.position, AudioManager.AudioType.Additive);
 
-           m_bonfireloop= AudioManager.Instance.Play3D("bonfireloop", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { loop = true });
+            m_bonfireloop = AudioManager.Instance.Play3D("bonfireloop", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { loop = true });
 
             m_FlameParticles.Play(true);
             GetComponent<Collider>().enabled = false;

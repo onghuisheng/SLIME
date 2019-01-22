@@ -61,29 +61,29 @@ public class SlimeBase : MonoBehaviour
 
     public void DeductHealth(int toDeduct)
     {
-        m_Health -= toDeduct;
-
-        switch (slimeType)
+        if (m_Health > 0)
         {
-            case SlimeType.None:
-                break;
-            case SlimeType.Slime:
-                AudioManager.Instance.Play3D("slimesplatter", transform.position, AudioManager.AudioType.Additive);
-                break;
-            case SlimeType.Golem:
-                AudioManager.Instance.Play3D("golemshot", transform.position, AudioManager.AudioType.Additive);
-                break;
-            case SlimeType.Catapult:
-                if (m_Health <= 0)
-                {
+            switch (slimeType)
+            {
+                case SlimeType.None:
+                    break;
+                case SlimeType.Slime:
+                    AudioManager.Instance.Play3D("slimesplatter", transform.position, AudioManager.AudioType.Additive);
+                    break;
+                case SlimeType.Golem:
+                    AudioManager.Instance.Play3D("golemshot", transform.position, AudioManager.AudioType.Additive);
+                    break;
+                case SlimeType.Catapult:
                     AudioManager.Instance.Play3D("catapultdeath", transform.position, AudioManager.AudioType.Additive);
                     GameObject temp = Instantiate(m_DeathParticles);
                     temp.transform.Translate(transform.position, Space.World);
-                }
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
         }
+
+        m_Health -= toDeduct;
 
         if (GetComponent<GolemSlimeDefend>() != null)
         {
