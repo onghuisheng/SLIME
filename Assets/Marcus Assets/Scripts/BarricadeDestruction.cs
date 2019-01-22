@@ -11,10 +11,13 @@ public class BarricadeDestruction : MonoBehaviour
     private int m_DamageLevel;
     private int m_BarricadeHealth;
 
+    public GameObject currentBarricade;
+    public GameObject tempBarricade;
+
     // Use this for initialization
     void Start()
     {
-        m_BarricadeHealth = 2;
+        m_BarricadeHealth = 1;
         m_DamageLevel = 0;
     }
 
@@ -31,43 +34,57 @@ public class BarricadeDestruction : MonoBehaviour
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
-            if (m_BarricadeHealth > 0)
+            // add particles here ****************************
+
+
+
+
+
+            // minus health when hp above 0
+            if (m_BarricadeHealth > 0) 
             {
                 m_BarricadeHealth--;
             }
-            else
+
+            // this is where the destruction happens
+            else if (m_BarricadeHealth <= 0)
             {
-                if (m_DamageLevel == 0)
+                if (m_DamageLevel == 0) // first damage level, change to damaged barricade
                 {
                     if (m_NewBarricadeDamaged)
-                        Instantiate(m_NewBarricadeDamaged, transform.position, transform.rotation);
+                        tempBarricade = Instantiate(m_NewBarricadeDamaged, currentBarricade.transform.position, currentBarricade.transform.rotation);
 
                     m_DamageLevel++;
                 }
-                else if (m_DamageLevel == 1)
+                else if (m_DamageLevel == 1) // second damage level, change to destroyed
                 {
                     if (m_NewBarricadeDestroyed)
-                        Instantiate(m_NewBarricadeDestroyed, transform.position, transform.rotation);
+                        tempBarricade = Instantiate(m_NewBarricadeDestroyed, currentBarricade.transform.position, currentBarricade.transform.rotation);
 
                     m_DamageLevel++;
                 }
 
-                if (transform.childCount == 0)
+                // this is for normal and damaged
+                if (currentBarricade.transform.childCount == 0)
                 {
-                    Destroy(this.gameObject/*, 5*/);
+                    Destroy(currentBarricade);
                 }
-
+                // this is for destroyed
                 else
                 {
-                    for (int i = 0; i < transform.childCount; i++)
+                    for (int i = 0; i < currentBarricade.transform.childCount; i++)
                     {
-                        GameObject m_Child = transform.GetChild(i).gameObject;
+                        GameObject m_Child = currentBarricade.transform.GetChild(i).gameObject;
                         m_Child.AddComponent<Rigidbody>();
-                        Destroy(this.gameObject, 5);
+                        Destroy(currentBarricade, 5);
 
                     }
+
+                    Destroy(this.gameObject); // destroy this gameobject since not needed anymore
                 }
 
+
+                currentBarricade = tempBarricade;
                 m_BarricadeHealth = 2;
             }
         }
