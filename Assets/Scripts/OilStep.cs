@@ -5,7 +5,8 @@ using UnityEngine;
 public class OilStep : MonoBehaviour {
 
     public GameObject m_OilStepParticle;
-    //public ParticleSystem m_OilDripParticle;
+    public GameObject m_OilDripParticle;
+    public GameObject m_SpawnParticlePos;
 
     // Use this for initialization
     void Start () {
@@ -28,7 +29,18 @@ public class OilStep : MonoBehaviour {
             GameObject temp = Instantiate(m_OilStepParticle, m_Position, m_OilStepParticle.transform.rotation);
 
             //Destroy temp after 5 sec
-            Destroy(temp, 5.0f);
+            Destroy(temp, 3.0f);
+        }
+    }
+
+    public void PlayOilDrip()
+    {
+        if (m_OilDripParticle != null) //if there's particles, play it
+        {
+            GameObject temp = Instantiate(m_OilDripParticle, m_SpawnParticlePos.transform.position, m_OilDripParticle.transform.rotation);
+
+            //Destroy temp after 5 sec
+            Destroy(temp, 1.0f);
         }
     }
 }

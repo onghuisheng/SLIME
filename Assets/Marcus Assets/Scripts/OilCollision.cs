@@ -33,6 +33,11 @@ public class OilCollision : MonoBehaviour {
         {
             other.gameObject.GetComponent<NavMeshAgent>().speed *= 10;
         }
+
+        if (other.transform.GetComponent<OilStep>() != null)
+        {
+            other.transform.GetComponent<OilStep>().PlayOilDrip();
+        }
     }
 
 }

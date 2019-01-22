@@ -1591,7 +1591,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402683172834022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14116555, y: 0.05, z: 0.7123289}
+  m_LocalPosition: {x: -24.069616, y: 3.04646, z: 31.546696}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4669913104090812}
@@ -1921,6 +1921,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
     type: 2}
+  m_OilDripParticle: {fileID: 1263707115340678, guid: 0a036ed5aa72d5c49b40530fadc9a892,
+    type: 2}
+  m_SpawnParticlePos: {fileID: 1496347264315308}
 --- !u!114 &114904239897942490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1950,6 +1953,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
     type: 2}
+  m_OilDripParticle: {fileID: 1263707115340678, guid: 0a036ed5aa72d5c49b40530fadc9a892,
+    type: 2}
+  m_SpawnParticlePos: {fileID: 1581148945012994}
 --- !u!135 &135069174474792594
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1960,7 +1966,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
   m_Center: {x: 0.02556956, y: 0.08999267, z: -0.00600968}
 --- !u!135 &135143653136928654
 SphereCollider:
@@ -2020,7 +2026,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
   m_Center: {x: -0.02556956, y: -0.08999267, z: 0.00600968}
 --- !u!137 &137013416498277300
 SkinnedMeshRenderer:

@@ -137,7 +137,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583349739826410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.034359, y: 0.59, z: 1.89639}
+  m_LocalPosition: {x: -0.8193913, y: 0.589, z: 2.1027904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4389958962145610}
@@ -389,6 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_OilStepParticle: {fileID: 1445027405355396, guid: b71d4d5ee83da7245a9863ba978ea32a,
     type: 2}
+  m_OilDripParticle: {fileID: 1263707115340678, guid: 0a036ed5aa72d5c49b40530fadc9a892,
+    type: 2}
+  m_SpawnParticlePos: {fileID: 1472924903381734}
 --- !u!114 &114669972616523776
 MonoBehaviour:
   m_ObjectHideFlags: 1
