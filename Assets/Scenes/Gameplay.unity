@@ -260,8 +260,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.019170165, y: 0.15878487, z: 0.08721281}
-  m_Center: {x: -0.0001963718, y: -0.0136265755, z: 0.19266793}
+  m_Size: {x: 0.019170165, y: 0.025949717, z: 0.047819097}
+  m_Center: {x: -0.0001958799, y: -0.0070455074, z: 0.17297085}
 --- !u!54 &14234989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 22312315}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.10954726, y: 0.056996882, z: 0.26930955}
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 854645014}
   m_Barricade: {fileID: 1995800327}
-  m_Player: {fileID: 584977099}
+  m_Player: {fileID: 1075477839}
 --- !u!135 &97725982
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1260,7 +1260,7 @@ Transform:
   m_Children:
   - {fileID: 97725980}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &208765741 stripped
 ParticleSystem:
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 854645014}
   m_Barricade: {fileID: 1995800327}
-  m_Player: {fileID: 584977099}
+  m_Player: {fileID: 1075477839}
 --- !u!135 &268347923
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2041,7 +2041,7 @@ Transform:
   m_Children:
   - {fileID: 268347921}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &326851063 stripped
 GameObject:
@@ -3262,7 +3262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 854645014}
   m_Barricade: {fileID: 1995800327}
-  m_Player: {fileID: 584977099}
+  m_Player: {fileID: 1075477839}
 --- !u!135 &573361765
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4647,6 +4647,10 @@ Prefab:
     - target: {fileID: 100000, guid: f9226567e0c339f4ebb108259a09eb2e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: f9226567e0c339f4ebb108259a09eb2e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9226567e0c339f4ebb108259a09eb2e, type: 3}
@@ -6345,7 +6349,7 @@ Prefab:
         type: 2}
       propertyPath: m_Player
       value: 
-      objectReference: {fileID: 584977099}
+      objectReference: {fileID: 1075477839}
     - target: {fileID: 208800901963002814, guid: 70c9e6bf451750342a3c8a7ea53d829f,
         type: 2}
       propertyPath: m_Extents.z
@@ -7154,7 +7158,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4714062914532568, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda, type: 2}
@@ -8901,7 +8905,7 @@ Transform:
   - {fileID: 1641821884}
   - {fileID: 370938533}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1584140650
 Prefab:
@@ -9635,7 +9639,7 @@ Transform:
   m_Children:
   - {fileID: 573361763}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1716642032
 GameObject:

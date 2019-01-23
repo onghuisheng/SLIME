@@ -7,7 +7,7 @@ public class ArtilleryHorn : MonoBehaviour
 
     private float m_HoldDuration = 0;
     private bool m_IsUsed = false;
-    
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.M))
@@ -29,6 +29,14 @@ public class ArtilleryHorn : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "MainCamera")
+        {
+            m_IsUsed = false;
+        }
+    }
+
     public void UseHorn()
     {
         if (m_IsUsed)
@@ -39,18 +47,20 @@ public class ArtilleryHorn : MonoBehaviour
         else
         {
             AudioManager.Instance.Play3D("smallhorn", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1 });
-            AudioManager.Instance.Play3D("npc_artillery", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1 }, 3.5f, () =>
-             {
-                 AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive, 0.5f);
+            AudioManager.Instance.Play3D("npc_artillery", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 3.5f, () =>
+            {
+                AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive, 0.5f);
 
-                 AudioManager.Instance.Play3D("npc_fire", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1 }, 1.25f, () =>
-                 {
-                     foreach (var firer in FindObjectsOfType<VolleyFirer>())
-                     {
-                         firer.FireArtillery();
-                     }
-                 });
-             });
+                AudioManager.Instance.Play3D("npc_fire", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 1.25f, () =>
+                {
+                    foreach (var firer in FindObjectsOfType<VolleyFirer>())
+                    {
+                        firer.FireArtillery();
+                    }
+
+                    m_HoldDuration = 0;
+                });
+            });
 
             m_IsUsed = true;
         }
