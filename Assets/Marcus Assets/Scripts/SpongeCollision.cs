@@ -40,9 +40,10 @@ public class SpongeCollision : MonoBehaviour
         if (other.tag != "Sponge")
             return;
 
-        Sponge sponge = other.transform.parent.GetComponent<Sponge>();
-        //play foam particles function, also, if can be improved, please change! :D
-        sponge.PlayFoamParticles(true);
+        Debug.Log("Foam ontriggerenter");
+
+        Sponge sponge = other.transform.parent.GetComponent<Sponge>(); //need get parent since cube's parent (sponge) has sponge script
+        sponge.PlayFoamParticles();
 
         m_PrevPos = other.transform.position;
     }
@@ -88,7 +89,6 @@ public class SpongeCollision : MonoBehaviour
             return;
 
         Sponge sponge = other.transform.parent.GetComponent<Sponge>();
-        //play foam particles function, also, if can be improved, please change! :D
-        sponge.PlayFoamParticles(false);
+        sponge.StopFoamParticles();
     }
 }
