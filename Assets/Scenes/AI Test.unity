@@ -5803,6 +5803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 411806784}
+  m_Barricade: {fileID: 1671742349}
+  m_Player: {fileID: 176928516}
 --- !u!135 &672834884
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6445,6 +6447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 411806784}
+  m_Barricade: {fileID: 1671742349}
+  m_Player: {fileID: 176928516}
 --- !u!135 &782442650
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8214,6 +8218,8 @@ MonoBehaviour:
   m_NewBarricadeDestroyed: {fileID: 0}
   currentBarricade: {fileID: 0}
   tempBarricade: {fileID: 0}
+  woodParticles: {fileID: 0}
+  dustParticles: {fileID: 0}
   m_Player: {fileID: 0}
 --- !u!1 &1087591197
 GameObject:
@@ -8533,6 +8539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 411806784}
+  m_Barricade: {fileID: 1671742349}
+  m_Player: {fileID: 176928516}
 --- !u!135 &1154832191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10534,6 +10542,11 @@ Transform:
   m_Father: {fileID: 1849612762}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671742349 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1628582833001098, guid: 70c9e6bf451750342a3c8a7ea53d829f,
+    type: 2}
+  m_PrefabInternal: {fileID: 244776994}
 --- !u!1 &1689475374
 GameObject:
   m_ObjectHideFlags: 0

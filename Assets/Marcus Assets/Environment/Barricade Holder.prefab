@@ -165,6 +165,7 @@ MonoBehaviour:
     type: 2}
   dustParticles: {fileID: 1106086141396232, guid: 103c46152dd0bff4aac5d54bc4aeaba6,
     type: 2}
+  m_Player: {fileID: 0}
 --- !u!208 &208800901963002814
 NavMeshObstacle:
   m_ObjectHideFlags: 1
