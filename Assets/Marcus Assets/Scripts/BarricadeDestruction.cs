@@ -87,6 +87,7 @@ public class BarricadeDestruction : MonoBehaviour
                         //Destroy(currentBarricade, 5);
 
                     }
+                    currentBarricade.GetComponent<Collider>().enabled = false;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<SlimeBase>().anim.SetBool("IsAttack", false);
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;

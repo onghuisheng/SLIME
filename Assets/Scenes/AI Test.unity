@@ -1281,7 +1281,6 @@ Transform:
   - {fileID: 299767670}
   - {fileID: 1475394932}
   - {fileID: 215717819}
-  - {fileID: 1840230838}
   m_Father: {fileID: 410127036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1902,7 +1901,7 @@ Prefab:
         type: 2}
       propertyPath: m_Player
       value: 
-      objectReference: {fileID: 176928516}
+      objectReference: {fileID: 1719899691}
     - target: {fileID: 1628582833001098, guid: 70c9e6bf451750342a3c8a7ea53d829f, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -6260,7 +6259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 411806784}
   m_Barricade: {fileID: 1671742349}
-  m_Player: {fileID: 176928516}
+  m_Player: {fileID: 1719899691}
 --- !u!135 &672834884
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7318,7 +7317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 411806784}
   m_Barricade: {fileID: 1671742349}
-  m_Player: {fileID: 176928516}
+  m_Player: {fileID: 1719899691}
 --- !u!135 &782442650
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8444,7 +8443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Canvas: {fileID: 411806784}
   m_Barricade: {fileID: 1671742349}
-  m_Player: {fileID: 176928516}
+  m_Player: {fileID: 1719899691}
 --- !u!135 &1154832191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11307,13 +11306,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840230834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.82699996, z: 0.53}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -2.4, y: 0.473, z: 2.66}
   m_LocalScale: {x: 2.616534, y: 1, z: 0.32496184}
   m_Children: []
-  m_Father: {fileID: 176928517}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!114 &1840230839
 MonoBehaviour:
   m_ObjectHideFlags: 0
