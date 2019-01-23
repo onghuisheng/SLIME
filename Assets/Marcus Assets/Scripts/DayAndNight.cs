@@ -83,11 +83,11 @@ public class DayAndNight : MonoBehaviour
         RenderSettings.ambientIntensity = Mathf.Clamp(i, 0.1f, 1.0f);
         RenderSettings.reflectionIntensity = Mathf.Clamp(i, 0.1f, 1.0f);
 
-        mainLight.color = nightdayColor.Evaluate(dot);
+        // mainLight.color = nightdayColor.Evaluate(dot);
         //RenderSettings.ambientLight = mainLight.color;
 
-        RenderSettings.fogColor = nightdayFogColor.Evaluate(dot);
-        RenderSettings.fogDensity = fogDensityCurve.Evaluate(dot) * fogScale;
+        //RenderSettings.fogColor = nightdayFogColor.Evaluate(dot);
+        //RenderSettings.fogDensity = fogDensityCurve.Evaluate(dot) * fogScale;
 
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);

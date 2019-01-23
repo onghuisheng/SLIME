@@ -1,24 +1,27 @@
 fileFormatVersion: 2
-guid: 9f86dc0d736e48d41b9029127678d1e9
+guid: 62c11849f93f130448e2023e8d3ca53b
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: env_Lever
-    100004: env_LeverBody
+    100002: Lever
+    100004: Lever_Body
     400000: //RootNode
-    400002: env_Lever
-    400004: env_LeverBody
-    2100000: lambert1
-    2100002: Red
-    2100004: Metal
-    2300000: env_Lever
-    2300002: env_LeverBody
-    3300000: env_Lever
-    3300002: env_LeverBody
-    4300000: env_Lever
-    4300002: env_LeverBody
-  externalObjects: {}
+    400002: Lever
+    400004: Lever_Body
+    2100000: env_PlayerArea_02
+    2300000: Lever
+    2300002: Lever_Body
+    3300000: Lever
+    3300002: Lever_Body
+    4300000: Lever
+    4300002: Lever_Body
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: env_PlayerArea_02
+    second: {fileID: 2100000, guid: a8834067de935674682719e513e536ef, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
