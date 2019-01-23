@@ -33,12 +33,12 @@ public class ArtilleryHorn : MonoBehaviour
     {
         if (m_IsUsed)
         {
-
+            AudioManager.Instance.Play3D("smallhorn", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 3 });
             return;
         }
         else
         {
-            AudioManager.Instance.Play3D("warhorn", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1 });
+            AudioManager.Instance.Play3D("smallhorn", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1 });
             AudioManager.Instance.Play3D("npc_artillery", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1 }, 3.5f, () =>
              {
                  AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive, 0.5f);
