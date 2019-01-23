@@ -11,6 +11,9 @@ public class AudioSourceData2D
     // 0-Infinity
     public float randomPitchRange = 0.2f;
 
+    // 0-Infinity (Overrides randomPitchRangee when != 0
+    public float pitchOverride = 0;
+
     public bool loop = false;
 }
 
@@ -21,6 +24,9 @@ public class AudioSourceData3D
 
     // 0-Infinity
     public float randomPitchRange = 0.2f;
+
+    // 0-Infinity (Overrides randomPitchRangee when != 0
+    public float pitchOverride = 0;
 
     public bool loop = false;
 
@@ -77,7 +83,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         /// </summary>
         Additive
     }
-    
+
     private void Awake()
     {
         // Add all elements into a dictionary for faster lookup
@@ -191,7 +197,12 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         spawnedAudioSource.spatialBlend = audioSourceData.spatialBlend;
         spawnedAudioSource.minDistance = audioSourceData.minDistance;
         spawnedAudioSource.maxDistance = audioSourceData.maxDistance;
-        spawnedAudioSource.pitch = 1 + UnityEngine.Random.Range(-Mathf.Abs(audioSourceData.randomPitchRange), Mathf.Abs(audioSourceData.randomPitchRange));
+
+        if (audioSourceData.pitchOverride != 0)
+            spawnedAudioSource.pitch = audioSourceData.pitchOverride;
+        else
+            spawnedAudioSource.pitch = 1 + UnityEngine.Random.Range(-Mathf.Abs(audioSourceData.randomPitchRange), Mathf.Abs(audioSourceData.randomPitchRange));
+
         spawnedAudioSource.rolloffMode = AudioRolloffMode.Logarithmic;
         spawnedAudioSource.loop = audioSourceData.loop;
 
