@@ -8,8 +8,10 @@ public class Sponge : GrabbableObject, IStorable {
 
     public ParticleSystem m_FoamParticles;
 
-    bool isFoaming = false;
-
+    void Start()
+    {
+        m_FoamParticles.Stop();
+    }
 
     public override void OnGrab(MoveController currentController)
     {
@@ -31,10 +33,17 @@ public class Sponge : GrabbableObject, IStorable {
     {
     }
 
-    public void PlayFoamParticles(bool toggle)
+    public void PlayFoamParticles()
     {
-        isFoaming = toggle;
+        Debug.Log("Play foam");
 
-        m_FoamParticles.gameObject.SetActive(toggle);
+        m_FoamParticles.Play();
+    }
+
+    public void StopFoamParticles()
+    {
+        Debug.Log("Stop foam");
+
+        m_FoamParticles.Stop();
     }
 }
