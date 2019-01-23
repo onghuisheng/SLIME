@@ -37,13 +37,13 @@ public class Sponge : GrabbableObject, IStorable {
     {
         Debug.Log("Play foam");
 
-        m_FoamParticles.Play();
+        m_FoamParticles.Play(true);
     }
 
     public void StopFoamParticles()
     {
         Debug.Log("Stop foam");
 
-        m_FoamParticles.Stop();
+        m_FoamParticles.Stop(true);
     }
 }
