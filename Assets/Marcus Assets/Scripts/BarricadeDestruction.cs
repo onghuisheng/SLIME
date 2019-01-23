@@ -14,10 +14,11 @@ public class BarricadeDestruction : MonoBehaviour
     public GameObject currentBarricade;
     public GameObject tempBarricade;
 
-    public GameObject m_Player;
     
     public GameObject woodParticles;
     public GameObject dustParticles;
+
+    public GameObject m_Player;
 
     // Use this for initialization
     void Start()
@@ -87,8 +88,9 @@ public class BarricadeDestruction : MonoBehaviour
 
                     }
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<SlimeBase>().anim.SetBool("IsAttack", false);
-                    other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
+                    other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;
+
                     Destroy(this.gameObject); // destroy this gameobject since not needed anymore
                 }
 

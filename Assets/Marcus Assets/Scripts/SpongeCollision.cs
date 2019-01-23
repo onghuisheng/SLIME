@@ -16,7 +16,7 @@ public class SpongeCollision : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -58,12 +58,12 @@ public class SpongeCollision : MonoBehaviour
 
         if ((m_PrevPos - other.transform.position).magnitude < 0.1f)
             return;
-            
+
         m_PrevPos = other.transform.position;
 
         Debug.Log("INNNNNNNNNNN");
 
-        
+
 
         Color tempColor = GetComponentInParent<Image>().color;
         tempColor.a -= 4.0f * Time.fixedDeltaTime;

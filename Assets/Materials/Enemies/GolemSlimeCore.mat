@@ -9,7 +9,7 @@ Material:
   m_Name: GolemSlimeCore
   m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -78,4 +78,4 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.39215687}
-    - _EmissionColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
+    - _EmissionColor: {r: 0.52963686, g: 0.52963686, b: 0.52963686, a: 1}

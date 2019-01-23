@@ -35,12 +35,20 @@ public class Movement : MonoBehaviour
     /// </summary>
     public void Move() 
     {
-        if (GetComponent<NavMeshAgent>().enabled && m_Player == null)
-            GetComponent<NavMeshAgent>().SetDestination(m_pathList[m_index].transform.position);
+        if (GetComponent<NavMeshAgent>().enabled)
+        {
+            if (m_Player == null)
+            {
+                GetComponent<NavMeshAgent>().SetDestination(m_pathList[m_index].transform.position);
+            }
+            else
+            {
+                GetComponent<NavMeshAgent>().SetDestination(m_Player.transform.position);
 
-        else if (GetComponent<NavMeshAgent>().enabled && m_Player != null)
-            GetComponent<NavMeshAgent>().SetDestination(m_Player.transform.position);
-
+                Debug.Log("Player: " + m_Player.transform.position);
+                Debug.Log("Actual: " + GetComponent<NavMeshAgent>().destination);
+            }
+        }
     }
 
     /// <summary>

@@ -7,6 +7,8 @@ using DG.Tweening;
 public class Despawner : MonoBehaviour {
     
     public GameObject m_Canvas;
+    public GameObject m_Barricade;
+    public GameObject m_Player;
 
     private void Start()
     {
@@ -30,19 +32,25 @@ public class Despawner : MonoBehaviour {
 
                 other.GetComponentInChildren<SlimeDeath>().m_Canvas = m_Canvas;
                 other.GetComponentInChildren<SlimeDeath>().m_Despawn = true;
+                other.GetComponent<NavMeshAgent>().enabled = false;
             }
 
             else
             {
-                if (other.GetComponent<Movement>().m_Player == null)
+                if (m_Barricade != null)
                 {
                     other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
                     other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
                     other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
+                    other.GetComponent<NavMeshAgent>().enabled = false;
+                }
+                else
+                {
+                    other.GetComponent<Movement>().m_Player = m_Player;
+
                 }
             }
         }
-        other.GetComponent<NavMeshAgent>().enabled = false;
 
     }
     
