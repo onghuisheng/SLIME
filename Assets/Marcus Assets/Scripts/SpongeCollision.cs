@@ -16,7 +16,7 @@ public class SpongeCollision : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class SpongeCollision : MonoBehaviour
         if (other.tag != "Sponge")
             return;
 
-        Sponge sponge = other.GetComponent<Sponge>();
+        Sponge sponge = other.transform.parent.GetComponent<Sponge>();
         //play foam particles function, also, if can be improved, please change! :D
         sponge.PlayFoamParticles(true);
 
@@ -57,12 +57,12 @@ public class SpongeCollision : MonoBehaviour
 
         if ((m_PrevPos - other.transform.position).magnitude < 0.1f)
             return;
-            
+
         m_PrevPos = other.transform.position;
 
         Debug.Log("INNNNNNNNNNN");
 
-        
+
 
         Color tempColor = GetComponentInParent<Image>().color;
         tempColor.a -= 4.0f * Time.fixedDeltaTime;
@@ -87,7 +87,7 @@ public class SpongeCollision : MonoBehaviour
         if (other.tag != "Sponge")
             return;
 
-        Sponge sponge = other.GetComponent<Sponge>();
+        Sponge sponge = other.transform.parent.GetComponent<Sponge>();
         //play foam particles function, also, if can be improved, please change! :D
         sponge.PlayFoamParticles(false);
     }

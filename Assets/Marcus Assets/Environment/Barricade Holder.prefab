@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628582833001098}
   m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -2.3, y: 0.5, z: 3.18}
+  m_LocalPosition: {x: -2.949, y: 0.386, z: 3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4144261325380552}
@@ -123,10 +123,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628582833001098}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
@@ -137,10 +137,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744692125410226}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 3e399fbc98842e94a8ab91e4b541e93d, type: 3}
@@ -161,6 +161,7 @@ MonoBehaviour:
     type: 2}
   currentBarricade: {fileID: 1744692125410226}
   tempBarricade: {fileID: 0}
+  m_Player: {fileID: 0}
   woodParticles: {fileID: 1792386661782134, guid: d33865ef774ba5f4d88918f6aca2bc92,
     type: 2}
   dustParticles: {fileID: 1106086141396232, guid: 103c46152dd0bff4aac5d54bc4aeaba6,

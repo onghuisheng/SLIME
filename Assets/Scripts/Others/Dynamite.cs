@@ -27,18 +27,19 @@ public class Dynamite : MonoBehaviour
         if (m_ExplosionParticle != null)
         {
             //explosion audio
-            AudioManager.Instance.Play3D(m_ExplodeAlias, transform.position, AudioManager.AudioType.Additive);
+            var aData = new AudioSourceData3D();
+
+            if (m_ExplodeAlias != "dynexp")
+            {
+                aData.minDistance = 5;
+                aData.maxDistance = 50;
+            }
+
+            AudioManager.Instance.Play3D(m_ExplodeAlias, transform.position, AudioManager.AudioType.Additive, aData);
 
             //Create temp GO and instantiate in it
             GameObject temp = Instantiate(m_ExplosionParticle, m_DynamiteObject.transform.position, m_ExplosionParticle.gameObject.transform.rotation);
             Destroy(temp, 3); //Destroy after 3 secs
-
-            //if(enemies nearby)
-            //{kill them}
-
-            //if(player nearby)
-            //{kill player, blackscreen}
-
         }
         Destroy(m_DynamiteObject); //get rid of all of them
     }
