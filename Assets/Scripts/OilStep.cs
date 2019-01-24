@@ -20,8 +20,6 @@ public class OilStep : MonoBehaviour {
 
     public void PlayOilStep(Vector3 m_Position)
     {
-        Debug.Log("PlayOilStep()");
-
         if (m_OilStepParticle != null) //if there's particles, play it & audio
         {
             AudioManager.Instance.Play3D("slimesplatter", m_Position, AudioManager.AudioType.Additive);

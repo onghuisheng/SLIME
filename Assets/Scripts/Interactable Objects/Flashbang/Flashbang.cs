@@ -75,7 +75,7 @@ public class Flashbang : GrabbableObject, IStorable
             if (enemy && (enemy.transform.position - transform.position).magnitude < 15)
             {
                 enemy.ApplyConfusion(10, m_ConfuseParticle);
-                Debug.Log("Enemyhit: " + enemy.transform.name);
+                // Debug.Log("Enemyhit: " + enemy.transform.name);
             }
         }
 

@@ -31,6 +31,8 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
             sponge.transform.position += sponge.transform.up * 0.2f;
             sponge.transform.Rotate(0, 90, 0, Space.Self);
             sponge.GetComponent<Rigidbody>().isKinematic = true;
+            sponge.transform.parent.GetComponent<Collider>().enabled = true;
+            sponge.gameObject.SetActive(false);
 
             m_IsMuted = true;
         }
@@ -41,11 +43,8 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
         if (other.tag == "Sponge" && m_IsMuted)
         {
             Sponge sponge = other.transform.parent.GetComponent<Sponge>();
-
-            {
-                m_IsMuted = false;
-                sponge.GetComponent<Rigidbody>().isKinematic = false;
-            }
+            m_IsMuted = false;
+            sponge.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
