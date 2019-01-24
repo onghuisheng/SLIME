@@ -79,7 +79,7 @@ public class Spawner : MonoBehaviour {
                 {
                     if (SlimeManager.instance.m_GolemSlimeInWave.Count < SlimeManager.instance.m_GolemSlimeWaves[SlimeManager.instance.m_CurrentWave])
                     {
-                        GameObject Slime = Instantiate(GolemSlime, this.transform.position, this.transform.rotation);
+                        GameObject Slime = Instantiate(GolemSlime, transform.position, transform.rotation);
                         foreach (Transform Node in m_PathHolder.transform)
                         {
                             Slime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);

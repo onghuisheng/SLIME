@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class BarricadeDestruction : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class BarricadeDestruction : MonoBehaviour
     public GameObject currentBarricade;
     public GameObject tempBarricade;
 
-    
+
     public GameObject woodParticles;
     public GameObject dustParticles;
 
@@ -43,9 +44,9 @@ public class BarricadeDestruction : MonoBehaviour
             // add wood particles here ****************************
             GameObject tempWood = Instantiate(woodParticles, transform.position, woodParticles.transform.rotation);
             Destroy(tempWood, 5.0f);
-            
+
             // minus health when hp above 0
-            if (m_BarricadeHealth > 0) 
+            if (m_BarricadeHealth > 0)
             {
                 m_BarricadeHealth--;
             }
@@ -91,7 +92,7 @@ public class BarricadeDestruction : MonoBehaviour
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;
 
-                    AudioManager.Instance.Play3D("woodbreak", transform.position, AudioManager.AudioType.Additive);
+                    AudioManager.Instance.Play3D("woodbreak", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { volume = 0.5f });
 
                     Destroy(gameObject); // destroy this gameobject since not needed anymore
                 }

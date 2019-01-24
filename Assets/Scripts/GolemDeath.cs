@@ -11,9 +11,13 @@ public class GolemDeath : MonoBehaviour
     public GameObject m_SlimeParticles; //to be played in event
     public GameObject SlimeBody; //remove this gameobject (in this case slime body)
 
+    private bool m_IsRemoved = false;
 
     public void RemoveSlimeBody()
     {
+        if (m_IsRemoved)
+            return;
+
         if (m_SlimeParticles != null) //if there's slime particles..
         {
             AudioManager.Instance.Play3D("golemdeath", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { randomPitchRange = 0.4f, volume = .5f });
@@ -26,10 +30,12 @@ public class GolemDeath : MonoBehaviour
 
             //Destroy temp game obj, along with its particles :> (after 3 seconds)
             Destroy(temp, 3);
-
         }
+
         //Destroy slime body
         Destroy(SlimeBody);
+
+        m_IsRemoved = true;
     }
-    
+
 }

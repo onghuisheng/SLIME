@@ -23,6 +23,7 @@ public class Bonfire : MonoBehaviour, IShootable
     public GameObject m_SpawnPointGO3;
     public GameObject m_ArchersGO;
     public GameObject m_CatapultGO;
+    
 
     public void OnShot(ArrowBase arrow)
     {
@@ -45,22 +46,24 @@ public class Bonfire : MonoBehaviour, IShootable
 
         //Play horn audio only if the game objects are inactive
         //This isnt working im not too sure why. :,u
-        AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive);
-
-        //set gameobjects as active
-        if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO && m_CatapultGO != null)
+        foreach (var bonfire in FindObjectsOfType<Bonfire>())
         {
-            m_SpawnPointGO1.SetActive(true);
-            m_SpawnPointGO2.SetActive(true);
-            m_SpawnPointGO3.SetActive(true);
-            m_ArchersGO.SetActive(true);
-            m_CatapultGO.SetActive(true);
-
-            foreach (var cat in FindObjectsOfType<Bonfire>())
-            {
-                cat.isFirstShot = false;
-            }
+            bonfire.isFirstShot = false;
         }
+
+        AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, 2, () =>
+        {
+            //set gameobjects as active
+            if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO && m_CatapultGO != null)
+            {
+                m_SpawnPointGO1.SetActive(true);
+                m_SpawnPointGO2.SetActive(true);
+                m_SpawnPointGO3.SetActive(true);
+                m_ArchersGO.SetActive(true);
+                m_CatapultGO.SetActive(true);
+
+            }
+        });
 
     }
 
@@ -95,7 +98,7 @@ public class Bonfire : MonoBehaviour, IShootable
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            ToggleFire(!isLighted);
+            StartWave();
         }
     }
 }

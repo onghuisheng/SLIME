@@ -42,7 +42,10 @@ public class QuitLever : StationaryObject
             if (angle >= 50)
             {
                 m_IsEnabled = false;
-                GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 255, 0));
+                AudioManager.Instance.Play3D("leverclick", transform.position, AudioManager.AudioType.Additive, 0, () =>
+                {
+                    // DO scene change here 
+                });
             }
 
             Debug.Log(angle);

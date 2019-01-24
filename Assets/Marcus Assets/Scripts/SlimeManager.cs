@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SlimeManager : MonoBehaviour {
+public class SlimeManager : MonoBehaviour
+{
 
     public List<GameObject> m_SlimeInScene;
     public List<GameObject> m_SlimeInWave;
@@ -24,7 +25,8 @@ public class SlimeManager : MonoBehaviour {
     public GameObject m_DayAndNight;
 
     // Use this for initialization
-    void Start () {
+    void Awake()
+    {
         m_SlimeInScene = new List<GameObject>();
         m_SlimeInWave = new List<GameObject>();
         m_GolemSlimeInWave = new List<GameObject>();
@@ -38,7 +40,7 @@ public class SlimeManager : MonoBehaviour {
 
     public void Remove()
     {
-        foreach(GameObject go in m_SlimeInScene)
+        foreach (GameObject go in m_SlimeInScene)
         {
             if (go.GetComponent<SlimeBase>().toDespawn)
             {
