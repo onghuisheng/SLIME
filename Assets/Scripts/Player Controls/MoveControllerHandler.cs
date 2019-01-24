@@ -26,8 +26,8 @@ public class MoveControllerHandler : MonoBehaviour
 #if UNITY_PS4
         //Controls the texel to pixel ratio before lens correction, 
         //trading performance for sharpness 
-        XRSettings.eyeTextureResolutionScale = 1.4f;
-        XRSettings.enabled = true;
+        //XRSettings.eyeTextureResolutionScale = 1.4f;
+        //XRSettings.enabled = true;
 
         // PS4 Settings Init
         PlayStationVRSettings.robustnessLevel = PlayStationVRTrackerRobustnessLevel.Legacy;

@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &4547069315621246
 Transform:
@@ -34,9 +34,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620545963165908}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.024949946, y: -0.37255695, z: -0.005622367}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.17392817, w: 0.98475844}
+  m_LocalPosition: {x: 1.52, y: -2.45, z: -0.11}
+  m_LocalScale: {x: 2.1627624, y: 2.1627624, z: 2.1627624}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3708,12 +3708,12 @@ ParticleSystem:
     light: {fileID: 108123400282716966, guid: 7a44d57b638c6714b8304ee08b9b838a, type: 2}
     randomDistribution: 1
     color: 1
-    range: 0
+    range: 1
     intensity: 0
     rangeCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 3.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
