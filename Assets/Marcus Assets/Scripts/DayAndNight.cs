@@ -49,6 +49,7 @@ public class DayAndNight : MonoBehaviour
     private GameObject m_NightAudioLoop;
     private GameObject m_DayAudioLoop;
 
+    public List<GameObject> m_CatapultSpawnerList;
 
     // Use this for initialization
     void Start()
@@ -108,6 +109,12 @@ public class DayAndNight : MonoBehaviour
                 SlimeManager.instance.m_SlimeInWave.Clear();
                 SlimeManager.instance.m_GolemSlimeInWave.Clear();
                 SlimeManager.instance.m_FinishSpawnWave = false;
+
+
+                foreach (GameObject temp in m_CatapultSpawnerList)
+                {
+                    temp.GetComponent<SpawnCatapult>().SpawnCatapultInScene();
+                }
             }
 
             SlimeManager.instance.m_CurrentWave = 2;

@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 54277496356752284}
   - component: {fileID: 65868629374465420}
   - component: {fileID: 114296818641955458}
+  - component: {fileID: 195044712428116508}
   m_Layer: 0
   m_Name: Catapult Slime Purple
   m_TagString: Enemy
@@ -781,6 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95949860691495752}
   m_DesiredTime: 5
+  m_CanAttack: 0
 --- !u!114 &114799876362604984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1048,3 +1050,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00020694733, y: 2.0082483, z: -1.7597847}
     m_Extent: {x: 1.4035709, y: 1.2300682, z: 0.30437875}
   m_DirtyAABB: 0
+--- !u!195 &195044712428116508
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478375357741878}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

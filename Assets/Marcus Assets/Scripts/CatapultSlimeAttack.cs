@@ -9,18 +9,22 @@ public class CatapultSlimeAttack : MonoBehaviour {
     private float m_Time;
     public float m_DesiredTime;
 
+    [HideInInspector]
+    public bool m_CanAttack;
+
 	// Use this for initialization
 	void Start () {
         m_Time = 0.0f;
-	}
+        m_CanAttack = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //if(SlimeManager.instance.m_CurrentWave > 1)
+        if(m_CanAttack)
             m_Time += Time.deltaTime;
 
-        if (m_Time > m_DesiredTime)
+        if (m_Time > m_DesiredTime && m_CanAttack)
         {
             anim.SetBool("IsAttack", true);
         }

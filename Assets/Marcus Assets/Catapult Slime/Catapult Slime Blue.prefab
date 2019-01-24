@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 65260214218280994}
   - component: {fileID: 114098108712207756}
   - component: {fileID: 114708859182740566}
+  - component: {fileID: 195943310674603912}
   m_Layer: 0
   m_Name: Catapult Slime Blue
   m_TagString: Untagged
@@ -763,6 +764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95131601634242446}
   m_DesiredTime: 5
+  m_CanAttack: 0
 --- !u!114 &114645441685971188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -775,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeType: 3
+  slimeColor: 0
   m_MaxHealth: 2
   m_MaxAttack: 0
   anim: {fileID: 95131601634242446}
@@ -795,6 +798,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SlimeBase: {fileID: 114645441685971188}
   Slime: {fileID: 1807203996207708}
+  m_Canvas: {fileID: 0}
+  m_SlimeOnScreen1: {fileID: 0}
+  m_SlimeOnScreen2: {fileID: 0}
+  m_SlimeOnScreen3: {fileID: 0}
+  m_Despawn: 0
 --- !u!114 &114815626330365536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,3 +1049,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.6210494, z: -1.5598525}
     m_Extent: {x: 1.2693474, y: 0.7660868, z: 0.76608694}
   m_DirtyAABB: 0
+--- !u!195 &195943310674603912
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1807203996207708}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
