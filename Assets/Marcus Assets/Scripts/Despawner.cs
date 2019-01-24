@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
 
-public class Despawner : MonoBehaviour {
-    
+public class Despawner : MonoBehaviour
+{
+
     public GameObject m_Canvas;
     public GameObject m_Barricade;
     public GameObject m_Player;
@@ -41,6 +42,7 @@ public class Despawner : MonoBehaviour {
                 {
                     other.GetComponentInChildren<Animator>().SetBool("IsAttack", true);
                     other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
+                    other.transform.DOKill();
                     other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
                     other.GetComponent<NavMeshAgent>().enabled = false;
                 }
@@ -53,6 +55,6 @@ public class Despawner : MonoBehaviour {
         }
 
     }
-    
-    
+
+
 }

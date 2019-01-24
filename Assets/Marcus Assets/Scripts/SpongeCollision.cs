@@ -39,9 +39,7 @@ public class SpongeCollision : MonoBehaviour
     {
         if (other.tag != "Sponge")
             return;
-
-        Debug.Log("Foam ontriggerenter");
-
+        
         Sponge sponge = other.transform.parent.GetComponent<Sponge>(); //need get parent since cube's parent (sponge) has sponge script
         sponge.PlayFoamParticles();
 
@@ -60,11 +58,7 @@ public class SpongeCollision : MonoBehaviour
             return;
 
         m_PrevPos = other.transform.position;
-
-        Debug.Log("INNNNNNNNNNN");
-
-
-
+        
         Color tempColor = GetComponentInParent<Image>().color;
         tempColor.a -= 4.0f * Time.fixedDeltaTime;
 

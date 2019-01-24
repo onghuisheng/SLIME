@@ -15,14 +15,14 @@ public class Bonfire : MonoBehaviour, IShootable
 
     bool isLighted = false;
 
-    bool isFirstShot = true;
+    public bool isFirstShot = true;
 
+    //this..is kinda... ew.. so please improve this :,UUU
     public GameObject m_SpawnPointGO1;
     public GameObject m_SpawnPointGO2;
     public GameObject m_SpawnPointGO3;
     public GameObject m_ArchersGO;
     public GameObject m_CatapultGO;
-
 
     public void OnShot(ArrowBase arrow)
     {
@@ -31,7 +31,7 @@ public class Bonfire : MonoBehaviour, IShootable
             ToggleFire(true);
 
             //If it is first time, send in the wave
-            if(isFirstShot)
+            if (isFirstShot)
             {
                 isFirstShot = false;
                 StartWave();
@@ -41,18 +41,25 @@ public class Bonfire : MonoBehaviour, IShootable
 
     public void StartWave()
     {
-        //Play horn audio
+        //this..is kinda... ew.. so please improve this :,UUU
+
+        //Play horn audio only if the game objects are inactive
+        //This isnt working im not too sure why. :,u
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive);
 
         //set gameobjects as active
-        //this..is kinda... ew.. so please improve this :,UUU
-        if(m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO && m_CatapultGO != null)
+        if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO && m_CatapultGO != null)
         {
             m_SpawnPointGO1.SetActive(true);
             m_SpawnPointGO2.SetActive(true);
             m_SpawnPointGO3.SetActive(true);
             m_ArchersGO.SetActive(true);
             m_CatapultGO.SetActive(true);
+
+            foreach (var cat in FindObjectsOfType<Bonfire>())
+            {
+                cat.isFirstShot = false;
+            }
         }
 
     }

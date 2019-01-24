@@ -45,8 +45,8 @@ public class Movement : MonoBehaviour
             {
                 GetComponent<NavMeshAgent>().SetDestination(m_Player.transform.position);
 
-                Debug.Log("Player: " + m_Player.transform.position);
-                Debug.Log("Actual: " + GetComponent<NavMeshAgent>().destination);
+                //Debug.Log("Player: " + m_Player.transform.position);
+                //Debug.Log("Actual: " + GetComponent<NavMeshAgent>().destination);
             }
         }
     }

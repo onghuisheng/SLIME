@@ -30,14 +30,16 @@ public class ChuteLever : StationaryObject
     {
         base.OnGrabStay(currentController);
 
-        if (transform.localPosition.y >= m_DefaultLocalY && transform.localPosition.y <= 2)
+        const float maxHeight = 0.9f;
+
+        if (transform.localPosition.y >= m_DefaultLocalY && transform.localPosition.y <= maxHeight)
         {
             float moveDelta = currentController.transform.position.y - m_LastControllerY;
             transform.Translate(0, moveDelta, 0, Space.Self);
             m_LastControllerY = currentController.transform.position.y;
 
             Vector3 clampPos = transform.localPosition;
-            clampPos.y = Mathf.Clamp(clampPos.y, m_DefaultLocalY, 2);
+            clampPos.y = Mathf.Clamp(clampPos.y, m_DefaultLocalY, maxHeight);
             transform.localPosition = clampPos;
         }
     }

@@ -84,15 +84,16 @@ public class BarricadeDestruction : MonoBehaviour
                     {
                         GameObject m_Child = currentBarricade.transform.GetChild(i).gameObject;
                         m_Child.AddComponent<Rigidbody>();
-                        //Destroy(currentBarricade, 5);
-
                     }
+
                     currentBarricade.GetComponent<Collider>().enabled = false;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<SlimeBase>().anim.SetBool("IsAttack", false);
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;
 
-                    Destroy(this.gameObject); // destroy this gameobject since not needed anymore
+                    AudioManager.Instance.Play3D("woodbreak", transform.position, AudioManager.AudioType.Additive);
+
+                    Destroy(gameObject); // destroy this gameobject since not needed anymore
                 }
 
 
