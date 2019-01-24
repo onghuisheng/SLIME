@@ -18,7 +18,7 @@ public class GolemDeath : MonoBehaviour
         if (m_IsRemoved)
             return;
 
-        if (m_SlimeParticles != null) //if there's slime particles..
+        if (m_SlimeParticles != null && SlimeBody != null) //if there's slime particles..
         {
             AudioManager.Instance.Play3D("golemdeath", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { randomPitchRange = 0.4f, volume = .5f });
 

@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 54402849212896820}
   - component: {fileID: 65260214218280994}
   - component: {fileID: 114098108712207756}
-  - component: {fileID: 114708859182740566}
   - component: {fileID: 195943310674603912}
   m_Layer: 0
   m_Name: Catapult Slime Blue
@@ -317,6 +316,7 @@ GameObject:
   - component: {fileID: 95131601634242446}
   - component: {fileID: 114212626269500444}
   - component: {fileID: 114815626330365536}
+  - component: {fileID: 114211603753695192}
   m_Layer: 0
   m_Name: enemy_CatapultSlime
   m_TagString: Untagged
@@ -751,6 +751,24 @@ MonoBehaviour:
   m_Defend: {fileID: 0}
   Damage: 1
   m_OnAnim: 0
+--- !u!114 &114211603753695192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866903665060610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SlimeBase: {fileID: 114645441685971188}
+  Slime: {fileID: 1807203996207708}
+  m_Canvas: {fileID: 0}
+  m_SlimeOnScreen1: {fileID: 0}
+  m_SlimeOnScreen2: {fileID: 0}
+  m_SlimeOnScreen3: {fileID: 0}
+  m_Despawn: 0
 --- !u!114 &114212626269500444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,31 +796,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeType: 3
   slimeColor: 0
-  m_MaxHealth: 2
+  m_MaxHealth: 1
   m_MaxAttack: 0
   anim: {fileID: 95131601634242446}
-  m_DeathParticles: {fileID: 0}
+  m_DeathParticles: {fileID: 1437468247517782, guid: ba3738f5984f0f345999101024e4e74d,
+    type: 2}
   toDespawn: 0
   m_OriginalSpeed: 0
-  m_BaseJoint: {fileID: 0}
---- !u!114 &114708859182740566
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1807203996207708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a893acf9ab839c049ad3d9d34828f5d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SlimeBase: {fileID: 114645441685971188}
-  Slime: {fileID: 1807203996207708}
-  m_Canvas: {fileID: 0}
-  m_SlimeOnScreen1: {fileID: 0}
-  m_SlimeOnScreen2: {fileID: 0}
-  m_SlimeOnScreen3: {fileID: 0}
-  m_Despawn: 0
+  m_BaseJoint: {fileID: 4583108920123982}
 --- !u!114 &114815626330365536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,7 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea07760df9ecff74ebaf1f1cd17e4ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CatapultSlime: {fileID: 0}
+  m_CatapultSlime: {fileID: 1807203996207708}
   m_StartingObject: {fileID: 1021654117702718}
   m_TargetObject: {fileID: 0}
   m_Slime:

@@ -51,6 +51,8 @@ public class DayAndNight : MonoBehaviour
 
     public List<GameObject> m_CatapultSpawnerList;
 
+    public Bonfire m_BonFire;
+
     // Use this for initialization
     void Start()
     {
@@ -103,21 +105,23 @@ public class DayAndNight : MonoBehaviour
         else // night
         {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
-
-            if (SlimeManager.instance.m_CurrentWave == 0 || SlimeManager.instance.m_CurrentWave == 1)
+            
+            if (!m_BonFire.isFirstShot)
             {
-                SlimeManager.instance.m_SlimeInWave.Clear();
-                SlimeManager.instance.m_GolemSlimeInWave.Clear();
-                SlimeManager.instance.m_FinishSpawnWave = false;
-
-
-                foreach (GameObject temp in m_CatapultSpawnerList)
+                if (SlimeManager.instance.m_CurrentWave == 0 || SlimeManager.instance.m_CurrentWave == 1)
                 {
-                    temp.GetComponent<SpawnCatapult>().SpawnCatapultInScene();
-                }
-            }
+                    SlimeManager.instance.m_SlimeInWave.Clear();
+                    SlimeManager.instance.m_GolemSlimeInWave.Clear();
+                    SlimeManager.instance.m_FinishSpawnWave = false;
 
-            SlimeManager.instance.m_CurrentWave = 2;
+                    foreach (GameObject temp in m_CatapultSpawnerList)
+                    {
+                        temp.GetComponent<SpawnCatapult>().SpawnCatapultInScene();
+                    }
+                }
+
+                SlimeManager.instance.m_CurrentWave = 2;
+            }
 
             if (prevDot > 0)
                 OnNightStart();

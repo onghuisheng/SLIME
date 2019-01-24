@@ -48,7 +48,7 @@ public class QuitLever : StationaryObject
                 });
             }
 
-            Debug.Log(angle);
+            // Debug.Log(angle);
         }
     }
 

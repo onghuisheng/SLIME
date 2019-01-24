@@ -22,8 +22,7 @@ public class Bonfire : MonoBehaviour, IShootable
     public GameObject m_SpawnPointGO2;
     public GameObject m_SpawnPointGO3;
     public GameObject m_ArchersGO;
-    public GameObject m_CatapultGO;
-    
+
 
     public void OnShot(ArrowBase arrow)
     {
@@ -34,7 +33,6 @@ public class Bonfire : MonoBehaviour, IShootable
             //If it is first time, send in the wave
             if (isFirstShot)
             {
-                isFirstShot = false;
                 StartWave();
             }
         }
@@ -54,14 +52,12 @@ public class Bonfire : MonoBehaviour, IShootable
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, 2, () =>
         {
             //set gameobjects as active
-            if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO && m_CatapultGO != null)
+            if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO)
             {
                 m_SpawnPointGO1.SetActive(true);
                 m_SpawnPointGO2.SetActive(true);
                 m_SpawnPointGO3.SetActive(true);
                 m_ArchersGO.SetActive(true);
-                m_CatapultGO.SetActive(true);
-
             }
         });
 
