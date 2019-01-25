@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 398482007}
-  m_IndirectSpecularColor: {r: 0.22353356, g: 0.27701232, b: 0.34938544, a: 1}
+  m_IndirectSpecularColor: {r: 0.26697266, g: 0.3202247, b: 0.36821496, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28107,7 +28107,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737958284}
-  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: -0, y: -0.1250915, z: -0, w: 0.9921452}
   m_LocalPosition: {x: 0.1342, y: 1.035, z: 0.6446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -28115,7 +28115,7 @@ Transform:
   - {fileID: 1852661290}
   m_Father: {fileID: 457807277}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -14.372001, z: 0}
 --- !u!95 &737958286
 Animator:
   serializedVersion: 3
@@ -29817,7 +29817,7 @@ CharacterJoint:
   m_Anchor: {x: 0.003, y: 0.12, z: -0.0008}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.76438504, y: 2.1324873, z: 3.1893647}
+  m_ConnectedAnchor: {x: -0.7636522, y: 2.1324873, z: 3.1923513}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -30223,7 +30223,7 @@ Prefab:
     - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
         type: 2}
       propertyPath: skyspeed
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
         type: 2}
@@ -41170,7 +41170,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1681375159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.16796678, y: 0.08400011, z: -0.05543293}
+  m_LocalPosition: {x: 0, y: 0.08400011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1316296917}
