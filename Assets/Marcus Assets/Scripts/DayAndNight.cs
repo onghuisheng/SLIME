@@ -95,7 +95,7 @@ public class DayAndNight : MonoBehaviour
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);
 
-        if (m_BonFire.isFirstShot != true)
+        if (m_BonFire.isFirstShot != true && SlimeManager.instance.m_BreakTime == true)
         {
             if (dot > 0) // day
             {

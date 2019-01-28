@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class SlimeManager : MonoBehaviour
 {
-
     public List<GameObject> m_SlimeInScene;
     public List<GameObject> m_SlimeInWave;
     public List<GameObject> m_GolemSlimeInWave;
@@ -23,6 +22,8 @@ public class SlimeManager : MonoBehaviour
     public bool m_FinishSpawnWave;
 
     public GameObject m_DayAndNight;
+
+    public bool m_BreakTime;
 
     // Use this for initialization
     void Awake()
@@ -51,21 +52,28 @@ public class SlimeManager : MonoBehaviour
 
         if (m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_SlimeWaves[m_CurrentWave] && m_GolemSlimeInWave.Count == m_GolemSlimeWaves[m_CurrentWave])
         {
-            if (m_CurrentWave < 1)
-            {
-                m_CurrentWave++;
-                m_SlimeInWave.Clear();
-                m_GolemSlimeInWave.Clear();
-                m_FinishSpawnWave = false;
-            }
-
-            if (m_CurrentWave == 2 && m_DayAndNight.GetComponent<DayAndNight>().dot > 0)
-            {
-                m_CurrentWave = 0;
-                m_SlimeInWave.Clear();
-                m_GolemSlimeInWave.Clear();
-                m_FinishSpawnWave = false;
-            }
+            m_SlimeInWave.Clear();
+            m_GolemSlimeInWave.Clear();
+            m_FinishSpawnWave = false;
+            m_BreakTime = true;
+            StartCoroutine(NextWave(30.0f));
         }
+    }
+
+    IEnumerator NextWave(float m_Time)
+    {
+        yield return new WaitForSeconds(m_Time);
+
+        if (m_CurrentWave < 1)
+        {
+            m_CurrentWave++;
+        }
+
+        if (m_CurrentWave == 2 && m_DayAndNight.GetComponent<DayAndNight>().dot > 0)
+        {
+            m_CurrentWave = 0;
+        }
+
+        m_BreakTime = false;
     }
 }
