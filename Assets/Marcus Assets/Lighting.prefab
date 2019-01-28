@@ -276,7 +276,7 @@ MonoBehaviour:
   nightAtmosphereThickness: 1.4
   dayRotateSpeed: {x: 0, y: -0.7, z: 0}
   nightRotateSpeed: {x: 0, y: -0.7, z: 0}
-  skyspeed: 1
+  skyspeed: 3
   NightLight: {fileID: 1968699554767356}
   tRange: 0
   dot: 0
