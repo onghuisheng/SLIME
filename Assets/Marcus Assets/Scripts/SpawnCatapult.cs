@@ -8,6 +8,8 @@ public class SpawnCatapult : MonoBehaviour {
     public GameObject m_Catapult;
     public GameObject m_Destination;
 
+    public int m_WaveToSpawn;
+
     private bool m_IsSpawned;
 
 	// Use this for initialization
@@ -18,7 +20,10 @@ public class SpawnCatapult : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(SlimeManager.instance.m_CurrentWave == m_WaveToSpawn)
+        {
+            SpawnCatapultInScene();
+        }
 	}
 
     public void SpawnCatapultInScene()

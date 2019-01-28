@@ -64,12 +64,9 @@ public class SlimeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(m_Time);
 
-        if (m_CurrentWave < 1)
-        {
-            m_CurrentWave++;
-        }
+        m_CurrentWave++;
 
-        if (m_CurrentWave == 2 && m_DayAndNight.GetComponent<DayAndNight>().dot > 0)
+        if (m_CurrentWave > 2)
         {
             m_CurrentWave = 0;
         }

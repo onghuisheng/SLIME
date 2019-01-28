@@ -6589,6 +6589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Catapult: {fileID: 1807203996207708, guid: fdd80500b4493034c8549c4e100b2ac5, type: 2}
   m_Destination: {fileID: 771426589}
+  m_WaveToSpawn: 2
 --- !u!1 &258690067
 GameObject:
   m_ObjectHideFlags: 0
@@ -7980,21 +7981,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: DayParticles.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: NightParticles.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_CatapultSpawnerList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4050938448667630, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -13.794005
@@ -8027,30 +8013,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1820329412249304, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: DayParticles
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: NightParticles
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
         type: 2}
       propertyPath: DayParticles.Array.data[0]
       value: 
       objectReference: {fileID: 1921507098}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: DayParticles.Array.data[1]
-      value: 
-      objectReference: {fileID: 804385016}
     - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
         type: 2}
       propertyPath: NightParticles.Array.data[0]
@@ -8061,136 +8028,6 @@ Prefab:
       propertyPath: NightParticles.Array.data[1]
       value: 
       objectReference: {fileID: 804385016}
-    - target: {fileID: 108537521161840004, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_Intensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353756694046076, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1968699554767356, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: dayRotateSpeed.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: nightRotateSpeed.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: dayRotateSpeed.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: nightRotateSpeed.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: dayRotateSpeed.y
-      value: -0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: nightRotateSpeed.y
-      value: -0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.5109494
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.016809475
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.2395344
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.82539177
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 56.659004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 29.726002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684761896676258, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 48.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: minAmbient
-      value: -0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: minAmbientPoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: minPoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: skyspeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: minIntensity
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108086583117569400, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108086583117569400, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_Shadows.m_Resolution
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108086583117569400, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_DrawHalo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 108086583117569400, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_BounceIntensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 108086583117569400, guid: f68fa37e31c075a46a3f2b1981e266a0,
-        type: 2}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1353756694046076, guid: f68fa37e31c075a46a3f2b1981e266a0, type: 2}
-      propertyPath: m_Name
-      value: Day Light
-      objectReference: {fileID: 0}
     - target: {fileID: 114907473329296772, guid: f68fa37e31c075a46a3f2b1981e266a0,
         type: 2}
       propertyPath: m_CatapultSpawnerList.Array.data[0]
@@ -12117,6 +11954,7 @@ MonoBehaviour:
   m_CurrentWave: 0
   m_FinishSpawnWave: 0
   m_DayAndNight: {fileID: 467068649}
+  m_BreakTime: 0
 --- !u!4 &1010893178
 Transform:
   m_ObjectHideFlags: 0
@@ -21803,6 +21641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Catapult: {fileID: 1478375357741878, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda, type: 2}
   m_Destination: {fileID: 1125350965}
+  m_WaveToSpawn: 1
 --- !u!1 &1567136451
 GameObject:
   m_ObjectHideFlags: 0
