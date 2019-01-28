@@ -45,7 +45,7 @@ public class SlimeDeath : MonoBehaviour
                 AudioManager.Instance.Play3D("slimesplatter", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { volume = .5f }, .1f);
             }
 
-            if (m_SlimeBase.slimeType != SlimeBase.SlimeType.Catapult)
+            if (m_SlimeBase.slimeType != SlimeBase.SlimeType.Catapult && Slime != null)
             {
                 //play death particles
                 GameObject temp = Instantiate(m_SlimeBase.m_DeathParticles, Slime.transform.position, m_SlimeBase.m_DeathParticles.gameObject.transform.rotation);

@@ -42,6 +42,8 @@ public class BowString : GrabbableObject
 
     private float m_RemainingVibrateDistance = 0;
 
+    private float m_OriginalColliderRadius;
+
     MeshRenderer m_ArrowMeshRenderer1 = null, m_ArrowMeshRenderer2 = null;
     #endregion
 
@@ -56,6 +58,8 @@ public class BowString : GrabbableObject
         m_UpperBowLimb2_DefaultRot = m_UpperBowLimb2.localRotation;
         m_LowerBowLimb1_DefaultRot = m_LowerBowLimb1.localRotation;
         m_LowerBowLimb2_DefaultRot = m_LowerBowLimb2.localRotation;
+
+        m_OriginalColliderRadius = GetComponent<SphereCollider>().radius;
     }
 
     public override void OnGrab(MoveController currentController)
@@ -63,13 +67,14 @@ public class BowString : GrabbableObject
         m_InitialOffset = currentController.transform.position - transform.position;
         m_CurrentController = currentController;
         m_OtherController = currentController.GetOtherController();
+        GetComponent<SphereCollider>().radius = m_OriginalColliderRadius * 10;
     }
 
     public override void OnGrabStay(MoveController currentController)
     {
         base.OnGrabStay(currentController);
 
-        transform.position = currentController.transform.position - m_InitialOffset;
+        GetComponent<Rigidbody>().position = currentController.transform.position - m_InitialOffset;
         m_IsGrabbing = true;
         BendBow();
 
@@ -103,6 +108,9 @@ public class BowString : GrabbableObject
     public override void OnGrabReleased(MoveController currentController)
     {
         m_IsGrabbing = false;
+
+        transform.localRotation = Quaternion.Euler(90, 0, 0);
+        GetComponent<SphereCollider>().radius = m_OriginalColliderRadius;
 
         float arrowStrength = m_CurrentDrawDistance.magnitude;
 

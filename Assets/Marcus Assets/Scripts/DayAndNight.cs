@@ -95,36 +95,39 @@ public class DayAndNight : MonoBehaviour
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);
 
-        if (dot > 0) // day
+        if (m_BonFire.isFirstShot != true)
         {
-            transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
-
-            if (prevDot <= 0)
-                OnDayStart();
-        }
-        else // night
-        {
-            transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
-            
-            if (!m_BonFire.isFirstShot)
+            if (dot > 0) // day
             {
-                if (SlimeManager.instance.m_CurrentWave == 0 || SlimeManager.instance.m_CurrentWave == 1)
-                {
-                    SlimeManager.instance.m_SlimeInWave.Clear();
-                    SlimeManager.instance.m_GolemSlimeInWave.Clear();
-                    SlimeManager.instance.m_FinishSpawnWave = false;
+                transform.Rotate(dayRotateSpeed * Time.deltaTime * skyspeed);
 
-                    foreach (GameObject temp in m_CatapultSpawnerList)
+                if (prevDot <= 0)
+                    OnDayStart();
+            }
+            else // night
+            {
+                transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
+
+                if (!m_BonFire.isFirstShot)
+                {
+                    if (SlimeManager.instance.m_CurrentWave == 0 || SlimeManager.instance.m_CurrentWave == 1)
                     {
-                        temp.GetComponent<SpawnCatapult>().SpawnCatapultInScene();
+                        SlimeManager.instance.m_SlimeInWave.Clear();
+                        SlimeManager.instance.m_GolemSlimeInWave.Clear();
+                        SlimeManager.instance.m_FinishSpawnWave = false;
+
+                        foreach (GameObject temp in m_CatapultSpawnerList)
+                        {
+                            temp.GetComponent<SpawnCatapult>().SpawnCatapultInScene();
+                        }
                     }
+
+                    SlimeManager.instance.m_CurrentWave = 2;
                 }
 
-                SlimeManager.instance.m_CurrentWave = 2;
+                if (prevDot > 0)
+                    OnNightStart();
             }
-
-            if (prevDot > 0)
-                OnNightStart();
         }
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;

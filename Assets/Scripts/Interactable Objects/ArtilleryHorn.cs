@@ -63,11 +63,11 @@ public class ArtilleryHorn : MonoBehaviour
 
             if (m_Bonfire.isFirstShot == false)
             {
-                AudioManager.Instance.Play3D("npc_artillery", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 3.5f, () =>
+                AudioManager.Instance.Play3D("npc_artillery", CommanderSpeaker.Instance.transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 3.5f, () =>
                 {
                     AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive, 0.5f);
 
-                    AudioManager.Instance.Play3D("npc_fire", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 1.25f, () =>
+                    AudioManager.Instance.Play3D("npc_fire", CommanderSpeaker.Instance.transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 1.25f, () =>
                     {
                         foreach (var firer in FindObjectsOfType<VolleyFirer>())
                         {

@@ -33,6 +33,8 @@ public class Bell : MonoBehaviour
 
     private int m_CurrentDingCount = 0;
 
+    private float m_CurrentLatchTime = 0;
+
     private void Start()
     {
         m_ChuteCheckerInitialPositionY = m_ChuteCheckerRedPanel.transform.localPosition.y;
@@ -85,5 +87,35 @@ public class Bell : MonoBehaviour
             // Debug.Log(rVelocity.magnitude);
         }
     }
+
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.transform.name == "String")
+    //    {
+    //        m_CurrentLatchTime += Time.fixedDeltaTime;
+
+    //        if (m_CurrentLatchTime > 2)
+    //        {
+    //            ToggleColliders(false);
+    //        }
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.transform.name == "String")
+    //    {
+    //        m_CurrentLatchTime = 0;
+    //        ToggleColliders(true);
+    //    }
+    //}
+    
+    //private void ToggleColliders(bool toggle)
+    //{
+    //    foreach (var cat in GetComponents<Collider>())
+    //    {
+    //        cat.enabled = toggle;
+    //    }
+    //}
 
 }

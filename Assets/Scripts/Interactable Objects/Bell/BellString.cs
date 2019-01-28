@@ -16,8 +16,11 @@ public class BellString : GrabbableObject
 
     private const float m_MaxSwingAngle = 55;
 
+    private Collider m_StringCollider;
+
     private void Start()
     {
+        m_StringCollider = m_StringPivotPoint.GetComponent<Collider>();
         m_DefaultStringPosition = transform.GetChild(0).position;
         Physics.IgnoreCollision(GetComponent<Collider>(), m_StringPivotPoint.GetComponent<Collider>(), true);
         Physics.IgnoreCollision(GetComponent<Collider>(), m_Chute.GetComponent<Collider>(), true);
@@ -48,6 +51,18 @@ public class BellString : GrabbableObject
     private float GetAngleBetweenHandle()
     {
         return Vector3.Angle(m_DefaultStringPosition - m_StringPivotPoint.position, transform.GetChild(0).position - m_StringPivotPoint.position);
+    }
+
+    private void Update()
+    {
+        if (GetAngleBetweenHandle() > m_MaxSwingAngle)
+        {
+            m_StringCollider.enabled = false;
+        }
+        else if (!m_StringCollider.enabled)
+        {
+            m_StringCollider.enabled = true;
+        }
     }
 
 }
