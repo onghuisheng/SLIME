@@ -95,7 +95,7 @@ public class DayAndNight : MonoBehaviour
         i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
         skyMat.SetFloat("_AtmosphereThickness", i);
 
-        if (m_BonFire.isFirstShot != true)
+        if (m_BonFire.isFirstShot != true && SlimeManager.instance.m_BreakTime == true)
         {
             if (dot > 0) // day
             {
@@ -107,24 +107,7 @@ public class DayAndNight : MonoBehaviour
             else // night
             {
                 transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
-
-                if (!m_BonFire.isFirstShot)
-                {
-                    if (SlimeManager.instance.m_CurrentWave == 0 || SlimeManager.instance.m_CurrentWave == 1)
-                    {
-                        SlimeManager.instance.m_SlimeInWave.Clear();
-                        SlimeManager.instance.m_GolemSlimeInWave.Clear();
-                        SlimeManager.instance.m_FinishSpawnWave = false;
-
-                        foreach (GameObject temp in m_CatapultSpawnerList)
-                        {
-                            temp.GetComponent<SpawnCatapult>().SpawnCatapultInScene();
-                        }
-                    }
-
-                    SlimeManager.instance.m_CurrentWave = 2;
-                }
-
+                
                 if (prevDot > 0)
                     OnNightStart();
             }

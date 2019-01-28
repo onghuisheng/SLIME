@@ -7,10 +7,19 @@ public class OilFire : MonoBehaviour, IShootable
     public ParticleSystem m_Fire;
     private bool m_onFire;
 
+    private void Start()
+    {
+        m_onFire = false;
+    }
+
     public void OnShot(ArrowBase arrow)
     {
-        m_Fire.Play(true);
-        m_onFire = true;
+        if (arrow.arrowType == ArrowBase.ArrowType.Flame && m_onFire == false)
+        {
+            m_Fire.Play(true);
+            m_onFire = true;
+        }
+        Destroy(arrow.gameObject);
     }
 
     public void OnTriggerStay(Collider other)
