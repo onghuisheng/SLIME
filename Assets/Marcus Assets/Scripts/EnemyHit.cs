@@ -29,6 +29,9 @@ public class EnemyHit : MonoBehaviour, IShootable
 
     public virtual void OnShot(ArrowBase arrow)
     {
+        if (arrow.arrowType == ArrowBase.ArrowType.None && m_SlimeBase.slimeType == SlimeBase.SlimeType.Catapult) // Normal arrow shouldnt damage catapult slimes
+            return;
+
         m_SlimeBase.DeductHealth(Damage); // deduct 1hp when hit
 
         if (m_SlimeBase.GetHealth() <= 0) // die when 0 or lesser hp

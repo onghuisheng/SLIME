@@ -29558,7 +29558,7 @@ GameObject:
   - component: {fileID: 888399610}
   - component: {fileID: 888399612}
   - component: {fileID: 888399611}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32581,7 +32581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 100032, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
       propertyPath: m_Layer
@@ -32599,6 +32599,26 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3bef353f97e19d741973074ab19faf28, type: 2}
+    - target: {fileID: 400012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6538d8027217b234286f61f2488c2b98, type: 3}
   m_IsPrefabParent: 0
@@ -40688,8 +40708,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 22.645273, y: 55.61299, z: 7.8406854}
-  m_Center: {x: -2.259627, y: -1.7702143, z: -3.4203491}
+  m_Size: {x: 22.645273, y: 55.61299, z: 22.147892}
+  m_Center: {x: -2.259627, y: -1.7702142, z: -10.573959}
 --- !u!1 &1639337212 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100012, guid: c6143bce27bff0f4c93a7106bee56c6b, type: 3}
