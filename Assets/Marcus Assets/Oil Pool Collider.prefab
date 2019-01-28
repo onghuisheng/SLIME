@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683b05da2a4bc554e9fa61d4100e77c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Fire: {fileID: 1576977917223468, guid: a89474c6a74035d4fafb8e0cf8817a4c, type: 2}
+  m_Fire: {fileID: 198868944884823678}
 --- !u!114 &114577102656725422
 MonoBehaviour:
   m_ObjectHideFlags: 1

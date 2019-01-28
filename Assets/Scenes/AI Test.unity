@@ -164,7 +164,6 @@ MonoBehaviour:
   m_SpawnPointGO2: {fileID: 0}
   m_SpawnPointGO3: {fileID: 0}
   m_ArchersGO: {fileID: 0}
-  m_CatapultGO: {fileID: 0}
 --- !u!65 &2000213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10182,6 +10181,58 @@ GameObject:
   m_PrefabParentObject: {fileID: 1628582833001098, guid: 70c9e6bf451750342a3c8a7ea53d829f,
     type: 2}
   m_PrefabInternal: {fileID: 244776994}
+--- !u!1001 &1675678989
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -12.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.09336919
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000001117587
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9956316
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934434207152502, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 114447902541553686, guid: af0e0154195747f40a62cb7b6af52bba,
+        type: 2}
+      propertyPath: m_Fire
+      value: 
+      objectReference: {fileID: 1675678990}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: af0e0154195747f40a62cb7b6af52bba, type: 2}
+  m_IsPrefabParent: 0
+--- !u!198 &1675678990 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198868944884823678, guid: af0e0154195747f40a62cb7b6af52bba,
+    type: 2}
+  m_PrefabInternal: {fileID: 1675678989}
 --- !u!1001 &1682058772
 Prefab:
   m_ObjectHideFlags: 0
@@ -10860,7 +10911,6 @@ MonoBehaviour:
   m_SpawnPointGO2: {fileID: 0}
   m_SpawnPointGO3: {fileID: 0}
   m_ArchersGO: {fileID: 0}
-  m_CatapultGO: {fileID: 0}
 --- !u!65 &1847345949
 BoxCollider:
   m_ObjectHideFlags: 0
