@@ -471,7 +471,7 @@ PlayerSettings:
   restrictedAudioUsageRights: 0
   ps4UseResolutionFallback: 1
   ps4ReprojectionSupport: 1
-  ps4UseAudio3dBackend: 1
+  ps4UseAudio3dBackend: 0
   ps4SocialScreenEnabled: 0
   ps4ScriptOptimizationLevel: 0
   ps4Audio3dVirtualSpeakerCount: 14

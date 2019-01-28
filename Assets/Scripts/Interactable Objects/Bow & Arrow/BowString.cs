@@ -108,10 +108,7 @@ public class BowString : GrabbableObject
     public override void OnGrabReleased(MoveController currentController)
     {
         m_IsGrabbing = false;
-
-        transform.localRotation = Quaternion.Euler(90, 0, 0);
-        GetComponent<SphereCollider>().radius = m_OriginalColliderRadius;
-
+        
         float arrowStrength = m_CurrentDrawDistance.magnitude;
 
         if (m_SpawnedArrow != null)
@@ -130,6 +127,9 @@ public class BowString : GrabbableObject
 
             m_SpawnedArrow = null;
         }
+
+        transform.localRotation = Quaternion.Euler(90, 0, 0);
+        GetComponent<SphereCollider>().radius = m_OriginalColliderRadius;
     }
 
     private void Update()

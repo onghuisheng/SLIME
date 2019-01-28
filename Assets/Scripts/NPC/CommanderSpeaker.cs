@@ -1,10 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
 {
     private bool m_IsMuted;
+
+    private GameObject m_SpeakerJoint;
+
+    [Range(-5, 5)]
+    public float strength = 1;
+
+    [Range(0, 5)]
+    public float duration = 1;
+
+    [Range(0, 30)]
+    public int vibrato = 10;
+
+    [Range(0, 1)]
+    public float elasticity = 1;
+
+    private void Start()
+    {
+        m_SpeakerJoint = transform.GetChild(0).gameObject;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            BobBob(duration, vibrato, elasticity);
+        }
+    }
 
     public void ToggleMute(bool toggle)
     {
@@ -46,6 +74,17 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
             m_IsMuted = false;
             sponge.GetComponent<Rigidbody>().isKinematic = false;
         }
+    }
+
+    public GameObject PlaySpeaker(string clipAlias, Vector3 position, AudioManager.AudioType audioType, float delayInSeconds = 0, System.Action onComplete = null)
+    {
+        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, delayInSeconds, onComplete);
+    }
+
+    public void BobBob(float duration, int vibrato = 10, float elasticity = 1)
+    {
+        m_SpeakerJoint.transform.DOComplete();
+        m_SpeakerJoint.transform.DOPunchScale(Vector3.one * strength, duration, vibrato, elasticity).SetEase(Ease.Linear);
     }
 
 }

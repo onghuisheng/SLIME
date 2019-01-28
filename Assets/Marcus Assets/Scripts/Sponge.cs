@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sponge : GrabbableObject, IStorable {
+public class Sponge : GrabbableObject, IStorable
+{
 
     public GameObject m_Collider;
 
@@ -27,6 +28,7 @@ public class Sponge : GrabbableObject, IStorable {
 
     public void OnStore(BeltSlot slot)
     {
+        transform.rotation = Quaternion.Euler(90, 0, 0);
     }
 
     public void OnUnStore(BeltSlot slot)

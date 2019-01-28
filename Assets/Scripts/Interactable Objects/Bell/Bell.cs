@@ -73,7 +73,7 @@ public class Bell : MonoBehaviour
             else
                 rVelocity = collision.relativeVelocity;
 
-            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { relativeVelocity = (rVelocity * 2), volume = 0, randomPitchRange = 0 });
+            AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { relativeVelocity = (rVelocity * 2), volume = 0, pitchOverride = 0.8f });
             m_NextDingTime = Time.time + 0.5f;
 
             m_CurrentDingCount++;
@@ -109,7 +109,7 @@ public class Bell : MonoBehaviour
     //        ToggleColliders(true);
     //    }
     //}
-    
+
     //private void ToggleColliders(bool toggle)
     //{
     //    foreach (var cat in GetComponents<Collider>())

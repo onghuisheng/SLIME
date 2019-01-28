@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (SlimeManager.instance.m_BreakTime == true
+        if (SlimeManager.instance.m_BreakTime == true)
             return;
 
         if (SlimeManager.instance.m_FinishSpawnWave == false)
