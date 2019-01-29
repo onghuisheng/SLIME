@@ -83,12 +83,12 @@ public class SlimeManager : MonoBehaviour
 
     IEnumerator NextWave(float m_Time)
     {
-        yield return new WaitForSeconds(m_Time);
-
         if (m_CurrentWave == 2 && m_GameType == GameType.Normal)
         {
-            yield return null;
+            yield break;
         }
+
+        yield return new WaitForSeconds(m_Time);
 
         m_CurrentWave++;
 
