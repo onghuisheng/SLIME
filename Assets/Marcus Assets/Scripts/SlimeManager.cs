@@ -85,16 +85,16 @@ public class SlimeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(m_Time);
 
+        if (m_CurrentWave == 2 && m_GameType == GameType.Normal)
+        {
+            yield return null;
+        }
+
         m_CurrentWave++;
 
         if (m_CurrentWave > 2 && m_GameType == GameType.Infinite)
         {
             m_CurrentWave = 0;
-        }
-
-        else if (m_CurrentWave > 2 && m_GameType != GameType.Infinite)
-        {
-            yield return null;
         }
 
         m_BreakTime = false;
