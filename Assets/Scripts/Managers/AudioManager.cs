@@ -11,7 +11,7 @@ public class AudioSourceData2D
     // 0-Infinity
     public float randomPitchRange = 0.2f;
 
-    // 0-Infinity (Overrides randomPitchRangee when != 0
+    // 0-Infinity (Overrides randomPitchRangee when != 0)
     public float pitchOverride = 0;
 
     public bool loop = false;
@@ -25,7 +25,7 @@ public class AudioSourceData3D
     // 0-Infinity
     public float randomPitchRange = 0.2f;
 
-    // 0-Infinity (Overrides randomPitchRangee when != 0
+    // 0-Infinity (Overrides randomPitchRangee when != 0)
     public float pitchOverride = 0;
 
     public bool loop = false;
@@ -143,7 +143,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             {
                 loop = audioSourceData.loop,
                 randomPitchRange = audioSourceData.randomPitchRange,
+                pitchOverride = audioSourceData.pitchOverride,
                 volume = audioSourceData.volume
+
             };
         }
 
@@ -229,7 +231,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 spawnedAudioSource.PlayDelayed(delayInSeconds);
 
                 if (!audioSourceData.loop)
-                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, spawnedAudioSource.clip.length + delayInSeconds, onComplete));
+                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, (spawnedAudioSource.clip.length + delayInSeconds) / spawnedAudioSource.pitch, onComplete));
                 break;
 
             default:
@@ -259,7 +261,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             AudioSource source = announceInfo.audioSource;
             source.clip = announceInfo.audioClip;
             source.PlayDelayed(announceInfo.delayInSeconds);
-            StartCoroutine(PlayNextRoutine(source.clip.length + announceInfo.delayInSeconds, announceInfo.onComplete));
+            StartCoroutine(PlayNextRoutine((source.clip.length + announceInfo.delayInSeconds) / source.pitch, announceInfo.onComplete)); 
         }
     }
 

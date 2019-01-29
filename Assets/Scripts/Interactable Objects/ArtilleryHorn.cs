@@ -16,16 +16,6 @@ public class ArtilleryHorn : MonoBehaviour
         m_Bonfire = FindObjectOfType<Bonfire>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.M))
-        {
-
-            AudioManager.Instance.Play3D("smallhorn", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 5 });
-            // UseHorn();
-        }
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (!m_IsDisabled && other.tag == "MainCamera")
@@ -63,11 +53,11 @@ public class ArtilleryHorn : MonoBehaviour
 
             if (m_Bonfire.isFirstShot == false)
             {
-                AudioManager.Instance.Play3D("npc_artillery", CommanderSpeaker.Instance.transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 3.5f, () =>
+                CommanderSpeaker.Instance.PlaySpeaker("npc_artillery", AudioManager.AudioType.Additive, 3.5f, () =>
                 {
                     AudioManager.Instance.Play3D("arrowlit", transform.position, AudioManager.AudioType.Additive, 0.5f);
 
-                    AudioManager.Instance.Play3D("npc_fire", CommanderSpeaker.Instance.transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, 1.25f, () =>
+                    CommanderSpeaker.Instance.PlaySpeaker("npc_fire", AudioManager.AudioType.Additive, 1.25f, () =>
                     {
                         foreach (var firer in FindObjectsOfType<VolleyFirer>())
                         {

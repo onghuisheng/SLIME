@@ -31,6 +31,19 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
         if (Input.GetKeyDown(KeyCode.F))
         {
             BobBob(duration, vibrato, elasticity);
+            AudioManager.Instance.Play2D("shortsmallhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 0.6f });
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            BobBob(duration, vibrato, elasticity);
+            AudioManager.Instance.Play2D("shortsmallhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 });
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            foreach (var enemy in FindObjectsOfType<EnemyHit>())
+            {
+                enemy.OnShot(null);
+            }
         }
     }
 
@@ -76,9 +89,9 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
         }
     }
 
-    public GameObject PlaySpeaker(string clipAlias, Vector3 position, AudioManager.AudioType audioType, float delayInSeconds = 0, System.Action onComplete = null)
+    public GameObject PlaySpeaker(string clipAlias, AudioManager.AudioType audioType, float delayInSeconds = 0, System.Action onComplete = null)
     {
-        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, delayInSeconds, onComplete);
+        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, delayInSeconds, onComplete);
     }
 
     public void BobBob(float duration, int vibrato = 10, float elasticity = 1)

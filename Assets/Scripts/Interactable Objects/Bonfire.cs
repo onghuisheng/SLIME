@@ -49,17 +49,17 @@ public class Bonfire : MonoBehaviour, IShootable
             bonfire.isFirstShot = false;
         }
 
-        AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, 2, () =>
-        {
+        AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 }, 2, () =>
+          {
             //set gameobjects as active
             if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO)
-            {
-                m_SpawnPointGO1.SetActive(true);
-                m_SpawnPointGO2.SetActive(true);
-                m_SpawnPointGO3.SetActive(true);
-                m_ArchersGO.SetActive(true);
-            }
-        });
+              {
+                  m_SpawnPointGO1.SetActive(true);
+                  m_SpawnPointGO2.SetActive(true);
+                  m_SpawnPointGO3.SetActive(true);
+                  m_ArchersGO.SetActive(true);
+              }
+          });
 
     }
 

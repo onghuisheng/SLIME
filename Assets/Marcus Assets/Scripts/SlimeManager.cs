@@ -50,7 +50,7 @@ public class SlimeManager : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             Remove();
         }
@@ -75,6 +75,7 @@ public class SlimeManager : MonoBehaviour
             m_BreakTime = true;
 
             // ADD BREAK START SOUND
+            AudioManager.Instance.Play2D("shortsmallhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 0.6f }, 1);
 
             StartCoroutine(NextWave(30.0f));
         }
@@ -94,5 +95,7 @@ public class SlimeManager : MonoBehaviour
         m_BreakTime = false;
 
         // ADD BREAK END SOUND
+        AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 });
+        CommanderSpeaker.Instance.PlaySpeaker("npc_incoming", AudioManager.AudioType.Additive, 1.5f);
     }
 }
