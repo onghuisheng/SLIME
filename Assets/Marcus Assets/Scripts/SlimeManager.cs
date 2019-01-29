@@ -92,6 +92,11 @@ public class SlimeManager : MonoBehaviour
             m_CurrentWave = 0;
         }
 
+        else if (m_CurrentWave > 2 && m_GameType != GameType.Infinite)
+        {
+            yield return null;
+        }
+
         m_BreakTime = false;
 
         // ADD BREAK END SOUND
