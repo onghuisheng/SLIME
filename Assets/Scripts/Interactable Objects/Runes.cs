@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.PostProcessing;
 
-public class Runes : GrabbableObject {
+public class Runes : GrabbableObject
+{
 
     public ParticleSystem m_HoldParticles;
     public ParticleSystem m_TeleportParticles;
     public float m_WaitBeforeTeleport;
     public string m_LevelToLoad;
 
+    private bool isUsed = false;
     private bool isHolding = false;
 
     //TO-DO:
@@ -19,7 +22,8 @@ public class Runes : GrabbableObject {
     //after teleport particles end, change scene
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         m_HoldParticles.Stop();
         m_TeleportParticles.Stop();
     }
@@ -35,23 +39,95 @@ public class Runes : GrabbableObject {
     {
         base.OnGrabReleased(currentController);
         m_HoldParticles.Stop();
-        m_TeleportParticles.Stop();
         isHolding = false;
     }
 
     // Update is called once per frame
-    void Update () {
-        if(isHolding)
+    void Update()
+    {
+        if (isHolding)
         {
             m_WaitBeforeTeleport -= Time.deltaTime;
-            if (m_WaitBeforeTeleport <= 0)
+
+            if (m_WaitBeforeTeleport <= 0 && !isUsed)
             {
+                isUsed = true;
+
                 m_TeleportParticles.Play(true);
-                //insert fade out here
-                //insert scene change here, after finish particles & fade out
-                SceneManager.LoadScene(m_LevelToLoad);
+
+                StartCoroutine(FlashOutRoutine());
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            StartCoroutine(FlashOutRoutine());
+        }
+    }
+
+    IEnumerator FlashOutRoutine()
+    {
+        yield return new WaitForSeconds(5);
+
+        var ppBehaviour = Camera.main.GetComponent<PostProcessingBehaviour>();
+        var bloomSettings = ppBehaviour.profile.bloom.settings;
+        ppBehaviour.profile.bloom.enabled = true;
+
+        float intensityTarget = 300, flashPeakTime = 7.0f;
+
+        float intensityDelta = (intensityTarget - bloomSettings.bloom.intensity) / flashPeakTime;
+
+        float currentFlashDuration = 0;
+
+        bloomSettings.bloom.intensity = 0;
+        bloomSettings.bloom.threshold = 0;
+        bloomSettings.bloom.radius = 4;
+        ppBehaviour.profile.bloom.settings = bloomSettings;
+
+        while (currentFlashDuration < flashPeakTime)
+        {
+            currentFlashDuration += Time.deltaTime;
+            bloomSettings.bloom.radius = Mathf.Clamp(bloomSettings.bloom.radius + Time.deltaTime, 0, 7);
+
+            bool intenseDone = true;
+
+            if (bloomSettings.bloom.intensity < intensityTarget)
+            {
+                bloomSettings.bloom.intensity += intensityDelta * Time.deltaTime;
+                intenseDone = false;
+            }
+
+            ppBehaviour.profile.bloom.settings = bloomSettings;
+
+            if (intenseDone)
+            {
+                break;
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+
+        //insert fade out here
+        //insert scene change here, after finish particles & fade out
+        var asyncLoad = SceneManager.LoadSceneAsync(m_LevelToLoad);
+
+        asyncLoad.completed += (AsyncOperation ops) =>
+        {
+            bloomSettings.bloom.intensity = 0;
+            bloomSettings.bloom.threshold = 0;
+            bloomSettings.bloom.radius = 4;
+            ppBehaviour.profile.bloom.settings = bloomSettings;
+            ppBehaviour.profile.bloom.enabled = false;
+        };
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        
     }
 
 }
