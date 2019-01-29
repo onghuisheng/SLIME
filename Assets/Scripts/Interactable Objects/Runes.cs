@@ -46,7 +46,7 @@ public class Runes : GrabbableObject {
             m_WaitBeforeTeleport -= Time.deltaTime;
             if (m_WaitBeforeTeleport <= 0)
             {
-                m_TeleportParticles.Play();
+                m_TeleportParticles.Play(true);
                 //insert fade out here
                 //insert scene change here, after finish particles & fade out
                 SceneManager.LoadScene(m_LevelToLoad);
