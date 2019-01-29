@@ -25,6 +25,15 @@ public class SlimeManager : MonoBehaviour
 
     public bool m_BreakTime;
 
+    public enum GameType
+    {
+        Normal,
+        Infinite,
+    }
+
+    public static GameType m_GameType;
+
+
     // Use this for initialization
     void Awake()
     {
@@ -74,7 +83,7 @@ public class SlimeManager : MonoBehaviour
 
         m_CurrentWave++;
 
-        if (m_CurrentWave > 2)
+        if (m_CurrentWave > 2 && m_GameType == GameType.Infinite)
         {
             m_CurrentWave = 0;
         }
