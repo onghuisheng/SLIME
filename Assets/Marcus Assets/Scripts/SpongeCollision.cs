@@ -9,11 +9,12 @@ public class SpongeCollision : MonoBehaviour
     public Text m_Text;
     public MoveController m_Controller;
     public int m_DamageLevel;
+    public bool m_IsWiping;
 
     // Use this for initialization
     void Start()
     {
-
+        m_IsWiping = false;
     }
 
     // Update is called once per frame
@@ -41,6 +42,8 @@ public class SpongeCollision : MonoBehaviour
         sponge.PlayFoamParticles();
 
         m_PrevPos = other.transform.position;
+
+        m_IsWiping = true;
     }
 
     private void OnTriggerStay(Collider other)
@@ -81,5 +84,6 @@ public class SpongeCollision : MonoBehaviour
 
         Sponge sponge = other.transform.parent.GetComponent<Sponge>();
         sponge.StopFoamParticles();
+        m_IsWiping = false;
     }
 }

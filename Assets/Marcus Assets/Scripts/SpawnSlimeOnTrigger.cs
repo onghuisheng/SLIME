@@ -34,6 +34,7 @@ public class SpawnSlimeOnTrigger : MonoBehaviour {
                     foreach (Transform Node in m_PathHolder.transform)
                     {
                         tempSlime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
+                        SlimeManager.instance.m_SlimeInScene.Add(tempSlime);
                     }
                     break;
                 }
@@ -44,6 +45,7 @@ public class SpawnSlimeOnTrigger : MonoBehaviour {
                     foreach (Transform Node in m_PathHolder.transform)
                     {
                         tempSlime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
+                        SlimeManager.instance.m_SlimeInScene.Add(tempSlime);
                     }
                     break;
                 }
@@ -54,6 +56,7 @@ public class SpawnSlimeOnTrigger : MonoBehaviour {
                     foreach (Transform Node in m_PathHolder.transform)
                     {
                         tempSlime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
+                        SlimeManager.instance.m_SlimeInScene.Add(tempSlime);
                     }
                     break;
                 }
@@ -64,6 +67,7 @@ public class SpawnSlimeOnTrigger : MonoBehaviour {
                     foreach (Transform Node in m_PathHolder.transform)
                     {
                         tempSlime.GetComponent<Movement>().m_pathList.Add(Node.gameObject);
+                        SlimeManager.instance.m_SlimeInScene.Add(tempSlime);
                     }
                     break;
                 }
@@ -71,7 +75,6 @@ public class SpawnSlimeOnTrigger : MonoBehaviour {
             default:
                 break;
         }
-
 
         Destroy(other.gameObject);
     }

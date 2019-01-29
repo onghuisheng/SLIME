@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224426141324024550}
   - component: {fileID: 222427121534676766}
   - component: {fileID: 114105857882537440}
+  - component: {fileID: 114907014208471804}
   m_Layer: 5
   m_Name: Blue Slime Screen 1
   m_TagString: Untagged
@@ -155,6 +156,18 @@ MonoBehaviour:
   m_Text: {fileID: 0}
   m_Controller: {fileID: 0}
   m_DamageLevel: 1
+  m_IsWiping: 0
+--- !u!114 &114907014208471804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319964399475134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c7bd167d8c1fa4b84b8c1d660af002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222427121534676766
 CanvasRenderer:
   m_ObjectHideFlags: 1

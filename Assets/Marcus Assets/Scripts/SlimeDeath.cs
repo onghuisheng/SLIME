@@ -63,17 +63,20 @@ public class SlimeDeath : MonoBehaviour
     {
         if (PlayerDamage.instance.m_DamageLevel == 0)
         {
-            Instantiate(m_SlimeOnScreen1, m_Canvas.transform);
+            GameObject temp = Instantiate(m_SlimeOnScreen1, m_Canvas.transform);
+            temp.GetComponent<SlimeOnScreen>().m_OriginalScale = temp.transform.localScale;
             PlayerDamage.instance.m_DamageLevel++;
         }
         else if (PlayerDamage.instance.m_DamageLevel == 1)
         {
-            Instantiate(m_SlimeOnScreen2, m_Canvas.transform);
+            GameObject temp = Instantiate(m_SlimeOnScreen2, m_Canvas.transform);
+            temp.GetComponent<SlimeOnScreen>().m_OriginalScale = temp.transform.localScale;
             PlayerDamage.instance.m_DamageLevel++;
         }
         else if (PlayerDamage.instance.m_DamageLevel == 2)
         {
-            Instantiate(m_SlimeOnScreen3, m_Canvas.transform);
+            GameObject temp = Instantiate(m_SlimeOnScreen3, m_Canvas.transform);
+            temp.GetComponent<SlimeOnScreen>().m_OriginalScale = temp.transform.localScale;
             PlayerDamage.instance.m_DamageLevel++;
         }
     }

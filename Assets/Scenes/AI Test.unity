@@ -7091,7 +7091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e8010947a183a914f9c671c716ce3add, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8010947a183a914f9c671c716ce3add, type: 3}
@@ -32245,6 +32245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3413f06a1a9a148adbf3e09ad063bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength: 1
+  duration: 1
+  vibrato: 10
+  elasticity: 1
 --- !u!65 &1689411456
 BoxCollider:
   m_ObjectHideFlags: 0

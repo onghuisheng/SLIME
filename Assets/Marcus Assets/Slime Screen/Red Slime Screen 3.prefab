@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 224609350211220478}
   - component: {fileID: 222995171567934642}
   - component: {fileID: 114610154963695898}
+  - component: {fileID: 114093638208908204}
   m_Layer: 5
   m_Name: Red Slime Screen 3
   m_TagString: Untagged
@@ -114,6 +115,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2.9008708}
   m_Center: {x: 0, y: 0, z: -2.2322576}
+--- !u!114 &114093638208908204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874074180041888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c7bd167d8c1fa4b84b8c1d660af002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114610154963695898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,6 +167,7 @@ MonoBehaviour:
   m_Text: {fileID: 0}
   m_Controller: {fileID: 0}
   m_DamageLevel: 3
+  m_IsWiping: 0
 --- !u!222 &222995171567934642
 CanvasRenderer:
   m_ObjectHideFlags: 1
