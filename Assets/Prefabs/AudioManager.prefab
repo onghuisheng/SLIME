@@ -218,3 +218,55 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 704b54cbea36c39428cec1a52f16fc53, type: 3}
   - clipAlias: shortsmallhorn
     audioClip: {fileID: 8300000, guid: 315408052a0e79545979c370cdd6c17e, type: 3}
+  - clipAlias: npc_incoming
+    audioClip: {fileID: 8300000, guid: b1432472884c5ec4890f4a4897e7d861, type: 3}
+  - clipAlias: npc_brace
+    audioClip: {fileID: 8300000, guid: 3da815efba8cc524ea5dbd7769b17011, type: 3}
+  - clipAlias: npc_bracequeenslime
+    audioClip: {fileID: 8300000, guid: 2ab6bd66c63e6234f8751a8b3cc56f6b, type: 3}
+  - clipAlias: npc_catapultl1
+    audioClip: {fileID: 8300000, guid: 5538d496bd396dc4e85427a4dc6705ce, type: 3}
+  - clipAlias: npc_catapultl2
+    audioClip: {fileID: 8300000, guid: d15989c1bbd3aee4a8f29facbc381bea, type: 3}
+  - clipAlias: npc_catapultr1
+    audioClip: {fileID: 8300000, guid: 49db2a45633e00b48b7b8504311ef581, type: 3}
+  - clipAlias: npc_catapultr2
+    audioClip: {fileID: 8300000, guid: f61cfd4de3cd91046b25e515f8726d0d, type: 3}
+  - clipAlias: npc_damage1
+    audioClip: {fileID: 8300000, guid: f86b522454e941a43be6f6fd3a874ac1, type: 3}
+  - clipAlias: npc_damage2
+    audioClip: {fileID: 8300000, guid: fb7afc970b05c3c4eba3920afd8baf06, type: 3}
+  - clipAlias: npc_damage3
+    audioClip: {fileID: 8300000, guid: b93f025bb1234004d813d03915247162, type: 3}
+  - clipAlias: npc_damage4a
+    audioClip: {fileID: 8300000, guid: 2c90e5336196d2f4189163c32c340724, type: 3}
+  - clipAlias: npc_damage4b
+    audioClip: {fileID: 8300000, guid: 7b4b326d2a708c44a967f2f3b5a8a749, type: 3}
+  - clipAlias: npc_death
+    audioClip: {fileID: 8300000, guid: b0617a4c19a0d774fa715385e561ce50, type: 3}
+  - clipAlias: npc_quit1
+    audioClip: {fileID: 8300000, guid: 75a8f4c003e97f14ca4c2fdc96f5ebb6, type: 3}
+  - clipAlias: npc_quit2
+    audioClip: {fileID: 8300000, guid: f00c5dfd719aba244bfda2a34d84b246, type: 3}
+  - clipAlias: npc_quit3
+    audioClip: {fileID: 8300000, guid: 4ef04196d672ea2419591dce9e885348, type: 3}
+  - clipAlias: npc_slimespotted
+    audioClip: {fileID: 8300000, guid: d90bc118b7b6a5c4490b0e57aa3a52da, type: 3}
+  - clipAlias: npc_tutorial1a
+    audioClip: {fileID: 8300000, guid: ee2fcd61c4696f14d870ed747d8fe421, type: 3}
+  - clipAlias: npc_tutorial1b
+    audioClip: {fileID: 8300000, guid: c10f690321cbfb54289ac8f04d307f63, type: 3}
+  - clipAlias: npc_tutorial2
+    audioClip: {fileID: 8300000, guid: 8907a89022871c64ead7c2226e43561e, type: 3}
+  - clipAlias: npc_tutorial3
+    audioClip: {fileID: 8300000, guid: f8a0ff19b42d8d94ebb966a9688cfb9f, type: 3}
+  - clipAlias: npc_tutorial4
+    audioClip: {fileID: 8300000, guid: da5150b77e6abfc41b92a6e366598a28, type: 3}
+  - clipAlias: npc_tutorial5
+    audioClip: {fileID: 8300000, guid: 84191b0ebf3be6c42b199e22d604cbae, type: 3}
+  - clipAlias: npc_tutorial5a
+    audioClip: {fileID: 8300000, guid: 2526a5a2987076849be187f5e5e797cc, type: 3}
+  - clipAlias: npc_tutorialalt1
+    audioClip: {fileID: 8300000, guid: 09137a13843466044bec5317b2f652bb, type: 3}
+  - clipAlias: npc_tutorialalt2
+    audioClip: {fileID: 8300000, guid: 29ab1b5c382f7994eb668152f23cda48, type: 3}

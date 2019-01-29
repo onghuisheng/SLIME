@@ -49,6 +49,7 @@ public class Bonfire : MonoBehaviour, IShootable
             bonfire.isFirstShot = false;
         }
 
+        
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 }, 2, () =>
           {
             //set gameobjects as active
@@ -60,6 +61,7 @@ public class Bonfire : MonoBehaviour, IShootable
                   m_ArchersGO.SetActive(true);
               }
           });
+        CommanderSpeaker.Instance.PlaySpeaker("npc_incoming", AudioManager.AudioType.Additive, 7);
 
     }
 

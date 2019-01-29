@@ -68,6 +68,8 @@ public class DayAndNight : MonoBehaviour
         {
             ps.Stop(true);
         }
+
+        AudioManager.Instance.Play2D("rooster", AudioManager.AudioType.Additive);
     }
 
     // Update is called once per frame
@@ -92,8 +94,8 @@ public class DayAndNight : MonoBehaviour
         //RenderSettings.fogColor = nightdayFogColor.Evaluate(dot);
         //RenderSettings.fogDensity = fogDensityCurve.Evaluate(dot) * fogScale;
 
-        i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
-        skyMat.SetFloat("_AtmosphereThickness", i);
+        //i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
+        //skyMat.SetFloat("_AtmosphereThickness", i);
 
         if (m_BonFire.isFirstShot != true && SlimeManager.instance.m_BreakTime == true)
         {
@@ -115,6 +117,8 @@ public class DayAndNight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Equals)) skyspeed += 0.5f;
         if (Input.GetKeyDown(KeyCode.Minus)) skyspeed -= 0.5f;
+        if (Input.GetKeyDown(KeyCode.RightBracket)) Time.timeScale = 7;
+        if (Input.GetKeyDown(KeyCode.LeftBracket)) Time.timeScale = 1;
 
 
         // Must be at the bottom
