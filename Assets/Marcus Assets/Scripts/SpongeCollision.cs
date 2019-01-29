@@ -5,12 +5,9 @@ using UnityEngine.UI;
 
 public class SpongeCollision : MonoBehaviour
 {
-    public Text m_Text;
-
     private Vector3 m_PrevPos;
-
+    public Text m_Text;
     public MoveController m_Controller;
-
     public int m_DamageLevel;
 
     // Use this for initialization

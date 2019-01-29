@@ -73,6 +73,9 @@ public class SlimeManager : MonoBehaviour
             m_GolemSlimeInWave.Clear();
             m_FinishSpawnWave = false;
             m_BreakTime = true;
+
+            // ADD BREAK START SOUND
+
             StartCoroutine(NextWave(30.0f));
         }
     }
@@ -89,5 +92,7 @@ public class SlimeManager : MonoBehaviour
         }
 
         m_BreakTime = false;
+
+        // ADD BREAK END SOUND
     }
 }
