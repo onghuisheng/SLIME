@@ -34,7 +34,7 @@ public class SpawnCatapult : MonoBehaviour {
         GameObject catapult = Instantiate(m_Catapult, transform.position, Quaternion.identity);
         catapult.GetComponent<NavMeshAgent>().SetDestination(m_Destination.transform.position);
         catapult.GetComponent<SlimeBase>().anim.SetBool("IsMove", true);
-        SlimeManager.instance.m_SlimeInScene.Add(this.gameObject);
+        SlimeManager.instance.m_SlimeInScene.Add(catapult);
         m_IsSpawned = true;
     }
 }
