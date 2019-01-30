@@ -60,6 +60,11 @@ public class SlimeManager : MonoBehaviour
                     break;
                 }
             }
+            else if (go == null)
+            {
+                m_SlimeInScene.Remove(go);
+                break;
+            }
         }
 
         if (m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_SlimeWaves[m_CurrentWave]/* && m_GolemSlimeInWave.Count == m_GolemSlimeWaves[m_CurrentWave]*/)
