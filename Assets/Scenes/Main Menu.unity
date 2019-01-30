@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -58,7 +58,7 @@ LightmapSettings:
     serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_AtlasSize: 512
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -72,7 +72,7 @@ LightmapSettings:
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
-    m_BakeBackend: 0
+    m_BakeBackend: 1
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
@@ -15136,7 +15136,7 @@ Transform:
   m_GameObject: {fileID: 1257319134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.26067364, y: 1.247, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.26, z: 0.8}
+  m_LocalScale: {x: 0.6, y: 0.3, z: 0.9}
   m_Children:
   - {fileID: 182245007}
   m_Father: {fileID: 1705113633}
@@ -20320,6 +20320,8 @@ GameObject:
   - component: {fileID: 2076615973}
   - component: {fileID: 2076615972}
   - component: {fileID: 2076615971}
+  - component: {fileID: 2076615974}
+  - component: {fileID: 2076615975}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -20335,7 +20337,7 @@ Transform:
   m_GameObject: {fileID: 2076615969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.22000003, y: 0, z: 11.642834}
-  m_LocalScale: {x: 500, y: 0.1, z: 500}
+  m_LocalScale: {x: 100, y: 0.1, z: 100}
   m_Children: []
   m_Father: {fileID: 1289295793}
   m_RootOrder: 1
@@ -20394,3 +20396,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076615969}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &2076615974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076615969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2.5, z: 1.0000002}
+  m_Center: {x: 0.0000000013969839, y: 0, z: 0.0000000018626451}
+--- !u!114 &2076615975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076615969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1b18a1ef06e1e4784f9464e1c1a230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemsList:
+  - {fileID: 618539944}
+  - {fileID: 943334466}
+  - {fileID: 146898534}
