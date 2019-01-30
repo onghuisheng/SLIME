@@ -51,6 +51,7 @@ public class MoveControllerHandler : MonoBehaviour
 
     private void OnDestroy()
     {
+        Debug.Log("Unregistered Controllers");
         UnregisterControllers();
     }
 
