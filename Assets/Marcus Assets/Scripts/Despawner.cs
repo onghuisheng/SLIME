@@ -27,7 +27,7 @@ public class Despawner : MonoBehaviour
             if (other.GetComponent<GolemSlimeDefend>() == null)
             {
                 other.GetComponent<SlimeBase>().toDespawn = true;
-                SlimeManager.instance.GetComponent<SlimeManager>().Remove();
+                SlimeManager.instance.Remove();
 
                 other.GetComponent<SlimeBase>().anim.SetBool("IsDead", true);
 

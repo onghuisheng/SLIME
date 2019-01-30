@@ -52,10 +52,13 @@ public class SlimeManager : MonoBehaviour
     {
         foreach (GameObject go in m_SlimeInScene)
         {
-            if (go.GetComponent<SlimeBase>().toDespawn)
+            if (go.GetComponent<SlimeBase>())
             {
-                m_SlimeInScene.Remove(go);
-                break;
+                if (go.GetComponent<SlimeBase>().toDespawn)
+                {
+                    m_SlimeInScene.Remove(go);
+                    break;
+                }
             }
         }
 

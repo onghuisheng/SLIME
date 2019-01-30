@@ -32,6 +32,14 @@ public class OilCollision : MonoBehaviour, IShootable
         m_onFire = true;
     }
 
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.A))
+        {
+            InvokeFire();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other == null)
