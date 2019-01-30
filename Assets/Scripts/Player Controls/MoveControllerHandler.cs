@@ -49,6 +49,11 @@ public class MoveControllerHandler : MonoBehaviour
 #endif
     }
 
+    private void OnDestroy()
+    {
+        UnregisterControllers();
+    }
+
     // Remove the registered devices from tracking and reset the transform
     void UnregisterControllers()
     {
