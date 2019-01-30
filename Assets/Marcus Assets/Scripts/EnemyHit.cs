@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyHit : MonoBehaviour, IShootable
 {
-
     [SerializeField]
     private SlimeBase m_SlimeBase;
     public SlimeBase slimeBase { get { return m_SlimeBase; } }
@@ -16,15 +15,16 @@ public class EnemyHit : MonoBehaviour, IShootable
     [SerializeField]
     private GolemSlimeDefend m_Defend;
 
-
     public int Damage;
 
     public bool m_OnAnim;
 
+    public bool m_OnFire;
 
     private void Start()
     {
         m_OnAnim = true;
+        m_OnFire = false;
     }
 
     public virtual void OnShot(ArrowBase arrow)

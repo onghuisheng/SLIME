@@ -47,15 +47,7 @@ public class SlimeManager : MonoBehaviour
         m_CurrentWave = 0;
         m_FinishSpawnWave = false;
     }
-
-    public void Update()
-    {
-        if (Input.GetKey(KeyCode.A))
-        {
-            Remove();
-        }
-    }
-
+    
     public void Remove()
     {
         foreach (GameObject go in m_SlimeInScene)

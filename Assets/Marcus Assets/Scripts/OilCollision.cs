@@ -3,19 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class OilCollision : MonoBehaviour {
-    
-	// Use this for initialization
-	void Start () {
+public class OilCollision : MonoBehaviour, IShootable
+{
+    public ParticleSystem m_Fire;
+    private bool m_onFire;
+
+    private void Start()
+    {
+        m_onFire = false;
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    public void OnShot(ArrowBase arrow)
+    {
+        if (arrow.arrowType == ArrowBase.ArrowType.Flame && m_onFire == false)
+        {
+            m_Fire.Play(true);
+            m_onFire = true;
+        }
+        Destroy(arrow.gameObject);
+    }
+
+    private void InvokeFire()
+    {
+        if (m_onFire)
+            return;
+
+        m_Fire.Play(true);
+        m_onFire = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other == null)
+            return;
+
         if(other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<NavMeshAgent>().speed /= 10;
@@ -25,10 +46,18 @@ public class OilCollision : MonoBehaviour {
         {
             other.transform.GetComponent<OilStep>().PlayOilStep(other.transform.position);
         }
+
+        if(m_onFire)
+        {
+            StartCoroutine(DamageOverTime(other.gameObject, 1));
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other == null)
+            return;
+
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<NavMeshAgent>().speed *= 10;
@@ -38,6 +67,31 @@ public class OilCollision : MonoBehaviour {
         {
             other.transform.GetComponent<OilStep>().PlayOilDrip();
         }
+
+        if(m_onFire)
+        {
+            StopCoroutine(DamageOverTime(other.gameObject, 1));
+        }
     }
 
+    IEnumerator DamageOverTime(GameObject enemy, float delayTime)
+    {
+        if (enemy != null)
+        {
+            while (enemy != null)
+            {
+                if (enemy.GetComponent<EnemyHit>() == null)
+                {
+                    break;
+                }
+
+                enemy.GetComponent<EnemyHit>().Damage = 1;
+                enemy.GetComponent<EnemyHit>().OnShot(null);
+
+                yield return new WaitForSeconds(delayTime);
+            }
+
+            yield return null;
+        }
+    }
 }
