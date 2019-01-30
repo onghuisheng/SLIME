@@ -69,7 +69,6 @@ public class DayAndNight : MonoBehaviour
             ps.Stop(true);
         }
 
-        AudioManager.Instance.Play2D("rooster", AudioManager.AudioType.Additive);
     }
 
     // Update is called once per frame

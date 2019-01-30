@@ -32064,6 +32064,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.data[45].clipAlias
+      value: npc_damage41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.data[46].clipAlias
+      value: npc_damage42
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
   m_IsPrefabParent: 0

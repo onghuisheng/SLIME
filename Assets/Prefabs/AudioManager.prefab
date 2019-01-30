@@ -238,9 +238,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: fb7afc970b05c3c4eba3920afd8baf06, type: 3}
   - clipAlias: npc_damage3
     audioClip: {fileID: 8300000, guid: b93f025bb1234004d813d03915247162, type: 3}
-  - clipAlias: npc_damage4a
+  - clipAlias: npc_damage41
     audioClip: {fileID: 8300000, guid: 2c90e5336196d2f4189163c32c340724, type: 3}
-  - clipAlias: npc_damage4b
+  - clipAlias: npc_damage42
     audioClip: {fileID: 8300000, guid: 7b4b326d2a708c44a967f2f3b5a8a749, type: 3}
   - clipAlias: npc_death
     audioClip: {fileID: 8300000, guid: b0617a4c19a0d774fa715385e561ce50, type: 3}

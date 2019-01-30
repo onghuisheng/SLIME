@@ -10,7 +10,7 @@ public class Runes : GrabbableObject
     public ParticleSystem m_HoldParticles;
     public ParticleSystem m_TeleportParticles;
     public float m_WaitBeforeTeleport;
-    public string m_LevelToLoad;
+    public SlimeManager.GameType m_LevelToLoad;
 
     private bool isUsed = false;
     private bool isHolding = false;
@@ -53,16 +53,18 @@ public class Runes : GrabbableObject
             {
                 isUsed = true;
 
+                foreach (var rune in FindObjectsOfType<Runes>())
+                {
+                    if (rune != this)
+                        rune.enabled = false;
+                }
+
                 m_TeleportParticles.Play(true);
 
                 StartCoroutine(FlashOutRoutine());
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            StartCoroutine(FlashOutRoutine());
-        }
     }
 
     IEnumerator FlashOutRoutine()
@@ -109,9 +111,11 @@ public class Runes : GrabbableObject
             }
         }
 
+        SlimeManager.m_GameType = m_LevelToLoad;
+
         //insert fade out here
         //insert scene change here, after finish particles & fade out
-        var asyncLoad = SceneManager.LoadSceneAsync(m_LevelToLoad);
+        var asyncLoad = SceneManager.LoadSceneAsync("Gameplay");
 
         asyncLoad.completed += (AsyncOperation ops) =>
         {
@@ -127,7 +131,7 @@ public class Runes : GrabbableObject
         {
             yield return null;
         }
-        
+
     }
 
 }

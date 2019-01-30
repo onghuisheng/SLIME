@@ -101,6 +101,6 @@ public class SlimeManager : MonoBehaviour
 
         // ADD BREAK END SOUND
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 });
-        CommanderSpeaker.Instance.PlaySpeaker("npc_incoming", AudioManager.AudioType.Additive, 1.5f);
+        CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 0) ? "npc_slimespotted" : "npc_incoming"), AudioManager.AudioType.Additive, 1.5f);
     }
 }

@@ -49,11 +49,11 @@ public class Bonfire : MonoBehaviour, IShootable
             bonfire.isFirstShot = false;
         }
 
-        
+
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 }, 2, () =>
           {
-            //set gameobjects as active
-            if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO)
+              //set gameobjects as active
+              if (m_SpawnPointGO1 && m_SpawnPointGO2 && m_SpawnPointGO3 && m_ArchersGO)
               {
                   m_SpawnPointGO1.SetActive(true);
                   m_SpawnPointGO2.SetActive(true);
@@ -61,7 +61,7 @@ public class Bonfire : MonoBehaviour, IShootable
                   m_ArchersGO.SetActive(true);
               }
           });
-        CommanderSpeaker.Instance.PlaySpeaker("npc_incoming", AudioManager.AudioType.Additive, 7);
+        CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 0) ? "npc_slimespotted" : "npc_incoming"), AudioManager.AudioType.Additive, 7);
 
     }
 

@@ -49,11 +49,14 @@ public class BarricadeDestruction : MonoBehaviour
             if (m_BarricadeHealth > 0)
             {
                 m_BarricadeHealth--;
+                CommanderSpeaker.Instance.PlaySpeaker("npc_damage" + Random.Range(2, 4).ToString(), AudioManager.AudioType.Additive, Random.Range(0, 0.5f));
             }
 
             // this is where the destruction happens
             else if (m_BarricadeHealth <= 0)
             {
+                CommanderSpeaker.Instance.PlaySpeaker("npc_damage" + Random.Range(2, 4).ToString(), AudioManager.AudioType.Additive, Random.Range(0, 0.5f));
+
                 // add Dust particles here ****************************
                 GameObject tempDust = Instantiate(dustParticles, transform.position, dustParticles.transform.rotation);
                 Destroy(tempDust, 5.0f);
@@ -92,6 +95,7 @@ public class BarricadeDestruction : MonoBehaviour
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;
 
+                    CommanderSpeaker.Instance.PlaySpeaker("npc_damage4" + Random.Range(1, 3).ToString(), AudioManager.AudioType.Additive, Random.Range(0, 0.5f));
                     AudioManager.Instance.Play3D("woodbreak", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { volume = 0.5f });
 
                     Destroy(gameObject); // destroy this gameobject since not needed anymore

@@ -7,6 +7,7 @@ public class OilBottle : GrabbableObject, IStorable, IShootable
 
     public GameObject m_OilPuddle;
     public GameObject m_OilParticles;
+    public bool m_RespawnAfterActivated = false;
 
 
     protected override void OnCollisionEnter(Collision collision)
@@ -28,9 +29,12 @@ public class OilBottle : GrabbableObject, IStorable, IShootable
         //i probably am very wrong, and if so, please change this part :>
         AudioManager.Instance.Play3D("bottlebreak", transform.position, AudioManager.AudioType.Additive);
 
+        if (!m_RespawnAfterActivated)
+        {
+            Destroy(this.gameObject);
+            //Destroy(temp, 20.0f);
+        }
 
-        Destroy(this.gameObject);
-        //Destroy(temp, 20.0f);
         Destroy(tempParticles, 3.0f);
     }
 

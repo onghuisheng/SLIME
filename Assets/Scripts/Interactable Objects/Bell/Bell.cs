@@ -5,7 +5,7 @@ using DG.Tweening;
 
 
 // Ding ding
-public class Bell : MonoBehaviour
+public class Bell : MonoBehaviour, IShootable
 {
 
     [SerializeField]
@@ -86,6 +86,12 @@ public class Bell : MonoBehaviour
 
             // Debug.Log(rVelocity.magnitude);
         }
+    }
+
+    public void OnShot(ArrowBase arrow)
+    {
+        DropItem();
+        AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { volume = .5f, pitchOverride = 0.8f });
     }
 
     //private void OnCollisionStay(Collision collision)
