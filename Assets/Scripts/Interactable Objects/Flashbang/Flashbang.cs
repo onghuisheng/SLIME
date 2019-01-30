@@ -20,6 +20,15 @@ public class Flashbang : GrabbableObject, IStorable
 
     bool m_IsLighted = false;
 
+    public bool m_RespawnAfterActivated = false;
+
+    private Vector3 m_RingDefaultLocalPos;
+
+    private void Start()
+    {
+        m_RingDefaultLocalPos = m_FlashbangRing.transform.localPosition;
+    }
+
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
@@ -82,9 +91,12 @@ public class Flashbang : GrabbableObject, IStorable
         AudioManager.Instance.Play3D("flashbangboom", transform.position, AudioManager.AudioType.Additive);
         Instantiate(m_FlashParticle, transform.position, Quaternion.identity);
 
-        // Hide the collider temporarily
-        m_FlashbangBody.SetActive(false);
-        GetComponent<Collider>().enabled = false;
+        if (!m_RespawnAfterActivated)
+        {
+            // Hide the collider temporarily
+            m_FlashbangBody.SetActive(false);
+            GetComponent<Collider>().enabled = false;
+        }
 
     }
 
@@ -189,7 +201,22 @@ public class Flashbang : GrabbableObject, IStorable
 
             if (intenseDone && thresholdDone)
             {
-                Destroy(gameObject);
+                if (!m_RespawnAfterActivated)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    m_IsLighted = false;
+
+                    var controller = MoveController.GetControllerThatHolds(m_FlashbangRing.gameObject);
+
+                    if (controller != null)
+                        controller.DetachCurrentObject(false);
+
+                    m_FlashbangRing.ResetRing(transform);
+                }
+
                 ppBehaviour.profile.bloom.enabled = false;
                 break;
             }
@@ -197,16 +224,6 @@ public class Flashbang : GrabbableObject, IStorable
             {
                 yield return null;
             }
-        }
-    }
-
-    public KeyCode key;
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(key))
-        {
-            StartFuse();
         }
     }
 

@@ -34,7 +34,7 @@ public class FloorRespawn : MonoBehaviour
                     controller.DetachCurrentObject(false);
                 }
                 //set item pos back to original position
-                StartCoroutine(Respawn(GO, m_ItemsPos[i], 0.5f));
+                StartCoroutine(Respawn(GO, m_ItemsPos[i], 0.1f));
             }
             i++; //loop counter
         }

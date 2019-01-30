@@ -47,4 +47,16 @@ public class FlashbangRing : GrabbableObject
         }
     }
 
+    public void ResetRing(Transform parent)
+    {
+        GetComponent<Collider>().enabled = true;
+        GetComponent<Collider>().isTrigger = true;
+        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        transform.parent = parent;
+        transform.localPosition = m_DefaultLocalPos;
+        transform.localRotation = Quaternion.identity;
+        m_IsTriggered = false;
+    }
+
 }

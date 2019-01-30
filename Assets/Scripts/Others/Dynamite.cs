@@ -15,6 +15,7 @@ public class Dynamite : MonoBehaviour
     public Animator DynamiteAnimator;
     public GameObject m_ExplosionParticle;
     public GameObject m_DynamiteObject;
+    public bool m_RespawnAfterActivated = false;
 
     //OnTriggerEnter with torch flame
     //DynamiteAnimator.SetBool("isLighted", true);
@@ -41,7 +42,11 @@ public class Dynamite : MonoBehaviour
             GameObject temp = Instantiate(m_ExplosionParticle, m_DynamiteObject.transform.position, m_ExplosionParticle.gameObject.transform.rotation);
             Destroy(temp, 3); //Destroy after 3 secs
         }
-        Destroy(m_DynamiteObject); //get rid of all of them
+
+        if (m_RespawnAfterActivated)
+            DynamiteAnimator.Rebind();
+        else
+            Destroy(m_DynamiteObject); //get rid of all of them
     }
 
     public void PlayImpactExplosion()
