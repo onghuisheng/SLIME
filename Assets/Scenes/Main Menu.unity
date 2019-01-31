@@ -9752,6 +9752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FadeOutOnStart: 1
+  m_Bell: {fileID: 0}
+  m_BowString: {fileID: 0}
 --- !u!114 &271009443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14873,7 +14875,7 @@ MonoBehaviour:
   m_WaitBeforeTeleport: 3
   m_LevelToLoad: 1
   m_LoadingLayer: {fileID: 1790434304}
-  m_SlimeBase: {fileID: 1626235760}
+  m_SlimeDeath: {fileID: 1586768732}
 --- !u!1 &631912645
 GameObject:
   m_ObjectHideFlags: 0
@@ -15445,7 +15447,7 @@ MonoBehaviour:
   m_WaitBeforeTeleport: 3
   m_LevelToLoad: 0
   m_LoadingLayer: {fileID: 1790434304}
-  m_SlimeBase: {fileID: 1626235760}
+  m_SlimeDeath: {fileID: 1586768732}
 --- !u!1001 &970352327
 Prefab:
   m_ObjectHideFlags: 0

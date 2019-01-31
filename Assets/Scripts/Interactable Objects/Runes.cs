@@ -15,7 +15,7 @@ public class Runes : GrabbableObject
     [SerializeField]
     private GameObject m_LoadingLayer;
     [SerializeField]
-    private SlimeBase m_SlimeBase;
+    private SlimeDeath m_SlimeDeath;
 
     private bool isUsed = false;
     private bool isHolding = false;
@@ -75,7 +75,7 @@ public class Runes : GrabbableObject
 
     IEnumerator FlashLoadingRoutine()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(9);
 
         //enable loading layer
         m_LoadingLayer.SetActive(true);
@@ -147,7 +147,7 @@ public class Runes : GrabbableObject
             if (asyncLoad.progress >= 0.9f)
             {
                 //if finished loading, make slimes dead
-                m_SlimeBase.DeductHealth(10);
+                m_SlimeDeath.RemoveFromScene();
 
                 yield return new WaitForSeconds(5f);
                 asyncLoad.allowSceneActivation = true;
