@@ -25,7 +25,7 @@ public class PlayerGameOver : MonoBehaviour {
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
-            StartCoroutine(FadeOut(3.0f));
+            StartCoroutine(FadeOut(5.0f));
         }
     }
 
