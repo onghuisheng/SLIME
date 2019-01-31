@@ -69,16 +69,16 @@ public class OilCollision : MonoBehaviour, IShootable
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<NavMeshAgent>().speed *= 10;
+
+            if (m_onFire)
+            {
+                StopCoroutine(DamageOverTime(other.gameObject, 1));
+            }
         }
 
         if (other.transform.GetComponent<OilStep>() != null)
         {
             other.transform.GetComponent<OilStep>().PlayOilDrip();
-        }
-
-        if(m_onFire)
-        {
-            StopCoroutine(DamageOverTime(other.gameObject, 1));
         }
     }
 
@@ -88,13 +88,13 @@ public class OilCollision : MonoBehaviour, IShootable
         {
             while (enemy != null)
             {
-                if (enemy.GetComponent<EnemyHit>() == null)
+                if (enemy.GetComponentInChildren<EnemyHit>() == null)
                 {
                     break;
                 }
 
-                enemy.GetComponent<EnemyHit>().Damage = 1;
-                enemy.GetComponent<EnemyHit>().OnShot(null);
+                enemy.GetComponentInChildren<EnemyHit>().Damage = 1;
+                enemy.GetComponentInChildren<EnemyHit>().OnShot(null);
 
                 yield return new WaitForSeconds(delayTime);
             }

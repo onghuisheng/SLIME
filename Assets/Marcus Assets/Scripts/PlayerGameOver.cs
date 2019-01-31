@@ -25,7 +25,7 @@ public class PlayerGameOver : MonoBehaviour {
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
-
+            StartCoroutine(FadeOut(3.0f));
         }
     }
 
@@ -33,13 +33,13 @@ public class PlayerGameOver : MonoBehaviour {
     {
         float m_ElapsedTime = 0;
         
-        Color tempColor = m_FadeScreen.color;
-
         while (m_ElapsedTime < time)
         {
-            tempColor.a = Mathf.Lerp(tempColor.a, 1, m_ElapsedTime / time);
-            m_FadeScreen.color = tempColor;
+            float alpha = Mathf.Lerp(m_FadeScreen.color.a, 1.0f, m_ElapsedTime / time);
+            m_FadeScreen.color = new Color(m_FadeScreen.color.r, m_FadeScreen.color.g, m_FadeScreen.color.b, alpha);
             m_ElapsedTime += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
         }
 
         yield return null;

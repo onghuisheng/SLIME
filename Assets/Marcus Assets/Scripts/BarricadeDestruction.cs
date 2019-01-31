@@ -41,6 +41,9 @@ public class BarricadeDestruction : MonoBehaviour
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
+            if (other.GetComponentInParent<GolemAttack>().m_Attack == false)
+                return;
+
             // add wood particles here ****************************
             GameObject tempWood = Instantiate(woodParticles, transform.position, woodParticles.transform.rotation);
             Destroy(tempWood, 5.0f);
