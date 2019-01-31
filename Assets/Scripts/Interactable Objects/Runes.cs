@@ -83,7 +83,7 @@ public class Runes : GrabbableObject
 
     IEnumerator FlashOutRoutine()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         var ppBehaviour = Camera.main.GetComponent<PostProcessingBehaviour>();
         var bloomSettings = ppBehaviour.profile.bloom.settings;
