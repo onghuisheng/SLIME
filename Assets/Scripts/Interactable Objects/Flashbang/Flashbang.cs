@@ -97,6 +97,17 @@ public class Flashbang : GrabbableObject, IStorable
             m_FlashbangBody.SetActive(false);
             GetComponent<Collider>().enabled = false;
         }
+        else
+        {
+            m_IsLighted = false;
+
+            var controller = MoveController.GetControllerThatHolds(m_FlashbangRing.gameObject);
+
+            if (controller != null)
+                controller.DetachCurrentObject(false);
+
+            m_FlashbangRing.ResetRing(transform);
+        }
 
     }
 
@@ -202,20 +213,7 @@ public class Flashbang : GrabbableObject, IStorable
             if (intenseDone && thresholdDone)
             {
                 if (!m_RespawnAfterActivated)
-                {
                     Destroy(gameObject);
-                }
-                else
-                {
-                    m_IsLighted = false;
-
-                    var controller = MoveController.GetControllerThatHolds(m_FlashbangRing.gameObject);
-
-                    if (controller != null)
-                        controller.DetachCurrentObject(false);
-
-                    m_FlashbangRing.ResetRing(transform);
-                }
 
                 ppBehaviour.profile.bloom.enabled = false;
                 break;

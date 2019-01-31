@@ -35,6 +35,8 @@ public class Bell : MonoBehaviour, IShootable
 
     private float m_CurrentLatchTime = 0;
 
+    public System.Action<List<GameObject>> OnItemDrop;
+
     private void Start()
     {
         m_ChuteCheckerInitialPositionY = m_ChuteCheckerRedPanel.transform.localPosition.y;
@@ -50,15 +52,19 @@ public class Bell : MonoBehaviour, IShootable
 
         AudioManager.Instance.Play3D("chuterelease", m_ItemDropPosition.position, AudioManager.AudioType.Additive);
 
+        List<GameObject> m_Items = new List<GameObject>();
+
         // Spawn a random object from the list with a randomized rotation
         foreach (var obj in m_ItemDropList)
         {
-            Instantiate(obj, m_ItemDropPosition.position, Quaternion.Euler(Random.Range(0, 360.0f), Random.Range(0, 360.0f), Random.Range(0, 360.0f)));
+            m_Items.Add(Instantiate(obj, m_ItemDropPosition.position, Quaternion.Euler(Random.Range(0, 360.0f), Random.Range(0, 360.0f), Random.Range(0, 360.0f))));
         }
 
         m_NextSpawnTime = Time.time + m_RingCooldown;
 
         m_ChuteCheckerRedPanel.transform.DOLocalMoveY(m_ChuteCheckerInitialPositionY, 0.5f).SetDelay(m_RingCooldown).SetEase(Ease.OutExpo); // move panel back up after cd
+
+        OnItemDrop.Invoke(m_Items);
     }
 
 
@@ -83,8 +89,6 @@ public class Bell : MonoBehaviour, IShootable
                 m_CurrentDingCount = 0;
                 DropItem();
             }
-
-            // Debug.Log(rVelocity.magnitude);
         }
     }
 
@@ -93,35 +97,5 @@ public class Bell : MonoBehaviour, IShootable
         DropItem();
         AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { volume = .5f, pitchOverride = 0.8f });
     }
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.transform.name == "String")
-    //    {
-    //        m_CurrentLatchTime += Time.fixedDeltaTime;
-
-    //        if (m_CurrentLatchTime > 2)
-    //        {
-    //            ToggleColliders(false);
-    //        }
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.transform.name == "String")
-    //    {
-    //        m_CurrentLatchTime = 0;
-    //        ToggleColliders(true);
-    //    }
-    //}
-
-    //private void ToggleColliders(bool toggle)
-    //{
-    //    foreach (var cat in GetComponents<Collider>())
-    //    {
-    //        cat.enabled = toggle;
-    //    }
-    //}
 
 }

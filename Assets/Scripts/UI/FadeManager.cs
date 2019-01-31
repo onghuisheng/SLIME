@@ -40,7 +40,7 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
         this.IsFading = false;
     }
 
-    public IEnumerator FadeIn(float interval, System.Action callback)
+    public IEnumerator FadeIn(float interval, Action callback)
     {
         yield return StartCoroutine(FadeIn(interval));
 
@@ -50,17 +50,22 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
         }
     }
 
-    public IEnumerator FadeOut(float interval)
+    public IEnumerator FadeOut(float interval, float delay = 0, Action onComplete = null)
     {
+        yield return new WaitForSeconds(delay);
+
         this.IsFading = true;
 
         var tween = _image.DOFade(0, interval);
         yield return tween.WaitForCompletion();
 
+        if (onComplete != null)
+            onComplete.Invoke();
+
         this.IsFading = false;
     }
 
-    public IEnumerator Fading(float inTime, float outTime, System.Action callback = null)
+    public IEnumerator Fading(float inTime, float outTime, Action callback = null)
     {
         yield return StartCoroutine(FadeIn(inTime, callback));
         yield return StartCoroutine(FadeOut(outTime));
