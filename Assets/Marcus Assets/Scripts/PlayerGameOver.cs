@@ -15,8 +15,11 @@ public class PlayerGameOver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+		if(PlayerDamage.instance.m_DamageLevel == 3)
+        {
+            StartCoroutine(FadeOut(5.0f));
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
