@@ -20,14 +20,11 @@ public class EnemyHit : MonoBehaviour, IShootable
     public bool m_OnAnim;
 
     public bool m_OnFire;
-
-    public bool m_Hit;
-
+    
     private void Start()
     {
         m_OnAnim = true;
         m_OnFire = false;
-        m_Hit = false;
     }
 
     public virtual void OnShot(ArrowBase arrow)
@@ -45,7 +42,6 @@ public class EnemyHit : MonoBehaviour, IShootable
 
             if (m_OnAnim)
             {
-                m_Hit = true;
                 m_SlimeBase.anim.SetBool("IsDead", true);
 
                 if (m_Defend != null)
@@ -63,14 +59,17 @@ public class EnemyHit : MonoBehaviour, IShootable
                 if (GetComponentInParent<GolemDeath>() != null)
                     GetComponentInParent<GolemDeath>().RemoveSlimeBody();
 
-                SlimeDeath slimeDeath = GetComponentInParent<SlimeDeath>();
+                SlimeDeath m_slimeDeath = GetComponentInParent<SlimeDeath>();
 
-                if (slimeDeath == null)
+                if (m_slimeDeath == null)
                 {
-                    slimeDeath = GetComponentInChildren<SlimeDeath>();
+                    m_slimeDeath = GetComponentInChildren<SlimeDeath>();
                 }
 
-                slimeDeath.RemoveFromScene();
+                if (m_slimeDeath.m_Despawn)
+                    m_slimeDeath.m_Despawn = false;
+
+                m_slimeDeath.RemoveFromScene();
             }
 
             if (m_Agent)

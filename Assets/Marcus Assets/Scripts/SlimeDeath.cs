@@ -52,7 +52,7 @@ public class SlimeDeath : MonoBehaviour
                 Destroy(temp, 3);
             }
 
-            if (m_Despawn && GetComponent<EnemyHit>().m_Hit == false)
+            if (m_Despawn)
                 SetScreen();
         }
 

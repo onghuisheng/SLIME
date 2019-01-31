@@ -31,7 +31,7 @@ public class SlimeOnScreen : MonoBehaviour {
 
             m_ElapsedTime += Time.deltaTime;
 
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
         yield return null;
     }
