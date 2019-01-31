@@ -6077,6 +6077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FadeOutOnStart: 0
+  m_Bell: {fileID: 0}
+  m_BowString: {fileID: 0}
 --- !u!114 &279300649
 MonoBehaviour:
   m_ObjectHideFlags: 0
