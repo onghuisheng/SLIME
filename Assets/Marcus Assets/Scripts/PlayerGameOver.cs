@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerGameOver : MonoBehaviour {
 
@@ -44,7 +45,12 @@ public class PlayerGameOver : MonoBehaviour {
 
             yield return new WaitForEndOfFrame();
         }
-
-        yield return null;
+        var asyncLoad = SceneManager.LoadSceneAsync("Main Menu");
+        
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }

@@ -10811,7 +10811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FadeOutOnStart: 1
-  m_fadeColor: {r: 0.10980393, g: 0.10980393, b: 0.10980393, a: 0}
 --- !u!114 &658996500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13826,8 +13825,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968131259}
   m_LocalRotation: {x: -0, y: -0.30070573, z: -0, w: 0.953717}
-  m_LocalPosition: {x: -1.5051869, y: 0.473, z: 2.7278147}
-  m_LocalScale: {x: 2.6165304, y: 1, z: 1.1225817}
+  m_LocalPosition: {x: -1.5051869, y: 0.1, z: 2.7278147}
+  m_LocalScale: {x: 2.6165304, y: 0.3837521, z: 1.1225817}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7

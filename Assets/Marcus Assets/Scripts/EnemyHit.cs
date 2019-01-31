@@ -21,10 +21,13 @@ public class EnemyHit : MonoBehaviour, IShootable
 
     public bool m_OnFire;
 
+    public bool m_Hit;
+
     private void Start()
     {
         m_OnAnim = true;
         m_OnFire = false;
+        m_Hit = false;
     }
 
     public virtual void OnShot(ArrowBase arrow)
@@ -42,6 +45,7 @@ public class EnemyHit : MonoBehaviour, IShootable
 
             if (m_OnAnim)
             {
+                m_Hit = true;
                 m_SlimeBase.anim.SetBool("IsDead", true);
 
                 if (m_Defend != null)
