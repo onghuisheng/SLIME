@@ -49,14 +49,11 @@ public class BarricadeDestruction : MonoBehaviour
             if (m_BarricadeHealth > 0)
             {
                 m_BarricadeHealth--;
-                CommanderSpeaker.Instance.PlaySpeaker("npc_damage" + Random.Range(2, 4).ToString(), AudioManager.AudioType.Additive, Random.Range(0, 0.5f));
             }
 
             // this is where the destruction happens
             else if (m_BarricadeHealth <= 0)
             {
-                CommanderSpeaker.Instance.PlaySpeaker("npc_damage" + Random.Range(2, 4).ToString(), AudioManager.AudioType.Additive, Random.Range(0, 0.5f));
-
                 // add Dust particles here ****************************
                 GameObject tempDust = Instantiate(dustParticles, transform.position, dustParticles.transform.rotation);
                 Destroy(tempDust, 5.0f);
@@ -80,6 +77,7 @@ public class BarricadeDestruction : MonoBehaviour
                 if (currentBarricade.transform.childCount == 0)
                 {
                     Destroy(currentBarricade);
+                    CommanderSpeaker.Instance.PlaySpeaker("npc_damage" + Random.Range(2, 4).ToString(), AudioManager.AudioType.Additive, Random.Range(0, 0.5f));
                 }
                 // this is for destroyed
                 else
