@@ -33,14 +33,13 @@ public class PlayerGameOver : MonoBehaviour
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
-            StartCoroutine(FadeOut(1.0f));
+            StartCoroutine(FadeOut(3));
         }
     }
 
     IEnumerator FadeOut(float time)
     {
-
-        var tween = m_FadeScreen.DOFade(255, time);
+        var tween = m_FadeScreen.DOFade(1, time);
         yield return tween.WaitForCompletion();
         
         var asyncLoad = SceneManager.LoadSceneAsync("Main Menu");
