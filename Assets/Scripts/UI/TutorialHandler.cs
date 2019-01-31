@@ -9,7 +9,10 @@ public class TutorialHandler : MonoBehaviour
     [SerializeField]
     private bool m_FadeOutOnStart;
 
+    [SerializeField]
     private Bell m_Bell;
+
+    [SerializeField]
     private BowString m_BowString;
 
     private bool m_IsBellRung = false;
@@ -22,11 +25,6 @@ public class TutorialHandler : MonoBehaviour
 
     }
 
-    private void OnValidate()
-    {
-        m_Bell = FindObjectOfType<Bell>();
-        m_BowString = FindObjectOfType<BowString>();
-    }
 
     private void Start()
     {
@@ -34,8 +32,7 @@ public class TutorialHandler : MonoBehaviour
         {
             StartCoroutine(FadeManager.Instance.FadeOut(1));
         }
-
-
+        
         // Start tutorial
         StartCoroutine(TutorialRoutine());
     }
@@ -49,7 +46,7 @@ public class TutorialHandler : MonoBehaviour
             {
                 CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial2", AudioManager.AudioType.Additive, 0, () =>
                 {
-                    m_Bell.OnItemDrop += OnBellItemDrop;
+                    m_Bell.OnItemDrop = OnBellItemDrop;
                 });
             }));
         });
@@ -59,7 +56,7 @@ public class TutorialHandler : MonoBehaviour
 
     void OnBellItemDrop(List<GameObject> items)
     {
-        m_Bell.OnItemDrop -= OnBellItemDrop;
+        m_Bell.OnItemDrop = null;
         m_IsBellRung = true;
         CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial3", AudioManager.AudioType.Additive, 1);
     }

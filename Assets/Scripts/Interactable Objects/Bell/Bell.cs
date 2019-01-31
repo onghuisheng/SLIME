@@ -64,7 +64,8 @@ public class Bell : MonoBehaviour, IShootable
 
         m_ChuteCheckerRedPanel.transform.DOLocalMoveY(m_ChuteCheckerInitialPositionY, 0.5f).SetDelay(m_RingCooldown).SetEase(Ease.OutExpo); // move panel back up after cd
 
-        OnItemDrop.Invoke(m_Items);
+        if (OnItemDrop != null)
+            OnItemDrop.Invoke(m_Items);
     }
 
 

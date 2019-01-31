@@ -21,6 +21,13 @@ public class SlimeManager : MonoBehaviour
     //[HideInInspector]
     public bool m_FinishSpawnWave;
 
+    public Material m_SlimeMaterial;
+    public Material m_GolemSlimeMaterial;
+    public Texture m_SlimeDefaultEmissive;
+    public Texture m_SlimeNightEmissive;
+    public Texture m_GolemSlimeDefaultEmissive;
+    public Texture m_GolemSlimeNightEmissive;
+
     public GameObject m_DayAndNight;
 
     public bool m_BreakTime;
@@ -47,7 +54,7 @@ public class SlimeManager : MonoBehaviour
         m_CurrentWave = 0;
         m_FinishSpawnWave = false;
     }
-    
+
     public void Remove()
     {
         foreach (GameObject go in m_SlimeInScene)
@@ -98,6 +105,28 @@ public class SlimeManager : MonoBehaviour
         }
 
         m_BreakTime = false;
+
+        // Changes the emissive during day/night
+        switch (m_CurrentWave)
+        {
+            case 0:
+                m_SlimeMaterial.SetTexture("_EmissionMap", m_SlimeDefaultEmissive);
+                m_GolemSlimeMaterial.SetTexture("_EmissionMap", m_GolemSlimeDefaultEmissive);
+                break;
+
+            case 1:
+                m_SlimeMaterial.SetTexture("_EmissionMap", m_SlimeDefaultEmissive);
+                m_GolemSlimeMaterial.SetTexture("_EmissionMap", m_GolemSlimeDefaultEmissive);
+                break;
+
+            case 2:
+                m_SlimeMaterial.SetTexture("_EmissionMap", m_SlimeNightEmissive);
+                m_GolemSlimeMaterial.SetTexture("_EmissionMap", m_GolemSlimeNightEmissive);
+                break;
+
+            default:
+                break;
+        }
 
         // ADD BREAK END SOUND
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 });

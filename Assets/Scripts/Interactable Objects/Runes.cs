@@ -12,6 +12,11 @@ public class Runes : GrabbableObject
     public float m_WaitBeforeTeleport;
     public SlimeManager.GameType m_LevelToLoad;
 
+    [SerializeField]
+    private GameObject m_LoadingLayer;
+    [SerializeField]
+    private SlimeBase m_SlimeBase;
+
     private bool isUsed = false;
     private bool isHolding = false;
 
@@ -61,10 +66,19 @@ public class Runes : GrabbableObject
 
                 m_TeleportParticles.Play(true);
 
+                StartCoroutine(FlashLoadingRoutine());
                 StartCoroutine(FlashOutRoutine());
             }
         }
 
+    }
+
+    IEnumerator FlashLoadingRoutine()
+    {
+        yield return new WaitForSeconds(4);
+
+        //enable loading layer
+        m_LoadingLayer.SetActive(true);
     }
 
     IEnumerator FlashOutRoutine()
@@ -116,6 +130,7 @@ public class Runes : GrabbableObject
         //insert fade out here
         //insert scene change here, after finish particles & fade out
         var asyncLoad = SceneManager.LoadSceneAsync("Gameplay");
+        asyncLoad.allowSceneActivation = false; //wont auto change when loaded
 
         asyncLoad.completed += (AsyncOperation ops) =>
         {
@@ -129,6 +144,16 @@ public class Runes : GrabbableObject
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                //if finished loading, make slimes dead
+                m_SlimeBase.DeductHealth(10);
+
+                yield return new WaitForSeconds(5f);
+                asyncLoad.allowSceneActivation = true;
+                yield break;
+            }
+
             yield return null;
         }
 

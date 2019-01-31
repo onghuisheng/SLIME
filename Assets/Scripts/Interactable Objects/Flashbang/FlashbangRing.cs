@@ -49,7 +49,7 @@ public class FlashbangRing : GrabbableObject
 
     public void ResetRing(Transform parent)
     {
-        GetComponent<Collider>().enabled = true;
+        GetComponent<Collider>().enabled = false;
         GetComponent<Collider>().isTrigger = true;
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = true;
