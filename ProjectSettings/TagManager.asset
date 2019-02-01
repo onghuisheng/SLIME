@@ -12,6 +12,7 @@ TagManager:
   - SlimeProjectile
   - Sponge
   - Oil
+  - Grenade
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,8 @@ public class Bow : GrabbableObject
     [SerializeField]
     private BowString m_BowDrawString;
 
+    public System.Action<GameObject> OnBowGrabbed;
+
     public override void OnGrab(MoveController currentController)
     {
         base.OnGrab(currentController);
@@ -18,6 +20,9 @@ public class Bow : GrabbableObject
         m_BowDrawString.GetComponent<Collider>().enabled = true; // Enable draw string to be grabbable only if the player is holding the bow
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = false;
+
+        if (OnBowGrabbed != null)
+            OnBowGrabbed.Invoke(gameObject);
     }
 
     public override void OnGrabReleased(MoveController currentController)
@@ -27,7 +32,7 @@ public class Bow : GrabbableObject
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Rigidbody>().isKinematic = false;
 
-        MoveController controller =  MoveController.GetControllerThatHolds(m_BowDrawString.gameObject);
+        MoveController controller = MoveController.GetControllerThatHolds(m_BowDrawString.gameObject);
 
         if (controller)
         {

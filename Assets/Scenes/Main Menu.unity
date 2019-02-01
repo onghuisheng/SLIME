@@ -14951,6 +14951,10 @@ Prefab:
       propertyPath: m_RespawnAfterActivated
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1289459992054954, guid: f1b897904fd709242845f4becd3f0350, type: 2}
+      propertyPath: m_TagString
+      value: Grenade
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1b897904fd709242845f4becd3f0350, type: 2}
   m_IsPrefabParent: 0
@@ -21454,6 +21458,10 @@ Prefab:
         type: 2}
       propertyPath: m_RespawnAfterActivated
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339575053621868, guid: 72eb3d9cb5029644090878012e1b3f26, type: 2}
+      propertyPath: m_TagString
+      value: Grenade
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72eb3d9cb5029644090878012e1b3f26, type: 2}

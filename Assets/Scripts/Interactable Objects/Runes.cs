@@ -63,6 +63,8 @@ public class Runes : GrabbableObject
         m_HoldParticles.Stop();
         isHolding = false;
 
+        m_WaitBeforeTeleport = 0;
+
         if (!isUsed && m_BubbleAudio != null)
         {
             m_BubbleAudio.Stop();

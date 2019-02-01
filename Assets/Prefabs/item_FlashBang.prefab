@@ -262,7 +262,7 @@ MonoBehaviour:
     type: 2}
   m_ConfuseParticle: {fileID: 1932183565944220, guid: bdf50c74689049a408192fd7f8874304,
     type: 2}
-  key: 107
+  m_RespawnAfterActivated: 0
 --- !u!114 &114210355121814664
 MonoBehaviour:
   m_ObjectHideFlags: 1

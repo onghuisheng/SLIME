@@ -31650,6 +31650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 279300649}
+  FadeOutOnStart: 0
   _fadeColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1272158010
 GameObject:
@@ -42440,27 +42441,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4112928809315222, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4970042999105524, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4110894276242422, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4397407731128286, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4334124226488848, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4087259450637408, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4433823195795368, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
       propertyPath: m_RootOrder
@@ -42474,7 +42475,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64768347327636412, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
+    - {fileID: 64059855932190768, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
+    - {fileID: 65409227499471812, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
+    - {fileID: 64619603879924980, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
+    - {fileID: 64365172267218526, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4aafa77c2ce836a4893e8a7f43397b46, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2093072054

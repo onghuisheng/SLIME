@@ -10,43 +10,49 @@ public class PlayerGameOver : MonoBehaviour
 
     public Image m_FadeScreen;
 
-    // Use this for initialization
-    void Start()
-    {
-        //For the commander
-        //CommanderSpeaker.Instance.PlaySpeaker()
-    }
+    private bool m_IsFading = false;
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerDamage.instance.m_DamageLevel == 3)
+        if (PlayerDamage.instance.m_DamageLevel == 3 && !m_IsFading)
         {
-            StartCoroutine(FadeOut(5.0f));
+            m_IsFading = true;
+            StartCoroutine(FadeOut(1));
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == null)
+        if (other == null || m_IsFading)
             return;
 
         if (other.GetComponent<SlimeHitBarricade>())
         {
-            StartCoroutine(FadeOut(3));
+            m_IsFading = true;
+            StartCoroutine(FadeOut(1));
         }
     }
 
     IEnumerator FadeOut(float time)
     {
         var tween = m_FadeScreen.DOFade(1, time);
+        CommanderSpeaker.Instance.PlaySpeaker("npc_death", AudioManager.AudioType.Additive, 1);
         yield return tween.WaitForCompletion();
-        
+
         var asyncLoad = SceneManager.LoadSceneAsync("Main Menu");
+        asyncLoad.allowSceneActivation = false;
 
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
+            if (asyncLoad.progress >= 0.9f)
+            {
+
+                asyncLoad.allowSceneActivation = true;
+            }
+
             yield return null;
         }
     }
