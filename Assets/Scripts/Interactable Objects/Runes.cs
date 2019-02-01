@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.PostProcessing;
+using DG.Tweening;
+
 
 public class Runes : GrabbableObject
 {
@@ -16,9 +19,16 @@ public class Runes : GrabbableObject
     private GameObject m_LoadingLayer;
     [SerializeField]
     private SlimeDeath m_SlimeDeath;
+    [SerializeField]
+    private Text m_Tips;
+
+    private Material m_Material;
+    private Color m_DefaultMaterialColor;
 
     private bool isUsed = false;
     private bool isHolding = false;
+
+    private static AudioSource m_BubbleAudio;
 
     //TO-DO:
     //if holding play hold particles
@@ -29,8 +39,12 @@ public class Runes : GrabbableObject
     // Use this for initialization
     void Start()
     {
+        m_Material = GetComponent<MeshRenderer>().material;
+        m_DefaultMaterialColor = m_Material.GetColor("_EmissionColor");
         m_HoldParticles.Stop();
         m_TeleportParticles.Stop();
+
+        m_BubbleAudio = null;
     }
 
     public override void OnGrab(MoveController currentController) //run once when picked up
@@ -38,6 +52,9 @@ public class Runes : GrabbableObject
         base.OnGrab(currentController);
         m_HoldParticles.Play();
         isHolding = true;
+
+        if (m_BubbleAudio == null)
+            m_BubbleAudio = AudioManager.Instance.Play2D("bubbles", AudioManager.AudioType.Additive).GetComponent<AudioSource>();
     }
 
     public override void OnGrabReleased(MoveController currentController)
@@ -45,6 +62,12 @@ public class Runes : GrabbableObject
         base.OnGrabReleased(currentController);
         m_HoldParticles.Stop();
         isHolding = false;
+
+        if (!isUsed && m_BubbleAudio != null)
+        {
+            m_BubbleAudio.Stop();
+            m_BubbleAudio = null;
+        }
     }
 
     // Update is called once per frame
@@ -68,7 +91,20 @@ public class Runes : GrabbableObject
 
                 StartCoroutine(FlashLoadingRoutine());
                 StartCoroutine(FlashOutRoutine());
+
+                m_Material.SetColor("_EmissionColor", m_DefaultMaterialColor * (Mathf.PingPong(Time.time, 1) + .25f));
             }
+
+        }
+
+        // Debug keys
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            OnGrab(null);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            OnGrabReleased(null);
         }
 
     }
@@ -79,6 +115,7 @@ public class Runes : GrabbableObject
 
         //enable loading layer
         m_LoadingLayer.SetActive(true);
+        m_Tips.DOFade(1, 1);
     }
 
     IEnumerator FlashOutRoutine()
@@ -149,7 +186,9 @@ public class Runes : GrabbableObject
                 //if finished loading, make slimes dead
                 m_SlimeDeath.RemoveFromScene();
 
-                yield return new WaitForSeconds(5f);
+                var tween = m_Tips.DOFade(0, 1.5f);
+
+                yield return tween.WaitForCompletion();
                 asyncLoad.allowSceneActivation = true;
                 yield break;
             }

@@ -17,6 +17,8 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
         private set { _isFading = value; }
     }
 
+    public bool FadeOutOnStart = false;
+
     public Color _fadeColor = Color.black;
     private Color _defoColor = Color.black;
     public Color ColorReset()
@@ -27,6 +29,14 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
     private void Awake()
     {
         _defoColor = _fadeColor;
+    }
+
+    private void Start()
+    {
+        if (FadeOutOnStart)
+        {
+            StartCoroutine(FadeOut(1));
+        }
     }
 
     public IEnumerator FadeIn(float interval)

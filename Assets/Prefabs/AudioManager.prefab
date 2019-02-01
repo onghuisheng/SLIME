@@ -232,7 +232,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 49db2a45633e00b48b7b8504311ef581, type: 3}
   - clipAlias: npc_catapultr2
     audioClip: {fileID: 8300000, guid: f61cfd4de3cd91046b25e515f8726d0d, type: 3}
-  - clipAlias: npc_damage1
+  - clipAlias: npc_what
     audioClip: {fileID: 8300000, guid: f86b522454e941a43be6f6fd3a874ac1, type: 3}
   - clipAlias: npc_damage2
     audioClip: {fileID: 8300000, guid: fb7afc970b05c3c4eba3920afd8baf06, type: 3}
@@ -252,9 +252,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 4ef04196d672ea2419591dce9e885348, type: 3}
   - clipAlias: npc_slimespotted
     audioClip: {fileID: 8300000, guid: d90bc118b7b6a5c4490b0e57aa3a52da, type: 3}
-  - clipAlias: npc_tutorial1a
+  - clipAlias: npc_tutorial11
     audioClip: {fileID: 8300000, guid: ee2fcd61c4696f14d870ed747d8fe421, type: 3}
-  - clipAlias: npc_tutorial1b
+  - clipAlias: npc_tutorial12
     audioClip: {fileID: 8300000, guid: c10f690321cbfb54289ac8f04d307f63, type: 3}
   - clipAlias: npc_tutorial2
     audioClip: {fileID: 8300000, guid: 8907a89022871c64ead7c2226e43561e, type: 3}
@@ -270,3 +270,5 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 09137a13843466044bec5317b2f652bb, type: 3}
   - clipAlias: npc_tutorialalt2
     audioClip: {fileID: 8300000, guid: 29ab1b5c382f7994eb668152f23cda48, type: 3}
+  - clipAlias: bubbles
+    audioClip: {fileID: 8300000, guid: 02bde7866a938f3498e956ddae244c57, type: 3}

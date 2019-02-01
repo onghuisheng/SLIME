@@ -6077,8 +6077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FadeOutOnStart: 0
-  m_Bell: {fileID: 0}
-  m_BowString: {fileID: 0}
+  m_Bell: {fileID: 931038584}
+  m_BowString: {fileID: 1228190969}
 --- !u!114 &279300649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31120,31 +31120,6 @@ Prefab:
     - target: {fileID: 4371614327027686, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
-        type: 2}
-      propertyPath: m_AudioClips.Array.data[45].clipAlias
-      value: npc_damage41
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
-        type: 2}
-      propertyPath: m_AudioClips.Array.data[46].clipAlias
-      value: npc_damage42
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
-        type: 2}
-      propertyPath: m_AudioClips.Array.data[52].clipAlias
-      value: npc_tutorial11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
-        type: 2}
-      propertyPath: m_AudioClips.Array.data[53].clipAlias
-      value: npc_tutorial12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
-        type: 2}
-      propertyPath: m_AudioClips.Array.data[42].clipAlias
-      value: npc_what
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
