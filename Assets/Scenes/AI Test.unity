@@ -10811,6 +10811,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FadeOutOnStart: 1
+  m_Bell: {fileID: 0}
+  m_BowString: {fileID: 0}
 --- !u!114 &658996500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25499,6 +25501,12 @@ MonoBehaviour:
   m_GolemSlimeWaves: 010000000200000005000000
   m_CurrentWave: 0
   m_FinishSpawnWave: 0
+  m_SlimeMaterial: {fileID: 0}
+  m_GolemSlimeMaterial: {fileID: 0}
+  m_SlimeDefaultEmissive: {fileID: 0}
+  m_SlimeNightEmissive: {fileID: 0}
+  m_GolemSlimeDefaultEmissive: {fileID: 0}
+  m_GolemSlimeNightEmissive: {fileID: 0}
   m_DayAndNight: {fileID: 1940397903}
   m_BreakTime: 0
 --- !u!4 &1296097859
@@ -26503,6 +26511,53 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1426816239}
   m_Mesh: {fileID: 4300000, guid: 62c11849f93f130448e2023e8d3ca53b, type: 3}
+--- !u!1001 &1443138341
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.32619035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.28257096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.102847405
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.89620084
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198913055300345924, guid: 56ba75417fa26d243b7c1c65eedb54d5,
+        type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1450195957
 GameObject:
   m_ObjectHideFlags: 0
@@ -44378,6 +44433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  FadeOutOnStart: 0
   _fadeColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2130445122
 GameObject:
