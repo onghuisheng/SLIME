@@ -74,7 +74,7 @@ public class SlimeManager : MonoBehaviour
             }
         }
 
-        if (m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_SlimeWaves[m_CurrentWave]/* && m_GolemSlimeInWave.Count == m_GolemSlimeWaves[m_CurrentWave]*/)
+        if (m_SlimeInScene.Count == 0 && m_FinishSpawnWave == true && m_SlimeInWave.Count == m_SlimeWaves[m_CurrentWave] && m_GolemSlimeInWave.Count == m_GolemSlimeWaves[m_CurrentWave])
         {
             m_SlimeInWave.Clear();
             m_GolemSlimeInWave.Clear();
