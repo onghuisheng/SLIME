@@ -28179,6 +28179,7 @@ MonoBehaviour:
     type: 3}
   m_DayAndNight: {fileID: 398482005}
   m_BreakTime: 0
+  m_GameFinish: 0
 --- !u!4 &785341261
 Transform:
   m_ObjectHideFlags: 0
@@ -30986,6 +30987,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1159684791}
+  - component: {fileID: 1159684792}
   m_Layer: 0
   m_Name: Player Stuffs
   m_TagString: Untagged
@@ -31008,6 +31010,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1159684792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1159684790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ceb37c8c7b06a44922db8510084535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FireWorks: {fileID: 1418673193005850, guid: 56ba75417fa26d243b7c1c65eedb54d5,
+    type: 2}
 --- !u!1 &1164414566
 GameObject:
   m_ObjectHideFlags: 0
@@ -31123,11 +31138,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
-        type: 2}
-      propertyPath: m_AudioClips.Array.data[63].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c2d2bfebcb771444cb9fc2a079008ff7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
   m_IsPrefabParent: 0
