@@ -35,7 +35,7 @@ public class Bell : MonoBehaviour, IShootable
 
     private float m_CurrentLatchTime = 0;
 
-    public System.Action<List<GameObject>> OnItemDrop;
+    public System.Action OnBellRung;
 
     private void Start()
     {
@@ -52,20 +52,16 @@ public class Bell : MonoBehaviour, IShootable
 
         AudioManager.Instance.Play3D("chuterelease", m_ItemDropPosition.position, AudioManager.AudioType.Additive);
 
-        List<GameObject> m_Items = new List<GameObject>();
-
         // Spawn a random object from the list with a randomized rotation
         foreach (var obj in m_ItemDropList)
         {
-            m_Items.Add(Instantiate(obj, m_ItemDropPosition.position, Quaternion.Euler(Random.Range(0, 360.0f), Random.Range(0, 360.0f), Random.Range(0, 360.0f))));
+            Instantiate(obj, m_ItemDropPosition.position, Quaternion.Euler(Random.Range(0, 360.0f), Random.Range(0, 360.0f), Random.Range(0, 360.0f)));
         }
 
         m_NextSpawnTime = Time.time + m_RingCooldown;
 
         m_ChuteCheckerRedPanel.transform.DOLocalMoveY(m_ChuteCheckerInitialPositionY, 0.5f).SetDelay(m_RingCooldown).SetEase(Ease.OutExpo); // move panel back up after cd
 
-        if (OnItemDrop != null)
-            OnItemDrop.Invoke(m_Items);
     }
 
 
@@ -90,6 +86,9 @@ public class Bell : MonoBehaviour, IShootable
                 m_CurrentDingCount = 0;
                 DropItem();
             }
+
+            if (OnBellRung != null)
+                OnBellRung.Invoke();
         }
     }
 
@@ -97,6 +96,9 @@ public class Bell : MonoBehaviour, IShootable
     {
         DropItem();
         AudioManager.Instance.Play3D("ding", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D() { volume = .5f, pitchOverride = 0.8f });
+
+        if (OnBellRung != null)
+            OnBellRung.Invoke();
     }
 
 }

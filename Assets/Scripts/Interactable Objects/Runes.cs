@@ -98,17 +98,7 @@ public class Runes : GrabbableObject
             }
 
         }
-
-        // Debug keys
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            OnGrab(null);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            OnGrabReleased(null);
-        }
-
+        
     }
 
     IEnumerator FlashLoadingRoutine()

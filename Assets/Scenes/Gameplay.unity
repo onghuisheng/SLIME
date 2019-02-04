@@ -5197,6 +5197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FlameParticles: {fileID: 348501519}
   m_FlamingDuration: 60
+  m_TutorialHandler: {fileID: 279300648}
   isFirstShot: 1
   m_SpawnPointGO1: {fileID: 225340614}
   m_SpawnPointGO2: {fileID: 620943284}
@@ -6078,7 +6079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FadeOutOnStart: 0
   m_Bell: {fileID: 931038584}
-  m_BowString: {fileID: 1228190969}
+  m_Bow: {fileID: 375683097}
 --- !u!114 &279300649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6092,7 +6093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -16454,7 +16455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420160492}
   m_LocalRotation: {x: -0, y: 0.08715578, z: -0, w: 0.9961947}
-  m_LocalPosition: {x: -13.99, y: 0.15999997, z: 1.57}
+  m_LocalPosition: {x: -13.99, y: -0.331, z: 1.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1390910820}
@@ -17896,6 +17897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FlameParticles: {fileID: 405657331}
   m_FlamingDuration: 60
+  m_TutorialHandler: {fileID: 279300648}
   isFirstShot: 1
   m_SpawnPointGO1: {fileID: 225340614}
   m_SpawnPointGO2: {fileID: 620943284}
@@ -31095,7 +31097,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4371614327027686, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4371614327027686, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -31121,6 +31123,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.data[63].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2d2bfebcb771444cb9fc2a079008ff7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
   m_IsPrefabParent: 0
@@ -31225,7 +31232,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1207403736}
   m_LocalRotation: {x: -0, y: 0.08715578, z: -0, w: 0.9961948}
-  m_LocalPosition: {x: -6.52, y: 0.15999997, z: 12.62}
+  m_LocalPosition: {x: -6.52, y: -0.124, z: 12.62}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 1390910820}

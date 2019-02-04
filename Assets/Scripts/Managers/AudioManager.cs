@@ -93,35 +93,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Instance.Play3D("ding", transform.position, AudioType.Additive, new AudioSourceData3D()
-            {
-                loop = true
-            });
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Instance.Play3D("ding", transform.position, AudioType.Queue);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Instance.Play2D("flashbangboom", AudioType.Additive, new AudioSourceData2D()
-            {
-                loop = true
-            });
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Instance.Play2D("flashbangboom", AudioType.Queue);
-        }
-    }
-
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
@@ -186,7 +157,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         if (audioSourceData == null)
             audioSourceData = new AudioSourceData3D();
 
-        GameObject obj = new GameObject((audioSourceData.spatialBlend == 0) ? "[2D_AudioSource]" : "[3D_AudioSource]");
+        GameObject obj = new GameObject((audioSourceData.spatialBlend == 0) ? "[2D_AudioSource] - " + clipAlias : "[3D_AudioSource] - " + clipAlias);
         obj.transform.parent = transform;
         obj.transform.position = position;
 
@@ -261,7 +232,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             AudioSource source = announceInfo.audioSource;
             source.clip = announceInfo.audioClip;
             source.PlayDelayed(announceInfo.delayInSeconds);
-            StartCoroutine(PlayNextRoutine((source.clip.length + announceInfo.delayInSeconds) / source.pitch, announceInfo.onComplete)); 
+            StartCoroutine(PlayNextRoutine((source.clip.length + announceInfo.delayInSeconds) / source.pitch, announceInfo.onComplete));
         }
     }
 

@@ -32,21 +32,7 @@ public class FlashbangRing : GrabbableObject
             m_IsTriggered = true;
         }
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
-            transform.parent = null;
-            GetComponent<Collider>().isTrigger = false;
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().isKinematic = false;
-            m_FlashBang.StartFuse();
-            AudioManager.Instance.Play3D("flashbangpull", transform.position, AudioManager.AudioType.Additive);
-            m_IsTriggered = true;
-        }
-    }
-
+    
     public void ResetRing(Transform parent)
     {
         GetComponent<Collider>().enabled = false;

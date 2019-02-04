@@ -89,6 +89,20 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
         }
     }
 
+    public void StopSpeaker()
+    {
+        var audios = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource audio in audios)
+        {
+            if (audio.name.Contains("npc_"))
+            {
+                audio.Stop();
+                Destroy(audio.gameObject);
+            }
+        }
+    }
+
     public GameObject PlaySpeaker(string clipAlias, AudioManager.AudioType audioType, float delayInSeconds = 0, System.Action onComplete = null)
     {
         return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, delayInSeconds, onComplete);

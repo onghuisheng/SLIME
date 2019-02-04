@@ -11,8 +11,11 @@ public class Bonfire : MonoBehaviour, IShootable
     [SerializeField, Range(1, 100)]
     private float m_FlamingDuration;
 
-    private GameObject m_bonfireloop;
+    [SerializeField]
+    private TutorialHandler m_TutorialHandler;
 
+    private GameObject m_bonfireloop;
+    
     bool isLighted = false;
 
     public bool isFirstShot = true;
@@ -33,6 +36,7 @@ public class Bonfire : MonoBehaviour, IShootable
             //If it is first time, send in the wave
             if (isFirstShot)
             {
+                m_TutorialHandler.EndTutorial();
                 StartWave();
             }
         }

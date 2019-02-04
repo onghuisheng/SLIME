@@ -16,13 +16,15 @@ public class TutorialHandler : MonoBehaviour
     private Bow m_Bow;
 
     private bool m_IsBellRung = false;
+    private bool m_IsBowPicked = false;
+    private bool m_IsEnded = false;
+    public bool isTutorialDone { get { return (m_IsBellRung && m_IsBowPicked); } }
 
     private enum Instruction
     {
         None,
         RingBell,
-        FireBow,
-
+        FireBow
     }
 
 
@@ -32,33 +34,106 @@ public class TutorialHandler : MonoBehaviour
         {
             StartCoroutine(FadeManager.Instance.FadeOut(1));
         }
-        
+
         // Start tutorial
-        StartCoroutine(TutorialRoutine());
+        TutorialRoutine();
     }
 
-    private IEnumerator TutorialRoutine()
+    private void TutorialRoutine()
     {
-        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial11", AudioManager.AudioType.Queue, 1);
-        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial12", AudioManager.AudioType.Queue, 2, () =>
+        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial11", AudioManager.AudioType.Queue, 1); // hey 
+        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial12", AudioManager.AudioType.Queue, 2, () => // hey stop day dreaming
         {
             StartCoroutine(FadeManager.Instance.FadeOut(3, 1, () =>
             {
-                CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial3", AudioManager.AudioType.Additive, 0, () =>
+                CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial2", AudioManager.AudioType.Additive, 0, () => // ring the bell on the right
                 {
-                    m_Bell.OnItemDrop += OnBellItemDrop;
+                    m_Bell.OnBellRung += OnBellRung;
+                    StartCoroutine(RepeatRoutine(8, true, "npc_tutorial2"));
                 });
             }));
         });
-
-        yield break;
     }
 
-    void OnBellItemDrop(List<GameObject> items)
+    void OnBellRung()
     {
-        m_Bell.OnItemDrop -= OnBellItemDrop;
+        m_Bell.OnBellRung -= OnBellRung;
         m_IsBellRung = true;
-        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial3", AudioManager.AudioType.Additive, 1);
+
+        StopAllCoroutines();
+        CommanderSpeaker.Instance.StopSpeaker();
+
+        CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_goodjob" : "npc_welldone"), AudioManager.AudioType.Additive, 0.5f, () =>
+        {
+            CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorial31" : "npc_tutorial32"), AudioManager.AudioType.Additive, 1, () => // your weapon is on your left
+            {
+                m_Bow.OnBowGrabbed += OnBowGrabbed;
+                StartCoroutine(RepeatRoutine(8, true, "npc_tutorial31", "npc_tutorial32"));
+            });
+        });
+    }
+
+    void OnBowGrabbed(GameObject bow)
+    {
+        m_Bow.OnBowGrabbed -= OnBowGrabbed;
+        m_IsBowPicked = true;
+
+        StopAllCoroutines();
+        CommanderSpeaker.Instance.StopSpeaker();
+
+        CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_goodjob" : "npc_welldone"), AudioManager.AudioType.Additive, 0, () =>
+        {
+            CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial51", AudioManager.AudioType.Additive, 1, () => // when you're ready, light up your arrow
+            {
+
+                StartCoroutine(RepeatRoutine(8, false, "npc_tutorial52"));
+            });
+        });
+    }
+
+    IEnumerator RepeatRoutine(float startDelay, bool useWhat, params string[] repeatClipAlias)
+    {
+        yield return new WaitForSeconds(startDelay);
+
+        while (true)
+        {
+            if (useWhat)
+            {
+                CommanderSpeaker.Instance.PlaySpeaker("npc_what", AudioManager.AudioType.Additive, 0, () =>
+                {
+                    string clipAlias = repeatClipAlias[Random.Range(0, repeatClipAlias.Length)];
+
+                    CommanderSpeaker.Instance.PlaySpeaker(clipAlias, AudioManager.AudioType.Additive, 0.5f, () =>
+                    {
+
+                    });
+                });
+            }
+            else
+            {
+                string clipAlias = repeatClipAlias[Random.Range(0, repeatClipAlias.Length)];
+
+                CommanderSpeaker.Instance.PlaySpeaker(clipAlias, AudioManager.AudioType.Additive, 0.5f, () =>
+                {
+
+                });
+            }
+
+            yield return new WaitForSeconds(startDelay);
+        }
+    }
+
+    public void EndTutorial()
+    {
+        m_IsEnded = true;
+
+        StopAllCoroutines();
+        AudioManager.Instance.StopAllCoroutines();
+
+        CommanderSpeaker.Instance.StopSpeaker();
+
+        if (!isTutorialDone)
+            CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorial51" : "npc_tutorial52"), AudioManager.AudioType.Additive, 0);
     }
 
 }

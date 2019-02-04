@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1732236537642746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -242,7 +242,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 2c90e5336196d2f4189163c32c340724, type: 3}
   - clipAlias: npc_damage42
     audioClip: {fileID: 8300000, guid: 7b4b326d2a708c44a967f2f3b5a8a749, type: 3}
-  - clipAlias: npc_death
+  - clipAlias: npc_death1
     audioClip: {fileID: 8300000, guid: b0617a4c19a0d774fa715385e561ce50, type: 3}
   - clipAlias: npc_quit1
     audioClip: {fileID: 8300000, guid: 75a8f4c003e97f14ca4c2fdc96f5ebb6, type: 3}
@@ -258,13 +258,13 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: c10f690321cbfb54289ac8f04d307f63, type: 3}
   - clipAlias: npc_tutorial2
     audioClip: {fileID: 8300000, guid: 8907a89022871c64ead7c2226e43561e, type: 3}
-  - clipAlias: npc_tutorial3
+  - clipAlias: npc_tutorial31
     audioClip: {fileID: 8300000, guid: f8a0ff19b42d8d94ebb966a9688cfb9f, type: 3}
   - clipAlias: npc_tutorial4
     audioClip: {fileID: 8300000, guid: da5150b77e6abfc41b92a6e366598a28, type: 3}
-  - clipAlias: npc_tutorial5
+  - clipAlias: npc_tutorial51
     audioClip: {fileID: 8300000, guid: 84191b0ebf3be6c42b199e22d604cbae, type: 3}
-  - clipAlias: npc_tutorial5a
+  - clipAlias: npc_tutorial52
     audioClip: {fileID: 8300000, guid: 2526a5a2987076849be187f5e5e797cc, type: 3}
   - clipAlias: npc_tutorialalt1
     audioClip: {fileID: 8300000, guid: 09137a13843466044bec5317b2f652bb, type: 3}
@@ -272,3 +272,17 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 29ab1b5c382f7994eb668152f23cda48, type: 3}
   - clipAlias: bubbles
     audioClip: {fileID: 8300000, guid: 02bde7866a938f3498e956ddae244c57, type: 3}
+  - clipAlias: npc_breakstart
+    audioClip: {fileID: 8300000, guid: 244cb3c5cc2b0934ba524bfa806e9bf5, type: 3}
+  - clipAlias: npc_victory
+    audioClip: {fileID: 8300000, guid: c2d2bfebcb771444cb9fc2a079008ff7, type: 3}
+  - clipAlias: npc_death2
+    audioClip: {fileID: 8300000, guid: 95b28a48e337f6447a27d62a11d21ae5, type: 3}
+  - clipAlias: npc_death3
+    audioClip: {fileID: 8300000, guid: 2270b1a951b92ec46866914b8c569443, type: 3}
+  - clipAlias: npc_tutorial32
+    audioClip: {fileID: 8300000, guid: 33d1e812898f3124381b5f6e113197c4, type: 3}
+  - clipAlias: npc_welldone
+    audioClip: {fileID: 8300000, guid: f3e87539c067dbe48942ae7c84201366, type: 3}
+  - clipAlias: npc_goodjob
+    audioClip: {fileID: 8300000, guid: 331d5ea0a5f8eae469c35858d4a4f39f, type: 3}
