@@ -31,6 +31,7 @@ public class SlimeManager : MonoBehaviour
     public GameObject m_DayAndNight;
 
     public bool m_BreakTime;
+    public bool m_GameFinish;
 
     public enum GameType
     {
@@ -53,6 +54,7 @@ public class SlimeManager : MonoBehaviour
 
         m_CurrentWave = 0;
         m_FinishSpawnWave = false;
+        m_GameFinish = false;
     }
 
     public void Remove()
@@ -95,6 +97,7 @@ public class SlimeManager : MonoBehaviour
     {
         if (m_CurrentWave == 2 && m_GameType == GameType.Normal)
         {
+            m_GameFinish = true;
             yield break;
         }
 
