@@ -93,10 +93,9 @@ public class Runes : GrabbableObject
 
                 StartCoroutine(FlashLoadingRoutine());
                 StartCoroutine(FlashOutRoutine());
-
-                m_Material.SetColor("_EmissionColor", m_DefaultMaterialColor * (Mathf.PingPong(Time.time, 1) + .25f));
             }
 
+            m_Material.SetColor("_EmissionColor", m_DefaultMaterialColor * (Mathf.PingPong(Time.time, 1) + .25f));
         }
         
     }

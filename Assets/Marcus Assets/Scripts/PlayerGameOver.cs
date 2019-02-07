@@ -11,7 +11,7 @@ public class PlayerGameOver : MonoBehaviour
     public Image m_FadeScreen;
 
     private bool m_IsFading = false;
-    
+
 
     // Update is called once per frame
     void Update()
@@ -31,7 +31,6 @@ public class PlayerGameOver : MonoBehaviour
         if (other.GetComponent<SlimeHitBarricade>())
         {
             m_IsFading = true;
-            CommanderSpeaker.Instance.PlaySpeaker("npc_death", AudioManager.AudioType.Additive, 1);
             KillPlayer();
         }
     }
@@ -43,6 +42,8 @@ public class PlayerGameOver : MonoBehaviour
 
     IEnumerator FadeOut(float time)
     {
+        var audio = CommanderSpeaker.Instance.PlaySpeaker(RandomEx.RandomString("npc_death1", "npc_death2", "npc_death3"), AudioManager.AudioType.Additive, 0.5f).GetComponent<AudioSource>();
+
         var tween = m_FadeScreen.DOFade(1, time);
         yield return tween.WaitForCompletion();
 
@@ -52,9 +53,9 @@ public class PlayerGameOver : MonoBehaviour
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)
         {
-            if (asyncLoad.progress >= 0.9f)
+            // wait until audio finished playing
+            if (asyncLoad.progress >= 0.9f && !audio.isPlaying)
             {
-
                 asyncLoad.allowSceneActivation = true;
             }
 

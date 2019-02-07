@@ -44,6 +44,9 @@ public class QuitLever : StationaryObject
                 m_IsEnabled = false;
                 AudioManager.Instance.Play3D("leverclick", transform.position, AudioManager.AudioType.Additive, 0, () =>
                 {
+                    CommanderSpeaker.Instance.StopSpeaker();
+                    AudioManager.Instance.StopAllCoroutines();
+
                     // DO scene change here 
                     CommanderSpeaker.Instance.PlaySpeaker("npc_quit2", AudioManager.AudioType.Additive, 0, () =>
                     {

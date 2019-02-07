@@ -21,12 +21,6 @@ public class SlimeDeath : MonoBehaviour
         m_Despawn = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void RemoveFromScene()
     {
         if (m_SlimeBase.m_DeathParticles != null)
