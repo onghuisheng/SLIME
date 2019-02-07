@@ -18,7 +18,7 @@ public class PlayerVictory : MonoBehaviour
     void Update()
     {
 
-        if (SlimeManager.instance.m_GameFinish == true)
+        if (SlimeManager.instance.m_GameFinish == true && m_Spawn == false)
         {
             m_Spawn = true;
             Instantiate(m_FireWorks, m_FireWorks.transform.position, m_FireWorks.transform.rotation);
