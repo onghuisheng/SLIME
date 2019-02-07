@@ -139,5 +139,5 @@ public class TutorialHandler : MonoBehaviour
         if (!isTutorialDone)
             CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorialalt1" : "npc_tutorialalt2"), AudioManager.AudioType.Additive, 0);
     }
-
+    
 }

@@ -28163,7 +28163,7 @@ MonoBehaviour:
   m_SlimeInWave: []
   m_GolemSlimeInWave: []
   m_SlimeWaves: 040000000800000010000000
-  m_GolemSlimeWaves: 010000000200000005000000
+  m_GolemSlimeWaves: 010000000300000005000000
   m_CurrentWave: 0
   m_FinishSpawnWave: 0
   m_SlimeMaterial: {fileID: 2100000, guid: 27526e2aa52ee58479cee80795666376, type: 2}

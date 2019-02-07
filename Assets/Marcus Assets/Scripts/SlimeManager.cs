@@ -86,7 +86,7 @@ public class SlimeManager : MonoBehaviour
             // ADD BREAK START SOUND
             AudioManager.Instance.Play2D("shortsmallhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 0.6f }, 1, () =>
             {
-                if (m_CurrentWave < 3 || m_GameType == GameType.Infinite)
+                if (m_CurrentWave < 2 || m_GameType == GameType.Infinite)
                     CommanderSpeaker.Instance.PlaySpeaker("npc_breakstart", AudioManager.AudioType.Additive, 0.5f);
             });
 

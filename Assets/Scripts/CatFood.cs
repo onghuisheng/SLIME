@@ -17,10 +17,13 @@ public class CatFood : MonoBehaviour
 
     void Update()
     {
-        //    if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonGrab))
-        //    {
-        //        m_Target.transform.Translate(0, Time.deltaTime, 0);
-        //    }
+        if (m_LeftControl.GetButton(MoveControllerButton.MiddleButton))
+        {
+            foreach (var enemy in FindObjectsOfType<EnemyHit>())
+            {
+                enemy.OnShot(null);
+            }
+        }
 
         //    if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonUse))
         //    {
@@ -36,7 +39,7 @@ public class CatFood : MonoBehaviour
         //    {
         //        m_Target2.transform.Translate(0, -Time.deltaTime, 0);
         //    }
-                
+
 
         //// Register all buttons to the dictionary
         //foreach (var key in System.Enum.GetValues(typeof(KeyCode)))
