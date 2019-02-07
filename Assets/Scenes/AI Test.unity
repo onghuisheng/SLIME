@@ -1854,6 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FlameParticles: {fileID: 714035843}
   m_FlamingDuration: 60
+  m_TutorialHandler: {fileID: 0}
   isFirstShot: 1
   m_SpawnPointGO1: {fileID: 2053709784}
   m_SpawnPointGO2: {fileID: 1673105574}
@@ -12695,6 +12696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FireWorks: {fileID: 1418673193005850, guid: 56ba75417fa26d243b7c1c65eedb54d5,
     type: 2}
+  m_Spawn: 0
 --- !u!1 &901182853
 GameObject:
   m_ObjectHideFlags: 0
@@ -19713,6 +19715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FlameParticles: {fileID: 1451789990}
   m_FlamingDuration: 60
+  m_TutorialHandler: {fileID: 0}
   isFirstShot: 1
   m_SpawnPointGO1: {fileID: 2053709784}
   m_SpawnPointGO2: {fileID: 1673105574}
@@ -25523,6 +25526,7 @@ MonoBehaviour:
   m_GolemSlimeNightEmissive: {fileID: 0}
   m_DayAndNight: {fileID: 1940397903}
   m_BreakTime: 0
+  m_GameFinish: 0
 --- !u!4 &1296097859
 Transform:
   m_ObjectHideFlags: 0
@@ -39334,40 +39338,35 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.52
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.41
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -8.96
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.32619035
+      value: -0.24684007
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.28257096
+      value: -0.29045945
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.102847405
+      value: -0.07782836
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.89620084
+      value: 0.9212199
       objectReference: {fileID: 0}
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 198868517024981878, guid: 56ba75417fa26d243b7c1c65eedb54d5,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
