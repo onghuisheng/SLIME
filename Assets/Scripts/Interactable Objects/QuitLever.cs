@@ -45,6 +45,10 @@ public class QuitLever : StationaryObject
                 AudioManager.Instance.Play3D("leverclick", transform.position, AudioManager.AudioType.Additive, 0, () =>
                 {
                     // DO scene change here 
+                    CommanderSpeaker.Instance.PlaySpeaker("npc_quit2", AudioManager.AudioType.Additive, 0, () =>
+                    {
+                        FindObjectOfType<PlayerGameOver>().KillPlayer();
+                    });
                 });
             }
 

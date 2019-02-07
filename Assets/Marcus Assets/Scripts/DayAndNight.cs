@@ -69,6 +69,7 @@ public class DayAndNight : MonoBehaviour
             ps.Stop(true);
         }
 
+        m_DayAudioLoop = AudioManager.Instance.Play2D("dayambient", AudioManager.AudioType.Additive, new AudioSourceData2D() { loop = true });
     }
 
     // Update is called once per frame
