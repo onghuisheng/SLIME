@@ -215,7 +215,7 @@ MonoBehaviour:
   - clipAlias: woodbreak
     audioClip: {fileID: 8300000, guid: ee5641621e0cf794098dc97f9fe51708, type: 3}
   - clipAlias: leverclick
-    audioClip: {fileID: 8300000, guid: 704b54cbea36c39428cec1a52f16fc53, type: 3}
+    audioClip: {fileID: 8300000, guid: 0e4da90a77890104dad71e6d532676b6, type: 3}
   - clipAlias: shortsmallhorn
     audioClip: {fileID: 8300000, guid: 315408052a0e79545979c370cdd6c17e, type: 3}
   - clipAlias: npc_incoming

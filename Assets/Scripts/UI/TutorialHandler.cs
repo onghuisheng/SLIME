@@ -20,19 +20,12 @@ public class TutorialHandler : MonoBehaviour
     private bool m_IsEnded = false;
     public bool isTutorialDone { get { return (m_IsBellRung && m_IsBowPicked); } }
 
-    private enum Instruction
-    {
-        None,
-        RingBell,
-        FireBow
-    }
-
 
     private void Start()
     {
         if (m_FadeOutOnStart)
         {
-            StartCoroutine(FadeManager.Instance.FadeOut(1));
+            StartCoroutine(FadeManager.Instance.FadeOut(2));
         }
 
         // Start tutorial
@@ -103,21 +96,13 @@ public class TutorialHandler : MonoBehaviour
                 CommanderSpeaker.Instance.PlaySpeaker("npc_what", AudioManager.AudioType.Additive, 0, () =>
                 {
                     string clipAlias = repeatClipAlias[Random.Range(0, repeatClipAlias.Length)];
-
-                    CommanderSpeaker.Instance.PlaySpeaker(clipAlias, AudioManager.AudioType.Additive, 0.5f, () =>
-                    {
-
-                    });
+                    CommanderSpeaker.Instance.PlaySpeaker(clipAlias, AudioManager.AudioType.Additive, 0.5f);
                 });
             }
             else
             {
                 string clipAlias = repeatClipAlias[Random.Range(0, repeatClipAlias.Length)];
-
-                CommanderSpeaker.Instance.PlaySpeaker(clipAlias, AudioManager.AudioType.Additive, 0.5f, () =>
-                {
-
-                });
+                CommanderSpeaker.Instance.PlaySpeaker(clipAlias, AudioManager.AudioType.Additive, 0.5f);
             }
 
             yield return new WaitForSeconds(startDelay);
@@ -139,5 +124,5 @@ public class TutorialHandler : MonoBehaviour
         if (!isTutorialDone)
             CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorialalt1" : "npc_tutorialalt2"), AudioManager.AudioType.Additive, 0);
     }
-    
+
 }

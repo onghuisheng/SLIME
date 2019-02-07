@@ -42,6 +42,8 @@ public class PlayerGameOver : MonoBehaviour
 
     IEnumerator FadeOut(float time)
     {
+        CommanderSpeaker.Instance.StopSpeaker();
+        AudioManager.Instance.StopAllCoroutines();
         var audio = CommanderSpeaker.Instance.PlaySpeaker(RandomEx.RandomString("npc_death1", "npc_death2", "npc_death3"), AudioManager.AudioType.Additive, 0.5f).GetComponent<AudioSource>();
 
         var tween = m_FadeScreen.DOFade(1, time);
@@ -54,7 +56,7 @@ public class PlayerGameOver : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             // wait until audio finished playing
-            if (asyncLoad.progress >= 0.9f && !audio.isPlaying)
+            if (asyncLoad.progress >= 0.9f && (audio == null || !audio.isPlaying))
             {
                 asyncLoad.allowSceneActivation = true;
             }
@@ -62,4 +64,5 @@ public class PlayerGameOver : MonoBehaviour
             yield return null;
         }
     }
+
 }
