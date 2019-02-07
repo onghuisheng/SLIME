@@ -98,6 +98,7 @@ public class SlimeManager : MonoBehaviour
     {
         if (m_CurrentWave == 2 && m_GameType == GameType.Normal)
         {
+            m_GameFinish = true;
             yield break;
         }
 
