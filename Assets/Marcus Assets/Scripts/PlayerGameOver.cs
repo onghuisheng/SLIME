@@ -16,7 +16,7 @@ public class PlayerGameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerDamage.instance.m_DamageLevel == 3 && !m_IsFading)
+        if (PlayerDamage.instance.m_DamageLevel == 4 && !m_IsFading)
         {
             m_IsFading = true;
             StartCoroutine(FadeOut(1));
