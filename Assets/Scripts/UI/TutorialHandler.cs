@@ -61,6 +61,7 @@ public class TutorialHandler : MonoBehaviour
         m_IsBellRung = true;
 
         StopAllCoroutines();
+        AudioManager.Instance.StopAllCoroutines();
         CommanderSpeaker.Instance.StopSpeaker();
 
         CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_goodjob" : "npc_welldone"), AudioManager.AudioType.Additive, 0.5f, () =>
@@ -79,13 +80,13 @@ public class TutorialHandler : MonoBehaviour
         m_IsBowPicked = true;
 
         StopAllCoroutines();
+        AudioManager.Instance.StopAllCoroutines();
         CommanderSpeaker.Instance.StopSpeaker();
 
         CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_goodjob" : "npc_welldone"), AudioManager.AudioType.Additive, 0, () =>
         {
             CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial51", AudioManager.AudioType.Additive, 1, () => // when you're ready, light up your arrow
             {
-
                 StartCoroutine(RepeatRoutine(8, false, "npc_tutorial52"));
             });
         });
@@ -127,13 +128,16 @@ public class TutorialHandler : MonoBehaviour
     {
         m_IsEnded = true;
 
+        m_Bow.OnBowGrabbed = null;
+        m_Bell.OnBellRung = null;
+
         StopAllCoroutines();
         AudioManager.Instance.StopAllCoroutines();
 
         CommanderSpeaker.Instance.StopSpeaker();
 
         if (!isTutorialDone)
-            CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorial51" : "npc_tutorial52"), AudioManager.AudioType.Additive, 0);
+            CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorialalt1" : "npc_tutorialalt2"), AudioManager.AudioType.Additive, 0);
     }
-
+    
 }

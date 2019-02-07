@@ -28163,7 +28163,7 @@ MonoBehaviour:
   m_SlimeInWave: []
   m_GolemSlimeInWave: []
   m_SlimeWaves: 040000000800000010000000
-  m_GolemSlimeWaves: 010000000200000005000000
+  m_GolemSlimeWaves: 010000000300000005000000
   m_CurrentWave: 0
   m_FinishSpawnWave: 0
   m_SlimeMaterial: {fileID: 2100000, guid: 27526e2aa52ee58479cee80795666376, type: 2}
@@ -31023,6 +31023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FireWorks: {fileID: 1418673193005850, guid: 56ba75417fa26d243b7c1c65eedb54d5,
     type: 2}
+  m_Spawn: 0
 --- !u!1 &1164414566
 GameObject:
   m_ObjectHideFlags: 0
@@ -31138,6 +31139,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.data[33].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e4da90a77890104dad71e6d532676b6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
   m_IsPrefabParent: 0
@@ -40244,7 +40250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1760181424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2661, y: 0.79499996, z: -0.008}
+  m_LocalPosition: {x: 0.26, y: 0.6801, z: -0.0062}
   m_LocalScale: {x: 0.30941415, y: 0.3094141, z: 0.30941415}
   m_Children: []
   m_Father: {fileID: 457807277}

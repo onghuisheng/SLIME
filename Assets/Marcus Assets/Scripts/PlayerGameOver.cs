@@ -16,7 +16,7 @@ public class PlayerGameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerDamage.instance.m_DamageLevel == 3 && !m_IsFading)
+        if (PlayerDamage.instance.m_DamageLevel == 4 && !m_IsFading)
         {
             m_IsFading = true;
             StartCoroutine(FadeOut(1));
@@ -31,14 +31,19 @@ public class PlayerGameOver : MonoBehaviour
         if (other.GetComponent<SlimeHitBarricade>())
         {
             m_IsFading = true;
-            StartCoroutine(FadeOut(1));
+            CommanderSpeaker.Instance.PlaySpeaker("npc_death", AudioManager.AudioType.Additive, 1);
+            KillPlayer();
         }
+    }
+
+    public void KillPlayer()
+    {
+        StartCoroutine(FadeOut(1));
     }
 
     IEnumerator FadeOut(float time)
     {
         var tween = m_FadeScreen.DOFade(1, time);
-        CommanderSpeaker.Instance.PlaySpeaker("npc_death", AudioManager.AudioType.Additive, 1);
         yield return tween.WaitForCompletion();
 
         var asyncLoad = SceneManager.LoadSceneAsync("Main Menu");

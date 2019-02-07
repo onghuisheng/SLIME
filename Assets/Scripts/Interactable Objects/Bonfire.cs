@@ -44,10 +44,7 @@ public class Bonfire : MonoBehaviour, IShootable
 
     public void StartWave()
     {
-        //this..is kinda... ew.. so please improve this :,UUU
-
-        //Play horn audio only if the game objects are inactive
-        //This isnt working im not too sure why. :,u
+        //this..is kinda... ew.. so please improve this :,UUU        
         foreach (var bonfire in FindObjectsOfType<Bonfire>())
         {
             bonfire.isFirstShot = false;
@@ -100,7 +97,14 @@ public class Bonfire : MonoBehaviour, IShootable
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            StartWave();
+            ToggleFire(true);
+
+            //If it is first time, send in the wave
+            if (isFirstShot)
+            {
+                m_TutorialHandler.EndTutorial();
+                StartWave();
+            }
         }
     }
 }
