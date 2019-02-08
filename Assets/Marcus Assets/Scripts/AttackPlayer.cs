@@ -27,6 +27,7 @@ public class AttackPlayer : MonoBehaviour {
             other.GetComponentInChildren<Animator>().SetBool("IsDefending", false);
             other.transform.DOLookAt(new Vector3(transform.position.x, other.transform.position.y, transform.position.z), 1, AxisConstraint.Y);
             other.GetComponent<NavMeshAgent>().enabled = false;
+            other.GetComponentInChildren<GolemAttack>().m_AttackPlayer = true;
         }
     }
 

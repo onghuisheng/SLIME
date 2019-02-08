@@ -8811,6 +8811,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 459130588}
     m_Modifications:
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.size
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 4371614327027686, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8853,6 +8858,16 @@ Prefab:
       propertyPath: m_AudioClips.Array.data[46].clipAlias
       value: npc_damage42
       objectReference: {fileID: 0}
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.data[69].clipAlias
+      value: SSSSergh
+      objectReference: {fileID: 0}
+    - target: {fileID: 114174254982430316, guid: d448eec1c2c8bad43863d30a85d8e4b0,
+        type: 2}
+      propertyPath: m_AudioClips.Array.data[69].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f2524631c9206ef4d8ef3f62a1bab8a3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d448eec1c2c8bad43863d30a85d8e4b0, type: 2}
   m_IsPrefabParent: 0
@@ -12092,6 +12107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9651cbb404ca3494697483a853fcb491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SlimeManager: {fileID: 0}
   m_ArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArtilleryPrefab: {fileID: 1289459992054954, guid: ff719c52c47ad97418503e115e2f21d9,
@@ -13630,6 +13646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9651cbb404ca3494697483a853fcb491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SlimeManager: {fileID: 0}
   m_ArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArtilleryPrefab: {fileID: 1289459992054954, guid: ff719c52c47ad97418503e115e2f21d9,
@@ -20174,6 +20191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9651cbb404ca3494697483a853fcb491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SlimeManager: {fileID: 0}
   m_ArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArtilleryPrefab: {fileID: 1289459992054954, guid: ff719c52c47ad97418503e115e2f21d9,
@@ -20567,6 +20585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9651cbb404ca3494697483a853fcb491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SlimeManager: {fileID: 0}
   m_ArrowPrefab: {fileID: 114058021331280488, guid: 94d4540509b794743bf2914caa287fe3,
     type: 2}
   m_ArtilleryPrefab: {fileID: 1289459992054954, guid: ff719c52c47ad97418503e115e2f21d9,
@@ -25527,6 +25546,16 @@ MonoBehaviour:
   m_DayAndNight: {fileID: 1940397903}
   m_BreakTime: 0
   m_GameFinish: 0
+  OnBreakStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnBreakEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1296097859
 Transform:
   m_ObjectHideFlags: 0
@@ -33200,6 +33229,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817625777}
   m_Mesh: {fileID: 4300000, guid: a192cde9a381e4b4bb98deb5c1ee1da7, type: 3}
+--- !u!1 &1822681567 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1646779819374506, guid: 56ba75417fa26d243b7c1c65eedb54d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2044048985}
+--- !u!114 &1822681571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1822681567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54760e53c8e55e4f8c32303c805d879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1830637213
 GameObject:
   m_ObjectHideFlags: 0
@@ -39367,6 +39412,11 @@ Prefab:
     - target: {fileID: 4653487362926622, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 198868517024981878, guid: 56ba75417fa26d243b7c1c65eedb54d5,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
