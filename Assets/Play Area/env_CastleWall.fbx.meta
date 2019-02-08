@@ -110,9 +110,13 @@ ModelImporter:
     2100000: lambert1
     2100002: Metal
     2100004: Stone
+    2100006: env_PlayerArea_03
     2300000: env_CastleWall01
+    2300002: //RootNode
     3300000: env_CastleWall01
+    3300002: //RootNode
     4300000: env_CastleWall01
+    4300002: env_CastleWall
   externalObjects: {}
   materials:
     importMaterials: 1
