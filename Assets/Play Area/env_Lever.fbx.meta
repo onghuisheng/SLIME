@@ -6,22 +6,33 @@ ModelImporter:
     100000: //RootNode
     100002: Lever
     100004: Lever_Body
+    100006: ExitPaper
     400000: //RootNode
     400002: Lever
     400004: Lever_Body
+    400006: ExitPaper
     2100000: env_PlayerArea_02
+    2100002: faesdvgasfvsavbasa_StingrayPBS1SG1
     2300000: Lever
     2300002: Lever_Body
+    2300004: ExitPaper
     3300000: Lever
     3300002: Lever_Body
+    3300004: ExitPaper
     4300000: Lever
     4300002: Lever_Body
+    4300004: ExitPaper
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: env_PlayerArea_02
     second: {fileID: 2100000, guid: a8834067de935674682719e513e536ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: faesdvgasfvsavbasa_StingrayPBS1SG1
+    second: {fileID: 2100000, guid: c40bad1de9f265748924ccb2fe80498f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

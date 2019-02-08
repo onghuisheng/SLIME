@@ -60,7 +60,7 @@ public class PlayerGameOver : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             // wait until audio finished playing
-            if (asyncLoad.progress >= 0.9f && (audio == null || !audio.isPlaying))
+            if (asyncLoad.progress >= 0.9f && audio == null)
             {
                 asyncLoad.allowSceneActivation = true;
             }

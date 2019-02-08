@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4653487362926622}
   - component: {fileID: 198868517024981878}
   - component: {fileID: 199946026676846216}
+  - component: {fileID: 114333229857780494}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -134,6 +135,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -30, y: -35, z: 0}
+--- !u!114 &114333229857780494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418673193005850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54760e53c8e55e4f8c32303c805d879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198621444679375270
 ParticleSystem:
   m_ObjectHideFlags: 1
