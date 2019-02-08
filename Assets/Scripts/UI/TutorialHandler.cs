@@ -57,14 +57,28 @@ public class TutorialHandler : MonoBehaviour
         AudioManager.Instance.StopAllCoroutines();
         CommanderSpeaker.Instance.StopSpeaker();
 
-        CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_goodjob" : "npc_welldone"), AudioManager.AudioType.Additive, 0.5f, () =>
+        if (MoveController.GetControllerThatHolds(m_Bow.gameObject) != null) // If player is holding the bow, skip the bow tutorial
         {
-            CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorial31" : "npc_tutorial32"), AudioManager.AudioType.Additive, 1, () => // your weapon is on your left
+            m_IsBowPicked = true;
+            StopAllCoroutines();
+            AudioManager.Instance.StopAllCoroutines();
+            CommanderSpeaker.Instance.StopSpeaker();
+            CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial51", AudioManager.AudioType.Additive, 1, () => // when you're ready, light up your arrow
             {
-                m_Bow.OnBowGrabbed += OnBowGrabbed;
-                StartCoroutine(RepeatRoutine(8, true, "npc_tutorial31", "npc_tutorial32"));
+                StartCoroutine(RepeatRoutine(8, false, "npc_tutorial52"));
             });
-        });
+        }
+        else
+        {
+            CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_goodjob" : "npc_welldone"), AudioManager.AudioType.Additive, 0.5f, () =>
+            {
+                CommanderSpeaker.Instance.PlaySpeaker(((Random.Range(0, 2) == 1) ? "npc_tutorial31" : "npc_tutorial32"), AudioManager.AudioType.Additive, 1, () => // your weapon is on your left
+                {
+                    m_Bow.OnBowGrabbed += OnBowGrabbed;
+                    StartCoroutine(RepeatRoutine(8, true, "npc_tutorial31", "npc_tutorial32"));
+                });
+            });
+        }
     }
 
     void OnBowGrabbed(GameObject bow)

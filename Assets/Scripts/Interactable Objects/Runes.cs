@@ -13,6 +13,7 @@ public class Runes : GrabbableObject
     public ParticleSystem m_HoldParticles;
     public ParticleSystem m_TeleportParticles;
     public float m_WaitBeforeTeleport;
+    private float m_DefaultWaitBeforeTeleport;
     public SlimeManager.GameType m_LevelToLoad;
 
     [SerializeField]
@@ -44,6 +45,8 @@ public class Runes : GrabbableObject
         m_HoldParticles.Stop();
         m_TeleportParticles.Stop();
 
+        m_DefaultWaitBeforeTeleport = m_WaitBeforeTeleport;
+
         m_BubbleAudio = null;
     }
 
@@ -63,9 +66,11 @@ public class Runes : GrabbableObject
         m_HoldParticles.Stop();
         isHolding = false;
 
-        m_WaitBeforeTeleport = 0;
+        m_WaitBeforeTeleport = m_DefaultWaitBeforeTeleport;
 
-        if (!isUsed && m_BubbleAudio != null)
+        // Prevent audio from stopping if holding another rune
+        var otherRune = currentController.GetCurrentHandObject(true);
+        if (!isUsed && m_BubbleAudio != null && (otherRune == null || otherRune.GetComponent<Runes>() == null))
         {
             m_BubbleAudio.Stop();
             m_BubbleAudio = null;
@@ -97,7 +102,7 @@ public class Runes : GrabbableObject
 
             m_Material.SetColor("_EmissionColor", m_DefaultMaterialColor * (Mathf.PingPong(Time.time, 1) + .25f));
         }
-        
+
     }
 
     IEnumerator FlashLoadingRoutine()

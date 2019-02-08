@@ -14,7 +14,11 @@ public class AudioSourceData2D
     // 0-Infinity (Overrides randomPitchRangee when != 0)
     public float pitchOverride = 0;
 
+    // Loop the audio clip?
     public bool loop = false;
+
+    // Parent this audio source if assigned
+    public Transform parent = null;
 }
 
 public class AudioSourceData3D
@@ -28,6 +32,7 @@ public class AudioSourceData3D
     // 0-Infinity (Overrides randomPitchRangee when != 0)
     public float pitchOverride = 0;
 
+    // Loop the audio clip?
     public bool loop = false;
 
     // 0-1
@@ -40,6 +45,9 @@ public class AudioSourceData3D
     public float maxDistance = 3;
 
     public Vector3 relativeVelocity;
+
+    // Parent this audio source if assigned
+    public Transform parent = null;
 }
 
 public class AudioManager : SingletonMonoBehaviour<AudioManager>
@@ -115,8 +123,8 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 loop = audioSourceData.loop,
                 randomPitchRange = audioSourceData.randomPitchRange,
                 pitchOverride = audioSourceData.pitchOverride,
-                volume = audioSourceData.volume
-
+                volume = audioSourceData.volume,
+                parent = audioSourceData.parent
             };
         }
 
@@ -158,7 +166,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             audioSourceData = new AudioSourceData3D();
 
         GameObject obj = new GameObject((audioSourceData.spatialBlend == 0) ? "[2D_AudioSource] - " + clipAlias : "[3D_AudioSource] - " + clipAlias);
-        obj.transform.parent = transform;
+        obj.transform.parent = ((audioSourceData.parent != null) ? audioSourceData.parent : transform);
         obj.transform.position = position;
 
         const float minMagnitude = 0;

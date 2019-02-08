@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class SlimeManager : MonoBehaviour
 {
@@ -32,6 +32,9 @@ public class SlimeManager : MonoBehaviour
 
     public bool m_BreakTime;
     public bool m_GameFinish;
+
+    public UnityEvent OnBreakStart = new UnityEvent();
+    public UnityEvent OnBreakEnd = new UnityEvent();
 
     public enum GameType
     {
@@ -90,6 +93,9 @@ public class SlimeManager : MonoBehaviour
                     CommanderSpeaker.Instance.PlaySpeaker("npc_breakstart", AudioManager.AudioType.Additive, 0.5f);
             });
 
+            if (OnBreakStart != null)
+                OnBreakStart.Invoke();
+
             StartCoroutine(NextWave(30.0f));
         }
     }
@@ -134,6 +140,9 @@ public class SlimeManager : MonoBehaviour
             default:
                 break;
         }
+
+        if (OnBreakEnd != null)
+            OnBreakEnd.Invoke();
 
         // ADD BREAK END SOUND
         AudioManager.Instance.Play2D("warhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 });

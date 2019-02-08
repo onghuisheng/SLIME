@@ -19,7 +19,7 @@ public class PlayerGameOver : MonoBehaviour
         if (PlayerDamage.instance.m_DamageLevel == 4 && !m_IsFading)
         {
             m_IsFading = true;
-            StartCoroutine(FadeOut(1));
+            KillPlayer();
         }
     }
 
@@ -35,16 +35,20 @@ public class PlayerGameOver : MonoBehaviour
         }
     }
 
-    public void KillPlayer()
+    public void KillPlayer(bool playCommanderVoice = true)
     {
-        StartCoroutine(FadeOut(1));
+        StartCoroutine(FadeOut(1, playCommanderVoice));
     }
 
-    IEnumerator FadeOut(float time)
+    IEnumerator FadeOut(float time, bool playCommanderVoice)
     {
         CommanderSpeaker.Instance.StopSpeaker();
         AudioManager.Instance.StopAllCoroutines();
-        var audio = CommanderSpeaker.Instance.PlaySpeaker(RandomEx.RandomString("npc_death1", "npc_death2", "npc_death3"), AudioManager.AudioType.Additive, 0.5f).GetComponent<AudioSource>();
+
+        AudioSource audio = null;
+
+        if (playCommanderVoice)
+            audio = CommanderSpeaker.Instance.PlaySpeaker(RandomEx.RandomString("npc_death1", "npc_death2", "npc_death3"), AudioManager.AudioType.Additive, 0.5f).GetComponent<AudioSource>();
 
         var tween = m_FadeScreen.DOFade(1, time);
         yield return tween.WaitForCompletion();

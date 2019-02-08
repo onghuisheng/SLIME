@@ -50,7 +50,7 @@ public class QuitLever : StationaryObject
                     // DO scene change here 
                     CommanderSpeaker.Instance.PlaySpeaker("npc_quit2", AudioManager.AudioType.Additive, 0, () =>
                     {
-                        FindObjectOfType<PlayerGameOver>().KillPlayer();
+                        FindObjectOfType<PlayerGameOver>().KillPlayer(false);
                     });
                 });
             }

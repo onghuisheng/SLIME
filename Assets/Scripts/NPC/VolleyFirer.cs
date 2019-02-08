@@ -5,6 +5,8 @@ using UnityEngine;
 public class VolleyFirer : MonoBehaviour
 {
 
+    public SlimeManager m_SlimeManager;
+
     public ArrowBase m_ArrowPrefab;
 
     public GameObject m_ArtilleryPrefab;
@@ -33,7 +35,9 @@ public class VolleyFirer : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(FireArrowRoutine());
+        StartVolley();
+        m_SlimeManager.OnBreakStart.AddListener(StopVolley);
+        m_SlimeManager.OnBreakEnd.AddListener(StartVolley);
     }
 
     IEnumerator FireArrowRoutine()
@@ -54,6 +58,16 @@ public class VolleyFirer : MonoBehaviour
 
             yield return new WaitForSeconds(m_Interval);
         }
+    }
+
+    public void StartVolley()
+    {
+        StartCoroutine(FireArrowRoutine());
+    }
+
+    public void StopVolley()
+    {
+        StopCoroutine(FireArrowRoutine());
     }
 
     public void FireArrow()

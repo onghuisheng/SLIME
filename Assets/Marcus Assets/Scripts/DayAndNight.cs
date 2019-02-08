@@ -52,6 +52,7 @@ public class DayAndNight : MonoBehaviour
     public List<GameObject> m_CatapultSpawnerList;
 
     public Bonfire m_BonFire;
+    
 
     // Use this for initialization
     void Start()
@@ -68,7 +69,7 @@ public class DayAndNight : MonoBehaviour
         {
             ps.Stop(true);
         }
-
+        
         m_DayAudioLoop = AudioManager.Instance.Play2D("dayambient", AudioManager.AudioType.Additive, new AudioSourceData2D() { loop = true });
     }
 
@@ -109,7 +110,7 @@ public class DayAndNight : MonoBehaviour
             else // night
             {
                 transform.Rotate(nightRotateSpeed * Time.deltaTime * skyspeed);
-                
+
                 if (prevDot > 0)
                     OnNightStart();
             }
