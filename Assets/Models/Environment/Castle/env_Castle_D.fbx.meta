@@ -9,6 +9,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: env_CastleWall
+    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -89,7 +90,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
