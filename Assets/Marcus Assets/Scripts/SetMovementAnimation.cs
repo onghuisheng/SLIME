@@ -16,11 +16,19 @@ public class SetMovementAnimation : MonoBehaviour {
 
     public void MoveSlime()
     {
-        GetComponentInParent<Movement>().Move();
+        if (GetComponentInParent<Movement>())
+            GetComponentInParent<Movement>().Move();
+
+        else if (GetComponentInParent<SlimePatrol>())
+            GetComponentInParent<SlimePatrol>().Move();
     }
 
     public void StopSlime()
     {
-        GetComponentInParent<Movement>().Stop();
+        if (GetComponentInParent<Movement>())
+            GetComponentInParent<Movement>().Stop();
+
+        else if (GetComponentInParent<SlimePatrol>())
+            GetComponentInParent<SlimePatrol>().Stop();
     }
 }
