@@ -39397,16 +39397,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 198868517024981878, guid: 56ba75417fa26d243b7c1c65eedb54d5,
-        type: 2}
-      propertyPath: EmissionModule.rateOverTime.minMaxState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198868517024981878, guid: 56ba75417fa26d243b7c1c65eedb54d5,
-        type: 2}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56ba75417fa26d243b7c1c65eedb54d5, type: 2}
   m_IsPrefabParent: 0
