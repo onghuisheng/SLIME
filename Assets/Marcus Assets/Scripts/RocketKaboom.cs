@@ -6,6 +6,7 @@ public class RocketKaboom : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+        //math 
         float nextTime = 1 / GetComponent<ParticleSystem>().emission.rateOverTime.constant;
         float waitTime = GetComponent<ParticleSystem>().main.startLifetime.constant * nextTime;
 
