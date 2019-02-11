@@ -46,7 +46,10 @@ public class VolleyFirer : MonoBehaviour
 
         while (true)
         {
-            AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive);
+            AudioManager.Instance.Play3D("bowpull", transform.position, AudioManager.AudioType.Additive, new AudioSourceData3D()
+            {
+                volume = 0.35f
+            });
 
             yield return new WaitForSeconds(1);
 

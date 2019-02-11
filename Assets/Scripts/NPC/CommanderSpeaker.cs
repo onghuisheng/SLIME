@@ -105,7 +105,7 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
 
     public GameObject PlaySpeaker(string clipAlias, AudioManager.AudioType audioType, float delayInSeconds = 0, System.Action onComplete = null)
     {
-        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, new AudioSourceData3D() { pitchOverride = 1, volume = 0.5f }, delayInSeconds, onComplete);
+        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, new AudioSourceData3D() { pitchOverride = ((m_IsMuted) ? 1.2f : 1), volume = ((m_IsMuted) ? 0.2f : 0.5f) }, delayInSeconds, onComplete);
     }
 
     public void BobBob(float duration, int vibrato = 10, float elasticity = 1)

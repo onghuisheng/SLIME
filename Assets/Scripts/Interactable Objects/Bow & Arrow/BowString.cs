@@ -78,7 +78,7 @@ public class BowString : GrabbableObject
         m_IsGrabbing = true;
         BendBow();
 
-        if (m_SpawnedArrow == null && (m_CurrentDrawDistance).magnitude > 0.15f)
+        if (m_SpawnedArrow == null && transform.localPosition.y > (m_DefaultLocalPos.y + 0.15f))
         {
             m_SpawnedArrow = Instantiate(m_BowArrowPrefab.gameObject, transform).GetComponent<ArrowBase>();
             m_ArrowMeshRenderer1 = m_SpawnedArrow.transform.GetChild(0).GetComponent<MeshRenderer>();
@@ -99,16 +99,13 @@ public class BowString : GrabbableObject
                 m_ArrowMeshRenderer1.material = m_ArrowDisabledMaterial;
                 m_ArrowMeshRenderer2.material = m_ArrowDisabledMaterial;
             }
-
-            // Constantly face towards the pivot point when an arrow is drawn
-            ResetArrowOrientation();
         }
     }
 
     public override void OnGrabReleased(MoveController currentController)
     {
         m_IsGrabbing = false;
-        
+
         float arrowStrength = m_CurrentDrawDistance.magnitude;
 
         if (m_SpawnedArrow != null)
@@ -158,11 +155,17 @@ public class BowString : GrabbableObject
             if (m_RemainingVibrateDistance > 0.075f) // Threshold
             {
                 m_RemainingVibrateDistance = 0;
-                m_CurrentController.Vibrate(105, 0.1f); // Change this to adjust controller vibration
-                m_OtherController.Vibrate(75, 0.1f);
+                m_CurrentController.Vibrate(105, 0.2f); // Change this to adjust controller vibration
+                m_OtherController.Vibrate(75, 0.2f);
             }
 
             m_CurrentDrawDistance = newDrawDistance;
+        }
+
+        if (m_SpawnedArrow != null)
+        {
+            // Constantly face towards the pivot point when an arrow is drawn
+            ResetArrowOrientation();
         }
     }
 
@@ -223,7 +226,7 @@ public class BowString : GrabbableObject
     private bool IsBowStringFirable()
     {
         float angle = Vector3.Angle((transform.parent.TransformPoint(m_DefaultLocalPos)) - m_ArrowFacingPoint.position, transform.position - m_ArrowFacingPoint.position);
-        return (angle < 45);
+        return (angle < 45) && (transform.localPosition.y > m_DefaultLocalPos.y);
     }
 
 }

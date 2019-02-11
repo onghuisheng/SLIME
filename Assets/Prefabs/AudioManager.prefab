@@ -286,3 +286,5 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: f3e87539c067dbe48942ae7c84201366, type: 3}
   - clipAlias: npc_goodjob
     audioClip: {fileID: 8300000, guid: 331d5ea0a5f8eae469c35858d4a4f39f, type: 3}
+  - clipAlias: SSSSergh
+    audioClip: {fileID: 8300000, guid: f2524631c9206ef4d8ef3f62a1bab8a3, type: 3}

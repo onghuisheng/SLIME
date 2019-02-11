@@ -26,8 +26,12 @@ public class Runes : GrabbableObject
     private Material m_Material;
     private Color m_DefaultMaterialColor;
 
-    private bool isUsed = false;
-    private bool isHolding = false;
+    private bool m_IsUsed = false;
+    public bool isUsed {
+        get { return m_IsUsed; }
+    }
+
+    private bool m_IsHolding = false;
 
     private static AudioSource m_BubbleAudio;
 
@@ -54,7 +58,7 @@ public class Runes : GrabbableObject
     {
         base.OnGrab(currentController);
         m_HoldParticles.Play();
-        isHolding = true;
+        m_IsHolding = true;
 
         if (m_BubbleAudio == null)
             m_BubbleAudio = AudioManager.Instance.Play2D("bubbles", AudioManager.AudioType.Additive).GetComponent<AudioSource>();
@@ -64,14 +68,22 @@ public class Runes : GrabbableObject
     {
         base.OnGrabReleased(currentController);
         m_HoldParticles.Stop();
-        isHolding = false;
+        m_IsHolding = false;
 
         m_WaitBeforeTeleport = m_DefaultWaitBeforeTeleport;
 
         // Prevent audio from stopping if holding another rune
         var otherRune = currentController.GetCurrentHandObject(true);
-        if (!isUsed && m_BubbleAudio != null && (otherRune == null || otherRune.GetComponent<Runes>() == null))
+
+        if (!m_IsUsed && m_BubbleAudio != null && (otherRune == null || otherRune.GetComponent<Runes>() == null))
         {
+            if (otherRune != null)
+            {
+                var actualRune = otherRune.GetComponent<Runes>();
+                if (actualRune != null && actualRune.isUsed)
+                    return;
+            }
+
             m_BubbleAudio.Stop();
             m_BubbleAudio = null;
         }
@@ -80,13 +92,13 @@ public class Runes : GrabbableObject
     // Update is called once per frame
     void Update()
     {
-        if (isHolding)
+        if (m_IsHolding)
         {
             m_WaitBeforeTeleport -= Time.deltaTime;
 
-            if (m_WaitBeforeTeleport <= 0 && !isUsed)
+            if (m_WaitBeforeTeleport <= 0 && !m_IsUsed)
             {
-                isUsed = true;
+                m_IsUsed = true;
 
                 foreach (var rune in FindObjectsOfType<Runes>())
                 {

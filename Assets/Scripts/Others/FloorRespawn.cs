@@ -8,6 +8,12 @@ public class FloorRespawn : MonoBehaviour
     [SerializeField]
     private List<GameObject> m_ItemsList;
 
+    [SerializeField, Range(0.0f, 5.0f)]
+    private float m_RespawnDelay = 0;
+
+    [SerializeField]
+    private bool m_UseOnCollisionEnter = false;
+
     private List<Vector3> m_ItemsPos = new List<Vector3>();
 
     // Use this for initialization
@@ -21,11 +27,27 @@ public class FloorRespawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (m_UseOnCollisionEnter)
+            return;
+
+        RespawnObject(other.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (m_UseOnCollisionEnter)
+        {
+            RespawnObject(collision.gameObject);
+        }
+    }
+
+    private void RespawnObject(GameObject obj)
+    {
         int i = 0;
 
         foreach (GameObject GO in m_ItemsList)
         {
-            if (GO == other.gameObject)
+            if (GO == obj)
             {
                 var controller = MoveController.GetControllerThatHolds(GO);
                 if (controller != null)
@@ -42,7 +64,7 @@ public class FloorRespawn : MonoBehaviour
 
     private IEnumerator Respawn(GameObject target, Vector3 pos, float delay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(m_RespawnDelay + delay);
         //set item pos back to original position
         target.transform.position = pos;
     }

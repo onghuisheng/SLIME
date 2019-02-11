@@ -20,10 +20,12 @@ public class PlayerVictory : MonoBehaviour
 
         if (SlimeManager.instance.m_GameFinish == true && m_Spawn == false)
         {
-            AudioManager.Instance.Play3D("npc_victory", transform.position, AudioManager.AudioType.Additive);
+            AudioManager.Instance.Play3D("npc_victory", transform.position, AudioManager.AudioType.Additive, 1.5f, () =>
+            {
+                Instantiate(m_FireWorks, m_FireWorks.transform.position, m_FireWorks.transform.rotation);
+            });
 
             m_Spawn = true;
-            Instantiate(m_FireWorks, m_FireWorks.transform.position, m_FireWorks.transform.rotation);
 
         }
 
