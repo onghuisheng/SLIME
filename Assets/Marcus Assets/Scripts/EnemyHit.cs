@@ -38,7 +38,9 @@ public class EnemyHit : MonoBehaviour, IShootable
         {
             m_SlimeBase.anim.speed = 1; // Resume animation if flashed
             m_SlimeBase.toDespawn = true;
-            SlimeManager.instance.GetComponent<SlimeManager>().Remove();
+
+            if(SlimeManager.instance != null)
+                SlimeManager.instance.GetComponent<SlimeManager>().Remove();
 
             if (m_OnAnim)
             {
