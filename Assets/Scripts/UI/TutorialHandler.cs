@@ -34,17 +34,20 @@ public class TutorialHandler : MonoBehaviour
 
     private void TutorialRoutine()
     {
-        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial11", AudioManager.AudioType.Queue, 1); // hey 
-        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial12", AudioManager.AudioType.Queue, 2, () => // hey stop day dreaming
+        CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial11", AudioManager.AudioType.Additive, 1, () =>  // hey 
         {
-            StartCoroutine(FadeManager.Instance.FadeOut(3, 1, () =>
+
+            CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial12", AudioManager.AudioType.Queue, 2, () => // hey stop day dreaming
             {
-                CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial2", AudioManager.AudioType.Additive, 0, () => // ring the bell on the right
+                StartCoroutine(FadeManager.Instance.FadeOut(3, 1, () =>
                 {
-                    m_Bell.OnBellRung += OnBellRung;
-                    StartCoroutine(RepeatRoutine(8, true, "npc_tutorial2"));
-                });
-            }));
+                    CommanderSpeaker.Instance.PlaySpeaker("npc_tutorial2", AudioManager.AudioType.Additive, 0, () => // ring the bell on the right
+                    {
+                        m_Bell.OnBellRung += OnBellRung;
+                        StartCoroutine(RepeatRoutine(8, true, "npc_tutorial2"));
+                    });
+                }));
+            });
         });
     }
 

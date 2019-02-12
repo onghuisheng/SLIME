@@ -35,22 +35,34 @@ public class PlayerGameOver : MonoBehaviour
         }
     }
 
-    public void KillPlayer(bool playCommanderVoice = true)
+    public void KillPlayer(float fadeTime = 1, float startDelay = 0, bool playCommanderVoice = true)
     {
-        StartCoroutine(FadeOut(1, playCommanderVoice));
+        StartCoroutine(FadeOut(fadeTime, startDelay, playCommanderVoice));
     }
 
-    IEnumerator FadeOut(float time, bool playCommanderVoice)
+    IEnumerator FadeOut(float time, float startDelay, bool playCommanderVoice)
     {
+        yield return new WaitForSeconds(startDelay);
+
         CommanderSpeaker.Instance.StopSpeaker();
         AudioManager.Instance.StopAllCoroutines();
 
         AudioSource audio = null;
 
-        if (playCommanderVoice)
-            audio = CommanderSpeaker.Instance.PlaySpeaker(RandomEx.RandomString("npc_death1", "npc_death2", "npc_death3"), AudioManager.AudioType.Additive, 0.5f).GetComponent<AudioSource>();
+        string audioStr = RandomEx.RandomString("npc_death1", "npc_death2", "npc_death3");
 
-        var tween = m_FadeScreen.DOFade(1, time);
+        const float commandDelay = 0.5f;
+
+        if (playCommanderVoice)
+            audio = CommanderSpeaker.Instance.PlaySpeaker(audioStr, AudioManager.AudioType.Additive, commandDelay).GetComponent<AudioSource>();
+
+        Tweener tween = null;
+
+        if (playCommanderVoice)
+            tween = m_FadeScreen.DOFade(1, AudioManager.Instance.GetAudioClip(audioStr).length + commandDelay);
+        else
+            tween = m_FadeScreen.DOFade(1, time);
+
         yield return tween.WaitForCompletion();
 
         var asyncLoad = SceneManager.LoadSceneAsync("Main Menu");

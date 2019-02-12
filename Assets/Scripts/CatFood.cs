@@ -17,7 +17,7 @@ public class CatFood : MonoBehaviour
 
     void Update()
     {
-        if (m_LeftControl.GetButton(MoveControllerButton.MiddleButton))
+        if (m_LeftControl.GetButtonDown(MoveControllerButton.MiddleButton))
         {
             foreach (var enemy in FindObjectsOfType<EnemyHit>())
             {
@@ -25,14 +25,14 @@ public class CatFood : MonoBehaviour
             }
         }
 
+        if (m_RightControl.GetButtonDown(MoveControllerButton.MiddleButton))
+        {
+            Time.timeScale = (Time.timeScale == 8) ? 1 : 8;
+        }
+
         //    if (m_LeftControl.GetButton(MoveControllerHotkeys.buttonUse))
         //    {
         //        m_Target2.transform.Translate(0, Time.deltaTime, 0);
-        //    }
-
-        //    if (m_RightControl.GetButton(MoveControllerHotkeys.buttonGrab))
-        //    {
-        //        m_Target.transform.Translate(0, -Time.deltaTime, 0);
         //    }
 
         //    if (m_RightControl.GetButton(MoveControllerHotkeys.buttonUse))

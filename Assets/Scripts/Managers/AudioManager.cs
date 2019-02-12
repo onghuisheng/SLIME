@@ -73,6 +73,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         public AudioClip audioClip;
         public float delayInSeconds;
         public Action onComplete;
+        public Action onStart;
         public string clipAlias;
     }
 
@@ -104,28 +105,25 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
-    public GameObject Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0, Action onComplete = null)
+    public GameObject Play2D(string clipAlias, AudioType audioType, float delayInSeconds = 0, Action onComplete = null, Action onStart = null)
     {
-        return Play2D(clipAlias, audioType, null, delayInSeconds, onComplete);
+        return Play2D(clipAlias, audioType, null, delayInSeconds, onComplete, onStart);
     }
 
     /// <summary>
     /// Plays a 2D audio clip with the given alias
     /// </summary>
-    public GameObject Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0, Action onComplete = null)
+    public GameObject Play2D(string clipAlias, AudioType audioType, AudioSourceData2D audioSourceData, float delayInSeconds = 0, Action onComplete = null, Action onStart = null)
     {
         AudioSourceData3D audioSourceData3D = new AudioSourceData3D();
 
         if (audioSourceData != null)
         {
-            audioSourceData3D = new AudioSourceData3D()
-            {
-                loop = audioSourceData.loop,
-                randomPitchRange = audioSourceData.randomPitchRange,
-                pitchOverride = audioSourceData.pitchOverride,
-                volume = audioSourceData.volume,
-                parent = audioSourceData.parent
-            };
+            audioSourceData3D.loop = audioSourceData.loop;
+            audioSourceData3D.randomPitchRange = audioSourceData.randomPitchRange;
+            audioSourceData3D.pitchOverride = audioSourceData.pitchOverride;
+            audioSourceData3D.volume = audioSourceData.volume;
+            audioSourceData3D.parent = audioSourceData.parent;
         }
 
         audioSourceData3D.maxDistance = 999;
@@ -133,7 +131,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         audioSourceData3D.relativeVelocity = Vector3.zero;
         audioSourceData3D.spatialBlend = 0;
 
-        return Play3D(clipAlias, Camera.main.transform.position, audioType, audioSourceData3D, delayInSeconds, onComplete);
+        return Play3D(clipAlias, Camera.main.transform.position, audioType, audioSourceData3D, delayInSeconds, onComplete, onStart);
     }
 
     /// <summary>
@@ -141,9 +139,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// An GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
     /// <returns>Reference to the AudioSource that was spawned</returns>
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, float delayInSeconds = 0, Action onComplete = null)
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, float delayInSeconds = 0, Action onComplete = null, Action onStart = null)
     {
-        return Play3D(clipAlias, position, audioType, null, delayInSeconds, onComplete);
+        return Play3D(clipAlias, position, audioType, null, delayInSeconds, onComplete, onStart);
     }
 
 
@@ -152,7 +150,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// An GameObject with an AudioSource is spawned at the given position and is removed once the audio finishes
     /// </summary>
     /// <returns>Reference to the AudioSource that was spawned</returns>   
-    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, AudioSourceData3D audioSourceData, float delayInSeconds = 0, Action onComplete = null)
+    public GameObject Play3D(string clipAlias, Vector3 position, AudioType audioType, AudioSourceData3D audioSourceData, float delayInSeconds = 0, Action onComplete = null, Action onStart = null)
     {
         AudioClip clip = GetAudioClip(clipAlias);
 
@@ -197,7 +195,8 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                     audioClip = clip,
                     clipAlias = clipAlias,
                     delayInSeconds = delayInSeconds,
-                    onComplete = onComplete
+                    onComplete = onComplete,
+                    onStart = onStart
                 });
 
                 if ((m_3DAudioSource == null || (m_3DAudioSource != null && m_3DAudioSource.isPlaying == false)))
@@ -210,7 +209,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 spawnedAudioSource.PlayDelayed(delayInSeconds);
 
                 if (!audioSourceData.loop)
-                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, (spawnedAudioSource.clip.length + delayInSeconds) / spawnedAudioSource.pitch, onComplete));
+                    StartCoroutine(PlayAdditiveRoutine(spawnedAudioSource.gameObject, (spawnedAudioSource.clip.length / spawnedAudioSource.pitch) + delayInSeconds, onComplete, onStart));
                 break;
 
             default:
@@ -233,14 +232,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             if (m_3DAudioSource != null)
                 m_3DAudioSource.Stop();
 
-            var announceInfo = m_AudioQueue.Dequeue();
+            var audioQueueInfo = m_AudioQueue.Dequeue();
 
-            m_3DAudioSource = announceInfo.audioSource;
+            m_3DAudioSource = audioQueueInfo.audioSource;
 
-            AudioSource source = announceInfo.audioSource;
-            source.clip = announceInfo.audioClip;
-            source.PlayDelayed(announceInfo.delayInSeconds);
-            StartCoroutine(PlayNextRoutine((source.clip.length + announceInfo.delayInSeconds) / source.pitch, announceInfo.onComplete));
+            AudioSource source = audioQueueInfo.audioSource;
+            source.clip = audioQueueInfo.audioClip;
+            source.PlayDelayed(audioQueueInfo.delayInSeconds);
+            StartCoroutine(PlayNextRoutine((source.clip.length / source.pitch) + audioQueueInfo.delayInSeconds, audioQueueInfo.onComplete, audioQueueInfo.onStart));
         }
     }
 
@@ -258,6 +257,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
     }
 
+    /// <summary>
+    /// Returns the audio clip in the collection with the assigned clip alias
+    /// </summary>
     public AudioClip GetAudioClip(string clipAlias)
     {
         AudioClip clip;
@@ -286,9 +288,12 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         m_3DAudioSource = null;
     }
 
-    private IEnumerator PlayNextRoutine(float delayInSeconds, Action onComplete)
+    private IEnumerator PlayNextRoutine(float clipDelay, Action onComplete, Action onStart)
     {
-        yield return new WaitForSeconds(delayInSeconds);
+        if (onStart != null)
+            onStart.Invoke();
+
+        yield return new WaitForSeconds(clipDelay);
 
         if (onComplete != null)
             onComplete.Invoke();
@@ -302,9 +307,12 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         PlayNext();
     }
 
-    private IEnumerator PlayAdditiveRoutine(GameObject objToDestroy, float delayInSeconds, Action onComplete)
+    private IEnumerator PlayAdditiveRoutine(GameObject objToDestroy, float clipDelay, Action onComplete, Action onStart)
     {
-        yield return new WaitForSeconds(delayInSeconds);
+        if (onStart != null)
+            onStart.Invoke();
+
+        yield return new WaitForSeconds(clipDelay);
 
         if (onComplete != null)
             onComplete.Invoke();

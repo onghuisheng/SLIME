@@ -155,8 +155,8 @@ public class BowString : GrabbableObject
             if (m_RemainingVibrateDistance > 0.075f) // Threshold
             {
                 m_RemainingVibrateDistance = 0;
-                m_CurrentController.Vibrate(105, 0.2f); // Change this to adjust controller vibration
-                m_OtherController.Vibrate(75, 0.2f);
+                m_CurrentController.Vibrate(135, 0.1f); // Change this to adjust controller vibration
+                m_OtherController.Vibrate(75, 0.1f);
             }
 
             m_CurrentDrawDistance = newDrawDistance;

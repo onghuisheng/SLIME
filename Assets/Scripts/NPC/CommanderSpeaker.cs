@@ -7,6 +7,7 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
 {
     private bool m_IsMuted;
 
+    [SerializeField]
     private GameObject m_SpeakerJoint;
 
     [Range(-5, 5)]
@@ -21,22 +22,19 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
     [Range(0, 1)]
     public float elasticity = 1;
 
-    private void Start()
-    {
-        m_SpeakerJoint = transform.GetChild(0).gameObject;
-    }
+    private Tweener m_CurrentSpeakerTween;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            BobBob(duration, vibrato, elasticity);
-            AudioManager.Instance.Play2D("shortsmallhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 0.6f });
+            BobBob(0, duration, vibrato, elasticity);
+            PlaySpeaker("shortsmallhorn", AudioManager.AudioType.Additive, 0);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            BobBob(duration, vibrato, elasticity);
-            AudioManager.Instance.Play2D("shortsmallhorn", AudioManager.AudioType.Additive, new AudioSourceData2D() { pitchOverride = 1 });
+            BobBob(0, duration, vibrato, elasticity);
+            PlaySpeaker("shortsmallhorn", AudioManager.AudioType.Additive, 0);
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -72,20 +70,13 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
             sponge.transform.position += sponge.transform.up * 0.2f;
             sponge.transform.Rotate(0, 90, 0, Space.Self);
             sponge.GetComponent<Rigidbody>().isKinematic = true;
-            sponge.transform.parent.GetComponent<Collider>().enabled = true;
-            sponge.gameObject.SetActive(false);
+
+            StopSpeaker();
+
+            if (m_CurrentSpeakerTween != null)
+                m_CurrentSpeakerTween.Complete();
 
             m_IsMuted = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Sponge" && m_IsMuted)
-        {
-            Sponge sponge = other.transform.parent.GetComponent<Sponge>();
-            m_IsMuted = false;
-            sponge.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
@@ -105,13 +96,24 @@ public class CommanderSpeaker : SingletonMonoBehaviour<CommanderSpeaker>
 
     public GameObject PlaySpeaker(string clipAlias, AudioManager.AudioType audioType, float delayInSeconds = 0, System.Action onComplete = null)
     {
-        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, new AudioSourceData3D() { pitchOverride = ((m_IsMuted) ? 1.2f : 1), volume = ((m_IsMuted) ? 0.2f : 0.5f) }, delayInSeconds, onComplete);
+        var clip = AudioManager.Instance.GetAudioClip(clipAlias);
+
+        return AudioManager.Instance.Play3D(clipAlias, transform.position, audioType, new AudioSourceData3D() { pitchOverride = 1, volume = ((m_IsMuted) ? 0 : 0.5f) }, delayInSeconds, onComplete, () =>
+        {
+            if (!m_IsMuted)
+                StartCoroutine(BobBob(delayInSeconds, clip.length));
+        });
     }
 
-    public void BobBob(float duration, int vibrato = 10, float elasticity = 1)
+    private IEnumerator BobBob(float delay, float duration, int vibrato = 10, float elasticity = 1)
     {
-        m_SpeakerJoint.transform.DOComplete();
-        m_SpeakerJoint.transform.DOPunchScale(Vector3.one * strength, duration, vibrato, elasticity).SetEase(Ease.Linear);
+        if (delay != 0)
+            yield return new WaitForSeconds(delay);
+
+        if (m_CurrentSpeakerTween != null)
+            m_CurrentSpeakerTween.Complete();
+
+        m_CurrentSpeakerTween = m_SpeakerJoint.transform.DOPunchScale(Vector3.one * strength, duration, vibrato, elasticity).SetEase(Ease.Linear);
     }
 
 }
