@@ -6814,7 +6814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0871e37474fdc654781d0cb4d5b88bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawnDirection: 1
+  m_SpawnDirection: 0
   m_Catapult: {fileID: 1807203996207708, guid: fdd80500b4493034c8549c4e100b2ac5, type: 2}
   m_Destination: {fileID: 1047208720}
   m_WaveToSpawn: 2
@@ -33343,7 +33343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0871e37474fdc654781d0cb4d5b88bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawnDirection: 0
+  m_SpawnDirection: 1
   m_Catapult: {fileID: 1478375357741878, guid: 0a76bf326f5e7c0419f2b6bbf8d94bda, type: 2}
   m_Destination: {fileID: 203311339}
   m_WaveToSpawn: 1

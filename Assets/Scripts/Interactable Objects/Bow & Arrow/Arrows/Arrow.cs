@@ -14,13 +14,9 @@ public class Arrow : ArrowBase
 
     bool m_Swapped = false;
 
-    private Material m_CurrentMat = null;
-
     private void Start()
     {
         m_ArrowModel = transform.GetChild(0).gameObject;
-        m_CurrentMat = m_ArrowModel.GetComponent<Renderer>().material;
-        m_CurrentMat.SetVector("_Center", transform.position);
     }
 
     private void Update()
@@ -28,6 +24,8 @@ public class Arrow : ArrowBase
         if (!m_Swapped)
         {
             const float dissolveRate = 2;
+
+            var m_CurrentMat = m_ArrowModel.GetComponent<Renderer>().material;
 
             m_DissolveCenter = transform.position;
             m_CurrentMat.SetVector("_Center", m_DissolveCenter);
@@ -65,8 +63,8 @@ public class Arrow : ArrowBase
 
     private void OnDestroy()
     {
-        if (m_CurrentMat != null)
-            Destroy(m_CurrentMat);
+        Destroy(m_ArrowModel.GetComponent<Renderer>().material);
+
     }
 
 }
