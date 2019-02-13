@@ -17,6 +17,7 @@ public class OilCollision : MonoBehaviour, IShootable
     {
         if (arrow.arrowType == ArrowBase.ArrowType.Flame && m_onFire == false)
         {
+            AudioManager.Instance.Play3D("bonfirelit", transform.position, AudioManager.AudioType.Additive);
             m_Fire.Play(true);
             m_onFire = true;
         }

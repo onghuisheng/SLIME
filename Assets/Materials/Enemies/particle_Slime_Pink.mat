@@ -9,7 +9,7 @@ Material:
   m_Name: particle_Slime_Pink
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -72,5 +72,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+    - _Color: {r: 0.7294118, g: 0.3647059, b: 0.6117647, a: 0.78431374}
     - _EmissionColor: {r: 0.49056602, g: 0.108757555, b: 0.3323835, a: 1}
