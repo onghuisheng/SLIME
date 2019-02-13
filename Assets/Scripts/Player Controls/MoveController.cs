@@ -251,7 +251,7 @@ public class MoveController : MonoBehaviour
     {
         var iObject = other.GetComponent<IInteractable>();
 
-        if (GetCurrentHandObject() == null && iObject != null && GetCurrentHandObject() != other.gameObject && GetCurrentHandObject(true) != other.gameObject)
+        if (iObject != null && GetCurrentHandObject() == null && GetCurrentHandObject() != other.gameObject && GetCurrentHandObject(true) != other.gameObject)
         {
             AssignObjectToHand(m_Orientation, other.gameObject);
         }

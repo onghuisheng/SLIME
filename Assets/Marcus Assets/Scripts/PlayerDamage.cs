@@ -8,7 +8,7 @@ public class PlayerDamage : MonoBehaviour {
 
     [HideInInspector]
     public int m_DamageLevel;
-
+    
 	// Use this for initialization
 	void Start () {
         if (instance == null)
@@ -17,8 +17,4 @@ public class PlayerDamage : MonoBehaviour {
         m_DamageLevel = 0;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

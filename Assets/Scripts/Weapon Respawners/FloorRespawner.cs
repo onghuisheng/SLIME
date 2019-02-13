@@ -19,7 +19,9 @@ public class FloorRespawner : MonoBehaviour
 
         if (bow != null)
         {
-            if (bow.GetComponent<FixedJoint>() == null && bow.GetComponent<Rigidbody>().useGravity == true)
+            Rigidbody rb = bow.GetComponent<Rigidbody>();
+
+            if (bow.GetComponent<FixedJoint>() == null && rb.useGravity == true)
             {
                 m_CurrentStayTime += Time.fixedDeltaTime;
 
@@ -27,8 +29,9 @@ public class FloorRespawner : MonoBehaviour
                 {
                     bow.transform.position = m_BowSpawnPoint.transform.position;
                     bow.transform.rotation = m_BowSpawnPoint.transform.rotation;
-                    bow.GetComponent<Rigidbody>().useGravity = false;
-                    bow.GetComponent<Rigidbody>().isKinematic = true;
+
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
                 }
             }
             else

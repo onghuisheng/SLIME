@@ -94,7 +94,6 @@ public class ArrowBase : MonoBehaviour
         result *= velocityX;
         result.y = velocityY;
 
-        m_IsFired = true;
         m_Rigidbody.useGravity = true;
         m_Rigidbody.isKinematic = false;
         m_Rigidbody.AddForce(result, ForceMode.VelocityChange);
@@ -116,6 +115,11 @@ public class ArrowBase : MonoBehaviour
             m_Rigidbody.isKinematic = true;
             GetComponent<Collider>().enabled = false;
             yield return new WaitForSeconds(3);
+
+            // Free memory leaks
+            Destroy(transform.GetChild(0).GetComponent<MeshRenderer>().material);
+            Destroy(transform.GetChild(1).GetComponent<MeshRenderer>().material);
+
             Destroy(gameObject);
         }
     }

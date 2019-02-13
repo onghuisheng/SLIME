@@ -8,28 +8,37 @@ public class Arrow : ArrowBase
 {
     private GameObject m_ArrowModel;
 
-    float m_DissolveDistance = 0;
+    private Vector4 m_DissolveCenter = new Vector4(0, 0, 90, 0);
+
+    private float m_CurrentDissolveDistance = 0;
 
     bool m_Swapped = false;
+
+    private Material m_CurrentMat = null;
 
     private void Start()
     {
         m_ArrowModel = transform.GetChild(0).gameObject;
-        m_ArrowModel.GetComponent<Renderer>().material.SetFloat("_Distance", 0);
+        m_CurrentMat = m_ArrowModel.GetComponent<Renderer>().material;
+        m_CurrentMat.SetVector("_Center", transform.position);
     }
 
     private void Update()
     {
         if (!m_Swapped)
         {
-            m_DissolveDistance = Mathf.Clamp(m_DissolveDistance + Time.deltaTime * 15, 0, 15);
-            m_ArrowModel.GetComponent<Renderer>().material.SetFloat("_Distance", m_DissolveDistance);
+            const float dissolveRate = 2;
 
-            if (m_DissolveDistance >= 15)
+            m_DissolveCenter = transform.position;
+            m_CurrentMat.SetVector("_Center", m_DissolveCenter);
+
+            m_CurrentDissolveDistance += (Time.deltaTime * dissolveRate);
+            m_CurrentMat.SetFloat("_Distance", m_CurrentDissolveDistance);
+
+            if (m_CurrentDissolveDistance >= dissolveRate)
             {
                 // Quick swap
                 Transform realModel = transform.GetChild(1);
-                // m_ArrowModel.transform.GetChild(0).parent = realModel;
                 realModel.gameObject.SetActive(true);
                 m_ArrowModel.SetActive(false);
                 m_Swapped = true;
@@ -50,8 +59,14 @@ public class Arrow : ArrowBase
             shootable.OnShot(this); // Interface callback
         }
 
-        AudioManager.Instance.Play3D("arrowhit", transform.position,  AudioManager.AudioType.Additive, new AudioSourceData3D() {  });
+        AudioManager.Instance.Play3D("arrowhit", transform.position, AudioManager.AudioType.Additive);
         DestroyArrow(); // If collide with environment, remove this arrow after X seconds
+    }
+
+    private void OnDestroy()
+    {
+        if (m_CurrentMat != null)
+            Destroy(m_CurrentMat);
     }
 
 }

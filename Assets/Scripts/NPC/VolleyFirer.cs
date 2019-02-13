@@ -70,7 +70,7 @@ public class VolleyFirer : MonoBehaviour
 
     public void StopVolley()
     {
-        StopCoroutine(FireArrowRoutine());
+        StopAllCoroutines();
     }
 
     public void FireArrow()

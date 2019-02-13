@@ -28,12 +28,6 @@ public class BarricadeDestruction : MonoBehaviour
         m_DamageLevel = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other == null)
@@ -91,7 +85,7 @@ public class BarricadeDestruction : MonoBehaviour
                         m_Child.AddComponent<Rigidbody>();
                     }
 
-                    currentBarricade.GetComponent<Collider>().enabled = false;
+                    Destroy(currentBarricade.GetComponent<Collider>());
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<SlimeBase>().anim.SetBool("IsAttack", false);
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<NavMeshAgent>().enabled = true;
                     other.GetComponent<SlimeHitBarricade>().m_Parent.GetComponent<Movement>().m_Player = m_Player;

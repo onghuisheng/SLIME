@@ -119,6 +119,8 @@ public class BowString : GrabbableObject
             else
             {
                 // Destroy the arrow if we cant fire it
+                Destroy(m_ArrowMeshRenderer1.material);
+                Destroy(m_ArrowMeshRenderer2.material);
                 Destroy(m_SpawnedArrow.gameObject);
             }
 
@@ -155,7 +157,7 @@ public class BowString : GrabbableObject
             if (m_RemainingVibrateDistance > 0.075f) // Threshold
             {
                 m_RemainingVibrateDistance = 0;
-                m_CurrentController.Vibrate(135, 0.1f); // Change this to adjust controller vibration
+                m_CurrentController.Vibrate(110, 0.1f); // Change this to adjust controller vibration
                 m_OtherController.Vibrate(75, 0.1f);
             }
 

@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class SpawnCatapult : MonoBehaviour
 {
 
+    public enum SpawnDirection { Left, Right }
+
+    public SpawnDirection m_SpawnDirection;
     public GameObject m_Catapult;
     public GameObject m_Destination;
 
@@ -41,7 +44,7 @@ public class SpawnCatapult : MonoBehaviour
         SlimeManager.instance.m_SlimeInScene.Add(catapult);
 
         // Determine left/right position
-        if (Camera.main.transform.position.x > transform.position.x)
+        if (m_SpawnDirection == SpawnDirection.Left)
         {
             CommanderSpeaker.Instance.PlaySpeaker("npc_catapultl" + Random.Range(1, 3), AudioManager.AudioType.Additive);
         }

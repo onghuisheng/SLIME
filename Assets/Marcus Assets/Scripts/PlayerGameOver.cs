@@ -12,23 +12,16 @@ public class PlayerGameOver : MonoBehaviour
 
     private bool m_IsFading = false;
 
+    private bool m_IsPlayerDead = false;
+
+    [SerializeField]
+    private bool m_IsGodmode = false;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerDamage.instance.m_DamageLevel == 4 && !m_IsFading)
-        {
-            m_IsFading = true;
-            KillPlayer();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other == null || m_IsFading)
-            return;
-
-        if (other.GetComponent<SlimeHitBarricade>())
+        if (!m_IsGodmode && PlayerDamage.instance.m_DamageLevel == 4 && !m_IsFading)
         {
             m_IsFading = true;
             KillPlayer();
@@ -37,6 +30,10 @@ public class PlayerGameOver : MonoBehaviour
 
     public void KillPlayer(float fadeTime = 1, float startDelay = 0, bool playCommanderVoice = true)
     {
+        if (m_IsPlayerDead)
+            return;
+
+        m_IsPlayerDead = true;
         StartCoroutine(FadeOut(fadeTime, startDelay, playCommanderVoice));
     }
 

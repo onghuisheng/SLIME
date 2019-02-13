@@ -30,7 +30,7 @@ public class DayAndNight : MonoBehaviour
 
     Light mainLight;
     Skybox sky;
-    UnityEngine.Material skyMat;
+    Material skyMat;
 
     public GameObject NightLight;
 

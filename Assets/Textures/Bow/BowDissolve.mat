@@ -50,7 +50,7 @@ Material:
     - _BumpScale: 1
     - _BurnSize: 0.01
     - _DissolveAmount: 0
-    - _Distance: 67.41
+    - _Distance: 0
     - _EmissionAmount: 1
     - _Glossiness: 0.1
     - _Height: 0.69
@@ -58,7 +58,7 @@ Material:
     - _Metallic: 1
     m_Colors:
     - _BurnColor: {r: 1, g: 0.9426244, b: 0.15566039, a: 1}
-    - _Center: {r: -0.04, g: -1.07, b: -0.45, a: 0}
+    - _Center: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.71488965, g: 0.8883973, b: 0.990566, a: 1}
     - _DissolveColor: {r: 0, g: 0.51522017, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

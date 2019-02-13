@@ -206,4 +206,10 @@ public class Runes : GrabbableObject
 
     }
 
+    private void OnDestroy()
+    {
+        if (m_Material != null)
+            Destroy(m_Material);
+    }
+
 }
